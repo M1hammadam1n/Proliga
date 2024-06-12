@@ -198,7 +198,7 @@ function PlasmicTeam__RenderFunc(props: {
         roleId: "f8970d3a-c1ae-4ba8-80dd-90e548ee70d6"
       };
     }),
-    userTeam: usePlasmicDataOp(() => {
+    checkUserTeam: usePlasmicDataOp(() => {
       return {
         sourceId: "8cdHi4ivRUEkK6qbegQevF",
         opId: "b3f948c9-347c-469c-b4d1-275c2a76897d",
@@ -208,6 +208,18 @@ function PlasmicTeam__RenderFunc(props: {
         cacheKey: `plasmic.$.b3f948c9-347c-469c-b4d1-275c2a76897d.$.`,
         invalidatedKeys: null,
         roleId: "f8970d3a-c1ae-4ba8-80dd-90e548ee70d6"
+      };
+    }),
+    team: usePlasmicDataOp(() => {
+      return {
+        sourceId: "8cdHi4ivRUEkK6qbegQevF",
+        opId: "c33b79b5-0719-4400-861a-3f565b5e7083",
+        userArgs: {
+          query: [$queries.query.data[0].id]
+        },
+        cacheKey: `plasmic.$.c33b79b5-0719-4400-861a-3f565b5e7083.$.`,
+        invalidatedKeys: null,
+        roleId: null
       };
     })
   };
@@ -319,7 +331,7 @@ function PlasmicTeam__RenderFunc(props: {
             >
               {(() => {
                 try {
-                  return !$queries.userTeam.data[0].exists;
+                  return !$queries.checkUserTeam.data[0].exists;
                 } catch (e) {
                   if (
                     e instanceof TypeError ||
@@ -621,7 +633,7 @@ function PlasmicTeam__RenderFunc(props: {
               ) : null}
               {(() => {
                 try {
-                  return $queries.userTeam.data[0].exists;
+                  return $queries.checkUserTeam.data[0].exists;
                 } catch (e) {
                   if (
                     e instanceof TypeError ||
@@ -648,7 +660,7 @@ function PlasmicTeam__RenderFunc(props: {
               ) : null}
               {(() => {
                 try {
-                  return $queries.userTeam.data[0].exists;
+                  return $queries.checkUserTeam.data[0].exists;
                 } catch (e) {
                   if (
                     e instanceof TypeError ||
@@ -667,7 +679,61 @@ function PlasmicTeam__RenderFunc(props: {
                     sty.link___3GfmW
                   )}
                   component={Link}
-                  href={"https://www.plasmic.app/"}
+                  href={`/team-2/${(() => {
+                    try {
+                      return $queries.team.data[0].id;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return undefined;
+                      }
+                      throw e;
+                    }
+                  })()}`}
+                  onClick={async event => {
+                    const $steps = {};
+
+                    $steps["goToEditTeam"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            destination: `/team-2/${(() => {
+                              try {
+                                return $queries.team.data[0].id;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return undefined;
+                                }
+                                throw e;
+                              }
+                            })()}`
+                          };
+                          return (({ destination }) => {
+                            if (
+                              typeof destination === "string" &&
+                              destination.startsWith("#")
+                            ) {
+                              document
+                                .getElementById(destination.substr(1))
+                                .scrollIntoView({ behavior: "smooth" });
+                            } else {
+                              __nextRouter?.push(destination);
+                            }
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["goToEditTeam"] != null &&
+                      typeof $steps["goToEditTeam"] === "object" &&
+                      typeof $steps["goToEditTeam"].then === "function"
+                    ) {
+                      $steps["goToEditTeam"] = await $steps["goToEditTeam"];
+                    }
+                  }}
                   platform={"nextjs"}
                 >
                   {"Edit Team"}
