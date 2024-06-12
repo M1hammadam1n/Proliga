@@ -9,16 +9,38 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@ant-design/icons": "^5.3.7",
+    "@ant-design/pro-components": "^2.6.4",
+    "@plasmicapp/auth-api": "^0.0.17",
+    "@plasmicapp/cli": "^0.1.330",
+    "@plasmicapp/react-web": "^0.2.340",
+    "@plasmicpkgs/antd5": "^0.0.238",
+    "@plasmicpkgs/plasmic-basic-components": "^0.0.217",
+    "@plasmicpkgs/plasmic-embed-css": "^0.1.182",
+    "@plasmicpkgs/plasmic-graphcms": "^0.0.168",
+    "@plasmicpkgs/plasmic-nav": "^0.0.167",
+    "@plasmicpkgs/plasmic-query": "^0.0.215",
+    "@plasmicpkgs/plasmic-rich-components": "^1.0.186",
+    "@plasmicpkgs/react-awesome-reveal": "^3.8.198",
+    "@plasmicpkgs/react-chartjs-2": "^1.0.102",
+    "@plasmicpkgs/react-slick": "^0.0.218",
+    "@supabase/auth-helpers-nextjs": "^0.10.0",
+    "@supabase/supabase-js": "^2.43.4",
+    "chart.js": "^4.4.3",
+    "dotenv": "^16.4.5",
+    "next": "14.2.4",
     "react": "^18",
+    "react-chartjs-2": "^5.2.0",
     "react-dom": "^18",
-    "next": "14.2.4"
+    "react-slick": "^0.30.2",
+    "slick-carousel": "^1.8.1"
   },
   "devDependencies": {
-    "typescript": "^5",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "eslint": "^8",
-    "eslint-config-next": "14.2.4"
+    "eslint-config-next": "14.2.4",
+    "typescript": "^5"
   }
 }
