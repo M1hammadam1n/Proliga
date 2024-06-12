@@ -1556,6 +1556,20 @@
           "scheme": "blackbox",
           "componentType": "page",
           "path": "/showteams"
+        },
+        {
+          "id": "IAM42mYRBrPY",
+          "name": "Team",
+          "type": "managed",
+          "projectId": "tDWy3GXn2mzd9e2xUaPdmu",
+          "renderModuleFilePath": "plasmic/proliga/PlasmicTeam.tsx",
+          "importSpec": {
+            "modulePath": "../pages/competition/[id].tsx"
+          },
+          "cssFilePath": "plasmic/proliga/PlasmicTeam.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/competition/[id]"
         }
       ],
       "icons": [

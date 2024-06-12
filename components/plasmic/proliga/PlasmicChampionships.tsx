@@ -151,7 +151,6 @@ function PlasmicChampionships__RenderFunc(props: {
     $refs
   });
   const dataSourcesCtx = usePlasmicDataSourceContext();
-  const plasmicInvalidate = usePlasmicInvalidate();
 
   const new$Queries: Record<string, ReturnType<typeof usePlasmicDataOp>> = {
     compotetion: usePlasmicDataOp(() => {
@@ -277,41 +276,43 @@ function PlasmicChampionships__RenderFunc(props: {
                   onClick={async event => {
                     const $steps = {};
 
-                    $steps["updateCurrentChampionship"] = true
+                    $steps["goToTeam"] = true
                       ? (() => {
                           const actionArgs = {
-                            variable: {
-                              objRoot: $state,
-                              variablePath: ["currentChampionship"]
-                            },
-                            operation: 0,
-                            value: currentItem.id
+                            destination: `/competition/${(() => {
+                              try {
+                                return currentItem.id;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return undefined;
+                                }
+                                throw e;
+                              }
+                            })()}`
                           };
-                          return (({
-                            variable,
-                            value,
-                            startIndex,
-                            deleteCount
-                          }) => {
-                            if (!variable) {
-                              return;
+                          return (({ destination }) => {
+                            if (
+                              typeof destination === "string" &&
+                              destination.startsWith("#")
+                            ) {
+                              document
+                                .getElementById(destination.substr(1))
+                                .scrollIntoView({ behavior: "smooth" });
+                            } else {
+                              __nextRouter?.push(destination);
                             }
-                            const { objRoot, variablePath } = variable;
-
-                            $stateSet(objRoot, variablePath, value);
-                            return value;
                           })?.apply(null, [actionArgs]);
                         })()
                       : undefined;
                     if (
-                      $steps["updateCurrentChampionship"] != null &&
-                      typeof $steps["updateCurrentChampionship"] === "object" &&
-                      typeof $steps["updateCurrentChampionship"].then ===
-                        "function"
+                      $steps["goToTeam"] != null &&
+                      typeof $steps["goToTeam"] === "object" &&
+                      typeof $steps["goToTeam"].then === "function"
                     ) {
-                      $steps["updateCurrentChampionship"] = await $steps[
-                        "updateCurrentChampionship"
-                      ];
+                      $steps["goToTeam"] = await $steps["goToTeam"];
                     }
                   }}
                 >
@@ -325,99 +326,6 @@ function PlasmicChampionships__RenderFunc(props: {
                     displayMinWidth={"0"}
                     displayWidth={"318px"}
                     loading={"lazy"}
-                    onClick={async event => {
-                      const $steps = {};
-
-                      $steps["createTeam"] =
-                        $queries.team.data?.length === 0
-                          ? (() => {
-                              const actionArgs = {
-                                dataOp: {
-                                  sourceId: "8cdHi4ivRUEkK6qbegQevF",
-                                  opId: "6798d78b-b4ff-4a2d-97de-d3e96f1f0f4c",
-                                  userArgs: {
-                                    variables: [currentItem.id]
-                                  },
-                                  cacheKey: null,
-                                  invalidatedKeys: ["plasmic_refresh_all"],
-                                  roleId: null
-                                }
-                              };
-                              return (async ({ dataOp, continueOnError }) => {
-                                try {
-                                  const response = await executePlasmicDataOp(
-                                    dataOp,
-                                    {
-                                      userAuthToken:
-                                        dataSourcesCtx?.userAuthToken,
-                                      user: dataSourcesCtx?.user
-                                    }
-                                  );
-                                  await plasmicInvalidate(
-                                    dataOp.invalidatedKeys
-                                  );
-                                  return response;
-                                } catch (e) {
-                                  if (!continueOnError) {
-                                    throw e;
-                                  }
-                                  return e;
-                                }
-                              })?.apply(null, [actionArgs]);
-                            })()
-                          : undefined;
-                      if (
-                        $steps["createTeam"] != null &&
-                        typeof $steps["createTeam"] === "object" &&
-                        typeof $steps["createTeam"].then === "function"
-                      ) {
-                        $steps["createTeam"] = await $steps["createTeam"];
-                      }
-
-                      $steps["updateCurrentChampionship3"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              destination: `/user/team/${(() => {
-                                try {
-                                  return $queries.team.data[0].id;
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return undefined;
-                                  }
-                                  throw e;
-                                }
-                              })()}`
-                            };
-                            return (({ destination }) => {
-                              if (
-                                typeof destination === "string" &&
-                                destination.startsWith("#")
-                              ) {
-                                document
-                                  .getElementById(destination.substr(1))
-                                  .scrollIntoView({ behavior: "smooth" });
-                              } else {
-                                __nextRouter?.push(destination);
-                              }
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                      if (
-                        $steps["updateCurrentChampionship3"] != null &&
-                        typeof $steps["updateCurrentChampionship3"] ===
-                          "object" &&
-                        typeof $steps["updateCurrentChampionship3"].then ===
-                          "function"
-                      ) {
-                        $steps["updateCurrentChampionship3"] = await $steps[
-                          "updateCurrentChampionship3"
-                        ];
-                      }
-                    }}
                     src={(() => {
                       try {
                         return currentItem.flag;
