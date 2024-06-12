@@ -67,6 +67,10 @@ import {
 } from "@plasmicapp/react-web/lib/data-sources";
 
 import Navbar from "../../Navbar"; // plasmic-import: TKT8XnZtrLZi/component
+import { AntdModal } from "@plasmicpkgs/antd5/skinny/registerModal";
+import { FormWrapper } from "@plasmicpkgs/antd5/skinny/SchemaForm";
+import { formHelpers as FormWrapper_Helpers } from "@plasmicpkgs/antd5/skinny/Form";
+import { AntdButton } from "@plasmicpkgs/antd5/skinny/registerButton";
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 
 import "@plasmicapp/react-web/lib/plasmic.css";
@@ -91,7 +95,8 @@ export type PlasmicTeam__OverridesType = {
   root?: Flex__<"div">;
   navbar?: Flex__<typeof Navbar>;
   img?: Flex__<typeof PlasmicImg__>;
-  text?: Flex__<"div">;
+  modal?: Flex__<typeof AntdModal>;
+  form?: Flex__<typeof FormWrapper>;
 };
 
 export interface DefaultTeamProps {}
@@ -130,8 +135,43 @@ function PlasmicTeam__RenderFunc(props: {
   let [$queries, setDollarQueries] = React.useState<
     Record<string, ReturnType<typeof usePlasmicDataOp>>
   >({});
+  const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
+    () => [
+      {
+        path: "modal.open",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "form.value",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
 
+        refName: "form",
+        onMutate: generateOnMutateForSpec("value", FormWrapper_Helpers)
+      },
+      {
+        path: "form.isSubmitting",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false,
+
+        refName: "form",
+        onMutate: generateOnMutateForSpec("isSubmitting", FormWrapper_Helpers)
+      }
+    ],
+    [$props, $ctx, $refs]
+  );
+  const $state = useDollarState(stateSpecs, {
+    $props,
+    $ctx,
+    $queries: $queries,
+    $refs
+  });
   const dataSourcesCtx = usePlasmicDataSourceContext();
+  const plasmicInvalidate = usePlasmicInvalidate();
 
   const new$Queries: Record<string, ReturnType<typeof usePlasmicDataOp>> = {
     query: usePlasmicDataOp(() => {
@@ -249,12 +289,10 @@ function PlasmicTeam__RenderFunc(props: {
               />
 
               <div
-                data-plasmic-name={"text"}
-                data-plasmic-override={overrides.text}
                 className={classNames(
                   projectcss.all,
                   projectcss.__wab_text,
-                  sty.text
+                  sty.text__oWbRm
                 )}
               >
                 <React.Fragment>
@@ -292,19 +330,294 @@ function PlasmicTeam__RenderFunc(props: {
                   throw e;
                 }
               })() ? (
-                <PlasmicLink__
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.a,
-                    projectcss.__wab_text,
-                    sty.link___2Rh37
+                <AntdModal
+                  data-plasmic-name={"modal"}
+                  data-plasmic-override={overrides.modal}
+                  className={classNames("__wab_instance", sty.modal)}
+                  defaultStylesClassName={classNames(
+                    projectcss.root_reset,
+                    projectcss.plasmic_default_styles,
+                    projectcss.plasmic_mixins,
+                    projectcss.plasmic_tokens,
+                    plasmic_antd_5_hostless_css.plasmic_tokens,
+                    plasmic_plasmic_rich_components_css.plasmic_tokens
                   )}
-                  component={Link}
-                  href={"https://www.plasmic.app/"}
-                  platform={"nextjs"}
+                  hideFooter={true}
+                  modalContentClassName={classNames({
+                    [sty["pcls_dOdcAH_PXcMm"]]: true
+                  })}
+                  modalScopeClassName={sty["modal__modal"]}
+                  onOpenChange={generateStateOnChangeProp($state, [
+                    "modal",
+                    "open"
+                  ])}
+                  open={generateStateValueProp($state, ["modal", "open"])}
+                  title={"Insert name of team"}
+                  trigger={
+                    <AntdButton
+                      className={classNames(
+                        "__wab_instance",
+                        sty.button__r0SLe
+                      )}
+                      danger={false}
+                      ghost={false}
+                      loading={false}
+                      shape={"default"}
+                      size={"large"}
+                      submitsForm={false}
+                      type={"default"}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__tvjIh
+                        )}
+                      >
+                        {"Create team"}
+                      </div>
+                    </AntdButton>
+                  }
                 >
-                  {"Create team"}
-                </PlasmicLink__>
+                  {(() => {
+                    const child$Props = {
+                      className: classNames("__wab_instance", sty.form),
+                      data: {
+                        sourceId: "8cdHi4ivRUEkK6qbegQevF",
+                        opId: "64d46713-84cc-46a6-a33a-e049f8959f3d",
+                        userArgs: {},
+                        cacheKey: `plasmic.$.${(() => {
+                          try {
+                            return "getSchema";
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return "";
+                            }
+                            throw e;
+                          }
+                        })()}.$.64d46713-84cc-46a6-a33a-e049f8959f3d.$.`,
+                        invalidatedKeys: null,
+                        roleId: null
+                      },
+                      dataFormItems: (() => {
+                        const __composite = [
+                          {
+                            key: "id",
+                            inputType: "Number",
+                            fieldId: "id",
+                            label: "id",
+                            name: "id",
+                            hidden: null
+                          },
+                          {
+                            key: "compotetion_id",
+                            inputType: "Number",
+                            fieldId: "compotetion_id",
+                            label: "compotetion_id",
+                            name: "compotetion_id",
+                            hidden: null
+                          },
+                          {
+                            key: "formation_id",
+                            inputType: "Number",
+                            fieldId: "formation_id",
+                            label: "formation_id",
+                            name: "formation_id",
+                            hidden: null
+                          },
+                          {
+                            key: "balance",
+                            inputType: "Number",
+                            fieldId: "balance",
+                            label: "balance",
+                            name: "balance",
+                            hidden: null
+                          },
+                          {
+                            key: "id",
+                            inputType: "Number",
+                            fieldId: "id",
+                            label: "id",
+                            name: "id",
+                            hidden: null
+                          },
+                          {
+                            key: "club_id",
+                            inputType: "Number",
+                            fieldId: "club_id",
+                            label: "club_id",
+                            name: "club_id",
+                            hidden: null
+                          },
+                          {
+                            key: "user_id",
+                            inputType: "Number",
+                            fieldId: "user_id",
+                            label: "user_id",
+                            name: "user_id",
+                            hidden: null
+                          },
+                          {
+                            key: "name",
+                            inputType: "Text",
+                            fieldId: "name",
+                            label: "name",
+                            name: "name"
+                          },
+                          {
+                            key: "created_at",
+                            inputType: "Text",
+                            fieldId: "created_at",
+                            label: "created_at",
+                            name: "created_at",
+                            hidden: null
+                          },
+                          {
+                            key: "captain_id",
+                            inputType: "Number",
+                            fieldId: "captain_id",
+                            label: "captain_id",
+                            name: "captain_id",
+                            hidden: null
+                          }
+                        ];
+                        __composite["0"]["hidden"] = true;
+                        __composite["1"]["hidden"] = true;
+                        __composite["2"]["hidden"] = true;
+                        __composite["3"]["hidden"] = true;
+                        __composite["4"]["hidden"] = true;
+                        __composite["5"]["hidden"] = true;
+                        __composite["6"]["hidden"] = true;
+                        __composite["8"]["hidden"] = true;
+                        __composite["9"]["hidden"] = true;
+                        return __composite;
+                      })(),
+
+                      extendedOnValuesChange:
+                        generateStateOnChangePropForCodeComponents(
+                          $state,
+                          "value",
+                          ["form", "value"],
+                          FormWrapper_Helpers
+                        ),
+                      formItems: [],
+                      labelCol: { span: 8, horizontalOnly: true },
+                      layout: "vertical",
+                      mode: "simplified",
+                      onFinish: async values => {
+                        const $steps = {};
+
+                        $steps["defaultSubmit"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                dataOp: {
+                                  sourceId: "8cdHi4ivRUEkK6qbegQevF",
+                                  opId: "71a126d4-4c6a-4b15-bd21-9fb80beac796",
+                                  userArgs: {
+                                    variables: [
+                                      $queries.query.data[0].id,
+                                      $state.form.value.name
+                                    ]
+                                  },
+                                  cacheKey: null,
+                                  invalidatedKeys: ["plasmic_refresh_all"],
+                                  roleId: "f8970d3a-c1ae-4ba8-80dd-90e548ee70d6"
+                                }
+                              };
+                              return (async ({ dataOp, continueOnError }) => {
+                                try {
+                                  const response = await executePlasmicDataOp(
+                                    dataOp,
+                                    {
+                                      userAuthToken:
+                                        dataSourcesCtx?.userAuthToken,
+                                      user: dataSourcesCtx?.user
+                                    }
+                                  );
+                                  await plasmicInvalidate(
+                                    dataOp.invalidatedKeys
+                                  );
+                                  return response;
+                                } catch (e) {
+                                  if (!continueOnError) {
+                                    throw e;
+                                  }
+                                  return e;
+                                }
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["defaultSubmit"] != null &&
+                          typeof $steps["defaultSubmit"] === "object" &&
+                          typeof $steps["defaultSubmit"].then === "function"
+                        ) {
+                          $steps["defaultSubmit"] = await $steps[
+                            "defaultSubmit"
+                          ];
+                        }
+                      },
+                      onIsSubmittingChange:
+                        generateStateOnChangePropForCodeComponents(
+                          $state,
+                          "isSubmitting",
+                          ["form", "isSubmitting"],
+                          FormWrapper_Helpers
+                        ),
+                      ref: ref => {
+                        $refs["form"] = ref;
+                      },
+                      submitSlot: (
+                        <AntdButton
+                          className={classNames(
+                            "__wab_instance",
+                            sty.button__jNxh
+                          )}
+                          submitsForm={true}
+                          type={"primary"}
+                        >
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text___1QrE9
+                            )}
+                          >
+                            {"Create"}
+                          </div>
+                        </AntdButton>
+                      ),
+                      wrapperCol: { span: 16, horizontalOnly: true }
+                    };
+                    initializeCodeComponentStates(
+                      $state,
+                      [
+                        {
+                          name: "value",
+                          plasmicStateName: "form.value"
+                        },
+                        {
+                          name: "isSubmitting",
+                          plasmicStateName: "form.isSubmitting"
+                        }
+                      ],
+                      [],
+                      FormWrapper_Helpers ?? {},
+                      child$Props
+                    );
+
+                    return (
+                      <FormWrapper
+                        data-plasmic-name={"form"}
+                        data-plasmic-override={overrides.form}
+                        {...child$Props}
+                      />
+                    );
+                  })()}
+                </AntdModal>
               ) : null}
               {(() => {
                 try {
@@ -369,10 +682,11 @@ function PlasmicTeam__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "navbar", "img", "text"],
+  root: ["root", "navbar", "img", "modal", "form"],
   navbar: ["navbar"],
   img: ["img"],
-  text: ["text"]
+  modal: ["modal", "form"],
+  form: ["form"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -381,7 +695,8 @@ type NodeDefaultElementType = {
   root: "div";
   navbar: typeof Navbar;
   img: typeof PlasmicImg__;
-  text: "div";
+  modal: typeof AntdModal;
+  form: typeof FormWrapper;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -463,7 +778,8 @@ export const PlasmicTeam = Object.assign(
     // Helper components rendering sub-elements
     navbar: makeNodeComponent("navbar"),
     img: makeNodeComponent("img"),
-    text: makeNodeComponent("text"),
+    modal: makeNodeComponent("modal"),
+    form: makeNodeComponent("form"),
 
     // Metadata about props expected for PlasmicTeam
     internalVariantProps: PlasmicTeam__VariantProps,

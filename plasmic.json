@@ -1570,6 +1570,20 @@
           "scheme": "blackbox",
           "componentType": "page",
           "path": "/competition/[id]"
+        },
+        {
+          "id": "2LqbY1eBUixE",
+          "name": "EditTeam",
+          "type": "managed",
+          "projectId": "tDWy3GXn2mzd9e2xUaPdmu",
+          "renderModuleFilePath": "plasmic/proliga/PlasmicEditTeam.tsx",
+          "importSpec": {
+            "modulePath": "../pages/team-2/[id].tsx"
+          },
+          "cssFilePath": "plasmic/proliga/PlasmicEditTeam.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/team-2/[id]"
         }
       ],
       "icons": [

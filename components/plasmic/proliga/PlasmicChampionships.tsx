@@ -234,7 +234,7 @@ function PlasmicChampionships__RenderFunc(props: {
             sty.h1
           )}
         >
-          {"Choose your game moode"}
+          {"Choose competetion"}
         </h1>
         <div
           data-plasmic-name={"freeBox"}
