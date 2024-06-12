@@ -137,8 +137,9 @@
   width: auto;
   height: auto;
   max-width: 100%;
-  color: var(--token-jgohepLVeKvh);
+  color: var(--token-41VRhDKfihhY);
   cursor: pointer;
+  filter: blur(0px);
   padding: 10px 15px;
 }
 .reveal__z7Xm0:global(.__wab_instance) {

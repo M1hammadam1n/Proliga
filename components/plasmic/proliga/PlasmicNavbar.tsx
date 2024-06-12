@@ -574,47 +574,61 @@ function PlasmicNavbar__RenderFunc(props: {
             className={classNames("__wab_instance", sty.reveal__iJZbh)}
             triggerOnce={true}
           >
-            <div
-              data-plasmic-name={"competition"}
-              data-plasmic-override={overrides.competition}
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.competition
-              )}
-              onClick={async event => {
-                const $steps = {};
-
-                $steps["goToChampionships"] = true
-                  ? (() => {
-                      const actionArgs = { destination: `/competition` };
-                      return (({ destination }) => {
-                        if (
-                          typeof destination === "string" &&
-                          destination.startsWith("#")
-                        ) {
-                          document
-                            .getElementById(destination.substr(1))
-                            .scrollIntoView({ behavior: "smooth" });
-                        } else {
-                          __nextRouter?.push(destination);
-                        }
-                      })?.apply(null, [actionArgs]);
-                    })()
-                  : undefined;
+            {(() => {
+              try {
+                return currentUser.isLoggedIn;
+              } catch (e) {
                 if (
-                  $steps["goToChampionships"] != null &&
-                  typeof $steps["goToChampionships"] === "object" &&
-                  typeof $steps["goToChampionships"].then === "function"
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
                 ) {
-                  $steps["goToChampionships"] = await $steps[
-                    "goToChampionships"
-                  ];
+                  return true;
                 }
-              }}
-            >
-              {"Composition"}
-            </div>
+                throw e;
+              }
+            })() ? (
+              <div
+                data-plasmic-name={"competition"}
+                data-plasmic-override={overrides.competition}
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.competition
+                )}
+                onClick={async event => {
+                  const $steps = {};
+
+                  $steps["goToChampionships"] = true
+                    ? (() => {
+                        const actionArgs = { destination: `/competition` };
+                        return (({ destination }) => {
+                          if (
+                            typeof destination === "string" &&
+                            destination.startsWith("#")
+                          ) {
+                            document
+                              .getElementById(destination.substr(1))
+                              .scrollIntoView({ behavior: "smooth" });
+                          } else {
+                            __nextRouter?.push(destination);
+                          }
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["goToChampionships"] != null &&
+                    typeof $steps["goToChampionships"] === "object" &&
+                    typeof $steps["goToChampionships"].then === "function"
+                  ) {
+                    $steps["goToChampionships"] = await $steps[
+                      "goToChampionships"
+                    ];
+                  }
+                }}
+              >
+                {"Compotetion"}
+              </div>
+            ) : null}
           </Reveal>
         </Stack__>
         <Stack__
