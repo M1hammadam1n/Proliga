@@ -1,0 +1,267 @@
+.root {
+  display: grid;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  align-content: flex-start;
+  justify-items: center;
+  justify-content: flex-start;
+  align-items: center;
+  background: none;
+  min-width: 0;
+  min-height: 0;
+  grid-template-columns:
+    var(--plsmc-viewport-gap) 1fr minmax(0, var(--plsmc-wide-chunk))
+    min(
+      var(--plsmc-standard-width),
+      calc(100% - var(--plsmc-viewport-gap) - var(--plsmc-viewport-gap))
+    )
+    minmax(0, var(--plsmc-wide-chunk)) 1fr var(--plsmc-viewport-gap);
+}
+.root > * {
+  grid-column: 4;
+}
+.navbar:global(.__wab_instance) {
+  max-width: 100%;
+  position: relative;
+  width: 100%;
+  grid-column-start: 1 !important;
+  grid-column-end: -1 !important;
+}
+.text {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  font-size: 24px;
+  color: var(--token-jgohepLVeKvh);
+  margin-left: -30px;
+  padding-top: 10px;
+  background: url("https://www.premierleague.com/resources/rebrand/v7.146.7/i/elements/backgrounds/primary-graphic.svg")
+      top 50% left 50% / cover repeat,
+    var(--token-RZcyrn6MkYNW);
+  text-align: left;
+  padding-bottom: 30px;
+  padding-left: 120px;
+  font-weight: 700;
+  grid-column-start: 1 !important;
+  grid-column-end: -1 !important;
+}
+.columns {
+  display: flex;
+  position: relative;
+  width: 100%;
+  height: auto;
+  align-items: stretch;
+  flex-shrink: 1;
+  max-width: 100%;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  grid-column-start: 1 !important;
+  grid-column-end: -1 !important;
+  --plsmc-rc-col-gap: 0px;
+  padding: 8px;
+}
+.columns > :nth-child(3n + 1) {
+  width: calc((100% - 3 * var(--plsmc-rc-col-gap, 0px)) * 4 / 12);
+}
+.columns > :nth-child(3n + 2) {
+  width: calc((100% - 3 * var(--plsmc-rc-col-gap, 0px)) * 4 / 12);
+}
+.columns > :nth-child(3n + 3) {
+  width: calc((100% - 3 * var(--plsmc-rc-col-gap, 0px)) * 4 / 12);
+}
+@media (min-width: 0px) and (max-width: 568px) {
+  .columns {
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+    min-width: 0;
+  }
+}
+@media (min-width: 0px) and (max-width: 568px) {
+  .columns > :nth-child(1n + 1) {
+    width: calc((100% - 1 * var(--plsmc-rc-col-gap, 0px)) * 12 / 12);
+  }
+}
+.column___9RqJs {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+  padding: 8px;
+}
+.column___9RqJs > :global(.__wab_flex-container) {
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  min-width: 0;
+  margin-top: calc(0px - 8px);
+  height: calc(100% + 8px);
+}
+.column___9RqJs > :global(.__wab_flex-container) > *,
+.column___9RqJs > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.column___9RqJs > :global(.__wab_flex-container) > picture > img,
+.column___9RqJs
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > picture
+  > img {
+  margin-top: 8px;
+}
+.injuredClub__ewOQ:global(.__wab_instance) {
+  max-width: 100%;
+  position: relative;
+  transition-property: all;
+  transition-duration: 1s;
+  -webkit-transition-property: all;
+  -webkit-transition-duration: 1s;
+}
+.injuredTeamMember__uqZgo:global(.__wab_instance) {
+  max-width: 100%;
+  position: relative;
+}
+.injuredTeamMember__nvfOv:global(.__wab_instance) {
+  max-width: 100%;
+  position: relative;
+}
+.injuredTeamMember___2Ngod:global(.__wab_instance) {
+  max-width: 100%;
+  position: relative;
+}
+.injuredTeamMember__kxwZ3:global(.__wab_instance) {
+  max-width: 100%;
+  position: relative;
+}
+.injuredClub__sg1Ro:global(.__wab_instance) {
+  max-width: 100%;
+  position: relative;
+}
+.column__xJzxb {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+  padding: 8px;
+}
+.column__xJzxb > :global(.__wab_flex-container) {
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  min-width: 0;
+  margin-top: calc(0px - 8px);
+  height: calc(100% + 8px);
+}
+.column__xJzxb > :global(.__wab_flex-container) > *,
+.column__xJzxb > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.column__xJzxb > :global(.__wab_flex-container) > picture > img,
+.column__xJzxb
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > picture
+  > img {
+  margin-top: 8px;
+}
+.injuredClub___0TjPv:global(.__wab_instance) {
+  max-width: 100%;
+  position: relative;
+}
+.injuredTeamMember__abg0X:global(.__wab_instance) {
+  max-width: 100%;
+  position: relative;
+}
+.injuredTeamMember__hqxD:global(.__wab_instance) {
+  max-width: 100%;
+  position: relative;
+}
+.injuredClub__nzhk3:global(.__wab_instance) {
+  max-width: 100%;
+  position: relative;
+}
+.injuredTeamMember__an0PB:global(.__wab_instance) {
+  max-width: 100%;
+  position: relative;
+}
+.injuredTeamMember__m6T4S:global(.__wab_instance) {
+  max-width: 100%;
+  position: relative;
+}
+.injuredTeamMember__onUp:global(.__wab_instance) {
+  max-width: 100%;
+  position: relative;
+}
+.injuredTeamMember__gV6Rq:global(.__wab_instance) {
+  max-width: 100%;
+  position: relative;
+}
+.injuredTeamMember__l3Tw2:global(.__wab_instance) {
+  max-width: 100%;
+  position: relative;
+}
+.injuredClub__roum:global(.__wab_instance) {
+  max-width: 100%;
+  position: relative;
+}
+.column___7UCml {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+  padding: 8px;
+}
+.column___7UCml > :global(.__wab_flex-container) {
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  min-width: 0;
+  margin-top: calc(0px - 8px);
+  height: calc(100% + 8px);
+}
+.column___7UCml > :global(.__wab_flex-container) > *,
+.column___7UCml > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.column___7UCml > :global(.__wab_flex-container) > picture > img,
+.column___7UCml
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > picture
+  > img {
+  margin-top: 8px;
+}
+.injuredClub__ffOzQ:global(.__wab_instance) {
+  max-width: 100%;
+  position: relative;
+}
+.injuredTeamMember___423NX:global(.__wab_instance) {
+  max-width: 100%;
+  position: relative;
+}
+.injuredClub__g9Zsr:global(.__wab_instance) {
+  max-width: 100%;
+  position: relative;
+}
+.injuredTeamMember__kq6Hh:global(.__wab_instance) {
+  max-width: 100%;
+  position: relative;
+}
+.injuredTeamMember___1A1RV:global(.__wab_instance) {
+  max-width: 100%;
+  position: relative;
+}
+.footer:global(.__wab_instance) {
+  max-width: 100%;
+  position: relative;
+  width: 100%;
+  grid-column-start: 1 !important;
+  grid-column-end: -1 !important;
+}

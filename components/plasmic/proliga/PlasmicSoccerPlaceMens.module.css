@@ -1,0 +1,127 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 903px;
+  height: 1034px;
+  justify-content: flex-start;
+  align-items: center;
+  background: url("https://www.serieafantasy.com/static/media/pitch-small.e4e4ad56.svg")
+    top 50% left 50% / cover repeat;
+  padding-bottom: 0px;
+  padding-left: 0px;
+}
+.def {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+  padding: 8px;
+}
+.idealTeamMember__ydPhw:global(.__wab_instance) {
+  max-width: 100%;
+  position: relative;
+  height: 81px;
+  width: 100%;
+  min-width: 0;
+}
+.str {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+  padding: 8px;
+  margin: 50px;
+}
+.str > :global(.__wab_flex-container) {
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+  align-content: stretch;
+  min-width: 0;
+  margin-left: calc(0px - 10px);
+  width: calc(100% + 10px);
+}
+.str > :global(.__wab_flex-container) > *,
+.str > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.str > :global(.__wab_flex-container) > picture > img,
+.str > :global(.__wab_flex-container) > :global(.__wab_slot) > picture > img {
+  margin-left: 10px;
+}
+.idealTeamMember__nLitS:global(.__wab_instance) {
+  max-width: 100%;
+  position: relative;
+  width: 100%;
+  min-width: 0;
+}
+.idealTeamMember__wox8:global(.__wab_instance) {
+  max-width: 100%;
+  position: relative;
+}
+.idealTeamMember__k5ULv:global(.__wab_instance) {
+  max-width: 100%;
+  position: relative;
+}
+.mid {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  margin-top: 50px;
+  min-width: 0;
+  padding: 8px;
+}
+.idealTeamMember__aDUhW:global(.__wab_instance) {
+  max-width: 100%;
+  position: relative;
+}
+.idealTeamMember__dlFlB:global(.__wab_instance) {
+  max-width: 100%;
+  position: relative;
+}
+.idealTeamMember__cHn2K:global(.__wab_instance) {
+  max-width: 100%;
+  position: relative;
+}
+.idealTeamMember__grWey:global(.__wab_instance) {
+  max-width: 100%;
+  position: relative;
+}
+.goa {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  margin-top: 50px;
+  min-width: 0;
+  padding: 8px;
+}
+.idealTeamMember__wrlxt:global(.__wab_instance) {
+  max-width: 100%;
+  position: relative;
+}
+.idealTeamMember__hfPtL:global(.__wab_instance) {
+  max-width: 100%;
+  position: relative;
+}
+.idealTeamMember__oPpO7:global(.__wab_instance) {
+  max-width: 100%;
+  position: relative;
+}

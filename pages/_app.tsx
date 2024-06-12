@@ -16,11 +16,10 @@ import {usePlasmicAuthData} from "@/utils/usePlasmicAuth";
 
 
 function PlasmicRootProviderWithUser(props: { children: React.ReactNode }) {
-    const {isUserLoading, plasmicUser, plasmicUserToken} = usePlasmicAuthData();
+    const { plasmicUser, plasmicUserToken} = usePlasmicAuthData();
     return (
         <PlasmicRootProvider
             Head={Head}
-            isUserLoading={isUserLoading}
             user={plasmicUser}
             userAuthToken={plasmicUserToken}
         >

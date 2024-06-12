@@ -1,0 +1,107 @@
+.root {
+  display: inline-flex;
+  flex-direction: column;
+  position: relative;
+  width: auto;
+  height: auto;
+  justify-content: flex-start;
+  align-items: center;
+  justify-self: flex-start;
+}
+.freeBox {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 376px;
+  height: 159px;
+  max-width: 100%;
+  background: var(--token-_Z-x7YSfdB4D);
+  flex-shrink: 0;
+  padding: 0px;
+}
+.columns {
+  display: flex;
+  position: relative;
+  width: 368px;
+  height: auto;
+  align-items: stretch;
+  flex-shrink: 1;
+  max-width: 386px;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  background: var(--token-_Z-x7YSfdB4D);
+  --plsmc-rc-col-gap: 0px;
+  padding: 8px;
+}
+.columns > :nth-child(2n + 1) {
+  width: calc((100% - 2 * var(--plsmc-rc-col-gap, 0px)) * 6 / 12);
+}
+.columns > :nth-child(2n + 2) {
+  width: calc((100% - 2 * var(--plsmc-rc-col-gap, 0px)) * 6 / 12);
+}
+@media (min-width: 0px) and (max-width: 568px) {
+  .columns {
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+    min-width: 0;
+  }
+}
+@media (min-width: 0px) and (max-width: 568px) {
+  .columns > :nth-child(1n + 1) {
+    width: calc((100% - 1 * var(--plsmc-rc-col-gap, 0px)) * 12 / 12);
+  }
+}
+.column__af4Wa {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  justify-content: center;
+  align-items: flex-start;
+  min-width: 0;
+  padding: 8px;
+}
+.link {
+  position: relative;
+  text-align: left;
+  color: var(--token-jgohepLVeKvh);
+}
+.column__tiv7A {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  justify-content: center;
+  align-items: flex-end;
+  min-width: 0;
+  padding: 8px;
+}
+.img__frITz {
+  position: relative;
+  object-fit: cover;
+  max-width: 100%;
+  width: 30px;
+}
+.img__frITz > picture > img {
+  object-fit: cover;
+}
+.img__isBh {
+  position: absolute;
+  object-fit: cover;
+  max-width: 100%;
+  left: 120px;
+  top: 0px;
+  z-index: 2;
+  width: 139px;
+}
+.img__isBh > picture > img {
+  object-fit: cover;
+}

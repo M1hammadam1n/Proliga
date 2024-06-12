@@ -1,0 +1,83 @@
+.root {
+  display: inline-flex;
+  flex-direction: column;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  background: url("https://www.premierleague.com/resources/rebrand/v7.146.7/i/elements/backgrounds/primary-graphic.svg")
+      top 50% left 50% / cover repeat,
+    var(--token-RZcyrn6MkYNW);
+  position: relative;
+  justify-self: flex-start;
+  padding: 8px;
+}
+.root > :global(.__wab_flex-container) {
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: calc(0px - 20px);
+  height: calc(100% + 20px);
+}
+.root > :global(.__wab_flex-container) > *,
+.root > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.root > :global(.__wab_flex-container) > picture > img,
+.root > :global(.__wab_flex-container) > :global(.__wab_slot) > picture > img {
+  margin-top: 20px;
+}
+.freeBox {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+  padding: 8px;
+}
+.text__xtatM {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  color: var(--token-jgohepLVeKvh);
+  font-size: 20px;
+  font-weight: 700;
+  font-family: "ABeeZee", sans-serif;
+  min-width: 0;
+}
+.text__i5Kdr {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  font-size: 16px;
+  color: var(--token-jgohepLVeKvh);
+  min-width: 0;
+}
+.text__ngShu {
+  position: relative;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  color: var(--token-jgohepLVeKvh);
+  font-size: 18px;
+  font-weight: 900;
+  font-family: "ABeeZee", sans-serif;
+  align-self: center;
+  padding: 10px;
+}
+.img {
+  position: absolute;
+  object-fit: cover;
+  max-width: 100%;
+  left: 33px;
+  top: 75px;
+  width: 45px;
+  height: 45px;
+  flex-shrink: 0;
+}
+.img > picture > img {
+  object-fit: cover;
+}

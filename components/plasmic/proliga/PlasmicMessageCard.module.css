@@ -1,0 +1,94 @@
+.root {
+  display: inline-flex;
+  flex-direction: column;
+  position: relative;
+  width: auto;
+  height: auto;
+  justify-content: center;
+  align-items: center;
+  justify-self: flex-start;
+  background: url("https://www.premierleague.com/resources/rebrand/v7.146.7/i/elements/backgrounds/primary-graphic.svg")
+      top 50% left 50% / cover repeat,
+    var(--token-RZcyrn6MkYNW);
+  box-shadow: 8px 8px 6px 6px #9daaecdb;
+}
+.freeBox__f40Z {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+  padding: 8px;
+}
+.text__i9Fsy {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  color: var(--token-_Z-x7YSfdB4D);
+  font-size: 22px;
+  font-weight: 700;
+  text-align: left;
+  background: none;
+  min-width: 0;
+}
+.freeBox__vAwU {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  padding: 8px;
+}
+.freeBox__vAwU > :global(.__wab_flex-container) {
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-left: calc(0px - 16px);
+  width: calc(100% + 16px);
+}
+.freeBox__vAwU > :global(.__wab_flex-container) > *,
+.freeBox__vAwU > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.freeBox__vAwU > :global(.__wab_flex-container) > picture > img,
+.freeBox__vAwU
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > picture
+  > img {
+  margin-left: 16px;
+}
+.text___4Ebg {
+  position: relative;
+  width: 400px;
+  height: auto;
+  max-width: 100%;
+  color: var(--token-_Z-x7YSfdB4D);
+  box-shadow: none;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.freeBox__oFp4A {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+  padding: 8px;
+}
+.modirator:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+  position: relative;
+  background: url("https://cdn.icon-icons.com/icons2/2643/PNG/512/male_man_people_person_avatar_white_tone_icon_159363.png")
+    top 50% left 50% / cover repeat;
+  color: var(--token-jgohepLVeKvh);
+}

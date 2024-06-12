@@ -1,0 +1,2046 @@
+{
+  "platform": "nextjs",
+  "code": {
+    "lang": "ts",
+    "scheme": "blackbox",
+    "reactRuntime": "classic"
+  },
+  "style": {
+    "scheme": "css-modules",
+    "defaultStyleCssFilePath": "plasmic/plasmic__default_style.module.css"
+  },
+  "images": {
+    "scheme": "public-files",
+    "publicDir": "../public",
+    "publicUrlPrefix": "/"
+  },
+  "tokens": {
+    "scheme": "theo",
+    "tokensFilePath": "plasmic-tokens.theo.json"
+  },
+  "srcDir": "components",
+  "defaultPlasmicDir": "./plasmic",
+  "projects": [
+    {
+      "projectId": "8PtdGodUbexNYgkuyBUcWu",
+      "projectApiToken": "34o5R5KswluuZ4sD83F88oQrcLWsNNeUpCptQ8Okf4hYqgjnHnX2idGAlhtB7WWQQelNAInf5XFazR1cGw",
+      "projectName": "plasmic-embed-css",
+      "version": ">0.0.0",
+      "cssFilePath": "plasmic/plasmic_embed_css/plasmic.module.css",
+      "components": [],
+      "icons": [],
+      "images": [],
+      "indirect": true,
+      "globalContextsFilePath": "plasmic/plasmic_embed_css/PlasmicGlobalContextsProvider.tsx",
+      "splitsProviderFilePath": "",
+      "codeComponents": [
+        {
+          "id": "qF0uJxFztB",
+          "name": "EmbedCss",
+          "displayName": "global-embed-css",
+          "componentImportPath": "@plasmicpkgs/plasmic-embed-css"
+        }
+      ],
+      "customFunctions": [],
+      "jsBundleThemes": []
+    },
+    {
+      "projectId": "kS7YGZfVr6mU43XDQjXELc",
+      "projectApiToken": "ByNEUEKB7Hd9g2PkeOVot8RZTanYGn3rlmcjYTbULlTb9TEjfypxJ4uDH0HeEMQazKWvfHB4CFNXVgy8YmEyA",
+      "projectName": "react-chartjs-2",
+      "version": ">0.0.0",
+      "cssFilePath": "plasmic/react_chartjs_2/plasmic.module.css",
+      "components": [],
+      "icons": [],
+      "images": [],
+      "indirect": true,
+      "globalContextsFilePath": "",
+      "splitsProviderFilePath": "",
+      "codeComponents": [
+        {
+          "id": "0Qywk3bhW-8",
+          "name": "SimpleChart",
+          "displayName": "hostless-react-chartjs-2-simple-chart",
+          "componentImportPath": "@plasmicpkgs/react-chartjs-2"
+        }
+      ],
+      "customFunctions": [],
+      "jsBundleThemes": []
+    },
+    {
+      "projectId": "r3ASNrnyvLLLAtDvzUioQ",
+      "projectApiToken": "eSFGpQaYCtO9sRbPuQ2Ll9dmLOg8I4oKhx6e1PuCrsfmUIVbFbSXcy32UrPTwF9zX2HVXA0xaIKJNhCMHvA",
+      "projectName": "react-slick",
+      "version": ">0.0.0",
+      "cssFilePath": "plasmic/react_slick/plasmic.module.css",
+      "components": [],
+      "icons": [],
+      "images": [],
+      "indirect": true,
+      "globalContextsFilePath": "",
+      "splitsProviderFilePath": "",
+      "codeComponents": [
+        {
+          "id": "HOQUyOpClJ",
+          "name": "SliderWrapper",
+          "displayName": "hostless-slider",
+          "componentImportPath": "@plasmicpkgs/react-slick",
+          "helper": {
+            "name": "sliderHelpers",
+            "importPath": "@plasmicpkgs/react-slick"
+          }
+        }
+      ],
+      "customFunctions": [],
+      "jsBundleThemes": []
+    },
+    {
+      "projectId": "22U3ZXm4dE59qEW488gxzU",
+      "projectApiToken": "6Bn8h6fjzGhmvB6g0gGPENLIxLtXZv8TCkr4yk9u8g3DP444nsnlSeTeX9w8LMgHNSYNJeyihR9KlT9gnlw",
+      "projectName": "plasmic-graphcms",
+      "version": ">0.0.0",
+      "cssFilePath": "plasmic/plasmic_graphcms/plasmic.module.css",
+      "components": [],
+      "icons": [],
+      "images": [],
+      "indirect": true,
+      "globalContextsFilePath": "plasmic/plasmic_graphcms/PlasmicGlobalContextsProvider.tsx",
+      "splitsProviderFilePath": "",
+      "codeComponents": [
+        {
+          "id": "8sYtOZawA08",
+          "name": "GraphCMSFetcher",
+          "displayName": "GraphCMSFetcher",
+          "componentImportPath": "@plasmicpkgs/plasmic-graphcms"
+        },
+        {
+          "id": "_3Kx5FMtA8n",
+          "name": "GraphCMSField",
+          "displayName": "GraphCMSField",
+          "componentImportPath": "@plasmicpkgs/plasmic-graphcms"
+        },
+        {
+          "id": "hNB_eBOLhAQ",
+          "name": "GraphCMSCredentialsProvider",
+          "displayName": "GraphCMSCredentialsProvider",
+          "componentImportPath": "@plasmicpkgs/plasmic-graphcms"
+        }
+      ],
+      "customFunctions": [],
+      "jsBundleThemes": []
+    },
+    {
+      "projectId": "caTPwKxj5ZrD9LQ7DMdK4Z",
+      "projectApiToken": "vXGGQpdi9fhcncabBdg8DcMRUbkz0iRW6HS1jzQufQR6QH0MasPwr9SX7ap4SsK3xXwwXmzZtglWGe0Rm2nw",
+      "projectName": "plasmic-basic-components",
+      "version": ">0.0.0",
+      "cssFilePath": "plasmic/plasmic_basic_components/plasmic.module.css",
+      "components": [],
+      "icons": [],
+      "images": [],
+      "indirect": true,
+      "globalContextsFilePath": "",
+      "splitsProviderFilePath": "",
+      "codeComponents": [
+        {
+          "id": "CMDBvOhaI4s",
+          "name": "Iframe",
+          "displayName": "hostless-iframe",
+          "componentImportPath": "@plasmicpkgs/plasmic-basic-components"
+        },
+        {
+          "id": "RhitNJW5Zu-",
+          "name": "Video",
+          "displayName": "hostless-html-video",
+          "componentImportPath": "@plasmicpkgs/plasmic-basic-components"
+        },
+        {
+          "id": "PKldDYkH42",
+          "name": "Embed",
+          "displayName": "hostless-embed",
+          "componentImportPath": "@plasmicpkgs/plasmic-basic-components"
+        },
+        {
+          "id": "D4RbnlpRXg3",
+          "name": "DataProvider",
+          "displayName": "hostless-data-provider",
+          "componentImportPath": "@plasmicpkgs/plasmic-basic-components"
+        },
+        {
+          "id": "zlBHsvkFlN",
+          "name": "ConditionGuard",
+          "displayName": "hostless-condition-guard",
+          "componentImportPath": "@plasmicpkgs/plasmic-basic-components"
+        },
+        {
+          "id": "K-mWGqrHefEp",
+          "name": "SideEffect",
+          "displayName": "hostless-side-effect",
+          "componentImportPath": "@plasmicpkgs/plasmic-basic-components"
+        },
+        {
+          "id": "SpkzmXJqg27p",
+          "name": "Timer",
+          "displayName": "hostless-timer",
+          "componentImportPath": "@plasmicpkgs/plasmic-basic-components"
+        }
+      ],
+      "customFunctions": [],
+      "jsBundleThemes": []
+    },
+    {
+      "projectId": "58GpZjZCWTaJ8AUhpCwt2K",
+      "projectApiToken": "DIkcfhBwjMCJSjcxfBkMuy4NImyytq5EWylxVcpS9t9EpdhnPQuBgBGxmk00AB1itMFa1KXTxOKnrjN2PN9nlA",
+      "projectName": "react-awesome-reveal",
+      "version": ">0.0.0",
+      "cssFilePath": "plasmic/react_awesome_reveal/plasmic.module.css",
+      "components": [],
+      "icons": [],
+      "images": [],
+      "indirect": true,
+      "globalContextsFilePath": "",
+      "splitsProviderFilePath": "",
+      "codeComponents": [
+        {
+          "id": "R6s1FdhksG",
+          "name": "Reveal",
+          "displayName": "hostless-reveal",
+          "componentImportPath": "@plasmicpkgs/react-awesome-reveal"
+        }
+      ],
+      "customFunctions": [],
+      "jsBundleThemes": []
+    },
+    {
+      "projectId": "YUiM7yqBWAqsh8KSnrdj7",
+      "projectApiToken": "yLKpJOE8mD6HqoNCSWF3Em8ut0LBzL7qb3QPqNeOLPjQsSBSc12yhYovnSRSekzgt1xjjbugBGDjOMLGMK4w",
+      "projectName": "plasmic-query",
+      "version": ">0.0.0",
+      "cssFilePath": "plasmic/plasmic_query/plasmic.module.css",
+      "components": [],
+      "icons": [],
+      "images": [],
+      "indirect": true,
+      "globalContextsFilePath": "",
+      "splitsProviderFilePath": "",
+      "codeComponents": [
+        {
+          "id": "ae7V86eNoXA",
+          "name": "DataFetcher",
+          "displayName": "hostless-plasmic-query-data-fetcher",
+          "componentImportPath": "@plasmicpkgs/plasmic-query"
+        },
+        {
+          "id": "0DrxdjD45dkx",
+          "name": "GraphqlFetcher",
+          "displayName": "hostless-plasmic-query-graphql-fetcher",
+          "componentImportPath": "@plasmicpkgs/plasmic-query"
+        }
+      ],
+      "customFunctions": [],
+      "jsBundleThemes": []
+    },
+    {
+      "projectId": "jkU633o1Cz7HrJdwdxhVHk",
+      "projectApiToken": "RNOKYUdvtFBrgxbf09RPjYgL9LzpnT4pIsOrtpsqlLDYBRxYynkAo8OY9YRWPdoaSnRAwOO2e5PWfuVNypw",
+      "projectName": "plasmic-rich-components",
+      "version": ">0.0.0",
+      "cssFilePath": "plasmic/plasmic_rich_components/plasmic.module.css",
+      "components": [],
+      "icons": [],
+      "images": [],
+      "indirect": true,
+      "globalContextsFilePath": "",
+      "splitsProviderFilePath": "",
+      "codeComponents": [
+        {
+          "id": "FNIk-CnxQYXU",
+          "name": "RichLayout",
+          "displayName": "hostless-rich-layout",
+          "componentImportPath": "@plasmicpkgs/plasmic-rich-components/skinny/rich-layout"
+        },
+        {
+          "id": "k4RvFQUTZKCU",
+          "name": "RichTable",
+          "displayName": "hostless-rich-table",
+          "componentImportPath": "@plasmicpkgs/plasmic-rich-components/skinny/rich-table",
+          "helper": {
+            "name": "tableHelpers",
+            "importPath": "@plasmicpkgs/plasmic-rich-components/skinny/rich-table"
+          }
+        },
+        {
+          "id": "zV8WqibK3ZnC",
+          "name": "RichDetails",
+          "displayName": "hostless-rich-details",
+          "componentImportPath": "@plasmicpkgs/plasmic-rich-components/skinny/rich-details"
+        },
+        {
+          "id": "Hh2OL1EveIF",
+          "name": "RichList",
+          "displayName": "hostless-rich-list",
+          "componentImportPath": "@plasmicpkgs/plasmic-rich-components/skinny/rich-list"
+        },
+        {
+          "id": "UzObi2yVH_DH",
+          "name": "RichCalendar",
+          "displayName": "hostless-rich-calendar",
+          "componentImportPath": "@plasmicpkgs/plasmic-rich-components/skinny/rich-calendar",
+          "helper": {
+            "name": "calendarHelpers",
+            "importPath": "@plasmicpkgs/plasmic-rich-components/skinny/rich-calendar"
+          }
+        }
+      ],
+      "customFunctions": [],
+      "jsBundleThemes": []
+    },
+    {
+      "projectId": "ohDidvG9XsCeFumugENU3J",
+      "projectApiToken": "YE6pw0s6HZvyAZENjWdhh22CZUvZbVXVeOr7IxU58m9rwk2ITG1RfJGcJjzF2uEC7DCqa4PDzPP1UXxfKuuQ",
+      "projectName": "antd5 hostless",
+      "version": ">0.0.0",
+      "cssFilePath": "plasmic/antd_5_hostless/plasmic.module.css",
+      "components": [],
+      "icons": [],
+      "images": [],
+      "indirect": true,
+      "globalContextsFilePath": "plasmic/antd_5_hostless/PlasmicGlobalContextsProvider.tsx",
+      "splitsProviderFilePath": "",
+      "codeComponents": [
+        {
+          "id": "OvH7ENd3m7ug",
+          "name": "AntdSelect",
+          "displayName": "plasmic-antd5-select",
+          "componentImportPath": "@plasmicpkgs/antd5/skinny/registerSelect"
+        },
+        {
+          "id": "ACzfHW-ZLLiW",
+          "name": "AntdOption",
+          "displayName": "plasmic-antd5-option",
+          "componentImportPath": "@plasmicpkgs/antd5/skinny/registerSelect"
+        },
+        {
+          "id": "UyLCOYx2BYc4",
+          "name": "AntdTable",
+          "displayName": "plasmic-antd5-table",
+          "componentImportPath": "@plasmicpkgs/antd5/skinny/registerTable"
+        },
+        {
+          "id": "OFZLDfR2iHmj",
+          "name": "AntdColumn",
+          "displayName": "plasmic-antd5-table-column",
+          "componentImportPath": "@plasmicpkgs/antd5/skinny/registerTable"
+        },
+        {
+          "id": "-EU4JlrV3jtw",
+          "name": "AntdColumnGroup",
+          "displayName": "plasmic-antd5-table-column-group",
+          "componentImportPath": "@plasmicpkgs/antd5/skinny/registerTable"
+        },
+        {
+          "id": "DmrLLHGTjGTE",
+          "name": "AntdConfigProvider",
+          "displayName": "plasmic-antd5-config-provider",
+          "componentImportPath": "@plasmicpkgs/antd5/skinny/registerConfigProvider"
+        },
+        {
+          "id": "aFHKFWNvs7",
+          "name": "AntdCheckbox",
+          "displayName": "plasmic-antd5-checkbox",
+          "componentImportPath": "@plasmicpkgs/antd5/skinny/registerCheckbox"
+        },
+        {
+          "id": "2bM6vBkaxc",
+          "name": "AntdCheckboxGroup",
+          "displayName": "plasmic-antd5-checkbox-group",
+          "componentImportPath": "@plasmicpkgs/antd5/skinny/registerCheckbox"
+        },
+        {
+          "id": "-CXVV9tXtP",
+          "name": "AntdRadio",
+          "displayName": "plasmic-antd5-radio",
+          "componentImportPath": "@plasmicpkgs/antd5/skinny/registerRadio"
+        },
+        {
+          "id": "C3Ce7Sqgay",
+          "name": "AntdRadioButton",
+          "displayName": "plasmic-antd5-radio-button",
+          "componentImportPath": "@plasmicpkgs/antd5/skinny/registerRadio"
+        },
+        {
+          "id": "PZQhrvIGy1",
+          "name": "AntdRadioGroup",
+          "displayName": "plasmic-antd5-radio-group",
+          "componentImportPath": "@plasmicpkgs/antd5/skinny/registerRadio"
+        },
+        {
+          "id": "xx93QbkHH5i",
+          "name": "AntdModal",
+          "displayName": "plasmic-antd5-modal",
+          "componentImportPath": "@plasmicpkgs/antd5/skinny/registerModal"
+        },
+        {
+          "id": "bx9Xzvf5_eu",
+          "name": "AntdButton",
+          "displayName": "plasmic-antd5-button",
+          "componentImportPath": "@plasmicpkgs/antd5/skinny/registerButton"
+        },
+        {
+          "id": "fo-n3xHvdqt",
+          "name": "AntdMenu",
+          "displayName": "plasmic-antd5-menu",
+          "componentImportPath": "@plasmicpkgs/antd5/skinny/registerMenu"
+        },
+        {
+          "id": "QSmezaW-Gyu",
+          "name": "AntdMenuItem",
+          "displayName": "plasmic-antd5-menu-item",
+          "componentImportPath": "@plasmicpkgs/antd5/skinny/registerMenu"
+        },
+        {
+          "id": "6ySly9jzXsR",
+          "name": "AntdMenuItemGroup",
+          "displayName": "plasmic-antd5-menu-item-group",
+          "componentImportPath": "@plasmicpkgs/antd5/skinny/registerMenu"
+        },
+        {
+          "id": "pwJcAbVYC4M",
+          "name": "AntdMenuDivider",
+          "displayName": "plasmic-antd5-menu-divider",
+          "componentImportPath": "@plasmicpkgs/antd5/skinny/registerMenu"
+        },
+        {
+          "id": "nL-8oPEfDNL",
+          "name": "AntdSubMenu",
+          "displayName": "plasmic-antd5-submenu",
+          "componentImportPath": "@plasmicpkgs/antd5/skinny/registerMenu"
+        },
+        {
+          "id": "zIDEYq9RgLG",
+          "name": "AntdDropdown",
+          "displayName": "plasmic-antd5-dropdown",
+          "componentImportPath": "@plasmicpkgs/antd5/skinny/registerDropdown"
+        },
+        {
+          "id": "5sJiSDZuAW",
+          "name": "AntdOptionGroup",
+          "displayName": "plasmic-antd5-option-group",
+          "componentImportPath": "@plasmicpkgs/antd5/skinny/registerSelect"
+        },
+        {
+          "id": "TgJFzUZpvQ",
+          "name": "FormWrapper",
+          "displayName": "plasmic-antd5-form",
+          "componentImportPath": "@plasmicpkgs/antd5/skinny/SchemaForm",
+          "helper": {
+            "name": "formHelpers",
+            "importPath": "@plasmicpkgs/antd5/skinny/Form"
+          }
+        },
+        {
+          "id": "EYHwZh9ILg",
+          "name": "FormItemWrapper",
+          "displayName": "plasmic-antd5-form-item",
+          "componentImportPath": "@plasmicpkgs/antd5/skinny/FormItem"
+        },
+        {
+          "id": "zEXrWX9naj",
+          "name": "FormGroup",
+          "displayName": "plasmic-antd5-form-group",
+          "componentImportPath": "@plasmicpkgs/antd5/skinny/FormGroup"
+        },
+        {
+          "id": "M2mN_XzxO4",
+          "name": "FormListWrapper",
+          "displayName": "plasmic-antd5-form-list",
+          "componentImportPath": "@plasmicpkgs/antd5/skinny/FormList"
+        },
+        {
+          "id": "Vf5hntD2SZ5",
+          "name": "AntdInput",
+          "displayName": "plasmic-antd5-input",
+          "componentImportPath": "@plasmicpkgs/antd5/skinny/registerInput",
+          "helper": {
+            "name": "inputHelpers",
+            "importPath": "@plasmicpkgs/antd5/skinny/registerInput"
+          }
+        },
+        {
+          "id": "RW4q13RFtAd",
+          "name": "AntdPassword",
+          "displayName": "plasmic-antd5-input-password",
+          "componentImportPath": "@plasmicpkgs/antd5/skinny/registerInput",
+          "helper": {
+            "name": "inputHelpers",
+            "importPath": "@plasmicpkgs/antd5/skinny/registerInput"
+          }
+        },
+        {
+          "id": "pTzGlMptTxd",
+          "name": "AntdTextArea",
+          "displayName": "plasmic-antd5-textarea",
+          "componentImportPath": "@plasmicpkgs/antd5/skinny/registerInput",
+          "helper": {
+            "name": "inputHelpers",
+            "importPath": "@plasmicpkgs/antd5/skinny/registerInput"
+          }
+        },
+        {
+          "id": "wxD5qjEe3pU",
+          "name": "AntdInputNumber",
+          "displayName": "plasmic-antd5-input-number",
+          "componentImportPath": "@plasmicpkgs/antd5/skinny/registerInput"
+        },
+        {
+          "id": "Zzbfw0tfhA",
+          "name": "UploadWrapper",
+          "displayName": "plasmic-antd5-upload",
+          "componentImportPath": "@plasmicpkgs/antd5/skinny/registerUpload"
+        },
+        {
+          "id": "-gkBqPikhk",
+          "name": "AntdSwitch",
+          "displayName": "plasmic-antd5-switch",
+          "componentImportPath": "@plasmicpkgs/antd5/skinny/registerSwitch"
+        },
+        {
+          "id": "lKdkQL67fv",
+          "name": "AntdDatePicker",
+          "displayName": "plasmic-antd5-date-picker",
+          "componentImportPath": "@plasmicpkgs/antd5/skinny/registerDatePicker",
+          "helper": {
+            "name": "datePickerHelpers",
+            "importPath": "@plasmicpkgs/antd5/skinny/registerDatePicker"
+          }
+        },
+        {
+          "id": "YcIbmJhMwB",
+          "name": "AntdColorPicker",
+          "displayName": "plasmic-antd5-color-picker",
+          "componentImportPath": "@plasmicpkgs/antd5/skinny/registerColorPicker"
+        },
+        {
+          "id": "Nb0bEUV6vm",
+          "name": "AntdDrawer",
+          "displayName": "plasmic-antd5-drawer",
+          "componentImportPath": "@plasmicpkgs/antd5/skinny/registerDrawer"
+        },
+        {
+          "id": "uIwOvA8Rbo",
+          "name": "AntdSteps",
+          "displayName": "plasmic-antd5-steps",
+          "componentImportPath": "@plasmicpkgs/antd5/skinny/registerSteps"
+        },
+        {
+          "id": "rdsGm3tzUj",
+          "name": "AntdTooltip",
+          "displayName": "plasmic-antd5-tooltip",
+          "componentImportPath": "@plasmicpkgs/antd5/skinny/registerTooltip"
+        },
+        {
+          "id": "nqcsn8n56U",
+          "name": "AntdAvatar",
+          "displayName": "plasmic-antd5-avatar",
+          "componentImportPath": "@plasmicpkgs/antd5/skinny/registerAvatar"
+        },
+        {
+          "id": "GuSPoNm_cBy",
+          "name": "AntdAvatarGroup",
+          "displayName": "plasmic-antd5-avatar-group",
+          "componentImportPath": "@plasmicpkgs/antd5/skinny/registerAvatar"
+        },
+        {
+          "id": "GDiBhO1FaQ",
+          "name": "AntdTree",
+          "displayName": "plasmic-antd5-tree",
+          "componentImportPath": "@plasmicpkgs/antd5/skinny/registerTree",
+          "helper": {
+            "name": "treeHelpers",
+            "importPath": "@plasmicpkgs/antd5/skinny/registerTree"
+          }
+        },
+        {
+          "id": "2Gn9Np0fVX",
+          "name": "AntdDirectoryTree",
+          "displayName": "plasmic-antd5-directory-tree",
+          "componentImportPath": "@plasmicpkgs/antd5/skinny/registerTree",
+          "helper": {
+            "name": "treeHelpers",
+            "importPath": "@plasmicpkgs/antd5/skinny/registerTree"
+          }
+        },
+        {
+          "id": "oPUhN99n4VXI",
+          "name": "AntdAccordion",
+          "displayName": "plasmic-antd5-collapse",
+          "componentImportPath": "@plasmicpkgs/antd5/skinny/registerCollapse",
+          "helper": {
+            "name": "accordionHelpers",
+            "importPath": "@plasmicpkgs/antd5/skinny/registerCollapse"
+          }
+        },
+        {
+          "id": "4mmDdnlyWx2k",
+          "name": "AntdAccordionItem",
+          "displayName": "plasmic-antd5-collapse-item",
+          "componentImportPath": "@plasmicpkgs/antd5/skinny/registerCollapse"
+        },
+        {
+          "id": "4y7SmGJoYukv",
+          "name": "AntdSingleCollapse",
+          "displayName": "plasmic-antd5-single-collapse",
+          "componentImportPath": "@plasmicpkgs/antd5/skinny/registerCollapse",
+          "helper": {
+            "name": "singleCollapseHelpers",
+            "importPath": "@plasmicpkgs/antd5/skinny/registerCollapse"
+          }
+        },
+        {
+          "id": "hkJfqlGnpchf",
+          "name": "AntdPopover",
+          "displayName": "plasmic-antd5-popover",
+          "componentImportPath": "@plasmicpkgs/antd5/skinny/registerPopover"
+        },
+        {
+          "id": "HV5Zx3YTIxFT",
+          "name": "AntdTabs",
+          "displayName": "plasmic-antd5-tabs",
+          "componentImportPath": "@plasmicpkgs/antd5/skinny/registerTabs"
+        },
+        {
+          "id": "OSD--ykMTE95",
+          "name": "AntdTabItem",
+          "displayName": "plasmic-antd5-tab-item",
+          "componentImportPath": "@plasmicpkgs/antd5/skinny/registerTabs"
+        },
+        {
+          "id": "S802VXcWSh0n",
+          "name": "AntdRate",
+          "displayName": "plasmic-antd5-rate",
+          "componentImportPath": "@plasmicpkgs/antd5/skinny/registerRate"
+        },
+        {
+          "id": "9HjEuAZYoz5P",
+          "name": "AntdDateRangePicker",
+          "displayName": "plasmic-antd5-date-range-picker",
+          "componentImportPath": "@plasmicpkgs/antd5/skinny/registerDateRangePicker",
+          "helper": {
+            "name": "dateRangePickerHelpers",
+            "importPath": "@plasmicpkgs/antd5/skinny/registerDateRangePicker"
+          }
+        },
+        {
+          "id": "SeYQPnK2Etda",
+          "name": "AntdSingleSlider",
+          "displayName": "plasmic-antd5-slider",
+          "componentImportPath": "@plasmicpkgs/antd5/skinny/registerSlider"
+        },
+        {
+          "id": "VvEzRJYSMImn",
+          "name": "AntdRangeSlider",
+          "displayName": "plasmic-antd5-range-slider",
+          "componentImportPath": "@plasmicpkgs/antd5/skinny/registerSlider",
+          "helper": {
+            "name": "rangeSliderHelpers",
+            "importPath": "@plasmicpkgs/antd5/skinny/registerSlider"
+          }
+        },
+        {
+          "id": "qUBr2ytCk1sn",
+          "name": "AntdSliderMark",
+          "displayName": "plasmic-antd5-slider-mark",
+          "componentImportPath": "@plasmicpkgs/antd5/skinny/registerSlider"
+        },
+        {
+          "id": "2lfDhkB3l-hf",
+          "name": "AntdSegmentedOption",
+          "displayName": "plasmic-antd5-segmented-option",
+          "componentImportPath": "@plasmicpkgs/antd5/skinny/registerSegmented"
+        },
+        {
+          "id": "hF7P_XBmSmah",
+          "name": "AntdSegmented",
+          "displayName": "plasmic-antd5-segmented",
+          "componentImportPath": "@plasmicpkgs/antd5/skinny/registerSegmented"
+        },
+        {
+          "id": "YczuxmmTqf82",
+          "name": "AntdProgress",
+          "displayName": "plasmic-antd5-progress",
+          "componentImportPath": "@plasmicpkgs/antd5/skinny/registerProgress"
+        },
+        {
+          "id": "zxit27ZPux0z",
+          "name": "AntdPagination",
+          "displayName": "plasmic-antd5-pagination",
+          "componentImportPath": "@plasmicpkgs/antd5/skinny/registerPagination",
+          "helper": {
+            "name": "paginationHelpers",
+            "importPath": "@plasmicpkgs/antd5/skinny/registerPagination"
+          }
+        },
+        {
+          "id": "Zjjf7sP4JdQI",
+          "name": "AntdBreadcrumb",
+          "displayName": "plasmic-antd5-breadcrumb",
+          "componentImportPath": "@plasmicpkgs/antd5/skinny/registerBreadcrumb"
+        },
+        {
+          "id": "2ZOevuBPH-SX",
+          "name": "AntdBreadcrumbItem",
+          "displayName": "plasmic-antd5-breadcrumb-item",
+          "componentImportPath": "@plasmicpkgs/antd5/skinny/registerBreadcrumb"
+        }
+      ],
+      "customFunctions": [],
+      "jsBundleThemes": []
+    },
+    {
+      "projectId": "7nJ7UcFmq9UzB6eXfC5z4a",
+      "projectApiToken": "uZp069FLSLNVA2dpWnqC3BUaj3flvtNBNXt6e1b67rm4Uh6lGHgYJ65FCBXlOFTB5KDW7RmmOxIAzgHYCg",
+      "projectName": "plasmic-nav",
+      "version": ">0.0.0",
+      "cssFilePath": "plasmic/plasmic_nav/plasmic.module.css",
+      "components": [],
+      "icons": [],
+      "images": [],
+      "indirect": true,
+      "globalContextsFilePath": "",
+      "splitsProviderFilePath": "",
+      "codeComponents": [
+        {
+          "id": "jGx9tiKJoex",
+          "name": "NavigationBar",
+          "displayName": "hostless-plasmic-navigation-bar",
+          "componentImportPath": "@plasmicpkgs/plasmic-nav"
+        }
+      ],
+      "customFunctions": [],
+      "jsBundleThemes": []
+    },
+    {
+      "projectId": "tDWy3GXn2mzd9e2xUaPdmu",
+      "projectApiToken": "wGCq7kEcDBwkNNePGu2sEB1MGXugDkyGv8w3fiEvL6OEaluU5BnxXaivr2rz1iQSWNTwIrrwigITckNLtseeQ",
+      "projectName": "PROLIGA!",
+      "version": "latest",
+      "cssFilePath": "plasmic/proliga/plasmic.module.css",
+      "components": [
+        {
+          "id": "Bqv9LwfAil9f",
+          "name": "Homepage",
+          "type": "managed",
+          "projectId": "tDWy3GXn2mzd9e2xUaPdmu",
+          "renderModuleFilePath": "plasmic/proliga/PlasmicHomepage.tsx",
+          "importSpec": {
+            "modulePath": "../pages/index.tsx"
+          },
+          "cssFilePath": "plasmic/proliga/PlasmicHomepage.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/"
+        },
+        {
+          "id": "TKT8XnZtrLZi",
+          "name": "Navbar",
+          "type": "managed",
+          "projectId": "tDWy3GXn2mzd9e2xUaPdmu",
+          "renderModuleFilePath": "plasmic/proliga/PlasmicNavbar.tsx",
+          "importSpec": {
+            "modulePath": "Navbar.tsx"
+          },
+          "cssFilePath": "plasmic/proliga/PlasmicNavbar.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "Fz11uI_xJ5_l",
+          "name": "ImageCardText",
+          "type": "managed",
+          "projectId": "tDWy3GXn2mzd9e2xUaPdmu",
+          "renderModuleFilePath": "plasmic/proliga/PlasmicImageCardText.tsx",
+          "importSpec": {
+            "modulePath": "ImageCardText.tsx"
+          },
+          "cssFilePath": "plasmic/proliga/PlasmicImageCardText.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "7QaCSn9gJMrE",
+          "name": "BothImageTextCard",
+          "type": "managed",
+          "projectId": "tDWy3GXn2mzd9e2xUaPdmu",
+          "renderModuleFilePath": "plasmic/proliga/PlasmicBothImageTextCard.tsx",
+          "importSpec": {
+            "modulePath": "BothImageTextCard.tsx"
+          },
+          "cssFilePath": "plasmic/proliga/PlasmicBothImageTextCard.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "xwgFLXqL07mD",
+          "name": "TextInput",
+          "type": "managed",
+          "projectId": "tDWy3GXn2mzd9e2xUaPdmu",
+          "renderModuleFilePath": "plasmic/proliga/PlasmicTextInput.tsx",
+          "importSpec": {
+            "modulePath": "TextInput.tsx"
+          },
+          "cssFilePath": "plasmic/proliga/PlasmicTextInput.module.css",
+          "scheme": "blackbox",
+          "componentType": "component",
+          "plumeType": "text-input"
+        },
+        {
+          "id": "brwm8J1lJ4Hp",
+          "name": "Signup",
+          "type": "managed",
+          "projectId": "tDWy3GXn2mzd9e2xUaPdmu",
+          "renderModuleFilePath": "plasmic/proliga/PlasmicSignup.tsx",
+          "importSpec": {
+            "modulePath": "../pages/signup.tsx"
+          },
+          "cssFilePath": "plasmic/proliga/PlasmicSignup.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/signup"
+        },
+        {
+          "id": "kLkBCj52Hj5c",
+          "name": "MatchesCalendar",
+          "type": "managed",
+          "projectId": "tDWy3GXn2mzd9e2xUaPdmu",
+          "renderModuleFilePath": "plasmic/proliga/PlasmicMatchesCalendar.tsx",
+          "importSpec": {
+            "modulePath": "MatchesCalendar.tsx"
+          },
+          "cssFilePath": "plasmic/proliga/PlasmicMatchesCalendar.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "mmk_GiTXUtux",
+          "name": "SearchComponent",
+          "type": "managed",
+          "projectId": "tDWy3GXn2mzd9e2xUaPdmu",
+          "renderModuleFilePath": "plasmic/proliga/PlasmicSearchComponent.tsx",
+          "importSpec": {
+            "modulePath": "SearchComponent.tsx"
+          },
+          "cssFilePath": "plasmic/proliga/PlasmicSearchComponent.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "ae-0uOxQP_IT",
+          "name": "Rankings",
+          "type": "managed",
+          "projectId": "tDWy3GXn2mzd9e2xUaPdmu",
+          "renderModuleFilePath": "plasmic/proliga/PlasmicRankings.tsx",
+          "importSpec": {
+            "modulePath": "../pages/rankings.tsx"
+          },
+          "cssFilePath": "plasmic/proliga/PlasmicRankings.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/rankings"
+        },
+        {
+          "id": "NyvdXAM9ZnZV",
+          "name": "Rankings2",
+          "type": "managed",
+          "projectId": "tDWy3GXn2mzd9e2xUaPdmu",
+          "renderModuleFilePath": "plasmic/proliga/PlasmicRankings2.tsx",
+          "importSpec": {
+            "modulePath": "Rankings2.tsx"
+          },
+          "cssFilePath": "plasmic/proliga/PlasmicRankings2.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "aTUQBx3a3oCn",
+          "name": "Login",
+          "type": "managed",
+          "projectId": "tDWy3GXn2mzd9e2xUaPdmu",
+          "renderModuleFilePath": "plasmic/proliga/PlasmicLogin.tsx",
+          "importSpec": {
+            "modulePath": "../pages/login.tsx"
+          },
+          "cssFilePath": "plasmic/proliga/PlasmicLogin.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/login"
+        },
+        {
+          "id": "kIdovXGtWiEz",
+          "name": "Footer",
+          "type": "managed",
+          "projectId": "tDWy3GXn2mzd9e2xUaPdmu",
+          "renderModuleFilePath": "plasmic/proliga/PlasmicFooter.tsx",
+          "importSpec": {
+            "modulePath": "Footer.tsx"
+          },
+          "cssFilePath": "plasmic/proliga/PlasmicFooter.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "WG0Ap6_yAl4V",
+          "name": "Matches",
+          "type": "managed",
+          "projectId": "tDWy3GXn2mzd9e2xUaPdmu",
+          "renderModuleFilePath": "plasmic/proliga/PlasmicMatches.tsx",
+          "importSpec": {
+            "modulePath": "../pages/matches.tsx"
+          },
+          "cssFilePath": "plasmic/proliga/PlasmicMatches.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/matches"
+        },
+        {
+          "id": "w6mcybgJxhpK",
+          "name": "SoccerPlaceMens",
+          "type": "managed",
+          "projectId": "tDWy3GXn2mzd9e2xUaPdmu",
+          "renderModuleFilePath": "plasmic/proliga/PlasmicSoccerPlaceMens.tsx",
+          "importSpec": {
+            "modulePath": "SoccerPlaceMens.tsx"
+          },
+          "cssFilePath": "plasmic/proliga/PlasmicSoccerPlaceMens.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "3I11SVbKzuHP",
+          "name": "IdealTeamMember",
+          "type": "managed",
+          "projectId": "tDWy3GXn2mzd9e2xUaPdmu",
+          "renderModuleFilePath": "plasmic/proliga/PlasmicIdealTeamMember.tsx",
+          "importSpec": {
+            "modulePath": "IdealTeamMember.tsx"
+          },
+          "cssFilePath": "plasmic/proliga/PlasmicIdealTeamMember.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "cgwtBVaX8unu",
+          "name": "BreakinNewsCards",
+          "type": "managed",
+          "projectId": "tDWy3GXn2mzd9e2xUaPdmu",
+          "renderModuleFilePath": "plasmic/proliga/PlasmicBreakinNewsCards.tsx",
+          "importSpec": {
+            "modulePath": "BreakinNewsCards.tsx"
+          },
+          "cssFilePath": "plasmic/proliga/PlasmicBreakinNewsCards.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "id16hh4sZhAJ",
+          "name": "BreakinNews",
+          "type": "managed",
+          "projectId": "tDWy3GXn2mzd9e2xUaPdmu",
+          "renderModuleFilePath": "plasmic/proliga/PlasmicBreakinNews.tsx",
+          "importSpec": {
+            "modulePath": "../pages/breaking-news.tsx"
+          },
+          "cssFilePath": "plasmic/proliga/PlasmicBreakinNews.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/breaking-news"
+        },
+        {
+          "id": "D7Sj75T4yazB",
+          "name": "IdealXl",
+          "type": "managed",
+          "projectId": "tDWy3GXn2mzd9e2xUaPdmu",
+          "renderModuleFilePath": "plasmic/proliga/PlasmicIdealXl.tsx",
+          "importSpec": {
+            "modulePath": "../pages/ideal-xl.tsx"
+          },
+          "cssFilePath": "plasmic/proliga/PlasmicIdealXl.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/ideal-xl"
+        },
+        {
+          "id": "AWwxPoo3TTY9",
+          "name": "Absences",
+          "type": "managed",
+          "projectId": "tDWy3GXn2mzd9e2xUaPdmu",
+          "renderModuleFilePath": "plasmic/proliga/PlasmicAbsences.tsx",
+          "importSpec": {
+            "modulePath": "../pages/absences.tsx"
+          },
+          "cssFilePath": "plasmic/proliga/PlasmicAbsences.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/absences"
+        },
+        {
+          "id": "QI5VjKINDG8A",
+          "name": "InjuredClub",
+          "type": "managed",
+          "projectId": "tDWy3GXn2mzd9e2xUaPdmu",
+          "renderModuleFilePath": "plasmic/proliga/PlasmicInjuredClub.tsx",
+          "importSpec": {
+            "modulePath": "InjuredClub.tsx"
+          },
+          "cssFilePath": "plasmic/proliga/PlasmicInjuredClub.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "sSfppfkBqSwu",
+          "name": "InjuredTeamMember",
+          "type": "managed",
+          "projectId": "tDWy3GXn2mzd9e2xUaPdmu",
+          "renderModuleFilePath": "plasmic/proliga/PlasmicInjuredTeamMember.tsx",
+          "importSpec": {
+            "modulePath": "InjuredTeamMember.tsx"
+          },
+          "cssFilePath": "plasmic/proliga/PlasmicInjuredTeamMember.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "jP1iWNVmUw64",
+          "name": "InjuresEvent1",
+          "type": "managed",
+          "projectId": "tDWy3GXn2mzd9e2xUaPdmu",
+          "renderModuleFilePath": "plasmic/proliga/PlasmicInjuresEvent1.tsx",
+          "importSpec": {
+            "modulePath": "InjuresEvent1.tsx"
+          },
+          "cssFilePath": "plasmic/proliga/PlasmicInjuresEvent1.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "cv9rvkaGG2VK",
+          "name": "InjuresEvent2",
+          "type": "managed",
+          "projectId": "tDWy3GXn2mzd9e2xUaPdmu",
+          "renderModuleFilePath": "plasmic/proliga/PlasmicInjuresEvent2.tsx",
+          "importSpec": {
+            "modulePath": "InjuresEvent2.tsx"
+          },
+          "cssFilePath": "plasmic/proliga/PlasmicInjuresEvent2.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "E9xIRzzcNiyh",
+          "name": "InjuresEvent3",
+          "type": "managed",
+          "projectId": "tDWy3GXn2mzd9e2xUaPdmu",
+          "renderModuleFilePath": "plasmic/proliga/PlasmicInjuresEvent3.tsx",
+          "importSpec": {
+            "modulePath": "InjuresEvent3.tsx"
+          },
+          "cssFilePath": "plasmic/proliga/PlasmicInjuresEvent3.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "i9gPRWDTgmUS",
+          "name": "InjuresEvent4",
+          "type": "managed",
+          "projectId": "tDWy3GXn2mzd9e2xUaPdmu",
+          "renderModuleFilePath": "plasmic/proliga/PlasmicInjuresEvent4.tsx",
+          "importSpec": {
+            "modulePath": "InjuresEvent4.tsx"
+          },
+          "cssFilePath": "plasmic/proliga/PlasmicInjuresEvent4.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "MRQZA1xVuya3",
+          "name": "InjuredEvent5",
+          "type": "managed",
+          "projectId": "tDWy3GXn2mzd9e2xUaPdmu",
+          "renderModuleFilePath": "plasmic/proliga/PlasmicInjuredEvent5.tsx",
+          "importSpec": {
+            "modulePath": "InjuredEvent5.tsx"
+          },
+          "cssFilePath": "plasmic/proliga/PlasmicInjuredEvent5.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "oJ05rQ2UYoHy",
+          "name": "PlayerAction",
+          "type": "managed",
+          "projectId": "tDWy3GXn2mzd9e2xUaPdmu",
+          "renderModuleFilePath": "plasmic/proliga/PlasmicPlayerAction.tsx",
+          "importSpec": {
+            "modulePath": "PlayerAction.tsx"
+          },
+          "cssFilePath": "plasmic/proliga/PlasmicPlayerAction.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "Ff8zfK0Tf7qO",
+          "name": "InfoPlayer",
+          "type": "managed",
+          "projectId": "tDWy3GXn2mzd9e2xUaPdmu",
+          "renderModuleFilePath": "plasmic/proliga/PlasmicInfoPlayer.tsx",
+          "importSpec": {
+            "modulePath": "InfoPlayer.tsx"
+          },
+          "cssFilePath": "plasmic/proliga/PlasmicInfoPlayer.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "3gwy3SExAp_J",
+          "name": "InfoPlayerChart",
+          "type": "managed",
+          "projectId": "tDWy3GXn2mzd9e2xUaPdmu",
+          "renderModuleFilePath": "plasmic/proliga/PlasmicInfoPlayerChart.tsx",
+          "importSpec": {
+            "modulePath": "InfoPlayerChart.tsx"
+          },
+          "cssFilePath": "plasmic/proliga/PlasmicInfoPlayerChart.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "Kg9RPQ5P0NJA",
+          "name": "Markets",
+          "type": "managed",
+          "projectId": "tDWy3GXn2mzd9e2xUaPdmu",
+          "renderModuleFilePath": "plasmic/proliga/PlasmicMarkets.tsx",
+          "importSpec": {
+            "modulePath": "../pages/markets.tsx"
+          },
+          "cssFilePath": "plasmic/proliga/PlasmicMarkets.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/markets"
+        },
+        {
+          "id": "MiYb6Bkn-8fe",
+          "name": "Teams",
+          "type": "managed",
+          "projectId": "tDWy3GXn2mzd9e2xUaPdmu",
+          "renderModuleFilePath": "plasmic/proliga/PlasmicTeams.tsx",
+          "importSpec": {
+            "modulePath": "../pages/user/team/[id].tsx"
+          },
+          "cssFilePath": "plasmic/proliga/PlasmicTeams.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/user/team/[id]"
+        },
+        {
+          "id": "xodLqMOhDs29",
+          "name": "SoccerPlaceMens2",
+          "type": "managed",
+          "projectId": "tDWy3GXn2mzd9e2xUaPdmu",
+          "renderModuleFilePath": "plasmic/proliga/PlasmicSoccerPlaceMens2.tsx",
+          "importSpec": {
+            "modulePath": "SoccerPlaceMens2.tsx"
+          },
+          "cssFilePath": "plasmic/proliga/PlasmicSoccerPlaceMens2.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "0Wn5PD6iZBUT",
+          "name": "PlayerInfo",
+          "type": "managed",
+          "projectId": "tDWy3GXn2mzd9e2xUaPdmu",
+          "renderModuleFilePath": "plasmic/proliga/PlasmicPlayerInfo.tsx",
+          "importSpec": {
+            "modulePath": "../pages/player-2/[id].tsx"
+          },
+          "cssFilePath": "plasmic/proliga/PlasmicPlayerInfo.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/player-2/[id]"
+        },
+        {
+          "id": "Jp7234NpnANy",
+          "name": "MarketPlayer",
+          "type": "managed",
+          "projectId": "tDWy3GXn2mzd9e2xUaPdmu",
+          "renderModuleFilePath": "plasmic/proliga/PlasmicMarketPlayer.tsx",
+          "importSpec": {
+            "modulePath": "MarketPlayer.tsx"
+          },
+          "cssFilePath": "plasmic/proliga/PlasmicMarketPlayer.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "rNb-IFMSQJkH",
+          "name": "PlayerInfoMarket",
+          "type": "managed",
+          "projectId": "tDWy3GXn2mzd9e2xUaPdmu",
+          "renderModuleFilePath": "plasmic/proliga/PlasmicPlayerInfoMarket.tsx",
+          "importSpec": {
+            "modulePath": "PlayerInfoMarket.tsx"
+          },
+          "cssFilePath": "plasmic/proliga/PlasmicPlayerInfoMarket.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "EwVsXqDViOHx",
+          "name": "Teams2Market",
+          "type": "managed",
+          "projectId": "tDWy3GXn2mzd9e2xUaPdmu",
+          "renderModuleFilePath": "plasmic/proliga/PlasmicTeams2Market.tsx",
+          "importSpec": {
+            "modulePath": "../pages/new-page.tsx"
+          },
+          "cssFilePath": "plasmic/proliga/PlasmicTeams2Market.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/new-page"
+        },
+        {
+          "id": "bCMc_ebYmgPo",
+          "name": "Select",
+          "type": "managed",
+          "projectId": "tDWy3GXn2mzd9e2xUaPdmu",
+          "renderModuleFilePath": "plasmic/proliga/PlasmicSelect.tsx",
+          "importSpec": {
+            "modulePath": "Select.tsx"
+          },
+          "cssFilePath": "plasmic/proliga/PlasmicSelect.module.css",
+          "scheme": "blackbox",
+          "componentType": "component",
+          "plumeType": "select"
+        },
+        {
+          "id": "9ZP2kLqrSFkb",
+          "name": "Select__Option",
+          "type": "managed",
+          "projectId": "tDWy3GXn2mzd9e2xUaPdmu",
+          "renderModuleFilePath": "plasmic/proliga/PlasmicSelect__Option.tsx",
+          "importSpec": {
+            "modulePath": "Select__Option.tsx"
+          },
+          "cssFilePath": "plasmic/proliga/PlasmicSelect__Option.module.css",
+          "scheme": "blackbox",
+          "componentType": "component",
+          "plumeType": "select-option"
+        },
+        {
+          "id": "LeJ4LqKJQKcN",
+          "name": "Select__OptionGroup",
+          "type": "managed",
+          "projectId": "tDWy3GXn2mzd9e2xUaPdmu",
+          "renderModuleFilePath": "plasmic/proliga/PlasmicSelect__OptionGroup.tsx",
+          "importSpec": {
+            "modulePath": "Select__OptionGroup.tsx"
+          },
+          "cssFilePath": "plasmic/proliga/PlasmicSelect__OptionGroup.module.css",
+          "scheme": "blackbox",
+          "componentType": "component",
+          "plumeType": "select-option-group"
+        },
+        {
+          "id": "lVSiHlW15HI5",
+          "name": "Select__Overlay",
+          "type": "managed",
+          "projectId": "tDWy3GXn2mzd9e2xUaPdmu",
+          "renderModuleFilePath": "plasmic/proliga/PlasmicSelect__Overlay.tsx",
+          "importSpec": {
+            "modulePath": "Select__Overlay.tsx"
+          },
+          "cssFilePath": "plasmic/proliga/PlasmicSelect__Overlay.module.css",
+          "scheme": "blackbox",
+          "componentType": "component",
+          "plumeType": "triggered-overlay"
+        },
+        {
+          "id": "Dg7NemWYQFk2",
+          "name": "TeamCreate",
+          "type": "managed",
+          "projectId": "tDWy3GXn2mzd9e2xUaPdmu",
+          "renderModuleFilePath": "plasmic/proliga/PlasmicTeamCreate.tsx",
+          "importSpec": {
+            "modulePath": "../pages/team-create.tsx"
+          },
+          "cssFilePath": "plasmic/proliga/PlasmicTeamCreate.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/team-create"
+        },
+        {
+          "id": "4QnaRcOLXj0D",
+          "name": "AvatarPlayer",
+          "type": "managed",
+          "projectId": "tDWy3GXn2mzd9e2xUaPdmu",
+          "renderModuleFilePath": "plasmic/proliga/PlasmicAvatarPlayer.tsx",
+          "importSpec": {
+            "modulePath": "AvatarPlayer.tsx"
+          },
+          "cssFilePath": "plasmic/proliga/PlasmicAvatarPlayer.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "HCDyn0G4nu0e",
+          "name": "Championships",
+          "type": "managed",
+          "projectId": "tDWy3GXn2mzd9e2xUaPdmu",
+          "renderModuleFilePath": "plasmic/proliga/PlasmicChampionships.tsx",
+          "importSpec": {
+            "modulePath": "../pages/competition.tsx"
+          },
+          "cssFilePath": "plasmic/proliga/PlasmicChampionships.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/competition"
+        },
+        {
+          "id": "7ylFTnxhQETY",
+          "name": "SideBarMyTeam",
+          "type": "managed",
+          "projectId": "tDWy3GXn2mzd9e2xUaPdmu",
+          "renderModuleFilePath": "plasmic/proliga/PlasmicSideBarMyTeam.tsx",
+          "importSpec": {
+            "modulePath": "SideBarMyTeam.tsx"
+          },
+          "cssFilePath": "plasmic/proliga/PlasmicSideBarMyTeam.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "NaQtMjgilBY9",
+          "name": "PlayerPickerRow",
+          "type": "managed",
+          "projectId": "tDWy3GXn2mzd9e2xUaPdmu",
+          "renderModuleFilePath": "plasmic/proliga/PlasmicPlayerPickerRow.tsx",
+          "importSpec": {
+            "modulePath": "PlayerPickerRow.tsx"
+          },
+          "cssFilePath": "plasmic/proliga/PlasmicPlayerPickerRow.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "KNRpEkS9bXP0",
+          "name": "MessageCard",
+          "type": "managed",
+          "projectId": "tDWy3GXn2mzd9e2xUaPdmu",
+          "renderModuleFilePath": "plasmic/proliga/PlasmicMessageCard.tsx",
+          "importSpec": {
+            "modulePath": "MessageCard.tsx"
+          },
+          "cssFilePath": "plasmic/proliga/PlasmicMessageCard.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "ViX-reU4QKrx",
+          "name": "SellPlayerCard",
+          "type": "managed",
+          "projectId": "tDWy3GXn2mzd9e2xUaPdmu",
+          "renderModuleFilePath": "plasmic/proliga/PlasmicSellPlayerCard.tsx",
+          "importSpec": {
+            "modulePath": "SellPlayerCard.tsx"
+          },
+          "cssFilePath": "plasmic/proliga/PlasmicSellPlayerCard.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "IyS4U3yaVhR8",
+          "name": "Activity",
+          "type": "managed",
+          "projectId": "tDWy3GXn2mzd9e2xUaPdmu",
+          "renderModuleFilePath": "plasmic/proliga/PlasmicActivity.tsx",
+          "importSpec": {
+            "modulePath": "../pages/activity.tsx"
+          },
+          "cssFilePath": "plasmic/proliga/PlasmicActivity.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/activity"
+        },
+        {
+          "id": "JFWOLtBypZOZ",
+          "name": "UserActivity",
+          "type": "managed",
+          "projectId": "tDWy3GXn2mzd9e2xUaPdmu",
+          "renderModuleFilePath": "plasmic/proliga/PlasmicUserActivity.tsx",
+          "importSpec": {
+            "modulePath": "UserActivity.tsx"
+          },
+          "cssFilePath": "plasmic/proliga/PlasmicUserActivity.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "XWByMSCmxs7g",
+          "name": "UpdateCapitan",
+          "type": "managed",
+          "projectId": "tDWy3GXn2mzd9e2xUaPdmu",
+          "renderModuleFilePath": "plasmic/proliga/PlasmicUpdateCapitan.tsx",
+          "importSpec": {
+            "modulePath": "UpdateCapitan.tsx"
+          },
+          "cssFilePath": "plasmic/proliga/PlasmicUpdateCapitan.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "l6vELxZhJ9Rs",
+          "name": "HomePageAdmin",
+          "type": "managed",
+          "projectId": "tDWy3GXn2mzd9e2xUaPdmu",
+          "renderModuleFilePath": "plasmic/proliga/PlasmicHomePageAdmin.tsx",
+          "importSpec": {
+            "modulePath": "../pages/home-page-admin.tsx"
+          },
+          "cssFilePath": "plasmic/proliga/PlasmicHomePageAdmin.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/home-page-admin"
+        },
+        {
+          "id": "hHE4D7ugAvRd",
+          "name": "Switch",
+          "type": "managed",
+          "projectId": "tDWy3GXn2mzd9e2xUaPdmu",
+          "renderModuleFilePath": "plasmic/proliga/PlasmicSwitch.tsx",
+          "importSpec": {
+            "modulePath": "Switch.tsx"
+          },
+          "cssFilePath": "plasmic/proliga/PlasmicSwitch.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "HkymKsA_ZArE",
+          "name": "Club2",
+          "type": "managed",
+          "projectId": "tDWy3GXn2mzd9e2xUaPdmu",
+          "renderModuleFilePath": "plasmic/proliga/PlasmicClub2.tsx",
+          "importSpec": {
+            "modulePath": "../pages/clubs-2/[id].tsx"
+          },
+          "cssFilePath": "plasmic/proliga/PlasmicClub2.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/clubs-2/[id]"
+        },
+        {
+          "id": "mheDXg-YkeTz",
+          "name": "LoginAuth",
+          "type": "managed",
+          "projectId": "tDWy3GXn2mzd9e2xUaPdmu",
+          "renderModuleFilePath": "plasmic/proliga/PlasmicLoginAuth.tsx",
+          "importSpec": {
+            "modulePath": "LoginAuth.tsx"
+          },
+          "cssFilePath": "plasmic/proliga/PlasmicLoginAuth.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "VVc7zCeBjPCB",
+          "name": "Register",
+          "type": "managed",
+          "projectId": "tDWy3GXn2mzd9e2xUaPdmu",
+          "renderModuleFilePath": "plasmic/proliga/PlasmicRegister.tsx",
+          "importSpec": {
+            "modulePath": "Register.tsx"
+          },
+          "cssFilePath": "plasmic/proliga/PlasmicRegister.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "VlLrZivYvDym",
+          "name": "NavbarProliga",
+          "type": "managed",
+          "projectId": "tDWy3GXn2mzd9e2xUaPdmu",
+          "renderModuleFilePath": "plasmic/proliga/PlasmicNavbarProliga.tsx",
+          "importSpec": {
+            "modulePath": "NavbarProliga.tsx"
+          },
+          "cssFilePath": "plasmic/proliga/PlasmicNavbarProliga.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "H0AldfR-bP7i",
+          "name": "Button",
+          "type": "managed",
+          "projectId": "tDWy3GXn2mzd9e2xUaPdmu",
+          "renderModuleFilePath": "plasmic/proliga/PlasmicButton.tsx",
+          "importSpec": {
+            "modulePath": "Button.tsx"
+          },
+          "cssFilePath": "plasmic/proliga/PlasmicButton.module.css",
+          "scheme": "blackbox",
+          "componentType": "component",
+          "plumeType": "button"
+        },
+        {
+          "id": "i0rgrgn_wwgT",
+          "name": "Logout",
+          "type": "managed",
+          "projectId": "tDWy3GXn2mzd9e2xUaPdmu",
+          "renderModuleFilePath": "plasmic/proliga/PlasmicLogout.tsx",
+          "importSpec": {
+            "modulePath": "Logout.tsx"
+          },
+          "cssFilePath": "plasmic/proliga/PlasmicLogout.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "d7-gk_liJIPx",
+          "name": "TeamPlayerCreate",
+          "type": "managed",
+          "projectId": "tDWy3GXn2mzd9e2xUaPdmu",
+          "renderModuleFilePath": "plasmic/proliga/PlasmicTeamPlayerCreate.tsx",
+          "importSpec": {
+            "modulePath": "TeamPlayerCreate.tsx"
+          },
+          "cssFilePath": "plasmic/proliga/PlasmicTeamPlayerCreate.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "3fwpAay-2jFk",
+          "name": "AvatarPlayer",
+          "type": "managed",
+          "projectId": "tDWy3GXn2mzd9e2xUaPdmu",
+          "renderModuleFilePath": "plasmic/proliga/PlasmicAvatarPlayer.tsx",
+          "importSpec": {
+            "modulePath": "AvatarPlayer.tsx"
+          },
+          "cssFilePath": "plasmic/proliga/PlasmicAvatarPlayer.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "Frl2YSBYx07V",
+          "name": "UserTeam",
+          "type": "managed",
+          "projectId": "tDWy3GXn2mzd9e2xUaPdmu",
+          "renderModuleFilePath": "plasmic/proliga/PlasmicUserTeam.tsx",
+          "importSpec": {
+            "modulePath": "../pages/team/[id].tsx"
+          },
+          "cssFilePath": "plasmic/proliga/PlasmicUserTeam.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/team/[id]"
+        },
+        {
+          "id": "Q5DWXsGHGePI",
+          "name": "ShowTeams",
+          "type": "managed",
+          "projectId": "tDWy3GXn2mzd9e2xUaPdmu",
+          "renderModuleFilePath": "plasmic/proliga/PlasmicShowTeams.tsx",
+          "importSpec": {
+            "modulePath": "../pages/showteams.tsx"
+          },
+          "cssFilePath": "plasmic/proliga/PlasmicShowTeams.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/showteams"
+        }
+      ],
+      "icons": [
+        {
+          "id": "BLgPkmgd4hOv",
+          "name": "ChecksvgIcon",
+          "moduleFilePath": "plasmic/proliga/icons/PlasmicIcon__Checksvg.tsx"
+        },
+        {
+          "id": "6EplYmkkN57M",
+          "name": "IconIcon",
+          "moduleFilePath": "plasmic/proliga/icons/PlasmicIcon__Icon.tsx"
+        },
+        {
+          "id": "TfB627kbYt5s",
+          "name": "SearchsvgIcon",
+          "moduleFilePath": "plasmic/proliga/icons/PlasmicIcon__Searchsvg.tsx"
+        },
+        {
+          "id": "oYuBO_DvQ_om",
+          "name": "SquaresvgIcon",
+          "moduleFilePath": "plasmic/proliga/icons/PlasmicIcon__Squaresvg.tsx"
+        },
+        {
+          "id": "eU4ObTJYqLqc",
+          "name": "SquareCheckFilledsvgIcon",
+          "moduleFilePath": "plasmic/proliga/icons/PlasmicIcon__SquareCheckFilledsvg.tsx"
+        },
+        {
+          "id": "QFGn4HPJT1yj",
+          "name": "SquareMinussvgIcon",
+          "moduleFilePath": "plasmic/proliga/icons/PlasmicIcon__SquareMinussvg.tsx"
+        },
+        {
+          "id": "CfMMOMbkSfDj",
+          "name": "Rolling1X10S200Px200PxsvgIcon",
+          "moduleFilePath": "plasmic/proliga/icons/PlasmicIcon__Rolling1X10S200Px200Pxsvg.tsx"
+        },
+        {
+          "id": "a_BfcfBfPHVZ",
+          "name": "ChevronDownsvgIcon",
+          "moduleFilePath": "plasmic/proliga/icons/PlasmicIcon__ChevronDownsvg.tsx"
+        },
+        {
+          "id": "DSgGrZ0WQs_W",
+          "name": "ChevronUpsvgIcon",
+          "moduleFilePath": "plasmic/proliga/icons/PlasmicIcon__ChevronUpsvg.tsx"
+        },
+        {
+          "id": "b0eE7qHpNe6S",
+          "name": "Icon2Icon",
+          "moduleFilePath": "plasmic/proliga/icons/PlasmicIcon__Icon2.tsx"
+        }
+      ],
+      "images": [
+        {
+          "id": "6W4pPnZujWL8",
+          "name": "image",
+          "filePath": "../public/plasmic/proliga/images/image.svg"
+        },
+        {
+          "id": "Nx0BYQkUUpDb",
+          "name": "Screenshot 2024-04-07 120359.png",
+          "filePath": "../public/plasmic/proliga/images/screenshot20240407120359Png.png"
+        },
+        {
+          "id": "hCrmCV7KuWgw",
+          "name": "logo_fantasy_dark_bg.png",
+          "filePath": "../public/plasmic/proliga/images/logoFantasyDarkBgpng.png"
+        },
+        {
+          "id": "Un0iPa0oRyAH",
+          "name": "logo_sponsor_main_white.png",
+          "filePath": "../public/plasmic/proliga/images/logoSponsorMainWhitepng.png"
+        },
+        {
+          "id": "dROJOUBDmkr5",
+          "name": "1350731.jpeg",
+          "filePath": "../public/plasmic/proliga/images/_1350731Jpeg.jpg"
+        },
+        {
+          "id": "JWu0xW8612rR",
+          "name": "unnamed.jpg",
+          "filePath": "../public/plasmic/proliga/images/unnamedjpg.jpg"
+        },
+        {
+          "id": "Mu4M5JeZO8U4",
+          "name": "images (1).jfif",
+          "filePath": "../public/plasmic/proliga/images/images1Jfif.jpg"
+        },
+        {
+          "id": "CbcBUeoUtTa4",
+          "name": "sm_5aff6081b74c8.jpg",
+          "filePath": "../public/plasmic/proliga/images/sm5Aff6081B74C8Jpg.jpg"
+        },
+        {
+          "id": "-mitjgoU5CXF",
+          "name": "555.webp",
+          "filePath": "../public/plasmic/proliga/images/_555Webp.webp"
+        },
+        {
+          "id": "r8sM9-0nEoII",
+          "name": "facebook-logo-circle-transparent.png",
+          "filePath": "../public/plasmic/proliga/images/facebookLogoCircleTransparentpng.png"
+        },
+        {
+          "id": "125xbX3wD6M9",
+          "name": "754_facebook_icon.jpg",
+          "filePath": "../public/plasmic/proliga/images/_754FacebookIconjpg.jpg"
+        },
+        {
+          "id": "kEQQnjK7Kagx",
+          "name": "Google__G__logo.svg.png",
+          "filePath": "../public/plasmic/proliga/images/googleGLogosvgpng.png"
+        },
+        {
+          "id": "OAPctIEpe37W",
+          "name": "images.png",
+          "filePath": "../public/plasmic/proliga/images/imagespng.png"
+        },
+        {
+          "id": "zbvghBEBlN3k",
+          "name": "Real-Betis.png",
+          "filePath": "../public/plasmic/proliga/images/realBetispng.png"
+        },
+        {
+          "id": "5KRY2fO7HzWp",
+          "name": "p1678_t186_1_001_000.png",
+          "filePath": "../public/plasmic/proliga/images/p1678T1861001000Png.png"
+        },
+        {
+          "id": "XwYtCOkijssP",
+          "name": "empty_state_no_results.webp",
+          "filePath": "../public/plasmic/proliga/images/emptyStateNoResultswebp.webp"
+        },
+        {
+          "id": "SNCGq6RddU0w",
+          "name": "X_logo_2023_original.svg",
+          "filePath": "../public/plasmic/proliga/images/xLogo2023Originalsvg.svg"
+        },
+        {
+          "id": "V-nrR1KOSYry",
+          "name": "x-social-media-white-icon.png",
+          "filePath": "../public/plasmic/proliga/images/xSocialMediaWhiteIconpng.png"
+        },
+        {
+          "id": "uGYbZsm_q2Rz",
+          "name": "soccer place.jpg",
+          "filePath": "../public/plasmic/proliga/images/soccerPlacejpg.jpg"
+        },
+        {
+          "id": "wr7LGwrQ1tJI",
+          "name": "Sergio Her.png",
+          "filePath": "../public/plasmic/proliga/images/sergioHerpng.png"
+        },
+        {
+          "id": "_YC-op71x-xn",
+          "name": "Dovbyk.png",
+          "filePath": "../public/plasmic/proliga/images/dovbykpng.png"
+        },
+        {
+          "id": "eJKfGZmPUPZQ",
+          "name": "Ramos.png",
+          "filePath": "../public/plasmic/proliga/images/ramospng.png"
+        },
+        {
+          "id": "-Rgc2gRud9U3",
+          "name": "John pache.png",
+          "filePath": "../public/plasmic/proliga/images/johnPachepng.png"
+        },
+        {
+          "id": "0C0ibce3gRyk",
+          "name": "Migueza.png",
+          "filePath": "../public/plasmic/proliga/images/miguezapng.png"
+        },
+        {
+          "id": "h19QmjQGOcyq",
+          "name": "Zahkaryan.png",
+          "filePath": "../public/plasmic/proliga/images/zahkaryanpng.png"
+        },
+        {
+          "id": "ty0ZNiSfCwR4",
+          "name": "Iker munofiz.png",
+          "filePath": "../public/plasmic/proliga/images/ikerMunofizpng.png"
+        },
+        {
+          "id": "_tfKBtqWYkMJ",
+          "name": "Robert nav.png",
+          "filePath": "../public/plasmic/proliga/images/robertNavpng.png"
+        },
+        {
+          "id": "VCeKUc2S-y5U",
+          "name": "Alcaraz.png",
+          "filePath": "../public/plasmic/proliga/images/alcarazpng.png"
+        },
+        {
+          "id": "kDJ22Jz36mF-",
+          "name": "Rodrygo.png",
+          "filePath": "../public/plasmic/proliga/images/rodrygopng.png"
+        },
+        {
+          "id": "qMLLmo9MtteL",
+          "name": "Willian Jose.png",
+          "filePath": "../public/plasmic/proliga/images/willianJosepng.png"
+        },
+        {
+          "id": "Rgt3GGKZDrQw",
+          "name": "Cros.webp",
+          "filePath": "../public/plasmic/proliga/images/croswebp.webp"
+        },
+        {
+          "id": "3_n5qnH6wGnI",
+          "name": "Athletico madrid.webp",
+          "filePath": "../public/plasmic/proliga/images/athleticoMadridwebp.webp"
+        },
+        {
+          "id": "8m01FdFaiWUZ",
+          "name": "Cimy Amela.webp",
+          "filePath": "../public/plasmic/proliga/images/cimyAmelawebp.webp"
+        },
+        {
+          "id": "fgpoCVMtTyRa",
+          "name": "Rm team.webp",
+          "filePath": "../public/plasmic/proliga/images/rmTeamwebp.webp"
+        },
+        {
+          "id": "0kAFfprmB7Ww",
+          "name": "Real-madrid.png",
+          "filePath": "../public/plasmic/proliga/images/realMadridpng.png"
+        },
+        {
+          "id": "32qGfzd8Sc5M",
+          "name": "Cadiz.png",
+          "filePath": "../public/plasmic/proliga/images/cadizpng.png"
+        },
+        {
+          "id": "xgPx5P9J8Qe3",
+          "name": "FcBarcelona.png",
+          "filePath": "../public/plasmic/proliga/images/fcBarcelonapng.png"
+        },
+        {
+          "id": "SGHq_PncyTtf",
+          "name": "Osasuna.png",
+          "filePath": "../public/plasmic/proliga/images/osasunapng.png"
+        },
+        {
+          "id": "iI1mLfsPlhIu",
+          "name": "Alaves.png",
+          "filePath": "../public/plasmic/proliga/images/alavespng.png"
+        },
+        {
+          "id": "Lwqro0iBmcdd",
+          "name": "free-circle-wavy-warning-3601587-3003157.webp",
+          "filePath": "../public/plasmic/proliga/images/freeCircleWavyWarning36015873003157Webp.webp"
+        },
+        {
+          "id": "qjqwCmjI82bO",
+          "name": "images.png 2",
+          "filePath": "../public/plasmic/proliga/images/imagespng2.png"
+        },
+        {
+          "id": "fMa-kdmGAH_C",
+          "name": "freesvgorg59596.png",
+          "filePath": "../public/plasmic/proliga/images/freesvgorg59596Png.png"
+        },
+        {
+          "id": "DxMX4Ihf-gRh",
+          "name": "warning-outline.svg",
+          "filePath": "../public/plasmic/proliga/images/warningOutlinesvg.svg"
+        },
+        {
+          "id": "0D2gMS_rH5W4",
+          "name": "1200px-Warning.svg.png",
+          "filePath": "../public/plasmic/proliga/images/_1200PxWarningsvgpng.png"
+        },
+        {
+          "id": "t2k6ZzO18_vv",
+          "name": "images (1).png",
+          "filePath": "../public/plasmic/proliga/images/images1Png.png"
+        },
+        {
+          "id": "wWIF6ZW6_25y",
+          "name": "hospital.svg",
+          "filePath": "../public/plasmic/proliga/images/hospitalsvg.svg"
+        },
+        {
+          "id": "JRT1ZwBTLShJ",
+          "name": "hospital (1)7777.svg",
+          "filePath": "../public/plasmic/proliga/images/hospital17777Svg.svg"
+        },
+        {
+          "id": "CQ79n0AQvvUw",
+          "name": "cross_medical_circle-512.webp",
+          "filePath": "../public/plasmic/proliga/images/crossMedicalCircle512Webp.webp"
+        },
+        {
+          "id": "fsp6myg5km50",
+          "name": "2dcJ0Unw_400x400.png",
+          "filePath": "../public/plasmic/proliga/images/_2DcJ0Unw400X400Png.png"
+        },
+        {
+          "id": "x2WXSHNJ1wRI",
+          "name": "vector-cancel-icon-png_302651.jpg",
+          "filePath": "../public/plasmic/proliga/images/vectorCancelIconPng302651Jpg.jpg"
+        },
+        {
+          "id": "IypQSiFBDd_t",
+          "name": "Xetafe.png",
+          "filePath": "../public/plasmic/proliga/images/xetafepng.png"
+        },
+        {
+          "id": "NbGSWQOZUPg3",
+          "name": "free-red-hospital-clinic-icon-10725-thumb.png",
+          "filePath": "../public/plasmic/proliga/images/freeRedHospitalClinicIcon10725Thumbpng.png"
+        },
+        {
+          "id": "M4xqb-15j9LF",
+          "name": "logo_sponsor_main_pink.png",
+          "filePath": "../public/plasmic/proliga/images/logoSponsorMainPinkpng.png"
+        },
+        {
+          "id": "pSf6HonAee2K",
+          "name": "Borja Mayoral.png",
+          "filePath": "../public/plasmic/proliga/images/borjaMayoralpng.png"
+        },
+        {
+          "id": "KnUIYkMWv4cP",
+          "name": "pngtree-euro-symbol-currency-png-image_3974231.png",
+          "filePath": "../public/plasmic/proliga/images/pngtreeEuroSymbolCurrencyPngImage3974231Png.png"
+        },
+        {
+          "id": "i5gEU44JUS16",
+          "name": "pngtree-euro-symbol-currency-png-image_3974231.png 2",
+          "filePath": "../public/plasmic/proliga/images/pngtreeEuroSymbolCurrencyPngImage3974231Png2.png"
+        },
+        {
+          "id": "1mS18sagp4Ez",
+          "name": "Courtua.png",
+          "filePath": "../public/plasmic/proliga/images/courtuapng.png"
+        },
+        {
+          "id": "YCzby4lF9I7d",
+          "name": "Giménez.png",
+          "filePath": "../public/plasmic/proliga/images/gimenezpng.png"
+        },
+        {
+          "id": "1LRe_3JF48uR",
+          "name": "Traoré.png",
+          "filePath": "../public/plasmic/proliga/images/traorepng.png"
+        },
+        {
+          "id": "GvzAtnqwq6zS",
+          "name": "Arda Güler.png",
+          "filePath": "../public/plasmic/proliga/images/ardaGulerpng.png"
+        },
+        {
+          "id": "KCgDb_z-OJDA",
+          "name": "Ayoze Pérez.png",
+          "filePath": "../public/plasmic/proliga/images/ayozePerezpng.png"
+        },
+        {
+          "id": "uSHMT79difje",
+          "name": "Budimir.png",
+          "filePath": "../public/plasmic/proliga/images/budimirpng.png"
+        },
+        {
+          "id": "JZTXngVuUZV0",
+          "name": "Ceballos.png",
+          "filePath": "../public/plasmic/proliga/images/ceballospng.png"
+        },
+        {
+          "id": "q8vxa33zbGlF",
+          "name": "David García.png",
+          "filePath": "../public/plasmic/proliga/images/davidGarciapng.png"
+        },
+        {
+          "id": "Nbn7iQn_PQOf",
+          "name": "De Galarreta.png",
+          "filePath": "../public/plasmic/proliga/images/deGalarretapng.png"
+        },
+        {
+          "id": "bCPfmwLhft8I",
+          "name": "De Jong.png",
+          "filePath": "../public/plasmic/proliga/images/deJongpng.png"
+        },
+        {
+          "id": "xJ8_-Qo42YJr",
+          "name": "De Leon.png",
+          "filePath": "../public/plasmic/proliga/images/deLeonpng.png"
+        },
+        {
+          "id": "aCHsMadiAiPo",
+          "name": "Fran García.png",
+          "filePath": "../public/plasmic/proliga/images/franGarciapng.png"
+        },
+        {
+          "id": "qIACDQFE5L6I",
+          "name": "Isaac.png",
+          "filePath": "../public/plasmic/proliga/images/isaacpng.png"
+        },
+        {
+          "id": "pVBgw88_8ORI",
+          "name": "free-euro-coin-icon-2141-thumb.png",
+          "filePath": "../public/plasmic/proliga/images/freeEuroCoinIcon2141Thumbpng.png"
+        },
+        {
+          "id": "4myAKc1Ieeaw",
+          "name": "4288587awardchampioncuptrophywinner-115769_115744.svg",
+          "filePath": "../public/plasmic/proliga/images/_4288587Awardchampioncuptrophywinner115769115744Svg.svg"
+        },
+        {
+          "id": "Lnc2t21zGDm9",
+          "name": "euro.png",
+          "filePath": "../public/plasmic/proliga/images/europng.png"
+        },
+        {
+          "id": "H2AGeOAb6Ash",
+          "name": "photo_2024-04-02_12-59-08.jpg",
+          "filePath": "../public/plasmic/proliga/images/photo20240402125908Jpg.jpg"
+        },
+        {
+          "id": "0shpZ_yglJ2Y",
+          "name": "photo_2024-04-09_03-28-49.jpg",
+          "filePath": "../public/plasmic/proliga/images/photo20240409032849Jpg.jpg"
+        },
+        {
+          "id": "AL8MmEjJOeTG",
+          "name": "png-clipart-computer-icons-euro-coins-euro-sign-currency-symbol-euro-text-trademark.png",
+          "filePath": "../public/plasmic/proliga/images/pngClipartComputerIconsEuroCoinsEuroSignCurrencySymbolEuroTextTrademarkpng.png"
+        },
+        {
+          "id": "0itUnAWLO2Dh",
+          "name": "Group 33.png",
+          "filePath": "../public/plasmic/proliga/images/group33Png.png"
+        },
+        {
+          "id": "W0guQWKBMwDw",
+          "name": "logo-design-template-b588de7cc0b07e82392c3b2ea4ea7b73_screen.jpg",
+          "filePath": "../public/plasmic/proliga/images/logoDesignTemplateB588De7Cc0B07E82392C3B2Ea4Ea7B73Screenjpg.jpg"
+        },
+        {
+          "id": "k7toujHeMO5Y",
+          "name": "first.jpg",
+          "filePath": "../public/plasmic/proliga/images/firstjpg.jpg"
+        },
+        {
+          "id": "Y5qu4x5CKpVB",
+          "name": "IMG_2239.JPG",
+          "filePath": "../public/plasmic/proliga/images/img2239Jpg.jpg"
+        }
+      ],
+      "indirect": false,
+      "globalContextsFilePath": "plasmic/proliga/PlasmicGlobalContextsProvider.tsx",
+      "splitsProviderFilePath": "",
+      "codeComponents": [
+        {
+          "id": "dbTDKov7Ueil",
+          "name": "PlasmicHead",
+          "displayName": "hostless-plasmic-head",
+          "componentImportPath": "@plasmicapp/react-web"
+        },
+        {
+          "id": "My3ktsdG3TW1",
+          "name": "Fetcher",
+          "displayName": "plasmic-data-source-fetcher",
+          "componentImportPath": "@plasmicapp/react-web/lib/data-sources"
+        }
+      ],
+      "customFunctions": []
+    }
+  ],
+  "globalVariants": {
+    "variantGroups": [
+      {
+        "id": "8Rmrqs5Mzp6I",
+        "name": "Screen",
+        "projectId": "tDWy3GXn2mzd9e2xUaPdmu",
+        "contextFilePath": "plasmic/proliga/PlasmicGlobalVariant__Screen.tsx"
+      }
+    ]
+  },
+  "wrapPagesWithGlobalContexts": true,
+  "nextjsConfig": {
+    "pagesDir": "../pages"
+  },
+  "cliVersion": "0.1.330",
+  "$schema": "https://unpkg.com/@plasmicapp/cli@0.1.330/dist/plasmic.schema.json"
+}

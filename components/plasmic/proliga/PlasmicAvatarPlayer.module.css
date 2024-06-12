@@ -1,0 +1,76 @@
+.root {
+  display: inline-flex;
+  flex-direction: column;
+  position: relative;
+  width: auto;
+  height: auto;
+  justify-content: center;
+  align-items: center;
+  background: none;
+  justify-self: flex-start;
+  transition-property: all;
+  transition-duration: 1s;
+  cursor: pointer;
+  -webkit-transition-property: all;
+  -webkit-transition-duration: 1s;
+}
+.img__axqph {
+  position: absolute;
+  object-fit: cover;
+  max-width: 100%;
+  z-index: 2;
+  left: 1px;
+  top: 2px;
+}
+.img__axqph > picture > img {
+  object-fit: cover;
+}
+.freeBox {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+  padding: 8px;
+}
+.img__d8Cvi {
+  object-fit: cover;
+  max-width: 100%;
+}
+.img__d8Cvi > picture > img {
+  object-fit: cover;
+}
+.img__lZVb {
+  position: absolute;
+  object-fit: fill;
+  max-width: 100%;
+  width: 10px;
+  height: 10px;
+  left: 50px;
+  top: 8px;
+  z-index: 2;
+  flex-shrink: 0;
+}
+.img__lZVb > picture > img {
+  object-fit: fill;
+}
+.text {
+  position: relative;
+  width: 53px;
+  height: auto;
+  max-width: 100%;
+  color: var(--token-jgohepLVeKvh);
+  background: linear-gradient(
+      var(--token-LqtA0Zd3XkIQ),
+      var(--token-LqtA0Zd3XkIQ)
+    ),
+    var(--token-jgohepLVeKvh);
+  font-size: 10px;
+  font-weight: 900;
+  text-align: center;
+  font-family: "Inria Serif", serif;
+}

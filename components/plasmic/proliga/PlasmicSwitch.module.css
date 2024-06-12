@@ -1,0 +1,38 @@
+.root {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 6px;
+  height: 6px;
+  max-width: 100%;
+  position: relative;
+  transition-property: all;
+  transition-duration: 0.25s;
+  justify-self: flex-start;
+  -webkit-transition-property: all;
+  -webkit-transition-duration: 0.25s;
+  border-radius: 30px;
+  padding: 4px 20px 4px 4px;
+  border-width: 1px;
+  border-style: solid;
+}
+.rootisOn {
+  padding-right: 4px;
+  padding-left: 20px;
+}
+.freeBox {
+  display: block;
+  width: 4px;
+  height: 4px;
+  max-width: 100%;
+  background: #000000;
+  opacity: 0.4;
+  flex-shrink: 0;
+  border-radius: 100%;
+  padding: 0px;
+  border: 1px solid #000000;
+}
+.freeBoxisOn {
+  opacity: 1;
+}
