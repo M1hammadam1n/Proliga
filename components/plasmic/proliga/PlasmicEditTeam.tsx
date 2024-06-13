@@ -65,7 +65,7 @@ import {
   usePlasmicInvalidate
 } from "@plasmicapp/react-web/lib/data-sources";
 
-import { RichDetails } from "@plasmicpkgs/plasmic-rich-components/skinny/rich-details";
+import Navbar from "../../Navbar"; // plasmic-import: TKT8XnZtrLZi/component
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 
 import "@plasmicapp/react-web/lib/plasmic.css";
@@ -88,8 +88,7 @@ export const PlasmicEditTeam__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicEditTeam__OverridesType = {
   root?: Flex__<"div">;
-  dataDetails?: Flex__<typeof RichDetails>;
-  h1?: Flex__<"h1">;
+  navbar?: Flex__<typeof Navbar>;
 };
 
 export interface DefaultEditTeamProps {}
@@ -188,52 +187,11 @@ function PlasmicEditTeam__RenderFunc(props: {
             sty.root
           )}
         >
-          <RichDetails
-            data-plasmic-name={"dataDetails"}
-            data-plasmic-override={overrides.dataDetails}
-            bordered={true}
-            className={classNames("__wab_instance", sty.dataDetails)}
-            data={(() => {
-              try {
-                return $queries.query.data[0];
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return null;
-                }
-                throw e;
-              }
-            })()}
+          <Navbar
+            data-plasmic-name={"navbar"}
+            data-plasmic-override={overrides.navbar}
+            className={classNames("__wab_instance", sty.navbar)}
           />
-
-          <h1
-            data-plasmic-name={"h1"}
-            data-plasmic-override={overrides.h1}
-            className={classNames(
-              projectcss.all,
-              projectcss.h1,
-              projectcss.__wab_text,
-              sty.h1
-            )}
-          >
-            <React.Fragment>
-              {(() => {
-                try {
-                  return $queries.query.data[0].name;
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return "Page title";
-                  }
-                  throw e;
-                }
-              })()}
-            </React.Fragment>
-          </h1>
         </div>
       </div>
     </React.Fragment>
@@ -241,17 +199,15 @@ function PlasmicEditTeam__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "dataDetails", "h1"],
-  dataDetails: ["dataDetails"],
-  h1: ["h1"]
+  root: ["root", "navbar"],
+  navbar: ["navbar"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
-  dataDetails: typeof RichDetails;
-  h1: "h1";
+  navbar: typeof Navbar;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -314,8 +270,7 @@ export const PlasmicEditTeam = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
-    dataDetails: makeNodeComponent("dataDetails"),
-    h1: makeNodeComponent("h1"),
+    navbar: makeNodeComponent("navbar"),
 
     // Metadata about props expected for PlasmicEditTeam
     internalVariantProps: PlasmicEditTeam__VariantProps,

@@ -66,6 +66,7 @@ import {
   usePlasmicInvalidate
 } from "@plasmicapp/react-web/lib/data-sources";
 
+import Navbar from "../../Navbar"; // plasmic-import: TKT8XnZtrLZi/component
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 
 import { useScreenVariants as useScreenVariants_8Rmrqs5Mzp6I } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 8Rmrqs5Mzp6I/globalVariant
@@ -90,6 +91,7 @@ export const PlasmicChampionships__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicChampionships__OverridesType = {
   root?: Flex__<"div">;
+  navbar?: Flex__<typeof Navbar>;
   h1?: Flex__<"h1">;
   freeBox?: Flex__<"div">;
   columns?: Flex__<"div">;
@@ -153,28 +155,6 @@ function PlasmicChampionships__RenderFunc(props: {
   const dataSourcesCtx = usePlasmicDataSourceContext();
 
   const new$Queries: Record<string, ReturnType<typeof usePlasmicDataOp>> = {
-    compotetion: usePlasmicDataOp(() => {
-      return {
-        sourceId: "8cdHi4ivRUEkK6qbegQevF",
-        opId: "a3926ae2-ba51-4cc3-a479-7fb855fe9bdb",
-        userArgs: {},
-        cacheKey: `plasmic.$.${(() => {
-          try {
-            return "getOne";
-          } catch (e) {
-            if (
-              e instanceof TypeError ||
-              e?.plasmicType === "PlasmicUndefinedDataError"
-            ) {
-              return "";
-            }
-            throw e;
-          }
-        })()}.$.a3926ae2-ba51-4cc3-a479-7fb855fe9bdb.$.`,
-        invalidatedKeys: null,
-        roleId: null
-      };
-    }),
     team: usePlasmicDataOp(() => {
       return {
         sourceId: "8cdHi4ivRUEkK6qbegQevF",
@@ -185,6 +165,16 @@ function PlasmicChampionships__RenderFunc(props: {
         cacheKey: `plasmic.$.953bfba6-6599-4384-99b8-a2fe13174a9a.$.`,
         invalidatedKeys: null,
         roleId: "f8970d3a-c1ae-4ba8-80dd-90e548ee70d6"
+      };
+    }),
+    compotetion2: usePlasmicDataOp(() => {
+      return {
+        sourceId: "vQtRPuFArSfh43vUmgx2PS",
+        opId: "d7b11bb5-83ca-4515-854e-a015b6aeb185",
+        userArgs: {},
+        cacheKey: `plasmic.$.d7b11bb5-83ca-4515-854e-a015b6aeb185.$.`,
+        invalidatedKeys: null,
+        roleId: null
       };
     })
   };
@@ -224,6 +214,12 @@ function PlasmicChampionships__RenderFunc(props: {
           sty.root
         )}
       >
+        <Navbar
+          data-plasmic-name={"navbar"}
+          data-plasmic-override={overrides.navbar}
+          className={classNames("__wab_instance", sty.navbar)}
+        />
+
         <h1
           data-plasmic-name={"h1"}
           data-plasmic-override={overrides.h1}
@@ -251,7 +247,7 @@ function PlasmicChampionships__RenderFunc(props: {
             {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
               (() => {
                 try {
-                  return $queries.compotetion.data;
+                  return $queries.compotetion2.data.response;
                 } catch (e) {
                   if (
                     e instanceof TypeError ||
@@ -394,7 +390,8 @@ function PlasmicChampionships__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "h1", "freeBox", "columns", "column", "text"],
+  root: ["root", "navbar", "h1", "freeBox", "columns", "column", "text"],
+  navbar: ["navbar"],
   h1: ["h1"],
   freeBox: ["freeBox", "columns", "column", "text"],
   columns: ["columns", "column", "text"],
@@ -406,6 +403,7 @@ type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
+  navbar: typeof Navbar;
   h1: "h1";
   freeBox: "div";
   columns: "div";
@@ -490,6 +488,7 @@ export const PlasmicChampionships = Object.assign(
   withPlasmicPageGuard(makeNodeComponent("root")),
   {
     // Helper components rendering sub-elements
+    navbar: makeNodeComponent("navbar"),
     h1: makeNodeComponent("h1"),
     freeBox: makeNodeComponent("freeBox"),
     columns: makeNodeComponent("columns"),
