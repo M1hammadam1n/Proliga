@@ -155,19 +155,7 @@ function PlasmicChampionships__RenderFunc(props: {
   const dataSourcesCtx = usePlasmicDataSourceContext();
 
   const new$Queries: Record<string, ReturnType<typeof usePlasmicDataOp>> = {
-    team: usePlasmicDataOp(() => {
-      return {
-        sourceId: "8cdHi4ivRUEkK6qbegQevF",
-        opId: "953bfba6-6599-4384-99b8-a2fe13174a9a",
-        userArgs: {
-          query: [$state.currentChampionship]
-        },
-        cacheKey: `plasmic.$.953bfba6-6599-4384-99b8-a2fe13174a9a.$.`,
-        invalidatedKeys: null,
-        roleId: "f8970d3a-c1ae-4ba8-80dd-90e548ee70d6"
-      };
-    }),
-    compotetion2: usePlasmicDataOp(() => {
+    compotetion: usePlasmicDataOp(() => {
       return {
         sourceId: "vQtRPuFArSfh43vUmgx2PS",
         opId: "d7b11bb5-83ca-4515-854e-a015b6aeb185",
@@ -247,7 +235,7 @@ function PlasmicChampionships__RenderFunc(props: {
             {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
               (() => {
                 try {
-                  return $queries.compotetion2.data.response;
+                  return $queries.compotetion.data.response;
                 } catch (e) {
                   if (
                     e instanceof TypeError ||

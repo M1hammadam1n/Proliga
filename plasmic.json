@@ -727,20 +727,6 @@
       "cssFilePath": "plasmic/proliga/plasmic.module.css",
       "components": [
         {
-          "id": "Bqv9LwfAil9f",
-          "name": "Homepage",
-          "type": "managed",
-          "projectId": "tDWy3GXn2mzd9e2xUaPdmu",
-          "renderModuleFilePath": "plasmic/proliga/PlasmicHomepage.tsx",
-          "importSpec": {
-            "modulePath": "../pages/index.tsx"
-          },
-          "cssFilePath": "plasmic/proliga/PlasmicHomepage.module.css",
-          "scheme": "blackbox",
-          "componentType": "page",
-          "path": "/"
-        },
-        {
           "id": "TKT8XnZtrLZi",
           "name": "Navbar",
           "type": "managed",
@@ -1584,6 +1570,20 @@
           "scheme": "blackbox",
           "componentType": "page",
           "path": "/team-2/[id]"
+        },
+        {
+          "id": "Bqv9LwfAil9f",
+          "name": "Homepage",
+          "type": "managed",
+          "projectId": "tDWy3GXn2mzd9e2xUaPdmu",
+          "renderModuleFilePath": "plasmic/proliga/PlasmicHomepage.tsx",
+          "importSpec": {
+            "modulePath": "../pages/index.tsx"
+          },
+          "cssFilePath": "plasmic/proliga/PlasmicHomepage.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/"
         }
       ],
       "icons": [

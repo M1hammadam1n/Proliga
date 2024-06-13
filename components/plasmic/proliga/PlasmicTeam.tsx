@@ -95,8 +95,8 @@ export type PlasmicTeam__OverridesType = {
   root?: Flex__<"div">;
   navbar?: Flex__<typeof Navbar>;
   img?: Flex__<typeof PlasmicImg__>;
-  modal?: Flex__<typeof AntdModal>;
-  form?: Flex__<typeof FormWrapper>;
+  modal2?: Flex__<typeof AntdModal>;
+  form2?: Flex__<typeof FormWrapper>;
 };
 
 export interface DefaultTeamProps {}
@@ -138,27 +138,27 @@ function PlasmicTeam__RenderFunc(props: {
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
-        path: "modal.open",
+        path: "modal2.open",
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => false
       },
       {
-        path: "form.value",
+        path: "form2.value",
         type: "private",
         variableType: "object",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
 
-        refName: "form",
+        refName: "form2",
         onMutate: generateOnMutateForSpec("value", FormWrapper_Helpers)
       },
       {
-        path: "form.isSubmitting",
+        path: "form2.isSubmitting",
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => false,
 
-        refName: "form",
+        refName: "form2",
         onMutate: generateOnMutateForSpec("isSubmitting", FormWrapper_Helpers)
       }
     ],
@@ -198,18 +198,6 @@ function PlasmicTeam__RenderFunc(props: {
         roleId: "f8970d3a-c1ae-4ba8-80dd-90e548ee70d6"
       };
     }),
-    checkUserTeam: usePlasmicDataOp(() => {
-      return {
-        sourceId: "8cdHi4ivRUEkK6qbegQevF",
-        opId: "b3f948c9-347c-469c-b4d1-275c2a76897d",
-        userArgs: {
-          query: [$queries.query.data[0].id]
-        },
-        cacheKey: `plasmic.$.b3f948c9-347c-469c-b4d1-275c2a76897d.$.`,
-        invalidatedKeys: null,
-        roleId: "f8970d3a-c1ae-4ba8-80dd-90e548ee70d6"
-      };
-    }),
     team: usePlasmicDataOp(() => {
       return {
         sourceId: "8cdHi4ivRUEkK6qbegQevF",
@@ -218,6 +206,18 @@ function PlasmicTeam__RenderFunc(props: {
           query: [$queries.query.data[0].id]
         },
         cacheKey: `plasmic.$.c33b79b5-0719-4400-861a-3f565b5e7083.$.`,
+        invalidatedKeys: null,
+        roleId: null
+      };
+    }),
+    checkExistsHttp: usePlasmicDataOp(() => {
+      return {
+        sourceId: "vQtRPuFArSfh43vUmgx2PS",
+        opId: "a7af71c9-6f9f-46b2-a2c2-b3588a3e48a7",
+        userArgs: {
+          params: [$queries.query.data[0].id]
+        },
+        cacheKey: `plasmic.$.a7af71c9-6f9f-46b2-a2c2-b3588a3e48a7.$.`,
         invalidatedKeys: null,
         roleId: null
       };
@@ -327,11 +327,11 @@ function PlasmicTeam__RenderFunc(props: {
             <Stack__
               as={"div"}
               hasGap={true}
-              className={classNames(projectcss.all, sty.freeBox__d3Pku)}
+              className={classNames(projectcss.all, sty.freeBox__o8Cdv)}
             >
               {(() => {
                 try {
-                  return !$queries.checkUserTeam.data[0].exists;
+                  return !$queries.checkExistsHttp.data.response;
                 } catch (e) {
                   if (
                     e instanceof TypeError ||
@@ -343,9 +343,9 @@ function PlasmicTeam__RenderFunc(props: {
                 }
               })() ? (
                 <AntdModal
-                  data-plasmic-name={"modal"}
-                  data-plasmic-override={overrides.modal}
-                  className={classNames("__wab_instance", sty.modal)}
+                  data-plasmic-name={"modal2"}
+                  data-plasmic-override={overrides.modal2}
+                  className={classNames("__wab_instance", sty.modal2)}
                   defaultStylesClassName={classNames(
                     projectcss.root_reset,
                     projectcss.plasmic_default_styles,
@@ -356,20 +356,20 @@ function PlasmicTeam__RenderFunc(props: {
                   )}
                   hideFooter={true}
                   modalContentClassName={classNames({
-                    [sty["pcls_dOdcAH_PXcMm"]]: true
+                    [sty["pcls_1nYCZIkSzTo6"]]: true
                   })}
-                  modalScopeClassName={sty["modal__modal"]}
+                  modalScopeClassName={sty["modal2__modal"]}
                   onOpenChange={generateStateOnChangeProp($state, [
-                    "modal",
+                    "modal2",
                     "open"
                   ])}
-                  open={generateStateValueProp($state, ["modal", "open"])}
+                  open={generateStateValueProp($state, ["modal2", "open"])}
                   title={"Insert name of team"}
                   trigger={
                     <AntdButton
                       className={classNames(
                         "__wab_instance",
-                        sty.button__r0SLe
+                        sty.button__cjVt1
                       )}
                       danger={false}
                       ghost={false}
@@ -383,7 +383,7 @@ function PlasmicTeam__RenderFunc(props: {
                         className={classNames(
                           projectcss.all,
                           projectcss.__wab_text,
-                          sty.text__tvjIh
+                          sty.text__bd78M
                         )}
                       >
                         {"Create team"}
@@ -393,7 +393,7 @@ function PlasmicTeam__RenderFunc(props: {
                 >
                   {(() => {
                     const child$Props = {
-                      className: classNames("__wab_instance", sty.form),
+                      className: classNames("__wab_instance", sty.form2),
                       data: {
                         sourceId: "8cdHi4ivRUEkK6qbegQevF",
                         opId: "64d46713-84cc-46a6-a33a-e049f8959f3d",
@@ -410,7 +410,7 @@ function PlasmicTeam__RenderFunc(props: {
                             }
                             throw e;
                           }
-                        })()}.$.64d46713-84cc-46a6-a33a-e049f8959f3d.$.`,
+                        })()}.$.svIxhG5uRyTp.$.64d46713-84cc-46a6-a33a-e049f8959f3d.$.`,
                         invalidatedKeys: null,
                         roleId: null
                       },
@@ -512,7 +512,7 @@ function PlasmicTeam__RenderFunc(props: {
                         generateStateOnChangePropForCodeComponents(
                           $state,
                           "value",
-                          ["form", "value"],
+                          ["form2", "value"],
                           FormWrapper_Helpers
                         ),
                       formItems: [],
@@ -531,7 +531,7 @@ function PlasmicTeam__RenderFunc(props: {
                                   userArgs: {
                                     variables: [
                                       $queries.query.data[0].id,
-                                      $state.form.value.name
+                                      $state.form2.value.name
                                     ]
                                   },
                                   cacheKey: null,
@@ -576,17 +576,17 @@ function PlasmicTeam__RenderFunc(props: {
                         generateStateOnChangePropForCodeComponents(
                           $state,
                           "isSubmitting",
-                          ["form", "isSubmitting"],
+                          ["form2", "isSubmitting"],
                           FormWrapper_Helpers
                         ),
                       ref: ref => {
-                        $refs["form"] = ref;
+                        $refs["form2"] = ref;
                       },
                       submitSlot: (
                         <AntdButton
                           className={classNames(
                             "__wab_instance",
-                            sty.button__jNxh
+                            sty.button___0S4Zk
                           )}
                           submitsForm={true}
                           type={"primary"}
@@ -595,7 +595,7 @@ function PlasmicTeam__RenderFunc(props: {
                             className={classNames(
                               projectcss.all,
                               projectcss.__wab_text,
-                              sty.text___1QrE9
+                              sty.text__uqpq
                             )}
                           >
                             {"Create"}
@@ -609,11 +609,11 @@ function PlasmicTeam__RenderFunc(props: {
                       [
                         {
                           name: "value",
-                          plasmicStateName: "form.value"
+                          plasmicStateName: "form2.value"
                         },
                         {
                           name: "isSubmitting",
-                          plasmicStateName: "form.isSubmitting"
+                          plasmicStateName: "form2.isSubmitting"
                         }
                       ],
                       [],
@@ -623,8 +623,8 @@ function PlasmicTeam__RenderFunc(props: {
 
                     return (
                       <FormWrapper
-                        data-plasmic-name={"form"}
-                        data-plasmic-override={overrides.form}
+                        data-plasmic-name={"form2"}
+                        data-plasmic-override={overrides.form2}
                         {...child$Props}
                       />
                     );
@@ -633,7 +633,7 @@ function PlasmicTeam__RenderFunc(props: {
               ) : null}
               {(() => {
                 try {
-                  return $queries.checkUserTeam.data[0].exists;
+                  return $queries.checkExistsHttp.data.response;
                 } catch (e) {
                   if (
                     e instanceof TypeError ||
@@ -649,7 +649,7 @@ function PlasmicTeam__RenderFunc(props: {
                     projectcss.all,
                     projectcss.a,
                     projectcss.__wab_text,
-                    sty.link___0H0Fw
+                    sty.link__zaCav
                   )}
                   component={Link}
                   href={"https://www.plasmic.app/"}
@@ -660,7 +660,7 @@ function PlasmicTeam__RenderFunc(props: {
               ) : null}
               {(() => {
                 try {
-                  return $queries.checkUserTeam.data[0].exists;
+                  return $queries.checkExistsHttp.data.response;
                 } catch (e) {
                   if (
                     e instanceof TypeError ||
@@ -676,7 +676,7 @@ function PlasmicTeam__RenderFunc(props: {
                     projectcss.all,
                     projectcss.a,
                     projectcss.__wab_text,
-                    sty.link___3GfmW
+                    sty.link___5Ag7H
                   )}
                   component={Link}
                   href={`/team-2/${(() => {
@@ -748,11 +748,11 @@ function PlasmicTeam__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "navbar", "img", "modal", "form"],
+  root: ["root", "navbar", "img", "modal2", "form2"],
   navbar: ["navbar"],
   img: ["img"],
-  modal: ["modal", "form"],
-  form: ["form"]
+  modal2: ["modal2", "form2"],
+  form2: ["form2"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -761,8 +761,8 @@ type NodeDefaultElementType = {
   root: "div";
   navbar: typeof Navbar;
   img: typeof PlasmicImg__;
-  modal: typeof AntdModal;
-  form: typeof FormWrapper;
+  modal2: typeof AntdModal;
+  form2: typeof FormWrapper;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -844,8 +844,8 @@ export const PlasmicTeam = Object.assign(
     // Helper components rendering sub-elements
     navbar: makeNodeComponent("navbar"),
     img: makeNodeComponent("img"),
-    modal: makeNodeComponent("modal"),
-    form: makeNodeComponent("form"),
+    modal2: makeNodeComponent("modal2"),
+    form2: makeNodeComponent("form2"),
 
     // Metadata about props expected for PlasmicTeam
     internalVariantProps: PlasmicTeam__VariantProps,
