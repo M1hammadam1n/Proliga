@@ -163,10 +163,10 @@ function PlasmicCreateTeam__RenderFunc(props: {
   const new$Queries: Record<string, ReturnType<typeof usePlasmicDataOp>> = {
     query: usePlasmicDataOp(() => {
       return {
-        sourceId: "8cdHi4ivRUEkK6qbegQevF",
-        opId: "30e393a7-21a7-46a5-b4bf-07dc3eae3afd",
+        sourceId: "vQtRPuFArSfh43vUmgx2PS",
+        opId: "0bcc7d72-019e-4b90-a8ad-94c8fe48b6d6",
         userArgs: {
-          filters: [$ctx.params.id]
+          params: [$ctx.params.id]
         },
         cacheKey: `plasmic.$.${(() => {
           try {
@@ -180,7 +180,7 @@ function PlasmicCreateTeam__RenderFunc(props: {
             }
             throw e;
           }
-        })()}.$.30e393a7-21a7-46a5-b4bf-07dc3eae3afd.$.`,
+        })()}.$.0bcc7d72-019e-4b90-a8ad-94c8fe48b6d6.$.`,
         invalidatedKeys: null,
         roleId: "f8970d3a-c1ae-4ba8-80dd-90e548ee70d6"
       };
@@ -245,7 +245,7 @@ function PlasmicCreateTeam__RenderFunc(props: {
                 loading={"lazy"}
                 src={(() => {
                   try {
-                    return $queries.query.data[0].flag;
+                    return $queries.query.data.response[0].flag;
                   } catch (e) {
                     if (
                       e instanceof TypeError ||
@@ -276,7 +276,9 @@ function PlasmicCreateTeam__RenderFunc(props: {
                 <React.Fragment>
                   {(() => {
                     try {
-                      return "ФЭНТЕЗИ\n " + $queries.query.data[0].title;
+                      return (
+                        "ФЭНТЕЗИ\n " + $queries.query.data.response[0].title
+                      );
                     } catch (e) {
                       if (
                         e instanceof TypeError ||

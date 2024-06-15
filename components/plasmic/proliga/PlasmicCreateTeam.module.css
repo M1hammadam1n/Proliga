@@ -82,6 +82,9 @@
   position: relative;
   object-fit: cover;
   max-width: 100%;
+  left: auto;
+  top: auto;
+  z-index: 1;
 }
 .img > picture > img {
   object-fit: cover;
