@@ -67,7 +67,6 @@ import {
 } from "@plasmicapp/react-web/lib/data-sources";
 
 import Navbar from "../../Navbar"; // plasmic-import: TKT8XnZtrLZi/component
-import { DataFetcher } from "@plasmicpkgs/plasmic-query";
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 
 import { useScreenVariants as useScreenVariants_8Rmrqs5Mzp6I } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 8Rmrqs5Mzp6I/globalVariant
@@ -97,7 +96,7 @@ export type PlasmicChampionships__OverridesType = {
   freeBox?: Flex__<"div">;
   columns?: Flex__<"div">;
   column?: Flex__<"div">;
-  httpRestApiFetcher?: Flex__<typeof DataFetcher>;
+  text?: Flex__<"div">;
 };
 
 export interface DefaultChampionshipsProps {}
@@ -159,19 +158,9 @@ function PlasmicChampionships__RenderFunc(props: {
     compotetion: usePlasmicDataOp(() => {
       return {
         sourceId: "vQtRPuFArSfh43vUmgx2PS",
-        opId: "d7b11bb5-83ca-4515-854e-a015b6aeb185",
+        opId: "793f05a6-248d-4a00-a447-9edbe187dca8",
         userArgs: {},
-        cacheKey: `plasmic.$.d7b11bb5-83ca-4515-854e-a015b6aeb185.$.`,
-        invalidatedKeys: null,
-        roleId: null
-      };
-    }),
-    comp: usePlasmicDataOp(() => {
-      return {
-        sourceId: "8cdHi4ivRUEkK6qbegQevF",
-        opId: "a7243c6e-148e-4901-9a63-aa1d3392f876",
-        userArgs: {},
-        cacheKey: `plasmic.$.a7243c6e-148e-4901-9a63-aa1d3392f876.$.`,
+        cacheKey: `plasmic.$.793f05a6-248d-4a00-a447-9edbe187dca8.$.`,
         invalidatedKeys: null,
         roleId: null
       };
@@ -246,7 +235,7 @@ function PlasmicChampionships__RenderFunc(props: {
             {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
               (() => {
                 try {
-                  return $queries.comp.data;
+                  return $queries.compotetion.data.response;
                 } catch (e) {
                   if (
                     e instanceof TypeError ||
@@ -272,12 +261,12 @@ function PlasmicChampionships__RenderFunc(props: {
                     const $steps = {};
 
                     $steps["goToTeam"] =
-                      currentItem.id > 0
+                      currentItem.team_id > 0
                         ? (() => {
                             const actionArgs = {
                               destination: `/competition/${(() => {
                                 try {
-                                  return currentItem.id;
+                                  return currentItem.team_id;
                                 } catch (e) {
                                   if (
                                     e instanceof TypeError ||
@@ -313,7 +302,7 @@ function PlasmicChampionships__RenderFunc(props: {
                     }
 
                     $steps["createTeam"] =
-                      currentItem.id === null
+                      currentItem.team_id === null
                         ? (() => {
                             const actionArgs = { destination: `/team-create` };
                             return (({ destination }) => {
@@ -351,7 +340,7 @@ function PlasmicChampionships__RenderFunc(props: {
                     loading={"lazy"}
                     src={(() => {
                       try {
-                        return currentItem.flag;
+                        return currentItem.competition_flag;
                       } catch (e) {
                         if (
                           e instanceof TypeError ||
@@ -365,16 +354,18 @@ function PlasmicChampionships__RenderFunc(props: {
                   />
 
                   <div
+                    data-plasmic-name={"text"}
+                    data-plasmic-override={overrides.text}
                     className={classNames(
                       projectcss.all,
                       projectcss.__wab_text,
-                      sty.text__ebS3V
+                      sty.text
                     )}
                   >
                     <React.Fragment>
                       {(() => {
                         try {
-                          return currentItem.title;
+                          return currentItem.competition_title;
                         } catch (e) {
                           if (
                             e instanceof TypeError ||
@@ -409,72 +400,19 @@ function PlasmicChampionships__RenderFunc(props: {
             aspectRatio: undefined
           }}
         />
-
-        <DataFetcher
-          data-plasmic-name={"httpRestApiFetcher"}
-          data-plasmic-override={overrides.httpRestApiFetcher}
-          className={classNames("__wab_instance", sty.httpRestApiFetcher)}
-          dataName={"fetchedData"}
-          errorDisplay={
-            <DataCtxReader__>{$ctx => "Error fetching data"}</DataCtxReader__>
-          }
-          errorName={"fetchError"}
-          headers={{
-            "Content-Type": "application/json",
-            Accept: "application/json"
-          }}
-          loadingDisplay={
-            <DataCtxReader__>{$ctx => "Loading..."}</DataCtxReader__>
-          }
-          method={"GET"}
-          noLayout={false}
-          url={`https://torthiwfsqwzbcveiimx.supabase.co/rest/v1/competition?select=*,team(competition_id,${currentUser.customProperties.id})`}
-        />
-
-        <div
-          className={classNames(
-            projectcss.all,
-            projectcss.__wab_text,
-            sty.text__wXqnH
-          )}
-        >
-          <React.Fragment>
-            {(() => {
-              try {
-                return undefined;
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return "";
-                }
-                throw e;
-              }
-            })()}
-          </React.Fragment>
-        </div>
       </div>
     </React.Fragment>
   ) as React.ReactElement | null;
 }
 
 const PlasmicDescendants = {
-  root: [
-    "root",
-    "navbar",
-    "h1",
-    "freeBox",
-    "columns",
-    "column",
-    "httpRestApiFetcher"
-  ],
+  root: ["root", "navbar", "h1", "freeBox", "columns", "column", "text"],
   navbar: ["navbar"],
   h1: ["h1"],
-  freeBox: ["freeBox", "columns", "column"],
-  columns: ["columns", "column"],
-  column: ["column"],
-  httpRestApiFetcher: ["httpRestApiFetcher"]
+  freeBox: ["freeBox", "columns", "column", "text"],
+  columns: ["columns", "column", "text"],
+  column: ["column", "text"],
+  text: ["text"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -486,7 +424,7 @@ type NodeDefaultElementType = {
   freeBox: "div";
   columns: "div";
   column: "div";
-  httpRestApiFetcher: typeof DataFetcher;
+  text: "div";
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -571,7 +509,7 @@ export const PlasmicChampionships = Object.assign(
     freeBox: makeNodeComponent("freeBox"),
     columns: makeNodeComponent("columns"),
     column: makeNodeComponent("column"),
-    httpRestApiFetcher: makeNodeComponent("httpRestApiFetcher"),
+    text: makeNodeComponent("text"),
 
     // Metadata about props expected for PlasmicChampionships
     internalVariantProps: PlasmicChampionships__VariantProps,

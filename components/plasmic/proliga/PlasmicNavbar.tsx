@@ -315,7 +315,7 @@ function PlasmicNavbar__RenderFunc(props: {
                 }
               }}
             >
-              {"Matches"}
+              {"Championship"}
             </div>
           </Reveal>
           <Reveal
@@ -357,91 +357,7 @@ function PlasmicNavbar__RenderFunc(props: {
                 }
               }}
             >
-              {"Markets"}
-            </div>
-          </Reveal>
-          <Reveal
-            className={classNames("__wab_instance", sty.reveal__mHZak)}
-            triggerOnce={true}
-          >
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__bmciH
-              )}
-              onClick={async event => {
-                const $steps = {};
-
-                $steps["goToAbsences"] = true
-                  ? (() => {
-                      const actionArgs = { destination: `/absences` };
-                      return (({ destination }) => {
-                        if (
-                          typeof destination === "string" &&
-                          destination.startsWith("#")
-                        ) {
-                          document
-                            .getElementById(destination.substr(1))
-                            .scrollIntoView({ behavior: "smooth" });
-                        } else {
-                          __nextRouter?.push(destination);
-                        }
-                      })?.apply(null, [actionArgs]);
-                    })()
-                  : undefined;
-                if (
-                  $steps["goToAbsences"] != null &&
-                  typeof $steps["goToAbsences"] === "object" &&
-                  typeof $steps["goToAbsences"].then === "function"
-                ) {
-                  $steps["goToAbsences"] = await $steps["goToAbsences"];
-                }
-              }}
-            >
-              {"Absences"}
-            </div>
-          </Reveal>
-          <Reveal
-            className={classNames("__wab_instance", sty.reveal__eVn2)}
-            triggerOnce={true}
-          >
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__xfcvj
-              )}
-              onClick={async event => {
-                const $steps = {};
-
-                $steps["goToIdealXl"] = true
-                  ? (() => {
-                      const actionArgs = { destination: `/ideal-xl` };
-                      return (({ destination }) => {
-                        if (
-                          typeof destination === "string" &&
-                          destination.startsWith("#")
-                        ) {
-                          document
-                            .getElementById(destination.substr(1))
-                            .scrollIntoView({ behavior: "smooth" });
-                        } else {
-                          __nextRouter?.push(destination);
-                        }
-                      })?.apply(null, [actionArgs]);
-                    })()
-                  : undefined;
-                if (
-                  $steps["goToIdealXl"] != null &&
-                  typeof $steps["goToIdealXl"] === "object" &&
-                  typeof $steps["goToIdealXl"].then === "function"
-                ) {
-                  $steps["goToIdealXl"] = await $steps["goToIdealXl"];
-                }
-              }}
-            >
-              {"Ideal XI"}
+              {"Prizes"}
             </div>
           </Reveal>
           <Reveal
@@ -483,91 +399,7 @@ function PlasmicNavbar__RenderFunc(props: {
                 }
               }}
             >
-              {"Rankings"}
-            </div>
-          </Reveal>
-          <Reveal
-            className={classNames("__wab_instance", sty.reveal__vqc5Z)}
-            triggerOnce={true}
-          >
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text___04Ck1
-              )}
-              onClick={async event => {
-                const $steps = {};
-
-                $steps["goToPlayerInfo"] = true
-                  ? (() => {
-                      const actionArgs = { destination: `/player-2/${""}` };
-                      return (({ destination }) => {
-                        if (
-                          typeof destination === "string" &&
-                          destination.startsWith("#")
-                        ) {
-                          document
-                            .getElementById(destination.substr(1))
-                            .scrollIntoView({ behavior: "smooth" });
-                        } else {
-                          __nextRouter?.push(destination);
-                        }
-                      })?.apply(null, [actionArgs]);
-                    })()
-                  : undefined;
-                if (
-                  $steps["goToPlayerInfo"] != null &&
-                  typeof $steps["goToPlayerInfo"] === "object" &&
-                  typeof $steps["goToPlayerInfo"].then === "function"
-                ) {
-                  $steps["goToPlayerInfo"] = await $steps["goToPlayerInfo"];
-                }
-              }}
-            >
-              {"Player Info"}
-            </div>
-          </Reveal>
-          <Reveal
-            className={classNames("__wab_instance", sty.reveal__rMVv)}
-            triggerOnce={true}
-          >
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text___0M8Lk
-              )}
-              onClick={async event => {
-                const $steps = {};
-
-                $steps["goToClub2"] = true
-                  ? (() => {
-                      const actionArgs = { destination: `/clubs-2/${""}` };
-                      return (({ destination }) => {
-                        if (
-                          typeof destination === "string" &&
-                          destination.startsWith("#")
-                        ) {
-                          document
-                            .getElementById(destination.substr(1))
-                            .scrollIntoView({ behavior: "smooth" });
-                        } else {
-                          __nextRouter?.push(destination);
-                        }
-                      })?.apply(null, [actionArgs]);
-                    })()
-                  : undefined;
-                if (
-                  $steps["goToClub2"] != null &&
-                  typeof $steps["goToClub2"] === "object" &&
-                  typeof $steps["goToClub2"].then === "function"
-                ) {
-                  $steps["goToClub2"] = await $steps["goToClub2"];
-                }
-              }}
-            >
-              {"Clubs"}
+              {"Rules & FAQ"}
             </div>
           </Reveal>
           <Reveal
@@ -626,7 +458,7 @@ function PlasmicNavbar__RenderFunc(props: {
                   }
                 }}
               >
-                {"Compotetion"}
+                {"Competition"}
               </div>
             ) : null}
           </Reveal>
