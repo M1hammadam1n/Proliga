@@ -67,10 +67,7 @@ import {
 } from "@plasmicapp/react-web/lib/data-sources";
 
 import Navbar from "../../Navbar"; // plasmic-import: TKT8XnZtrLZi/component
-import { AntdModal } from "@plasmicpkgs/antd5/skinny/registerModal";
-import { FormWrapper } from "@plasmicpkgs/antd5/skinny/SchemaForm";
-import { formHelpers as FormWrapper_Helpers } from "@plasmicpkgs/antd5/skinny/Form";
-import { AntdButton } from "@plasmicpkgs/antd5/skinny/registerButton";
+import { DataFetcher } from "@plasmicpkgs/plasmic-query";
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 
 import "@plasmicapp/react-web/lib/plasmic.css";
@@ -94,9 +91,8 @@ export const PlasmicTeam__ArgProps = new Array<ArgPropType>();
 export type PlasmicTeam__OverridesType = {
   root?: Flex__<"div">;
   navbar?: Flex__<typeof Navbar>;
-  img?: Flex__<typeof PlasmicImg__>;
-  modal2?: Flex__<typeof AntdModal>;
-  form2?: Flex__<typeof FormWrapper>;
+  columns?: Flex__<"div">;
+  httpRestApiFetcher?: Flex__<typeof DataFetcher>;
 };
 
 export interface DefaultTeamProps {}
@@ -135,43 +131,8 @@ function PlasmicTeam__RenderFunc(props: {
   let [$queries, setDollarQueries] = React.useState<
     Record<string, ReturnType<typeof usePlasmicDataOp>>
   >({});
-  const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
-    () => [
-      {
-        path: "modal2.open",
-        type: "private",
-        variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
-      },
-      {
-        path: "form2.value",
-        type: "private",
-        variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
 
-        refName: "form2",
-        onMutate: generateOnMutateForSpec("value", FormWrapper_Helpers)
-      },
-      {
-        path: "form2.isSubmitting",
-        type: "private",
-        variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false,
-
-        refName: "form2",
-        onMutate: generateOnMutateForSpec("isSubmitting", FormWrapper_Helpers)
-      }
-    ],
-    [$props, $ctx, $refs]
-  );
-  const $state = useDollarState(stateSpecs, {
-    $props,
-    $ctx,
-    $queries: $queries,
-    $refs
-  });
   const dataSourcesCtx = usePlasmicDataSourceContext();
-  const plasmicInvalidate = usePlasmicInvalidate();
 
   const new$Queries: Record<string, ReturnType<typeof usePlasmicDataOp>> = {
     query: usePlasmicDataOp(() => {
@@ -196,30 +157,6 @@ function PlasmicTeam__RenderFunc(props: {
         })()}.$.30e393a7-21a7-46a5-b4bf-07dc3eae3afd.$.`,
         invalidatedKeys: null,
         roleId: "f8970d3a-c1ae-4ba8-80dd-90e548ee70d6"
-      };
-    }),
-    team: usePlasmicDataOp(() => {
-      return {
-        sourceId: "8cdHi4ivRUEkK6qbegQevF",
-        opId: "c33b79b5-0719-4400-861a-3f565b5e7083",
-        userArgs: {
-          query: [$queries.query.data[0].id]
-        },
-        cacheKey: `plasmic.$.c33b79b5-0719-4400-861a-3f565b5e7083.$.`,
-        invalidatedKeys: null,
-        roleId: null
-      };
-    }),
-    checkExistsHttp: usePlasmicDataOp(() => {
-      return {
-        sourceId: "vQtRPuFArSfh43vUmgx2PS",
-        opId: "a7af71c9-6f9f-46b2-a2c2-b3588a3e48a7",
-        userArgs: {
-          params: [$queries.query.data[0].id]
-        },
-        cacheKey: `plasmic.$.a7af71c9-6f9f-46b2-a2c2-b3588a3e48a7.$.`,
-        invalidatedKeys: null,
-        roleId: null
       };
     })
   };
@@ -262,485 +199,47 @@ function PlasmicTeam__RenderFunc(props: {
             className={classNames("__wab_instance", sty.navbar)}
           />
 
-          <Stack__
-            as={"div"}
-            hasGap={true}
-            className={classNames(projectcss.all, sty.freeBox__z02Hv)}
+          <div
+            data-plasmic-name={"columns"}
+            data-plasmic-override={overrides.columns}
+            className={classNames(projectcss.all, sty.columns)}
           >
-            <Stack__
-              as={"div"}
-              hasGap={true}
-              className={classNames(projectcss.all, sty.freeBox__j1TWl)}
-            >
-              <PlasmicImg__
-                data-plasmic-name={"img"}
-                data-plasmic-override={overrides.img}
-                alt={""}
-                className={classNames(sty.img)}
-                displayHeight={"auto"}
-                displayMaxHeight={"none"}
-                displayMaxWidth={"100%"}
-                displayMinHeight={"0"}
-                displayMinWidth={"0"}
-                displayWidth={"auto"}
-                loading={"lazy"}
-                src={(() => {
-                  try {
-                    return $queries.query.data[0].flag;
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return undefined;
-                    }
-                    throw e;
-                  }
-                })()}
-                width={"370px"}
+            <div className={classNames(projectcss.all, sty.column___6SHQl)}>
+              <div className={classNames(projectcss.all, sty.freeBox__fi66U)} />
+
+              <div className={classNames(projectcss.all, sty.freeBox__eH3Ia)} />
+
+              <div className={classNames(projectcss.all, sty.freeBox__voLgw)} />
+
+              <div className={classNames(projectcss.all, sty.freeBox__fehB1)} />
+
+              <DataFetcher
+                data-plasmic-name={"httpRestApiFetcher"}
+                data-plasmic-override={overrides.httpRestApiFetcher}
+                className={classNames("__wab_instance", sty.httpRestApiFetcher)}
+                dataName={"fetchedData"}
+                errorDisplay={
+                  <DataCtxReader__>
+                    {$ctx => "Error fetching data"}
+                  </DataCtxReader__>
+                }
+                errorName={"fetchError"}
+                headers={{
+                  "Content-Type": "application/json",
+                  Accept: "application/json",
+                  apikey:
+                    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRvcnRoaXdmc3F3emJjdmVpaW14Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTU5MDkxODUsImV4cCI6MjAxMTQ4NTE4NX0.9FnyfQPJQ5puR_MQnK7RvwiBeuYy7DNjBZcVH1y3eOI"
+                }}
+                loadingDisplay={
+                  <DataCtxReader__>{$ctx => "Loading..."}</DataCtxReader__>
+                }
+                method={"GET"}
+                noLayout={false}
+                url={`https://torthiwfsqwzbcveiimx.supabase.co/team?user_id=eq.${currentUser.customProperties.id}`}
               />
-
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__oWbRm
-                )}
-              >
-                <React.Fragment>
-                  {(() => {
-                    try {
-                      return $queries.query.data[0].title;
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return "";
-                      }
-                      throw e;
-                    }
-                  })()}
-                </React.Fragment>
-              </div>
-            </Stack__>
-            <Stack__
-              as={"div"}
-              hasGap={true}
-              className={classNames(projectcss.all, sty.freeBox__o8Cdv)}
-            >
-              {(() => {
-                try {
-                  return !$queries.checkExistsHttp.data.response;
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return true;
-                  }
-                  throw e;
-                }
-              })() ? (
-                <AntdModal
-                  data-plasmic-name={"modal2"}
-                  data-plasmic-override={overrides.modal2}
-                  className={classNames("__wab_instance", sty.modal2)}
-                  defaultStylesClassName={classNames(
-                    projectcss.root_reset,
-                    projectcss.plasmic_default_styles,
-                    projectcss.plasmic_mixins,
-                    projectcss.plasmic_tokens,
-                    plasmic_antd_5_hostless_css.plasmic_tokens,
-                    plasmic_plasmic_rich_components_css.plasmic_tokens
-                  )}
-                  hideFooter={true}
-                  modalContentClassName={classNames({
-                    [sty["pcls_1nYCZIkSzTo6"]]: true
-                  })}
-                  modalScopeClassName={sty["modal2__modal"]}
-                  onOpenChange={generateStateOnChangeProp($state, [
-                    "modal2",
-                    "open"
-                  ])}
-                  open={generateStateValueProp($state, ["modal2", "open"])}
-                  title={"Insert name of team"}
-                  trigger={
-                    <AntdButton
-                      className={classNames(
-                        "__wab_instance",
-                        sty.button__cjVt1
-                      )}
-                      danger={false}
-                      ghost={false}
-                      loading={false}
-                      shape={"default"}
-                      size={"large"}
-                      submitsForm={false}
-                      type={"default"}
-                    >
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text__bd78M
-                        )}
-                      >
-                        {"Create team"}
-                      </div>
-                    </AntdButton>
-                  }
-                >
-                  {(() => {
-                    const child$Props = {
-                      className: classNames("__wab_instance", sty.form2),
-                      data: {
-                        sourceId: "8cdHi4ivRUEkK6qbegQevF",
-                        opId: "64d46713-84cc-46a6-a33a-e049f8959f3d",
-                        userArgs: {},
-                        cacheKey: `plasmic.$.${(() => {
-                          try {
-                            return "getSchema";
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return "";
-                            }
-                            throw e;
-                          }
-                        })()}.$.svIxhG5uRyTp.$.64d46713-84cc-46a6-a33a-e049f8959f3d.$.`,
-                        invalidatedKeys: null,
-                        roleId: null
-                      },
-                      dataFormItems: (() => {
-                        const __composite = [
-                          {
-                            key: "id",
-                            inputType: "Number",
-                            fieldId: "id",
-                            label: "id",
-                            name: "id",
-                            hidden: null
-                          },
-                          {
-                            key: "compotetion_id",
-                            inputType: "Number",
-                            fieldId: "compotetion_id",
-                            label: "compotetion_id",
-                            name: "compotetion_id",
-                            hidden: null
-                          },
-                          {
-                            key: "formation_id",
-                            inputType: "Number",
-                            fieldId: "formation_id",
-                            label: "formation_id",
-                            name: "formation_id",
-                            hidden: null
-                          },
-                          {
-                            key: "balance",
-                            inputType: "Number",
-                            fieldId: "balance",
-                            label: "balance",
-                            name: "balance",
-                            hidden: null
-                          },
-                          {
-                            key: "id",
-                            inputType: "Number",
-                            fieldId: "id",
-                            label: "id",
-                            name: "id",
-                            hidden: null
-                          },
-                          {
-                            key: "club_id",
-                            inputType: "Number",
-                            fieldId: "club_id",
-                            label: "club_id",
-                            name: "club_id",
-                            hidden: null
-                          },
-                          {
-                            key: "user_id",
-                            inputType: "Number",
-                            fieldId: "user_id",
-                            label: "user_id",
-                            name: "user_id",
-                            hidden: null
-                          },
-                          {
-                            key: "name",
-                            inputType: "Text",
-                            fieldId: "name",
-                            label: "name",
-                            name: "name"
-                          },
-                          {
-                            key: "created_at",
-                            inputType: "Text",
-                            fieldId: "created_at",
-                            label: "created_at",
-                            name: "created_at",
-                            hidden: null
-                          },
-                          {
-                            key: "captain_id",
-                            inputType: "Number",
-                            fieldId: "captain_id",
-                            label: "captain_id",
-                            name: "captain_id",
-                            hidden: null
-                          }
-                        ];
-                        __composite["0"]["hidden"] = true;
-                        __composite["1"]["hidden"] = true;
-                        __composite["2"]["hidden"] = true;
-                        __composite["3"]["hidden"] = true;
-                        __composite["4"]["hidden"] = true;
-                        __composite["5"]["hidden"] = true;
-                        __composite["6"]["hidden"] = true;
-                        __composite["8"]["hidden"] = true;
-                        __composite["9"]["hidden"] = true;
-                        return __composite;
-                      })(),
-
-                      extendedOnValuesChange:
-                        generateStateOnChangePropForCodeComponents(
-                          $state,
-                          "value",
-                          ["form2", "value"],
-                          FormWrapper_Helpers
-                        ),
-                      formItems: [],
-                      labelCol: { span: 8, horizontalOnly: true },
-                      layout: "vertical",
-                      mode: "simplified",
-                      onFinish: async values => {
-                        const $steps = {};
-
-                        $steps["defaultSubmit"] = true
-                          ? (() => {
-                              const actionArgs = {
-                                dataOp: {
-                                  sourceId: "8cdHi4ivRUEkK6qbegQevF",
-                                  opId: "71a126d4-4c6a-4b15-bd21-9fb80beac796",
-                                  userArgs: {
-                                    variables: [
-                                      $queries.query.data[0].id,
-                                      $state.form2.value.name
-                                    ]
-                                  },
-                                  cacheKey: null,
-                                  invalidatedKeys: ["plasmic_refresh_all"],
-                                  roleId: "f8970d3a-c1ae-4ba8-80dd-90e548ee70d6"
-                                }
-                              };
-                              return (async ({ dataOp, continueOnError }) => {
-                                try {
-                                  const response = await executePlasmicDataOp(
-                                    dataOp,
-                                    {
-                                      userAuthToken:
-                                        dataSourcesCtx?.userAuthToken,
-                                      user: dataSourcesCtx?.user
-                                    }
-                                  );
-                                  await plasmicInvalidate(
-                                    dataOp.invalidatedKeys
-                                  );
-                                  return response;
-                                } catch (e) {
-                                  if (!continueOnError) {
-                                    throw e;
-                                  }
-                                  return e;
-                                }
-                              })?.apply(null, [actionArgs]);
-                            })()
-                          : undefined;
-                        if (
-                          $steps["defaultSubmit"] != null &&
-                          typeof $steps["defaultSubmit"] === "object" &&
-                          typeof $steps["defaultSubmit"].then === "function"
-                        ) {
-                          $steps["defaultSubmit"] = await $steps[
-                            "defaultSubmit"
-                          ];
-                        }
-                      },
-                      onIsSubmittingChange:
-                        generateStateOnChangePropForCodeComponents(
-                          $state,
-                          "isSubmitting",
-                          ["form2", "isSubmitting"],
-                          FormWrapper_Helpers
-                        ),
-                      ref: ref => {
-                        $refs["form2"] = ref;
-                      },
-                      submitSlot: (
-                        <AntdButton
-                          className={classNames(
-                            "__wab_instance",
-                            sty.button___0S4Zk
-                          )}
-                          submitsForm={true}
-                          type={"primary"}
-                        >
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              projectcss.__wab_text,
-                              sty.text__uqpq
-                            )}
-                          >
-                            {"Create"}
-                          </div>
-                        </AntdButton>
-                      ),
-                      wrapperCol: { span: 16, horizontalOnly: true }
-                    };
-                    initializeCodeComponentStates(
-                      $state,
-                      [
-                        {
-                          name: "value",
-                          plasmicStateName: "form2.value"
-                        },
-                        {
-                          name: "isSubmitting",
-                          plasmicStateName: "form2.isSubmitting"
-                        }
-                      ],
-                      [],
-                      FormWrapper_Helpers ?? {},
-                      child$Props
-                    );
-
-                    return (
-                      <FormWrapper
-                        data-plasmic-name={"form2"}
-                        data-plasmic-override={overrides.form2}
-                        {...child$Props}
-                      />
-                    );
-                  })()}
-                </AntdModal>
-              ) : null}
-              {(() => {
-                try {
-                  return $queries.checkExistsHttp.data.response;
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return true;
-                  }
-                  throw e;
-                }
-              })() ? (
-                <PlasmicLink__
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.a,
-                    projectcss.__wab_text,
-                    sty.link__zaCav
-                  )}
-                  component={Link}
-                  href={"https://www.plasmic.app/"}
-                  platform={"nextjs"}
-                >
-                  {"Show team"}
-                </PlasmicLink__>
-              ) : null}
-              {(() => {
-                try {
-                  return $queries.checkExistsHttp.data.response;
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return true;
-                  }
-                  throw e;
-                }
-              })() ? (
-                <PlasmicLink__
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.a,
-                    projectcss.__wab_text,
-                    sty.link___5Ag7H
-                  )}
-                  component={Link}
-                  href={`/team-2/${(() => {
-                    try {
-                      return $queries.team.data[0].id;
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return undefined;
-                      }
-                      throw e;
-                    }
-                  })()}`}
-                  onClick={async event => {
-                    const $steps = {};
-
-                    $steps["goToEditTeam"] = true
-                      ? (() => {
-                          const actionArgs = {
-                            destination: `/team-2/${(() => {
-                              try {
-                                return $queries.team.data[0].id;
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return undefined;
-                                }
-                                throw e;
-                              }
-                            })()}`
-                          };
-                          return (({ destination }) => {
-                            if (
-                              typeof destination === "string" &&
-                              destination.startsWith("#")
-                            ) {
-                              document
-                                .getElementById(destination.substr(1))
-                                .scrollIntoView({ behavior: "smooth" });
-                            } else {
-                              __nextRouter?.push(destination);
-                            }
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
-                    if (
-                      $steps["goToEditTeam"] != null &&
-                      typeof $steps["goToEditTeam"] === "object" &&
-                      typeof $steps["goToEditTeam"].then === "function"
-                    ) {
-                      $steps["goToEditTeam"] = await $steps["goToEditTeam"];
-                    }
-                  }}
-                  platform={"nextjs"}
-                >
-                  {"Edit Team"}
-                </PlasmicLink__>
-              ) : null}
-            </Stack__>
-          </Stack__>
+            </div>
+            <div className={classNames(projectcss.all, sty.column__y0Chk)} />
+          </div>
         </div>
       </div>
     </React.Fragment>
@@ -748,11 +247,10 @@ function PlasmicTeam__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "navbar", "img", "modal2", "form2"],
+  root: ["root", "navbar", "columns", "httpRestApiFetcher"],
   navbar: ["navbar"],
-  img: ["img"],
-  modal2: ["modal2", "form2"],
-  form2: ["form2"]
+  columns: ["columns", "httpRestApiFetcher"],
+  httpRestApiFetcher: ["httpRestApiFetcher"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -760,9 +258,8 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   navbar: typeof Navbar;
-  img: typeof PlasmicImg__;
-  modal2: typeof AntdModal;
-  form2: typeof FormWrapper;
+  columns: "div";
+  httpRestApiFetcher: typeof DataFetcher;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -843,9 +340,8 @@ export const PlasmicTeam = Object.assign(
   {
     // Helper components rendering sub-elements
     navbar: makeNodeComponent("navbar"),
-    img: makeNodeComponent("img"),
-    modal2: makeNodeComponent("modal2"),
-    form2: makeNodeComponent("form2"),
+    columns: makeNodeComponent("columns"),
+    httpRestApiFetcher: makeNodeComponent("httpRestApiFetcher"),
 
     // Metadata about props expected for PlasmicTeam
     internalVariantProps: PlasmicTeam__VariantProps,
