@@ -194,7 +194,7 @@
 .img__lxqfa > picture > img {
   object-fit: contain;
 }
-.text {
+.text__ebS3V {
   position: relative;
   width: 100%;
   height: auto;
@@ -221,4 +221,18 @@
 }
 .img__xWmDf > picture > img {
   object-fit: cover;
+}
+.httpRestApiFetcher:global(.__wab_instance) {
+  width: 100%;
+  max-width: 100%;
+  object-fit: cover;
+  position: relative;
+  min-width: 0;
+}
+.text__wXqnH {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
 }

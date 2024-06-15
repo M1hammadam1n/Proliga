@@ -124,6 +124,11 @@
   grid-column-end: -3 !important;
   padding: 8px;
 }
+@media (max-width: 768px) {
+  .mainStak {
+    padding: 0px;
+  }
+}
 .leftStack {
   display: flex;
   position: relative;
@@ -163,6 +168,11 @@
   font-size: 22px;
   min-width: 0;
 }
+@media (max-width: 768px) {
+  .text__yQgN {
+    font-size: 16px;
+  }
+}
 .matchStak {
   display: flex;
   position: relative;
@@ -175,6 +185,11 @@
   background: var(--token-as44I7WwR-rZ);
   min-width: 0;
   padding: 8px;
+}
+@media (max-width: 768px) {
+  .matchStak {
+    padding: 0px;
+  }
 }
 .img__pLVoh {
   position: relative;
@@ -196,6 +211,11 @@
   font-weight: 700;
   min-width: 0;
 }
+@media (max-width: 768px) {
+  .text__jbGru {
+    font-size: 12px;
+  }
+}
 .text___0FWZ {
   position: relative;
   width: 100%;
@@ -206,6 +226,11 @@
   color: var(--token-_Z-x7YSfdB4D);
   font-weight: 800;
   min-width: 0;
+}
+@media (max-width: 768px) {
+  .text___0FWZ {
+    font-size: 12px;
+  }
 }
 .text___4VvIb {
   position: relative;
@@ -218,6 +243,12 @@
   color: var(--token-_Z-x7YSfdB4D);
   font-weight: 700;
   min-width: 0;
+}
+@media (max-width: 768px) {
+  .text___4VvIb {
+    font-size: 12px;
+    margin-right: 5px;
+  }
 }
 .img__sspg9 {
   position: relative;
@@ -266,6 +297,11 @@
   font-size: 22px;
   min-width: 0;
 }
+@media (max-width: 768px) {
+  .text__f5ED {
+    font-size: 16px;
+  }
+}
 .matchStak2 {
   display: flex;
   position: relative;
@@ -278,6 +314,11 @@
   background: var(--token-as44I7WwR-rZ);
   min-width: 0;
   padding: 8px;
+}
+@media (max-width: 768px) {
+  .matchStak2 {
+    padding: 0px;
+  }
 }
 .img__y026P {
   position: relative;
@@ -299,6 +340,11 @@
   font-weight: 700;
   min-width: 0;
 }
+@media (max-width: 768px) {
+  .text__kpqlc {
+    font-size: 12px;
+  }
+}
 .text__q7KYq {
   position: relative;
   width: 100%;
@@ -309,6 +355,11 @@
   color: var(--token-_Z-x7YSfdB4D);
   font-weight: 800;
   min-width: 0;
+}
+@media (max-width: 768px) {
+  .text__q7KYq {
+    font-size: 12px;
+  }
 }
 .text__juZd {
   position: relative;
@@ -321,6 +372,11 @@
   color: var(--token-_Z-x7YSfdB4D);
   font-weight: 700;
   min-width: 0;
+}
+@media (max-width: 768px) {
+  .text__juZd {
+    font-size: 12px;
+  }
 }
 .img__wwxXm {
   position: relative;

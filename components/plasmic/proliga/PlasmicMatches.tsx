@@ -68,6 +68,8 @@ import {
 import Navbar from "../../Navbar"; // plasmic-import: TKT8XnZtrLZi/component
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 
+import { useScreenVariants as useScreenVariants_8Rmrqs5Mzp6I } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 8Rmrqs5Mzp6I/globalVariant
+
 import "@plasmicapp/react-web/lib/plasmic.css";
 
 import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
@@ -151,6 +153,10 @@ function PlasmicMatches__RenderFunc(props: {
 
     $queries = new$Queries;
   }
+
+  const globalVariants = ensureGlobalVariants({
+    screen: useScreenVariants_8Rmrqs5Mzp6I()
+  });
 
   return (
     <React.Fragment>
@@ -277,7 +283,11 @@ function PlasmicMatches__RenderFunc(props: {
                   src={
                     "https://assets-fantasy.llt-services.com/teambadge/t186/color/t186_real-madrid.png"
                   }
-                  width={"30px"}
+                  width={
+                    hasVariant(globalVariants, "screen", "portrait")
+                      ? "15px"
+                      : "30px"
+                  }
                 />
 
                 <div
@@ -320,7 +330,11 @@ function PlasmicMatches__RenderFunc(props: {
                   src={
                     "https://assets-fantasy.llt-services.com/teambadge/t178/color/t178_fc-barcelona.png"
                   }
-                  width={"30px"}
+                  width={
+                    hasVariant(globalVariants, "screen", "portrait")
+                      ? "15px"
+                      : "30px"
+                  }
                 />
               </div>
             </Stack__>
@@ -359,7 +373,11 @@ function PlasmicMatches__RenderFunc(props: {
                   src={
                     "https://assets-fantasy.llt-services.com/teambadge/t186/color/t186_real-madrid.png"
                   }
-                  width={"30px"}
+                  width={
+                    hasVariant(globalVariants, "screen", "portrait")
+                      ? "15px"
+                      : "30px"
+                  }
                 />
 
                 <div
@@ -402,7 +420,11 @@ function PlasmicMatches__RenderFunc(props: {
                   src={
                     "https://assets-fantasy.llt-services.com/teambadge/t178/color/t178_fc-barcelona.png"
                   }
-                  width={"30px"}
+                  width={
+                    hasVariant(globalVariants, "screen", "portrait")
+                      ? "15px"
+                      : "30px"
+                  }
                 />
               </div>
             </Stack__>
