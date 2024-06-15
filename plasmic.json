@@ -1544,20 +1544,6 @@
           "path": "/showteams"
         },
         {
-          "id": "IAM42mYRBrPY",
-          "name": "Team",
-          "type": "managed",
-          "projectId": "tDWy3GXn2mzd9e2xUaPdmu",
-          "renderModuleFilePath": "plasmic/proliga/PlasmicTeam.tsx",
-          "importSpec": {
-            "modulePath": "../pages/competition/[id].tsx"
-          },
-          "cssFilePath": "plasmic/proliga/PlasmicTeam.module.css",
-          "scheme": "blackbox",
-          "componentType": "page",
-          "path": "/competition/[id]"
-        },
-        {
           "id": "2LqbY1eBUixE",
           "name": "EditTeam",
           "type": "managed",
@@ -1584,6 +1570,20 @@
           "scheme": "blackbox",
           "componentType": "page",
           "path": "/"
+        },
+        {
+          "id": "IAM42mYRBrPY",
+          "name": "CreateTeam",
+          "type": "managed",
+          "projectId": "tDWy3GXn2mzd9e2xUaPdmu",
+          "renderModuleFilePath": "plasmic/proliga/PlasmicCreateTeam.tsx",
+          "importSpec": {
+            "modulePath": "../pages/createTeam/[id].tsx"
+          },
+          "cssFilePath": "plasmic/proliga/PlasmicCreateTeam.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/createTeam/[id]"
         }
       ],
       "icons": [

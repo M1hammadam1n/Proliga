@@ -352,7 +352,7 @@ function PlasmicChampionships__RenderFunc(props: {
                       currentItem.team_id === null
                         ? (() => {
                             const actionArgs = {
-                              destination: `/competition/${(() => {
+                              destination: `/createTeam/${(() => {
                                 try {
                                   return currentItem.competition_id;
                                 } catch (e) {
