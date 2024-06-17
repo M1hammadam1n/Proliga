@@ -131,10 +131,10 @@ function PlasmicEditTeam__RenderFunc(props: {
   const new$Queries: Record<string, ReturnType<typeof usePlasmicDataOp>> = {
     query: usePlasmicDataOp(() => {
       return {
-        sourceId: "8cdHi4ivRUEkK6qbegQevF",
-        opId: "7cfc5736-7526-4c0b-8c60-aee6bff90097",
+        sourceId: "vQtRPuFArSfh43vUmgx2PS",
+        opId: "63f3c6a3-c4fd-4f4b-876c-be13639e92d9",
         userArgs: {
-          filters: [$ctx.params.id]
+          params: [$ctx.params.id]
         },
         cacheKey: `plasmic.$.${(() => {
           try {
@@ -148,7 +148,7 @@ function PlasmicEditTeam__RenderFunc(props: {
             }
             throw e;
           }
-        })()}.$.7cfc5736-7526-4c0b-8c60-aee6bff90097.$.`,
+        })()}.$.63f3c6a3-c4fd-4f4b-876c-be13639e92d9.$.`,
         invalidatedKeys: null,
         roleId: null
       };
