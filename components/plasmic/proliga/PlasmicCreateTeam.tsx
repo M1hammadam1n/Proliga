@@ -147,6 +147,25 @@ function PlasmicCreateTeam__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "userId",
+        type: "private",
+        variableType: "number",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return currentUser.customProperties.response[0].id;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return 0;
+              }
+              throw e;
+            }
+          })()
       }
     ],
     [$props, $ctx, $refs]
@@ -188,11 +207,11 @@ function PlasmicCreateTeam__RenderFunc(props: {
     userTeam: usePlasmicDataOp(() => {
       return {
         sourceId: "vQtRPuFArSfh43vUmgx2PS",
-        opId: "becc6db3-1798-4775-882a-4aaf664675f1",
+        opId: "ba32d575-2722-4877-a05b-28e1d320d7b7",
         userArgs: {
-          params: [$queries.query.data.response[0].id]
+          params: [$state.userId, $queries.query.data.response[0].id]
         },
-        cacheKey: `plasmic.$.becc6db3-1798-4775-882a-4aaf664675f1.$.`,
+        cacheKey: `plasmic.$.ba32d575-2722-4877-a05b-28e1d320d7b7.$.`,
         invalidatedKeys: null,
         roleId: null
       };
@@ -313,6 +332,7 @@ function PlasmicCreateTeam__RenderFunc(props: {
                 <TextInput
                   data-plasmic-name={"textInput"}
                   data-plasmic-override={overrides.textInput}
+                  autoFocus={false}
                   className={classNames("__wab_instance", sty.textInput)}
                   name={``}
                   onChange={(...eventArgs) => {

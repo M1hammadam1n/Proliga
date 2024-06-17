@@ -138,10 +138,23 @@ function PlasmicChampionships__RenderFunc(props: {
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
-        path: "currentChampionship",
+        path: "userId",
         type: "private",
         variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) => 0
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return currentUser.customProperties.response[0].id;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return 0;
+              }
+              throw e;
+            }
+          })()
       }
     ],
     [$props, $ctx, $refs]
@@ -159,11 +172,13 @@ function PlasmicChampionships__RenderFunc(props: {
     compotetion: usePlasmicDataOp(() => {
       return {
         sourceId: "vQtRPuFArSfh43vUmgx2PS",
-        opId: "793f05a6-248d-4a00-a447-9edbe187dca8",
-        userArgs: {},
-        cacheKey: `plasmic.$.793f05a6-248d-4a00-a447-9edbe187dca8.$.`,
+        opId: "40ea7b1b-17de-4cea-a1d2-2b340558f695",
+        userArgs: {
+          params: [$state.userId]
+        },
+        cacheKey: `plasmic.$.40ea7b1b-17de-4cea-a1d2-2b340558f695.$.`,
         invalidatedKeys: null,
-        roleId: null
+        roleId: "f8970d3a-c1ae-4ba8-80dd-90e548ee70d6"
       };
     })
   };
@@ -308,9 +323,12 @@ function PlasmicChampionships__RenderFunc(props: {
                             const actionArgs = {
                               dataOp: {
                                 sourceId: "vQtRPuFArSfh43vUmgx2PS",
-                                opId: "5c65fc6a-e549-43ad-bd43-e3a7f43d8b63",
+                                opId: "3040e1d8-db14-40e4-a867-3df1ce6384c3",
                                 userArgs: {
-                                  body: [currentItem.competition_id]
+                                  body: [
+                                    $state.userId,
+                                    currentItem.competition_id
+                                  ]
                                 },
                                 cacheKey: null,
                                 invalidatedKeys: ["plasmic_refresh_all"],
