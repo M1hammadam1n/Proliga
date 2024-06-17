@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter%3Aital%2Cwght%400%2C400%3B0%2C500%3B0%2C600%3B0%2C700%3B0%2C800%3B0%2C900&family=Inconsolata%3Aital%2Cwght%400%2C400%3B0%2C500%3B0%2C600%3B0%2C700%3B0%2C800%3B0%2C900&family=Inria+Serif%3Aital%2Cwght%400%2C400%3B0%2C700&family=ABeeZee%3Aital%2Cwght%400%2C400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter%3Aital%2Cwght%400%2C400%3B0%2C500%3B0%2C600%3B0%2C700%3B0%2C800%3B0%2C900&family=Inconsolata%3Aital%2Cwght%400%2C400%3B0%2C500%3B0%2C600%3B0%2C700%3B0%2C800%3B0%2C900&family=Inria+Serif%3Aital%2Cwght%400%2C400%3B0%2C700&family=ABeeZee%3Aital%2Cwght%400%2C400&family=Judson%3Aital%2Cwght%400%2C400%3B0%2C700&display=swap");
 
 .plasmic_tokens {
   --token-ZEp_8_GN1MB-: #7b7b8c;
@@ -35,6 +35,8 @@
   --plasmic-token-button-back: var(--token-RZcyrn6MkYNW);
   --token-xGiRE7fxgNcn: #64ff3c;
   --plasmic-token-green-back: var(--token-xGiRE7fxgNcn);
+  --token-OthO-wlH0yMz: rgba(0, 0, 0, 0.45);
+  --plasmic-token-background-without-color: var(--token-OthO-wlH0yMz);
 }
 
 .plasmic_tokens {

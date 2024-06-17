@@ -8,6 +8,7 @@
   justify-items: center;
   justify-content: flex-start;
   align-items: center;
+  background: url("/plasmic/proliga/images/footballStadiumWpbk2E4Mrt3Gz1Mzjpg.jpg") top 50% left 50% / cover repeat;
   min-width: 0;
   min-height: 0;
   grid-template-columns:
@@ -91,6 +92,53 @@
   min-width: 0;
   padding: 8px;
 }
+.freeBox__selJy {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  background: var(--token-OthO-wlH0yMz);
+  min-width: 0;
+  padding: 8px;
+}
+.freeBox__selJy > :global(.__wab_flex-container) {
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  margin-left: calc(0px - 50px);
+  width: calc(100% + 50px);
+}
+.freeBox__selJy > :global(.__wab_flex-container) > *,
+.freeBox__selJy > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.freeBox__selJy > :global(.__wab_flex-container) > picture > img,
+.freeBox__selJy
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > picture
+  > img {
+  margin-left: 50px;
+}
+.text__l9Km6 {
+  position: relative;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  color: var(--token-jgohepLVeKvh);
+  font-size: 25px;
+  font-family: "Judson", serif;
+}
+.text___0Xzpm {
+  position: relative;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  color: var(--token-jgohepLVeKvh);
+  font-size: 25px;
+  font-family: "Judson", serif;
+}
 .goa {
   display: flex;
   position: absolute;
@@ -102,7 +150,7 @@
   max-width: 100%;
   z-index: 2;
   left: 0px;
-  top: 0px;
+  top: 103px;
   min-width: 0;
   padding: 8px;
 }
@@ -132,7 +180,7 @@
   max-width: 100%;
   z-index: 2;
   left: 0px;
-  top: 146px;
+  top: 226px;
   bottom: 613px;
   min-width: 0;
   padding: 8px;
@@ -163,7 +211,7 @@
   max-width: 100%;
   z-index: 2;
   left: 0px;
-  top: 305px;
+  top: 357px;
   min-width: 0;
   padding: 8px;
 }
@@ -193,7 +241,7 @@
   max-width: 100%;
   z-index: 2;
   left: 0px;
-  top: 487px;
+  top: 545px;
   min-width: 0;
   padding: 8px;
 }
