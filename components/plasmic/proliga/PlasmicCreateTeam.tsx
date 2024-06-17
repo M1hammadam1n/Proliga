@@ -407,7 +407,19 @@ function PlasmicCreateTeam__RenderFunc(props: {
                     $steps["goToEditTeam"] = true
                       ? (() => {
                           const actionArgs = {
-                            destination: `/team-2/${(() => {
+                            destination: `/${(() => {
+                              try {
+                                return $queries.query.data.response[0].id;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return undefined;
+                                }
+                                throw e;
+                              }
+                            })()}/${(() => {
                               try {
                                 return $queries.userTeam.data.response[0].id;
                               } catch (e) {

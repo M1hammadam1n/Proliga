@@ -1550,7 +1550,7 @@
           "projectId": "tDWy3GXn2mzd9e2xUaPdmu",
           "renderModuleFilePath": "plasmic/proliga/PlasmicEditTeam.tsx",
           "importSpec": {
-            "modulePath": "../pages/team-2/[id].tsx"
+            "modulePath": "../pages/[comp_id]/[id].tsx"
           },
           "cssFilePath": "plasmic/proliga/PlasmicEditTeam.module.css",
           "scheme": "blackbox",

@@ -59,6 +59,7 @@ import {
   useGlobalActions
 } from "@plasmicapp/react-web/lib/host";
 
+import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 import {
   executePlasmicDataOp,
   usePlasmicDataOp,
@@ -128,13 +129,15 @@ function PlasmicEditTeam__RenderFunc(props: {
     Record<string, ReturnType<typeof usePlasmicDataOp>>
   >({});
 
+  const dataSourcesCtx = usePlasmicDataSourceContext();
+
   const new$Queries: Record<string, ReturnType<typeof usePlasmicDataOp>> = {
     query: usePlasmicDataOp(() => {
       return {
         sourceId: "vQtRPuFArSfh43vUmgx2PS",
-        opId: "63f3c6a3-c4fd-4f4b-876c-be13639e92d9",
+        opId: "f978efab-7db3-41c0-82cd-ea83803fac9b",
         userArgs: {
-          params: [$ctx.params.id]
+          params: [$ctx.params.id, $ctx.params.comp_id]
         },
         cacheKey: `plasmic.$.${(() => {
           try {
@@ -148,9 +151,9 @@ function PlasmicEditTeam__RenderFunc(props: {
             }
             throw e;
           }
-        })()}.$.63f3c6a3-c4fd-4f4b-876c-be13639e92d9.$.`,
+        })()}.$.f978efab-7db3-41c0-82cd-ea83803fac9b.$.`,
         invalidatedKeys: null,
-        roleId: null
+        roleId: "f8970d3a-c1ae-4ba8-80dd-90e548ee70d6"
       };
     })
   };
@@ -265,9 +268,26 @@ function makeNodeComponent<NodeName extends NodeNameType>(nodeName: NodeName) {
   return func;
 }
 
+function withPlasmicPageGuard<P extends object>(
+  WrappedComponent: React.ComponentType<P>
+) {
+  const PageGuard: React.FC<P> = props => (
+    <PlasmicPageGuard__
+      minRole={"f8970d3a-c1ae-4ba8-80dd-90e548ee70d6"}
+      appId={"tDWy3GXn2mzd9e2xUaPdmu"}
+      authorizeEndpoint={"https://studio.plasmic.app/authorize"}
+      canTriggerLogin={false}
+    >
+      <WrappedComponent {...props} />
+    </PlasmicPageGuard__>
+  );
+
+  return PageGuard;
+}
+
 export const PlasmicEditTeam = Object.assign(
   // Top-level PlasmicEditTeam renders the root element
-  makeNodeComponent("root"),
+  withPlasmicPageGuard(makeNodeComponent("root")),
   {
     // Helper components rendering sub-elements
     navbar: makeNodeComponent("navbar"),

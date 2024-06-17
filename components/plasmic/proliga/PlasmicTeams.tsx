@@ -495,21 +495,7 @@ function PlasmicTeams__RenderFunc(props: {
                   sty.text__mbNo
                 )}
               >
-                <React.Fragment>
-                  {(() => {
-                    try {
-                      return "$" + $queries.teamP.data[0].balance;
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return "";
-                      }
-                      throw e;
-                    }
-                  })()}
-                </React.Fragment>
+                {""}
               </div>
             </div>
             <AntdModal
@@ -538,19 +524,7 @@ function PlasmicTeams__RenderFunc(props: {
 
                 $steps["postgresUpdateById"] = true
                   ? (() => {
-                      const actionArgs = {
-                        dataOp: {
-                          sourceId: "8cdHi4ivRUEkK6qbegQevF",
-                          opId: "784d036a-6f3d-4248-a27d-1b8ba3616ac8",
-                          userArgs: {
-                            keys: [$state.teamplayerstate],
-                            variables: [null]
-                          },
-                          cacheKey: null,
-                          invalidatedKeys: ["plasmic_refresh_all"],
-                          roleId: "f8970d3a-c1ae-4ba8-80dd-90e548ee70d6"
-                        }
-                      };
+                      const actionArgs = {};
                       return (async ({ dataOp, continueOnError }) => {
                         try {
                           const response = await executePlasmicDataOp(dataOp, {
@@ -580,23 +554,7 @@ function PlasmicTeams__RenderFunc(props: {
 
                 $steps["revertMoney"] = true
                   ? (() => {
-                      const actionArgs = {
-                        dataOp: {
-                          sourceId: "8cdHi4ivRUEkK6qbegQevF",
-                          opId: "5df622fa-bcb3-48c3-b0bf-51f41af19ca7",
-                          userArgs: {
-                            keys: [$queries.teamP.data[0].id],
-                            variables: [
-                              $queries.teamP.data[0].balance +
-                                $queries.player.data[$state.playerId - 1]
-                                  .market_value
-                            ]
-                          },
-                          cacheKey: null,
-                          invalidatedKeys: ["plasmic_refresh_all"],
-                          roleId: "f8970d3a-c1ae-4ba8-80dd-90e548ee70d6"
-                        }
-                      };
+                      const actionArgs = {};
                       return (async ({ dataOp, continueOnError }) => {
                         try {
                           const response = await executePlasmicDataOp(dataOp, {
@@ -624,25 +582,7 @@ function PlasmicTeams__RenderFunc(props: {
 
                 $steps["upadateActivity"] = true
                   ? (() => {
-                      const actionArgs = {
-                        dataOp: {
-                          sourceId: "8cdHi4ivRUEkK6qbegQevF",
-                          opId: "91020635-a445-466e-9689-42d162095ebd",
-                          userArgs: {
-                            variables: [
-                              $queries.teamP.data[0].id,
-                              "You Seld " +
-                                $queries.player.data[$state.playerId - 1].name +
-                                " for $" +
-                                $queries.player.data[$state.playerId - 1]
-                                  .market_value
-                            ]
-                          },
-                          cacheKey: null,
-                          invalidatedKeys: ["plasmic_refresh_all"],
-                          roleId: "f8970d3a-c1ae-4ba8-80dd-90e548ee70d6"
-                        }
-                      };
+                      const actionArgs = {};
                       return (async ({ dataOp, continueOnError }) => {
                         try {
                           const response = await executePlasmicDataOp(dataOp, {
