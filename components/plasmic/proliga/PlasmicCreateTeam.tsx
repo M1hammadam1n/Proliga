@@ -184,6 +184,18 @@ function PlasmicCreateTeam__RenderFunc(props: {
         invalidatedKeys: null,
         roleId: "f8970d3a-c1ae-4ba8-80dd-90e548ee70d6"
       };
+    }),
+    userTeam: usePlasmicDataOp(() => {
+      return {
+        sourceId: "vQtRPuFArSfh43vUmgx2PS",
+        opId: "becc6db3-1798-4775-882a-4aaf664675f1",
+        userArgs: {
+          params: [$queries.query.data.response[0].id]
+        },
+        cacheKey: `plasmic.$.becc6db3-1798-4775-882a-4aaf664675f1.$.`,
+        invalidatedKeys: null,
+        roleId: null
+      };
     })
   };
   if (Object.keys(new$Queries).some(k => new$Queries[k] !== $queries[k])) {
@@ -302,6 +314,7 @@ function PlasmicCreateTeam__RenderFunc(props: {
                   data-plasmic-name={"textInput"}
                   data-plasmic-override={overrides.textInput}
                   className={classNames("__wab_instance", sty.textInput)}
+                  name={``}
                   onChange={(...eventArgs) => {
                     generateStateOnChangeProp($state, ["textInput", "value"])(
                       (e => e.target?.value).apply(null, eventArgs)
@@ -310,6 +323,7 @@ function PlasmicCreateTeam__RenderFunc(props: {
                   placeholder={
                     "\u041d\u0430\u0437\u0432\u0430\u043d\u0438\u0435 \u0442\u0432\u043e\u0435\u0439 \u043a\u043e\u043c\u0430\u043d\u0434\u044b"
                   }
+                  required={true}
                   type={"text"}
                   value={
                     generateStateValueProp($state, ["textInput", "value"]) ?? ""
@@ -331,7 +345,7 @@ function PlasmicCreateTeam__RenderFunc(props: {
                               sourceId: "vQtRPuFArSfh43vUmgx2PS",
                               opId: "9d0a283d-80c7-4755-a124-b82655a12dc1",
                               userArgs: {
-                                params: [$queries.query.data[0].id],
+                                params: [$queries.query.data.response[0].id],
                                 body: [$state.textInput.value]
                               },
                               cacheKey: null,
@@ -365,6 +379,45 @@ function PlasmicCreateTeam__RenderFunc(props: {
                       typeof $steps["useIntegration"].then === "function"
                     ) {
                       $steps["useIntegration"] = await $steps["useIntegration"];
+                    }
+
+                    $steps["goToEditTeam"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            destination: `/team-2/${(() => {
+                              try {
+                                return $queries.userTeam.data.response[0].id;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return undefined;
+                                }
+                                throw e;
+                              }
+                            })()}`
+                          };
+                          return (({ destination }) => {
+                            if (
+                              typeof destination === "string" &&
+                              destination.startsWith("#")
+                            ) {
+                              document
+                                .getElementById(destination.substr(1))
+                                .scrollIntoView({ behavior: "smooth" });
+                            } else {
+                              __nextRouter?.push(destination);
+                            }
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["goToEditTeam"] != null &&
+                      typeof $steps["goToEditTeam"] === "object" &&
+                      typeof $steps["goToEditTeam"].then === "function"
+                    ) {
+                      $steps["goToEditTeam"] = await $steps["goToEditTeam"];
                     }
                   }}
                 >
