@@ -98,6 +98,7 @@ export type PlasmicEditTeam__OverridesType = {
   goa?: Flex__<"div">;
   def?: Flex__<"div">;
   mid?: Flex__<"div">;
+  str?: Flex__<"div">;
   soccerPlaceMens2?: Flex__<typeof SoccerPlaceMens2>;
 };
 
@@ -338,7 +339,7 @@ function PlasmicEditTeam__RenderFunc(props: {
                     (() => {
                       try {
                         return $queries.teamPlayer.data.response.filter(
-                          x => x.position === "DEF"
+                          x => x.position === "MID"
                         );
                       } catch (e) {
                         if (
@@ -366,7 +367,50 @@ function PlasmicEditTeam__RenderFunc(props: {
                             "__wab_instance",
                             sty.avatarPlayer__riCee
                           )}
-                          name={"DEF"}
+                          name={"MID"}
+                        />
+                      </div>
+                    );
+                  })}
+                </div>
+                <div
+                  data-plasmic-name={"str"}
+                  data-plasmic-override={overrides.str}
+                  className={classNames(projectcss.all, sty.str)}
+                >
+                  {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
+                    (() => {
+                      try {
+                        return $queries.teamPlayer.data.response.filter(
+                          x => x.position === "STR"
+                        );
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return [];
+                        }
+                        throw e;
+                      }
+                    })()
+                  ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                    const currentItem = __plasmic_item_0;
+                    const currentIndex = __plasmic_idx_0;
+                    return (
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__we8EE
+                        )}
+                        key={currentIndex}
+                      >
+                        <AvatarPlayer
+                          className={classNames(
+                            "__wab_instance",
+                            sty.avatarPlayer__pyVn0
+                          )}
+                          name={"STR"}
                         />
                       </div>
                     );
@@ -396,14 +440,16 @@ const PlasmicDescendants = {
     "goa",
     "def",
     "mid",
+    "str",
     "soccerPlaceMens2"
   ],
   navbar: ["navbar"],
   userteamNavbar: ["userteamNavbar"],
-  columns: ["columns", "goa", "def", "mid", "soccerPlaceMens2"],
+  columns: ["columns", "goa", "def", "mid", "str", "soccerPlaceMens2"],
   goa: ["goa"],
   def: ["def"],
   mid: ["mid"],
+  str: ["str"],
   soccerPlaceMens2: ["soccerPlaceMens2"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
@@ -417,6 +463,7 @@ type NodeDefaultElementType = {
   goa: "div";
   def: "div";
   mid: "div";
+  str: "div";
   soccerPlaceMens2: typeof SoccerPlaceMens2;
 };
 
@@ -503,6 +550,7 @@ export const PlasmicEditTeam = Object.assign(
     goa: makeNodeComponent("goa"),
     def: makeNodeComponent("def"),
     mid: makeNodeComponent("mid"),
+    str: makeNodeComponent("str"),
     soccerPlaceMens2: makeNodeComponent("soccerPlaceMens2"),
 
     // Metadata about props expected for PlasmicEditTeam

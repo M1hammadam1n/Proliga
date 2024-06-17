@@ -132,8 +132,8 @@
   max-width: 100%;
   z-index: 2;
   left: 0px;
-  top: 168px;
-  bottom: 570px;
+  top: 146px;
+  bottom: 613px;
   min-width: 0;
   padding: 8px;
 }
@@ -163,7 +163,7 @@
   max-width: 100%;
   z-index: 2;
   left: 0px;
-  top: 0px;
+  top: 305px;
   min-width: 0;
   padding: 8px;
 }
@@ -180,6 +180,36 @@
   padding: 8px;
 }
 .avatarPlayer__riCee:global(.__wab_instance) {
+  max-width: 100%;
+}
+.str {
+  display: flex;
+  position: absolute;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  z-index: 2;
+  left: 0px;
+  top: 487px;
+  min-width: 0;
+  padding: 8px;
+}
+.freeBox__we8EE {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+  padding: 8px;
+}
+.avatarPlayer__pyVn0:global(.__wab_instance) {
   max-width: 100%;
 }
 .soccerPlaceMens2:global(.__wab_instance) {
