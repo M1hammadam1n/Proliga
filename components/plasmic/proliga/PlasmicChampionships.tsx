@@ -67,7 +67,6 @@ import {
 } from "@plasmicapp/react-web/lib/data-sources";
 
 import Navbar from "../../Navbar"; // plasmic-import: TKT8XnZtrLZi/component
-import { DataFetcher } from "@plasmicpkgs/plasmic-query";
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 
 import { useScreenVariants as useScreenVariants_8Rmrqs5Mzp6I } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 8Rmrqs5Mzp6I/globalVariant
@@ -98,7 +97,6 @@ export type PlasmicChampionships__OverridesType = {
   columns?: Flex__<"div">;
   column?: Flex__<"div">;
   text?: Flex__<"div">;
-  httpRestApiFetcher?: Flex__<typeof DataFetcher>;
 };
 
 export interface DefaultChampionshipsProps {}
@@ -264,7 +262,7 @@ function PlasmicChampionships__RenderFunc(props: {
                     const $steps = {};
 
                     $steps["goToTeams"] =
-                      currentItem.team_id > 0
+                      currentItem.team_name != null
                         ? (() => {
                             const actionArgs = {
                               destination: `/user/team/${(() => {
@@ -349,7 +347,7 @@ function PlasmicChampionships__RenderFunc(props: {
                     }
 
                     $steps["createTeam"] =
-                      currentItem.team_id === null
+                      currentItem.team_name === null
                         ? (() => {
                             const actionArgs = {
                               destination: `/createTeam/${(() => {
@@ -445,31 +443,6 @@ function PlasmicChampionships__RenderFunc(props: {
             })}
           </Stack__>
         </div>
-        <DataFetcher
-          data-plasmic-name={"httpRestApiFetcher"}
-          data-plasmic-override={overrides.httpRestApiFetcher}
-          className={classNames("__wab_instance", sty.httpRestApiFetcher)}
-          dataName={"fetchedData"}
-          errorDisplay={
-            <DataCtxReader__>{$ctx => "Error fetching data"}</DataCtxReader__>
-          }
-          errorName={"fetchError"}
-          headers={{
-            "Content-Type": "application/json",
-            Accept: "application/json",
-            apikey:
-              "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRvcnRoaXdmc3F3emJjdmVpaW14Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTU5MDkxODUsImV4cCI6MjAxMTQ4NTE4NX0.9FnyfQPJQ5puR_MQnK7RvwiBeuYy7DNjBZcVH1y3eOI"
-          }}
-          loadingDisplay={
-            <DataCtxReader__>{$ctx => "Loading..."}</DataCtxReader__>
-          }
-          method={"GET"}
-          noLayout={false}
-          url={
-            "https://torthiwfsqwzbcveiimx.supabase.co/rest/v1/rpc/competition_team_left_join"
-          }
-        />
-
         <PlasmicImg__
           alt={""}
           className={classNames(sty.img__xWmDf)}
@@ -493,23 +466,13 @@ function PlasmicChampionships__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: [
-    "root",
-    "navbar",
-    "h1",
-    "freeBox",
-    "columns",
-    "column",
-    "text",
-    "httpRestApiFetcher"
-  ],
+  root: ["root", "navbar", "h1", "freeBox", "columns", "column", "text"],
   navbar: ["navbar"],
   h1: ["h1"],
   freeBox: ["freeBox", "columns", "column", "text"],
   columns: ["columns", "column", "text"],
   column: ["column", "text"],
-  text: ["text"],
-  httpRestApiFetcher: ["httpRestApiFetcher"]
+  text: ["text"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -522,7 +485,6 @@ type NodeDefaultElementType = {
   columns: "div";
   column: "div";
   text: "div";
-  httpRestApiFetcher: typeof DataFetcher;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -608,7 +570,6 @@ export const PlasmicChampionships = Object.assign(
     columns: makeNodeComponent("columns"),
     column: makeNodeComponent("column"),
     text: makeNodeComponent("text"),
-    httpRestApiFetcher: makeNodeComponent("httpRestApiFetcher"),
 
     // Metadata about props expected for PlasmicChampionships
     internalVariantProps: PlasmicChampionships__VariantProps,

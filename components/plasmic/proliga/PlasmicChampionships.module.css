@@ -206,13 +206,6 @@
   padding-top: 10px;
   min-width: 0;
 }
-.httpRestApiFetcher:global(.__wab_instance) {
-  width: 100%;
-  max-width: 100%;
-  object-fit: cover;
-  position: relative;
-  min-width: 0;
-}
 .img__xWmDf {
   position: fixed;
   object-fit: cover;
