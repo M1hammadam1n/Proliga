@@ -14,7 +14,7 @@
   -webkit-transition-property: all;
   -webkit-transition-duration: 1s;
 }
-.img__axqph {
+.img__cfuKp {
   position: absolute;
   object-fit: cover;
   max-width: 100%;
@@ -22,7 +22,7 @@
   left: 1px;
   top: 2px;
 }
-.img__axqph > picture > img {
+.img__cfuKp > picture > img {
   object-fit: cover;
 }
 .freeBox {
@@ -37,38 +37,20 @@
   min-width: 0;
   padding: 8px;
 }
-.img__d8Cvi {
+.img__a9SuT {
   object-fit: cover;
   max-width: 100%;
 }
-.img__d8Cvi > picture > img {
+.img__a9SuT > picture > img {
   object-fit: cover;
-}
-.img__lZVb {
-  position: absolute;
-  object-fit: fill;
-  max-width: 100%;
-  width: 10px;
-  height: 10px;
-  left: 50px;
-  top: 8px;
-  z-index: 2;
-  flex-shrink: 0;
-}
-.img__lZVb > picture > img {
-  object-fit: fill;
 }
 .text {
   position: relative;
   width: 53px;
   height: auto;
   max-width: 100%;
-  color: var(--token-jgohepLVeKvh);
-  background: linear-gradient(
-      var(--token-LqtA0Zd3XkIQ),
-      var(--token-LqtA0Zd3XkIQ)
-    ),
-    var(--token-jgohepLVeKvh);
+  color: var(--token-41VRhDKfihhY);
+  background: none;
   font-size: 10px;
   font-weight: 900;
   text-align: center;

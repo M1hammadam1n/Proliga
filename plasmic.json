@@ -1503,19 +1503,6 @@
           "componentType": "component"
         },
         {
-          "id": "3fwpAay-2jFk",
-          "name": "AvatarPlayer",
-          "type": "managed",
-          "projectId": "tDWy3GXn2mzd9e2xUaPdmu",
-          "renderModuleFilePath": "plasmic/proliga/PlasmicAvatarPlayer.tsx",
-          "importSpec": {
-            "modulePath": "AvatarPlayer.tsx"
-          },
-          "cssFilePath": "plasmic/proliga/PlasmicAvatarPlayer.module.css",
-          "scheme": "blackbox",
-          "componentType": "component"
-        },
-        {
           "id": "Frl2YSBYx07V",
           "name": "UserTeam",
           "type": "managed",
@@ -1584,6 +1571,19 @@
           "scheme": "blackbox",
           "componentType": "page",
           "path": "/createTeam/[id]"
+        },
+        {
+          "id": "P-uBnHr89-in",
+          "name": "UserteamNavbar",
+          "type": "managed",
+          "projectId": "tDWy3GXn2mzd9e2xUaPdmu",
+          "renderModuleFilePath": "plasmic/proliga/PlasmicUserteamNavbar.tsx",
+          "importSpec": {
+            "modulePath": "UserteamNavbar.tsx"
+          },
+          "cssFilePath": "plasmic/proliga/PlasmicUserteamNavbar.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [

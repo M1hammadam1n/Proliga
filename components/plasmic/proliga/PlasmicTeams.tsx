@@ -67,11 +67,10 @@ import {
 } from "@plasmicapp/react-web/lib/data-sources";
 
 import Navbar from "../../Navbar"; // plasmic-import: TKT8XnZtrLZi/component
-import { AntdModal } from "@plasmicpkgs/antd5/skinny/registerModal";
-import { AntdButton } from "@plasmicpkgs/antd5/skinny/registerButton";
-import UpdateCapitan from "../../UpdateCapitan"; // plasmic-import: XWByMSCmxs7g/component
+import UserteamNavbar from "../../UserteamNavbar"; // plasmic-import: P-uBnHr89-in/component
 import { AntdDropdown } from "@plasmicpkgs/antd5/skinny/registerDropdown";
 import { AntdMenuItem } from "@plasmicpkgs/antd5/skinny/registerMenu";
+import { AntdButton } from "@plasmicpkgs/antd5/skinny/registerButton";
 import AvatarPlayer from "../../AvatarPlayer"; // plasmic-import: 4QnaRcOLXj0D/component
 import SoccerPlaceMens2 from "../../SoccerPlaceMens2"; // plasmic-import: xodLqMOhDs29/component
 import PlayerPickerRow from "../../PlayerPickerRow"; // plasmic-import: NaQtMjgilBY9/component
@@ -102,10 +101,10 @@ export const PlasmicTeams__ArgProps = new Array<ArgPropType>();
 export type PlasmicTeams__OverridesType = {
   root?: Flex__<"div">;
   navbar?: Flex__<typeof Navbar>;
-  modal?: Flex__<typeof AntdModal>;
-  updateCapitan?: Flex__<typeof UpdateCapitan>;
+  userteamNavbar?: Flex__<typeof UserteamNavbar>;
   columns?: Flex__<"div">;
   _532?: Flex__<typeof AntdDropdown>;
+  button?: Flex__<typeof AntdButton>;
   goa?: Flex__<"div">;
   def?: Flex__<"div">;
   mid?: Flex__<"div">;
@@ -184,12 +183,6 @@ function PlasmicTeams__RenderFunc(props: {
               throw e;
             }
           })()
-      },
-      {
-        path: "modal.open",
-        type: "private",
-        variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
       },
       {
         path: "playerId",
@@ -447,323 +440,14 @@ function PlasmicTeams__RenderFunc(props: {
             className={classNames("__wab_instance", sty.navbar)}
           />
 
-          <Stack__
-            as={"div"}
-            hasGap={true}
-            className={classNames(projectcss.all, sty.freeBox__cstxG)}
-          >
-            <PlasmicLink__
-              className={classNames(
-                projectcss.all,
-                projectcss.a,
-                projectcss.__wab_text,
-                sty.link__p3Od
-              )}
-              component={Link}
-              href={"https://www.plasmic.app/"}
-              platform={"nextjs"}
-            >
-              {"Team"}
-            </PlasmicLink__>
-            <PlasmicLink__
-              className={classNames(
-                projectcss.all,
-                projectcss.a,
-                projectcss.__wab_text,
-                sty.link__oBeLp
-              )}
-              component={Link}
-              href={"https://www.plasmic.app/"}
-              platform={"nextjs"}
-            >
-              {"Points"}
-            </PlasmicLink__>
-            <div className={classNames(projectcss.all, sty.freeBox__cynQa)}>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__jGxnO
-                )}
-              >
-                {"Balance"}
-              </div>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__mbNo
-                )}
-              >
-                {""}
-              </div>
-            </div>
-            <AntdModal
-              data-plasmic-name={"modal"}
-              data-plasmic-override={overrides.modal}
-              className={classNames("__wab_instance", sty.modal)}
-              closeButtonClassName={classNames({
-                [sty["pcls_Dx5cv0NQahko"]]: true
-              })}
-              defaultStylesClassName={classNames(
-                projectcss.root_reset,
-                projectcss.plasmic_default_styles,
-                projectcss.plasmic_mixins,
-                projectcss.plasmic_tokens,
-                plasmic_antd_5_hostless_css.plasmic_tokens,
-                plasmic_plasmic_rich_components_css.plasmic_tokens
-              )}
-              maskClosable={true}
-              modalContentClassName={classNames({
-                [sty["pcls_ssjnNtDHYMdD"]]: true
-              })}
-              modalScopeClassName={sty["modal__modal"]}
-              okText={"Sell"}
-              onOk={async () => {
-                const $steps = {};
+          <UserteamNavbar
+            data-plasmic-name={"userteamNavbar"}
+            data-plasmic-override={overrides.userteamNavbar}
+            capitanBtnVisibility={$state.capitanBtnVisibility}
+            className={classNames("__wab_instance", sty.userteamNavbar)}
+            sellBtnBool={$state.sellBtnBool}
+          />
 
-                $steps["postgresUpdateById"] = true
-                  ? (() => {
-                      const actionArgs = {};
-                      return (async ({ dataOp, continueOnError }) => {
-                        try {
-                          const response = await executePlasmicDataOp(dataOp, {
-                            userAuthToken: dataSourcesCtx?.userAuthToken,
-                            user: dataSourcesCtx?.user
-                          });
-                          await plasmicInvalidate(dataOp.invalidatedKeys);
-                          return response;
-                        } catch (e) {
-                          if (!continueOnError) {
-                            throw e;
-                          }
-                          return e;
-                        }
-                      })?.apply(null, [actionArgs]);
-                    })()
-                  : undefined;
-                if (
-                  $steps["postgresUpdateById"] != null &&
-                  typeof $steps["postgresUpdateById"] === "object" &&
-                  typeof $steps["postgresUpdateById"].then === "function"
-                ) {
-                  $steps["postgresUpdateById"] = await $steps[
-                    "postgresUpdateById"
-                  ];
-                }
-
-                $steps["revertMoney"] = true
-                  ? (() => {
-                      const actionArgs = {};
-                      return (async ({ dataOp, continueOnError }) => {
-                        try {
-                          const response = await executePlasmicDataOp(dataOp, {
-                            userAuthToken: dataSourcesCtx?.userAuthToken,
-                            user: dataSourcesCtx?.user
-                          });
-                          await plasmicInvalidate(dataOp.invalidatedKeys);
-                          return response;
-                        } catch (e) {
-                          if (!continueOnError) {
-                            throw e;
-                          }
-                          return e;
-                        }
-                      })?.apply(null, [actionArgs]);
-                    })()
-                  : undefined;
-                if (
-                  $steps["revertMoney"] != null &&
-                  typeof $steps["revertMoney"] === "object" &&
-                  typeof $steps["revertMoney"].then === "function"
-                ) {
-                  $steps["revertMoney"] = await $steps["revertMoney"];
-                }
-
-                $steps["upadateActivity"] = true
-                  ? (() => {
-                      const actionArgs = {};
-                      return (async ({ dataOp, continueOnError }) => {
-                        try {
-                          const response = await executePlasmicDataOp(dataOp, {
-                            userAuthToken: dataSourcesCtx?.userAuthToken,
-                            user: dataSourcesCtx?.user
-                          });
-                          await plasmicInvalidate(dataOp.invalidatedKeys);
-                          return response;
-                        } catch (e) {
-                          if (!continueOnError) {
-                            throw e;
-                          }
-                          return e;
-                        }
-                      })?.apply(null, [actionArgs]);
-                    })()
-                  : undefined;
-                if (
-                  $steps["upadateActivity"] != null &&
-                  typeof $steps["upadateActivity"] === "object" &&
-                  typeof $steps["upadateActivity"].then === "function"
-                ) {
-                  $steps["upadateActivity"] = await $steps["upadateActivity"];
-                }
-              }}
-              onOpenChange={generateStateOnChangeProp($state, [
-                "modal",
-                "open"
-              ])}
-              open={generateStateValueProp($state, ["modal", "open"])}
-              title={"Do you Want Sell this player?"}
-              trigger={
-                (() => {
-                  try {
-                    return $state.sellBtnBool;
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return true;
-                    }
-                    throw e;
-                  }
-                })() ? (
-                  <AntdButton
-                    className={classNames("__wab_instance", sty.button__ahFXh)}
-                  >
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text___8Tten
-                      )}
-                    >
-                      {"Sell"}
-                    </div>
-                  </AntdButton>
-                ) : null
-              }
-              wrapClassName={classNames({ [sty["pcls_Ptl9_TeQa_Ax"]]: true })}
-            >
-              <div className={classNames(projectcss.all, sty.freeBox__spkbu)}>
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__sFdYt
-                  )}
-                >
-                  {"Modal content"}
-                </div>
-              </div>
-            </AntdModal>
-            {(() => {
-              try {
-                return $state.capitanBtnVisibility;
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return true;
-                }
-                throw e;
-              }
-            })() ? (
-              <UpdateCapitan
-                data-plasmic-name={"updateCapitan"}
-                data-plasmic-override={overrides.updateCapitan}
-                acceptBtn={async () => {
-                  const $steps = {};
-
-                  $steps["unsetCapitan"] = true
-                    ? (() => {
-                        const actionArgs = {
-                          dataOp: {
-                            sourceId: "8cdHi4ivRUEkK6qbegQevF",
-                            opId: "fd8a9fde-dd5e-438f-aa7a-80522af64b03",
-                            userArgs: {
-                              keys: [$queries.teamCapitan.data[0].id]
-                            },
-                            cacheKey: null,
-                            invalidatedKeys: ["plasmic_refresh_all"],
-                            roleId: "f8970d3a-c1ae-4ba8-80dd-90e548ee70d6"
-                          }
-                        };
-                        return (async ({ dataOp, continueOnError }) => {
-                          try {
-                            const response = await executePlasmicDataOp(
-                              dataOp,
-                              {
-                                userAuthToken: dataSourcesCtx?.userAuthToken,
-                                user: dataSourcesCtx?.user
-                              }
-                            );
-                            await plasmicInvalidate(dataOp.invalidatedKeys);
-                            return response;
-                          } catch (e) {
-                            if (!continueOnError) {
-                              throw e;
-                            }
-                            return e;
-                          }
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                  if (
-                    $steps["unsetCapitan"] != null &&
-                    typeof $steps["unsetCapitan"] === "object" &&
-                    typeof $steps["unsetCapitan"].then === "function"
-                  ) {
-                    $steps["unsetCapitan"] = await $steps["unsetCapitan"];
-                  }
-
-                  $steps["updateCapitan"] = true
-                    ? (() => {
-                        const actionArgs = {
-                          dataOp: {
-                            sourceId: "8cdHi4ivRUEkK6qbegQevF",
-                            opId: "4b1abc61-a700-4204-8274-7ede68ac93c7",
-                            userArgs: {
-                              keys: [$state.teamplayerstate]
-                            },
-                            cacheKey: null,
-                            invalidatedKeys: ["plasmic_refresh_all"],
-                            roleId: "f8970d3a-c1ae-4ba8-80dd-90e548ee70d6"
-                          }
-                        };
-                        return (async ({ dataOp, continueOnError }) => {
-                          try {
-                            const response = await executePlasmicDataOp(
-                              dataOp,
-                              {
-                                userAuthToken: dataSourcesCtx?.userAuthToken,
-                                user: dataSourcesCtx?.user
-                              }
-                            );
-                            await plasmicInvalidate(dataOp.invalidatedKeys);
-                            return response;
-                          } catch (e) {
-                            if (!continueOnError) {
-                              throw e;
-                            }
-                            return e;
-                          }
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                  if (
-                    $steps["updateCapitan"] != null &&
-                    typeof $steps["updateCapitan"] === "object" &&
-                    typeof $steps["updateCapitan"].then === "function"
-                  ) {
-                    $steps["updateCapitan"] = await $steps["updateCapitan"];
-                  }
-                }}
-                className={classNames("__wab_instance", sty.updateCapitan)}
-              />
-            ) : null}
-          </Stack__>
           <div
             data-plasmic-name={"columns"}
             data-plasmic-override={overrides.columns}
@@ -841,10 +525,9 @@ function PlasmicTeams__RenderFunc(props: {
                     })()}
                   >
                     <AntdButton
-                      className={classNames(
-                        "__wab_instance",
-                        sty.button__jbZUg
-                      )}
+                      data-plasmic-name={"button"}
+                      data-plasmic-override={overrides.button}
+                      className={classNames("__wab_instance", sty.button)}
                     >
                       <div
                         className={classNames(
@@ -1107,29 +790,6 @@ function PlasmicTeams__RenderFunc(props: {
                                   ];
                                 }
                               }}
-                              clubLogo={(() => {
-                                try {
-                                  return $queries.clubs.data[
-                                    $queries.player.data[
-                                      currentItem.player_id - 1
-                                    ].club_id - 1
-                                  ].flag_url;
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return {
-                                      src: "/plasmic/proliga/images/logoDesignTemplateB588De7Cc0B07E82392C3B2Ea4Ea7B73Screenjpg.jpg",
-                                      fullWidth: 690,
-                                      fullHeight: 690,
-                                      aspectRatio: undefined
-                                    };
-                                  }
-                                  throw e;
-                                }
-                              })()}
                               image={(() => {
                                 try {
                                   return $queries.player.data.find(
@@ -1412,29 +1072,6 @@ function PlasmicTeams__RenderFunc(props: {
                                   ];
                                 }
                               }}
-                              clubLogo={(() => {
-                                try {
-                                  return $queries.clubs.data[
-                                    $queries.player.data[
-                                      currentItem.player_id - 1
-                                    ].club_id - 1
-                                  ].flag_url;
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return {
-                                      src: "/plasmic/proliga/images/logoDesignTemplateB588De7Cc0B07E82392C3B2Ea4Ea7B73Screenjpg.jpg",
-                                      fullWidth: 690,
-                                      fullHeight: 690,
-                                      aspectRatio: undefined
-                                    };
-                                  }
-                                  throw e;
-                                }
-                              })()}
                               image={(() => {
                                 try {
                                   return $queries.player.data.find(
@@ -1717,29 +1354,6 @@ function PlasmicTeams__RenderFunc(props: {
                                   ];
                                 }
                               }}
-                              clubLogo={(() => {
-                                try {
-                                  return $queries.clubs.data[
-                                    $queries.player.data[
-                                      currentItem.player_id - 1
-                                    ].club_id - 1
-                                  ].flag_url;
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return {
-                                      src: "/plasmic/proliga/images/logoDesignTemplateB588De7Cc0B07E82392C3B2Ea4Ea7B73Screenjpg.jpg",
-                                      fullWidth: 690,
-                                      fullHeight: 690,
-                                      aspectRatio: undefined
-                                    };
-                                  }
-                                  throw e;
-                                }
-                              })()}
                               image={(() => {
                                 try {
                                   return $queries.player.data.find(
@@ -2022,29 +1636,6 @@ function PlasmicTeams__RenderFunc(props: {
                                   ];
                                 }
                               }}
-                              clubLogo={(() => {
-                                try {
-                                  return $queries.clubs.data[
-                                    $queries.player.data[
-                                      currentItem.player_id - 1
-                                    ].club_id - 1
-                                  ].flag_url;
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return {
-                                      src: "/plasmic/proliga/images/logoDesignTemplateB588De7Cc0B07E82392C3B2Ea4Ea7B73Screenjpg.jpg",
-                                      fullWidth: 690,
-                                      fullHeight: 690,
-                                      aspectRatio: undefined
-                                    };
-                                  }
-                                  throw e;
-                                }
-                              })()}
                               image={(() => {
                                 try {
                                   return $queries.player.data.find(
@@ -2533,10 +2124,10 @@ const PlasmicDescendants = {
   root: [
     "root",
     "navbar",
-    "modal",
-    "updateCapitan",
+    "userteamNavbar",
     "columns",
     "_532",
+    "button",
     "goa",
     "def",
     "mid",
@@ -2547,11 +2138,11 @@ const PlasmicDescendants = {
     "footer"
   ],
   navbar: ["navbar"],
-  modal: ["modal"],
-  updateCapitan: ["updateCapitan"],
+  userteamNavbar: ["userteamNavbar"],
   columns: [
     "columns",
     "_532",
+    "button",
     "goa",
     "def",
     "mid",
@@ -2559,7 +2150,8 @@ const PlasmicDescendants = {
     "soccerPlaceMens2",
     "playerPickerRow"
   ],
-  _532: ["_532"],
+  _532: ["_532", "button"],
+  button: ["button"],
   goa: ["goa"],
   def: ["def"],
   mid: ["mid"],
@@ -2575,10 +2167,10 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   navbar: typeof Navbar;
-  modal: typeof AntdModal;
-  updateCapitan: typeof UpdateCapitan;
+  userteamNavbar: typeof UserteamNavbar;
   columns: "div";
   _532: typeof AntdDropdown;
+  button: typeof AntdButton;
   goa: "div";
   def: "div";
   mid: "div";
@@ -2667,10 +2259,10 @@ export const PlasmicTeams = Object.assign(
   {
     // Helper components rendering sub-elements
     navbar: makeNodeComponent("navbar"),
-    modal: makeNodeComponent("modal"),
-    updateCapitan: makeNodeComponent("updateCapitan"),
+    userteamNavbar: makeNodeComponent("userteamNavbar"),
     columns: makeNodeComponent("columns"),
     _532: makeNodeComponent("_532"),
+    button: makeNodeComponent("button"),
     goa: makeNodeComponent("goa"),
     def: makeNodeComponent("def"),
     mid: makeNodeComponent("mid"),
