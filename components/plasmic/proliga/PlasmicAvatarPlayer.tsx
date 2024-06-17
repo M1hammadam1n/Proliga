@@ -122,8 +122,12 @@ function PlasmicAvatarPlayer__RenderFunc(props: {
     () =>
       Object.assign(
         {
-          image:
-            "https://fantasy.premierleague.com/dist/img/shirts/standard/shirt_0-66.png",
+          image: {
+            src: "/plasmic/proliga/images/shirt066Png.png",
+            fullWidth: 66,
+            fullHeight: 87,
+            aspectRatio: undefined
+          },
           capitanVisibility: false
         },
         props.args

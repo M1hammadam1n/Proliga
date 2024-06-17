@@ -147,6 +147,7 @@ function PlasmicEditTeam__RenderFunc(props: {
   >({});
 
   const dataSourcesCtx = usePlasmicDataSourceContext();
+  const plasmicInvalidate = usePlasmicInvalidate();
 
   const new$Queries: Record<string, ReturnType<typeof usePlasmicDataOp>> = {
     query: usePlasmicDataOp(() => {
@@ -371,7 +372,19 @@ function PlasmicEditTeam__RenderFunc(props: {
                               "__wab_instance",
                               sty.avatarPlayer___3W3Wy
                             )}
-                            name={"GOA"}
+                            name={(() => {
+                              try {
+                                return currentItem.pl_name;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return undefined;
+                                }
+                                throw e;
+                              }
+                            })()}
                           />
                         </div>
                       );
@@ -415,7 +428,19 @@ function PlasmicEditTeam__RenderFunc(props: {
                               "__wab_instance",
                               sty.avatarPlayer__tbmJu
                             )}
-                            name={"DEF"}
+                            name={(() => {
+                              try {
+                                return currentItem.pl_name;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return undefined;
+                                }
+                                throw e;
+                              }
+                            })()}
                           />
                         </div>
                       );
@@ -459,7 +484,19 @@ function PlasmicEditTeam__RenderFunc(props: {
                               "__wab_instance",
                               sty.avatarPlayer__riCee
                             )}
-                            name={"MID"}
+                            name={(() => {
+                              try {
+                                return currentItem.pl_name;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return ``;
+                                }
+                                throw e;
+                              }
+                            })()}
                           />
                         </div>
                       );
@@ -499,11 +536,24 @@ function PlasmicEditTeam__RenderFunc(props: {
                           key={currentIndex}
                         >
                           <AvatarPlayer
+                            capitanVisibility={false}
                             className={classNames(
                               "__wab_instance",
                               sty.avatarPlayer__pyVn0
                             )}
-                            name={"STR"}
+                            name={(() => {
+                              try {
+                                return currentItem.pl_name;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return ``;
+                                }
+                                throw e;
+                              }
+                            })()}
                           />
                         </div>
                       );
@@ -584,6 +634,111 @@ function PlasmicEditTeam__RenderFunc(props: {
                             throw e;
                           }
                         })()}
+                        onclickPlus={async event => {
+                          const $steps = {};
+
+                          $steps["updateMoney"] = true
+                            ? (() => {
+                                const actionArgs = {
+                                  dataOp: {
+                                    sourceId: "vQtRPuFArSfh43vUmgx2PS",
+                                    opId: "4a8e5f61-e13f-4caa-95dd-62a9c3e416d7",
+                                    userArgs: {
+                                      params: [
+                                        $queries.query.data.response[0].id
+                                      ],
+                                      body: [
+                                        $queries.query.data.response[0]
+                                          .balance - currentItem.price
+                                      ]
+                                    },
+                                    cacheKey: null,
+                                    invalidatedKeys: ["plasmic_refresh_all"],
+                                    roleId: null
+                                  }
+                                };
+                                return (async ({ dataOp, continueOnError }) => {
+                                  try {
+                                    const response = await executePlasmicDataOp(
+                                      dataOp,
+                                      {
+                                        userAuthToken:
+                                          dataSourcesCtx?.userAuthToken,
+                                        user: dataSourcesCtx?.user
+                                      }
+                                    );
+                                    await plasmicInvalidate(
+                                      dataOp.invalidatedKeys
+                                    );
+                                    return response;
+                                  } catch (e) {
+                                    if (!continueOnError) {
+                                      throw e;
+                                    }
+                                    return e;
+                                  }
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                          if (
+                            $steps["updateMoney"] != null &&
+                            typeof $steps["updateMoney"] === "object" &&
+                            typeof $steps["updateMoney"].then === "function"
+                          ) {
+                            $steps["updateMoney"] = await $steps["updateMoney"];
+                          }
+
+                          $steps["updatePlayer"] = true
+                            ? (() => {
+                                const actionArgs = {
+                                  dataOp: {
+                                    sourceId: "vQtRPuFArSfh43vUmgx2PS",
+                                    opId: "ecb73c25-5e21-48e6-8b7d-cc47635d3ab8",
+                                    userArgs: {
+                                      body: [
+                                        currentItem.id,
+                                        currentItem.position,
+                                        $queries.query.data.response[0].id
+                                      ]
+                                    },
+                                    cacheKey: null,
+                                    invalidatedKeys: ["plasmic_refresh_all"],
+                                    roleId: null
+                                  }
+                                };
+                                return (async ({ dataOp, continueOnError }) => {
+                                  try {
+                                    const response = await executePlasmicDataOp(
+                                      dataOp,
+                                      {
+                                        userAuthToken:
+                                          dataSourcesCtx?.userAuthToken,
+                                        user: dataSourcesCtx?.user
+                                      }
+                                    );
+                                    await plasmicInvalidate(
+                                      dataOp.invalidatedKeys
+                                    );
+                                    return response;
+                                  } catch (e) {
+                                    if (!continueOnError) {
+                                      throw e;
+                                    }
+                                    return e;
+                                  }
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                          if (
+                            $steps["updatePlayer"] != null &&
+                            typeof $steps["updatePlayer"] === "object" &&
+                            typeof $steps["updatePlayer"].then === "function"
+                          ) {
+                            $steps["updatePlayer"] = await $steps[
+                              "updatePlayer"
+                            ];
+                          }
+                        }}
                         position={(() => {
                           try {
                             return currentItem.position;
