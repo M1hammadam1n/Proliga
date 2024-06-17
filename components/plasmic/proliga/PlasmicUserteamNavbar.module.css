@@ -22,6 +22,13 @@
 .root > :global(.__wab_flex-container) > :global(.__wab_slot) > picture > img {
   margin-left: 16px;
 }
+.text__kyuHu {
+  position: relative;
+  text-align: left;
+  color: var(--token-_Z-x7YSfdB4D);
+  font-weight: 600;
+  font-size: 32px;
+}
 .text__jNioD {
   position: relative;
   text-align: left;

@@ -223,6 +223,7 @@ function PlasmicEditTeam__RenderFunc(props: {
               data-plasmic-name={"userteamNavbar"}
               data-plasmic-override={overrides.userteamNavbar}
               className={classNames("__wab_instance", sty.userteamNavbar)}
+              nameOfTeam={` ${$queries.query.data.response[0].name}`}
               teamBalance={(() => {
                 try {
                   return $queries.query.data.response[0].balance;

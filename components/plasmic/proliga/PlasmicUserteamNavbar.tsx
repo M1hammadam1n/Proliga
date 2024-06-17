@@ -88,12 +88,14 @@ export type PlasmicUserteamNavbar__ArgsType = {
   capitanBtnVisibility?: boolean;
   sellBtnBool?: boolean;
   teamBalance?: number;
+  nameOfTeam?: string;
 };
 type ArgPropType = keyof PlasmicUserteamNavbar__ArgsType;
 export const PlasmicUserteamNavbar__ArgProps = new Array<ArgPropType>(
   "capitanBtnVisibility",
   "sellBtnBool",
-  "teamBalance"
+  "teamBalance",
+  "nameOfTeam"
 );
 
 export type PlasmicUserteamNavbar__OverridesType = {
@@ -107,6 +109,7 @@ export interface DefaultUserteamNavbarProps {
   capitanBtnVisibility?: boolean;
   sellBtnBool?: boolean;
   teamBalance?: number;
+  nameOfTeam?: string;
   className?: string;
 }
 
@@ -145,7 +148,8 @@ function PlasmicUserteamNavbar__RenderFunc(props: {
               throw e;
             }
           })(),
-          teamBalance: 0
+          teamBalance: 0,
+          nameOfTeam: " "
         },
         props.args
       ),
@@ -203,6 +207,29 @@ function PlasmicUserteamNavbar__RenderFunc(props: {
         sty.root
       )}
     >
+      <div
+        className={classNames(
+          projectcss.all,
+          projectcss.__wab_text,
+          sty.text__kyuHu
+        )}
+      >
+        <React.Fragment>
+          {(() => {
+            try {
+              return $props.nameOfTeam;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return "\u041d\u0430\u0437\u0432\u0430\u043d\u0438\u0435 \u043a\u043e\u043c\u0430\u043d\u0434\u044b";
+              }
+              throw e;
+            }
+          })()}
+        </React.Fragment>
+      </div>
       <div
         className={classNames(
           projectcss.all,
