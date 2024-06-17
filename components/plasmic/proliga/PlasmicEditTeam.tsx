@@ -372,6 +372,24 @@ function PlasmicEditTeam__RenderFunc(props: {
                               "__wab_instance",
                               sty.avatarPlayer___3W3Wy
                             )}
+                            image={(() => {
+                              try {
+                                return undefined;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return {
+                                    src: "/plasmic/proliga/images/shirt066Png.png",
+                                    fullWidth: 66,
+                                    fullHeight: 87,
+                                    aspectRatio: undefined
+                                  };
+                                }
+                                throw e;
+                              }
+                            })()}
                             name={(() => {
                               try {
                                 return currentItem.pl_name;
