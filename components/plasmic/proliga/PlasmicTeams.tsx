@@ -231,7 +231,6 @@ function PlasmicTeams__RenderFunc(props: {
     $refs
   });
   const dataSourcesCtx = usePlasmicDataSourceContext();
-  const plasmicInvalidate = usePlasmicInvalidate();
 
   const new$Queries: Record<string, ReturnType<typeof usePlasmicDataOp>> = {
     teamP: usePlasmicDataOp(() => {
@@ -1828,40 +1827,6 @@ function PlasmicTeams__RenderFunc(props: {
                       "__wab_instance",
                       sty.playerPickerRow
                     )}
-                    clubImage={(() => {
-                      try {
-                        return $queries.clubs.data[currentItem.club_id - 1]
-                          .flag_url;
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return {
-                            src: "/plasmic/proliga/images/logoDesignTemplateB588De7Cc0B07E82392C3B2Ea4Ea7B73Screenjpg.jpg",
-                            fullWidth: 690,
-                            fullHeight: 690,
-                            aspectRatio: undefined
-                          };
-                        }
-                        throw e;
-                      }
-                    })()}
-                    firstImage={(() => {
-                      try {
-                        return $queries.clubs.data.find(
-                          x => x.id === currentItem.club_id
-                        ).flag_url;
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return undefined;
-                        }
-                        throw e;
-                      }
-                    })()}
                     fsyp={(() => {
                       try {
                         return currentItem.FSYP;
@@ -1876,106 +1841,6 @@ function PlasmicTeams__RenderFunc(props: {
                       }
                     })()}
                     key={currentIndex}
-                    modalCancelBtn={async () => {
-                      const $steps = {};
-                    }}
-                    modalContent={(() => {
-                      try {
-                        return (
-                          "Market value: $" +
-                          currentItem.market_value +
-                          " Name: " +
-                          currentItem.name
-                        );
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return undefined;
-                        }
-                        throw e;
-                      }
-                    })()}
-                    modalOkBtn={async () => {
-                      const $steps = {};
-
-                      $steps["updatePlayer"] =
-                        $queries.pickedPlayer.data[0].player_id == null
-                          ? (() => {
-                              const actionArgs = {
-                                dataOp: {
-                                  sourceId: "8cdHi4ivRUEkK6qbegQevF",
-                                  opId: "3dd1e590-3ad8-43f8-a6f0-fe6eca352a85",
-                                  userArgs: {
-                                    keys: [$state.teamplayerstate],
-                                    variables: [
-                                      currentItem.id,
-                                      currentItem.position
-                                    ]
-                                  },
-                                  cacheKey: null,
-                                  invalidatedKeys: ["plasmic_refresh_all"],
-                                  roleId: "f8970d3a-c1ae-4ba8-80dd-90e548ee70d6"
-                                }
-                              };
-                              return (async ({ dataOp, continueOnError }) => {
-                                try {
-                                  const response = await executePlasmicDataOp(
-                                    dataOp,
-                                    {
-                                      userAuthToken:
-                                        dataSourcesCtx?.userAuthToken,
-                                      user: dataSourcesCtx?.user
-                                    }
-                                  );
-                                  await plasmicInvalidate(
-                                    dataOp.invalidatedKeys
-                                  );
-                                  return response;
-                                } catch (e) {
-                                  if (!continueOnError) {
-                                    throw e;
-                                  }
-                                  return e;
-                                }
-                              })?.apply(null, [actionArgs]);
-                            })()
-                          : undefined;
-                      if (
-                        $steps["updatePlayer"] != null &&
-                        typeof $steps["updatePlayer"] === "object" &&
-                        typeof $steps["updatePlayer"].then === "function"
-                      ) {
-                        $steps["updatePlayer"] = await $steps["updatePlayer"];
-                      }
-                    }}
-                    modalTitle={(() => {
-                      try {
-                        return "Are you sure to buy this player?";
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return "Modal Title";
-                        }
-                        throw e;
-                      }
-                    })()}
-                    modalVisible={(() => {
-                      try {
-                        return $queries.pickedPlayer.data[0].player_id;
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return undefined;
-                        }
-                        throw e;
-                      }
-                    })()}
                     name={(() => {
                       try {
                         return currentItem.name;
@@ -2005,89 +1870,6 @@ function PlasmicTeams__RenderFunc(props: {
                     price={(() => {
                       try {
                         return currentItem.market_value;
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return undefined;
-                        }
-                        throw e;
-                      }
-                    })()}
-                    sellBtnOk={async () => {
-                      const $steps = {};
-
-                      $steps["postgresUpdateById"] =
-                        $queries.pickedPlayer.data[0].player_id != null
-                          ? (() => {
-                              const actionArgs = {
-                                dataOp: {
-                                  sourceId: "8cdHi4ivRUEkK6qbegQevF",
-                                  opId: "e9d565cf-9aef-4365-9bd7-6e9bb27c7b43",
-                                  userArgs: {
-                                    keys: [$state.teamplayerstate],
-                                    variables: [null, null]
-                                  },
-                                  cacheKey: null,
-                                  invalidatedKeys: ["plasmic_refresh_all"],
-                                  roleId: "f8970d3a-c1ae-4ba8-80dd-90e548ee70d6"
-                                }
-                              };
-                              return (async ({ dataOp, continueOnError }) => {
-                                try {
-                                  const response = await executePlasmicDataOp(
-                                    dataOp,
-                                    {
-                                      userAuthToken:
-                                        dataSourcesCtx?.userAuthToken,
-                                      user: dataSourcesCtx?.user
-                                    }
-                                  );
-                                  await plasmicInvalidate(
-                                    dataOp.invalidatedKeys
-                                  );
-                                  return response;
-                                } catch (e) {
-                                  if (!continueOnError) {
-                                    throw e;
-                                  }
-                                  return e;
-                                }
-                              })?.apply(null, [actionArgs]);
-                            })()
-                          : undefined;
-                      if (
-                        $steps["postgresUpdateById"] != null &&
-                        typeof $steps["postgresUpdateById"] === "object" &&
-                        typeof $steps["postgresUpdateById"].then === "function"
-                      ) {
-                        $steps["postgresUpdateById"] = await $steps[
-                          "postgresUpdateById"
-                        ];
-                      }
-                    }}
-                    sellModalContent={(() => {
-                      try {
-                        return (
-                          "Market value: $" +
-                          currentItem.market_value +
-                          " Name: " +
-                          currentItem.name
-                        );
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return undefined;
-                        }
-                        throw e;
-                      }
-                    })()}
-                    sellModalTitle={(() => {
-                      try {
-                        return "Are you sure to sell this player?";
                       } catch (e) {
                         if (
                           e instanceof TypeError ||

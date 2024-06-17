@@ -513,22 +513,8 @@ function PlasmicTeams2Market__RenderFunc(props: {
                 data-plasmic-name={"playerPickerRow"}
                 data-plasmic-override={overrides.playerPickerRow}
                 className={classNames("__wab_instance", sty.playerPickerRow)}
-                firstImage={(() => {
-                  try {
-                    return currentItem.image;
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return undefined;
-                    }
-                    throw e;
-                  }
-                })()}
                 fsyp={`0${currentItem.FSYP}`}
                 key={currentIndex}
-                modalTitle={`Show player action${undefined}`}
                 name={(() => {
                   try {
                     return currentItem.name;

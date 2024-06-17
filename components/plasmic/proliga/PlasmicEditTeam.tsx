@@ -70,6 +70,7 @@ import Navbar from "../../Navbar"; // plasmic-import: TKT8XnZtrLZi/component
 import UserteamNavbar from "../../UserteamNavbar"; // plasmic-import: P-uBnHr89-in/component
 import AvatarPlayer from "../../AvatarPlayer"; // plasmic-import: 4QnaRcOLXj0D/component
 import SoccerPlaceMens2 from "../../SoccerPlaceMens2"; // plasmic-import: xodLqMOhDs29/component
+import PlayerPickerRow from "../../PlayerPickerRow"; // plasmic-import: NaQtMjgilBY9/component
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 
 import "@plasmicapp/react-web/lib/plasmic.css";
@@ -100,6 +101,9 @@ export type PlasmicEditTeam__OverridesType = {
   mid?: Flex__<"div">;
   str?: Flex__<"div">;
   soccerPlaceMens2?: Flex__<typeof SoccerPlaceMens2>;
+  filter?: Flex__<"div">;
+  playerList?: Flex__<"div">;
+  playerPickerRow?: Flex__<typeof PlayerPickerRow>;
 };
 
 export interface DefaultEditTeamProps {}
@@ -481,7 +485,28 @@ function PlasmicEditTeam__RenderFunc(props: {
                   className={classNames("__wab_instance", sty.soccerPlaceMens2)}
                 />
               </div>
-              <div className={classNames(projectcss.all, sty.column__rzO2Y)} />
+              <div className={classNames(projectcss.all, sty.column__rzO2Y)}>
+                <div
+                  data-plasmic-name={"filter"}
+                  data-plasmic-override={overrides.filter}
+                  className={classNames(projectcss.all, sty.filter)}
+                />
+
+                <div
+                  data-plasmic-name={"playerList"}
+                  data-plasmic-override={overrides.playerList}
+                  className={classNames(projectcss.all, sty.playerList)}
+                >
+                  <PlayerPickerRow
+                    data-plasmic-name={"playerPickerRow"}
+                    data-plasmic-override={overrides.playerPickerRow}
+                    className={classNames(
+                      "__wab_instance",
+                      sty.playerPickerRow
+                    )}
+                  />
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -500,16 +525,32 @@ const PlasmicDescendants = {
     "def",
     "mid",
     "str",
-    "soccerPlaceMens2"
+    "soccerPlaceMens2",
+    "filter",
+    "playerList",
+    "playerPickerRow"
   ],
   navbar: ["navbar"],
   userteamNavbar: ["userteamNavbar"],
-  columns: ["columns", "goa", "def", "mid", "str", "soccerPlaceMens2"],
+  columns: [
+    "columns",
+    "goa",
+    "def",
+    "mid",
+    "str",
+    "soccerPlaceMens2",
+    "filter",
+    "playerList",
+    "playerPickerRow"
+  ],
   goa: ["goa"],
   def: ["def"],
   mid: ["mid"],
   str: ["str"],
-  soccerPlaceMens2: ["soccerPlaceMens2"]
+  soccerPlaceMens2: ["soccerPlaceMens2"],
+  filter: ["filter"],
+  playerList: ["playerList", "playerPickerRow"],
+  playerPickerRow: ["playerPickerRow"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -524,6 +565,9 @@ type NodeDefaultElementType = {
   mid: "div";
   str: "div";
   soccerPlaceMens2: typeof SoccerPlaceMens2;
+  filter: "div";
+  playerList: "div";
+  playerPickerRow: typeof PlayerPickerRow;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -611,6 +655,9 @@ export const PlasmicEditTeam = Object.assign(
     mid: makeNodeComponent("mid"),
     str: makeNodeComponent("str"),
     soccerPlaceMens2: makeNodeComponent("soccerPlaceMens2"),
+    filter: makeNodeComponent("filter"),
+    playerList: makeNodeComponent("playerList"),
+    playerPickerRow: makeNodeComponent("playerPickerRow"),
 
     // Metadata about props expected for PlasmicEditTeam
     internalVariantProps: PlasmicEditTeam__VariantProps,

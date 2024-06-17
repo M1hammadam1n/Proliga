@@ -59,8 +59,6 @@ import {
   useGlobalActions
 } from "@plasmicapp/react-web/lib/host";
 
-import { AntdModal } from "@plasmicpkgs/antd5/skinny/registerModal";
-
 import { useScreenVariants as useScreenVariants_8Rmrqs5Mzp6I } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 8Rmrqs5Mzp6I/globalVariant
 
 import "@plasmicapp/react-web/lib/plasmic.css";
@@ -79,67 +77,30 @@ export const PlasmicPlayerPickerRow__VariantProps =
   new Array<VariantPropType>();
 
 export type PlasmicPlayerPickerRow__ArgsType = {
-  clubImage?: React.ComponentProps<typeof PlasmicImg__>["src"];
   position?: string;
   fsyp?: string;
   name?: string;
   price?: string;
-  update?: (event: any) => void;
-  firstImage?: React.ComponentProps<typeof PlasmicImg__>["src"];
-  modalOkBtn?: () => void;
-  modalCancelBtn?: () => void;
-  modalTitle?: string;
-  modalContent?: string;
-  modalVisible?: number;
-  sellModalTitle?: string;
-  sellModalContent?: string;
-  sellBtnOk?: () => void;
-  sellBtnCancel?: () => void;
 };
 type ArgPropType = keyof PlasmicPlayerPickerRow__ArgsType;
 export const PlasmicPlayerPickerRow__ArgProps = new Array<ArgPropType>(
-  "clubImage",
   "position",
   "fsyp",
   "name",
-  "price",
-  "update",
-  "firstImage",
-  "modalOkBtn",
-  "modalCancelBtn",
-  "modalTitle",
-  "modalContent",
-  "modalVisible",
-  "sellModalTitle",
-  "sellModalContent",
-  "sellBtnOk",
-  "sellBtnCancel"
+  "price"
 );
 
 export type PlasmicPlayerPickerRow__OverridesType = {
   root?: Flex__<"div">;
   button?: Flex__<"button">;
-  buy?: Flex__<typeof AntdModal>;
-  sell?: Flex__<typeof AntdModal>;
+  img?: Flex__<typeof PlasmicImg__>;
 };
 
 export interface DefaultPlayerPickerRowProps {
-  clubImage?: React.ComponentProps<typeof PlasmicImg__>["src"];
   position?: string;
   fsyp?: string;
   name?: string;
   price?: string;
-  update?: (event: any) => void;
-  firstImage?: React.ComponentProps<typeof PlasmicImg__>["src"];
-  modalOkBtn?: () => void;
-  modalCancelBtn?: () => void;
-  modalTitle?: string;
-  modalContent?: string;
-  modalVisible?: number;
-  sellModalTitle?: string;
-  sellModalContent?: string;
-  sellBtnOk?: () => void;
-  sellBtnCancel?: () => void;
   className?: string;
 }
 
@@ -164,23 +125,9 @@ function PlasmicPlayerPickerRow__RenderFunc(props: {
     () =>
       Object.assign(
         {
-          clubImage: {
-            src: "/plasmic/proliga/images/logoDesignTemplateB588De7Cc0B07E82392C3B2Ea4Ea7B73Screenjpg.jpg",
-            fullWidth: 690,
-            fullHeight: 690,
-            aspectRatio: undefined
-          },
           position: "DEF",
           fsyp: "0",
-          price: "0",
-          firstImage: {
-            src: "/plasmic/proliga/images/realBetispng.png",
-            fullWidth: 123,
-            fullHeight: 104,
-            aspectRatio: undefined
-          },
-          modalTitle: "Modal Title",
-          modalContent: "modal content"
+          price: "0"
         },
         props.args
       ),
@@ -198,30 +145,6 @@ function PlasmicPlayerPickerRow__RenderFunc(props: {
   const $refs = refsRef.current;
 
   const currentUser = useCurrentUser?.() || {};
-
-  const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
-    () => [
-      {
-        path: "buy.open",
-        type: "private",
-        variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
-      },
-      {
-        path: "sell.open",
-        type: "private",
-        variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
-      }
-    ],
-    [$props, $ctx, $refs]
-  );
-  const $state = useDollarState(stateSpecs, {
-    $props,
-    $ctx,
-    $queries: {},
-    $refs
-  });
 
   const globalVariants = ensureGlobalVariants({
     screen: useScreenVariants_8Rmrqs5Mzp6I()
@@ -252,83 +175,8 @@ function PlasmicPlayerPickerRow__RenderFunc(props: {
         className={classNames(projectcss.all, projectcss.button, sty.button)}
         onClick={async event => {
           const $steps = {};
-
-          $steps["sellVisible"] =
-            $props.modalVisible != null
-              ? (() => {
-                  const actionArgs = {
-                    variable: {
-                      objRoot: $state,
-                      variablePath: ["sell", "open"]
-                    },
-                    operation: 0,
-                    value: true
-                  };
-                  return (({ variable, value, startIndex, deleteCount }) => {
-                    if (!variable) {
-                      return;
-                    }
-                    const { objRoot, variablePath } = variable;
-
-                    $stateSet(objRoot, variablePath, value);
-                    return value;
-                  })?.apply(null, [actionArgs]);
-                })()
-              : undefined;
-          if (
-            $steps["sellVisible"] != null &&
-            typeof $steps["sellVisible"] === "object" &&
-            typeof $steps["sellVisible"].then === "function"
-          ) {
-            $steps["sellVisible"] = await $steps["sellVisible"];
-          }
-
-          $steps["updateBuyOpen"] =
-            $props.modalVisible == null
-              ? (() => {
-                  const actionArgs = {
-                    variable: {
-                      objRoot: $state,
-                      variablePath: ["buy", "open"]
-                    },
-                    operation: 0,
-                    value: true
-                  };
-                  return (({ variable, value, startIndex, deleteCount }) => {
-                    if (!variable) {
-                      return;
-                    }
-                    const { objRoot, variablePath } = variable;
-
-                    $stateSet(objRoot, variablePath, value);
-                    return value;
-                  })?.apply(null, [actionArgs]);
-                })()
-              : undefined;
-          if (
-            $steps["updateBuyOpen"] != null &&
-            typeof $steps["updateBuyOpen"] === "object" &&
-            typeof $steps["updateBuyOpen"].then === "function"
-          ) {
-            $steps["updateBuyOpen"] = await $steps["updateBuyOpen"];
-          }
         }}
       >
-        <PlasmicImg__
-          alt={""}
-          className={classNames(sty.img__bjNN)}
-          displayHeight={"40px"}
-          displayMaxHeight={"none"}
-          displayMaxWidth={"100%"}
-          displayMinHeight={"0"}
-          displayMinWidth={"0"}
-          displayWidth={"40px"}
-          height={"40px"}
-          loading={"lazy"}
-          src={args.firstImage}
-          width={"40px"}
-        />
-
         <div
           className={classNames(
             projectcss.all,
@@ -376,8 +224,10 @@ function PlasmicPlayerPickerRow__RenderFunc(props: {
           </React.Fragment>
         </div>
         <PlasmicImg__
+          data-plasmic-name={"img"}
+          data-plasmic-override={overrides.img}
           alt={""}
-          className={classNames(sty.img__oDyDd)}
+          className={classNames(sty.img)}
           displayHeight={"auto"}
           displayMaxHeight={"none"}
           displayMaxWidth={"100%"}
@@ -416,21 +266,6 @@ function PlasmicPlayerPickerRow__RenderFunc(props: {
             })()}
           </React.Fragment>
         </div>
-        <PlasmicImg__
-          alt={""}
-          className={classNames(sty.img__p539M)}
-          displayHeight={"30px"}
-          displayMaxHeight={"none"}
-          displayMaxWidth={"100%"}
-          displayMinHeight={"0"}
-          displayMinWidth={"0"}
-          displayWidth={"30px"}
-          height={"21.73px"}
-          loading={"lazy"}
-          src={args.clubImage}
-          width={"21px"}
-        />
-
         <div
           className={classNames(
             projectcss.all,
@@ -438,7 +273,7 @@ function PlasmicPlayerPickerRow__RenderFunc(props: {
             sty.text___6Ak9J
           )}
         >
-          {"FSYP"}
+          {"Ochko"}
         </div>
         <div
           className={classNames(
@@ -464,143 +299,14 @@ function PlasmicPlayerPickerRow__RenderFunc(props: {
           </React.Fragment>
         </div>
       </Stack__>
-      <AntdModal
-        data-plasmic-name={"buy"}
-        data-plasmic-override={overrides.buy}
-        className={classNames("__wab_instance", sty.buy)}
-        defaultStylesClassName={classNames(
-          projectcss.root_reset,
-          projectcss.plasmic_default_styles,
-          projectcss.plasmic_mixins,
-          projectcss.plasmic_tokens,
-          plasmic_antd_5_hostless_css.plasmic_tokens,
-          plasmic_plasmic_rich_components_css.plasmic_tokens
-        )}
-        maskClosable={true}
-        modalScopeClassName={sty["buy__modal"]}
-        okText={"Accept"}
-        onCancel={args.modalCancelBtn}
-        onOk={args.modalOkBtn}
-        onOpenChange={generateStateOnChangeProp($state, ["buy", "open"])}
-        open={generateStateValueProp($state, ["buy", "open"])}
-        title={
-          <React.Fragment>
-            {(() => {
-              try {
-                return $props.modalTitle;
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return "Modal title";
-                }
-                throw e;
-              }
-            })()}
-          </React.Fragment>
-        }
-        trigger={null}
-      >
-        <div className={classNames(projectcss.all, sty.freeBox__nNhmM)}>
-          <div
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text__zfSc8
-            )}
-          >
-            <React.Fragment>
-              {(() => {
-                try {
-                  return $props.modalContent;
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return "Modal content";
-                  }
-                  throw e;
-                }
-              })()}
-            </React.Fragment>
-          </div>
-        </div>
-      </AntdModal>
-      <AntdModal
-        data-plasmic-name={"sell"}
-        data-plasmic-override={overrides.sell}
-        className={classNames("__wab_instance", sty.sell)}
-        defaultStylesClassName={classNames(
-          projectcss.root_reset,
-          projectcss.plasmic_default_styles,
-          projectcss.plasmic_mixins,
-          projectcss.plasmic_tokens,
-          plasmic_antd_5_hostless_css.plasmic_tokens,
-          plasmic_plasmic_rich_components_css.plasmic_tokens
-        )}
-        maskClosable={true}
-        modalScopeClassName={sty["sell__modal"]}
-        okText={"Accept"}
-        onCancel={args.sellBtnCancel}
-        onOk={args.sellBtnOk}
-        onOpenChange={generateStateOnChangeProp($state, ["sell", "open"])}
-        open={generateStateValueProp($state, ["sell", "open"])}
-        title={
-          <React.Fragment>
-            {(() => {
-              try {
-                return $props.sellModalTitle;
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return "Modal title";
-                }
-                throw e;
-              }
-            })()}
-          </React.Fragment>
-        }
-        trigger={null}
-      >
-        <div className={classNames(projectcss.all, sty.freeBox__mpNal)}>
-          <div
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text__pk5Pq
-            )}
-          >
-            <React.Fragment>
-              {(() => {
-                try {
-                  return $props.sellModalContent;
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return "Modal content";
-                  }
-                  throw e;
-                }
-              })()}
-            </React.Fragment>
-          </div>
-        </div>
-      </AntdModal>
     </div>
   ) as React.ReactElement | null;
 }
 
 const PlasmicDescendants = {
-  root: ["root", "button", "buy", "sell"],
-  button: ["button"],
-  buy: ["buy"],
-  sell: ["sell"]
+  root: ["root", "button", "img"],
+  button: ["button", "img"],
+  img: ["img"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -608,8 +314,7 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   button: "button";
-  buy: typeof AntdModal;
-  sell: typeof AntdModal;
+  img: typeof PlasmicImg__;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -673,8 +378,7 @@ export const PlasmicPlayerPickerRow = Object.assign(
   {
     // Helper components rendering sub-elements
     button: makeNodeComponent("button"),
-    buy: makeNodeComponent("buy"),
-    sell: makeNodeComponent("sell"),
+    img: makeNodeComponent("img"),
 
     // Metadata about props expected for PlasmicPlayerPickerRow
     internalVariantProps: PlasmicPlayerPickerRow__VariantProps,
