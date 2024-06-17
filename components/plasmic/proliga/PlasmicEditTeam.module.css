@@ -80,19 +80,31 @@
     width: calc((100% - 1 * var(--plsmc-rc-col-gap, 0px)) * 12 / 12);
   }
 }
-.column__jzZV {
+.stadion {
   display: flex;
   position: relative;
   flex-direction: column;
   width: 100%;
   height: auto;
   max-width: 100%;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   min-width: 0;
   padding: 8px;
 }
-.freeBox__selJy {
+.freeBox___3JtsZ {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+  padding: 8px;
+}
+.teamInfo {
   display: flex;
   position: relative;
   flex-direction: row;
@@ -103,7 +115,7 @@
   min-width: 0;
   padding: 8px;
 }
-.freeBox__selJy > :global(.__wab_flex-container) {
+.teamInfo > :global(.__wab_flex-container) {
   flex-direction: row;
   align-items: center;
   justify-content: center;
@@ -111,10 +123,10 @@
   margin-left: calc(0px - 50px);
   width: calc(100% + 50px);
 }
-.freeBox__selJy > :global(.__wab_flex-container) > *,
-.freeBox__selJy > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
-.freeBox__selJy > :global(.__wab_flex-container) > picture > img,
-.freeBox__selJy
+.teamInfo > :global(.__wab_flex-container) > *,
+.teamInfo > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.teamInfo > :global(.__wab_flex-container) > picture > img,
+.teamInfo
   > :global(.__wab_flex-container)
   > :global(.__wab_slot)
   > picture
@@ -150,7 +162,7 @@
   max-width: 100%;
   z-index: 2;
   left: 0px;
-  top: 103px;
+  top: 92px;
   min-width: 0;
   padding: 8px;
 }
@@ -180,8 +192,7 @@
   max-width: 100%;
   z-index: 2;
   left: 0px;
-  top: 226px;
-  bottom: 613px;
+  top: 190px;
   min-width: 0;
   padding: 8px;
 }
@@ -211,7 +222,7 @@
   max-width: 100%;
   z-index: 2;
   left: 0px;
-  top: 357px;
+  top: 335px;
   min-width: 0;
   padding: 8px;
 }
@@ -241,7 +252,7 @@
   max-width: 100%;
   z-index: 2;
   left: 0px;
-  top: 545px;
+  top: 500px;
   min-width: 0;
   padding: 8px;
 }
@@ -270,7 +281,7 @@
   -webkit-transition-property: all;
   -webkit-transition-duration: 1s;
 }
-.column__rzO2Y {
+.column {
   display: flex;
   position: relative;
   flex-direction: column;

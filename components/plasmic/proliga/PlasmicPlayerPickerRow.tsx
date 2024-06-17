@@ -81,19 +81,22 @@ export type PlasmicPlayerPickerRow__ArgsType = {
   fsyp?: string;
   name?: string;
   price?: string;
+  onclickPlus?: (event: any) => void;
+  oneclickMinus?: (event: any) => void;
 };
 type ArgPropType = keyof PlasmicPlayerPickerRow__ArgsType;
 export const PlasmicPlayerPickerRow__ArgProps = new Array<ArgPropType>(
   "position",
   "fsyp",
   "name",
-  "price"
+  "price",
+  "onclickPlus",
+  "oneclickMinus"
 );
 
 export type PlasmicPlayerPickerRow__OverridesType = {
   root?: Flex__<"div">;
-  button?: Flex__<"button">;
-  img?: Flex__<typeof PlasmicImg__>;
+  freeBox?: Flex__<"div">;
 };
 
 export interface DefaultPlayerPickerRowProps {
@@ -101,6 +104,8 @@ export interface DefaultPlayerPickerRowProps {
   fsyp?: string;
   name?: string;
   price?: string;
+  onclickPlus?: (event: any) => void;
+  oneclickMinus?: (event: any) => void;
   className?: string;
 }
 
@@ -168,14 +173,11 @@ function PlasmicPlayerPickerRow__RenderFunc(props: {
       )}
     >
       <Stack__
-        as={"button"}
-        data-plasmic-name={"button"}
-        data-plasmic-override={overrides.button}
+        as={"div"}
+        data-plasmic-name={"freeBox"}
+        data-plasmic-override={overrides.freeBox}
         hasGap={true}
-        className={classNames(projectcss.all, projectcss.button, sty.button)}
-        onClick={async event => {
-          const $steps = {};
-        }}
+        className={classNames(projectcss.all, sty.freeBox)}
       >
         <div
           className={classNames(
@@ -224,10 +226,8 @@ function PlasmicPlayerPickerRow__RenderFunc(props: {
           </React.Fragment>
         </div>
         <PlasmicImg__
-          data-plasmic-name={"img"}
-          data-plasmic-override={overrides.img}
           alt={""}
-          className={classNames(sty.img)}
+          className={classNames(sty.img__oDyDd)}
           displayHeight={"auto"}
           displayMaxHeight={"none"}
           displayMaxWidth={"100%"}
@@ -298,23 +298,58 @@ function PlasmicPlayerPickerRow__RenderFunc(props: {
             })()}
           </React.Fragment>
         </div>
+        <PlasmicImg__
+          alt={""}
+          className={classNames(sty.img__bzOLj)}
+          displayHeight={"auto"}
+          displayMaxHeight={"none"}
+          displayMaxWidth={"100%"}
+          displayMinHeight={"0"}
+          displayMinWidth={"0"}
+          displayWidth={"32px"}
+          loading={"lazy"}
+          onClick={args.onclickPlus}
+          src={{
+            src: "/plasmic/proliga/images/plus33Svg.svg",
+            fullWidth: 1024,
+            fullHeight: 1024,
+            aspectRatio: 1
+          }}
+        />
+
+        <PlasmicImg__
+          alt={""}
+          className={classNames(sty.img__dlHuV)}
+          displayHeight={"auto"}
+          displayMaxHeight={"none"}
+          displayMaxWidth={"100%"}
+          displayMinHeight={"0"}
+          displayMinWidth={"0"}
+          displayWidth={"32px"}
+          loading={"lazy"}
+          onClick={args.oneclickMinus}
+          src={{
+            src: "/plasmic/proliga/images/x11Svg.svg",
+            fullWidth: 1024,
+            fullHeight: 1024,
+            aspectRatio: 1
+          }}
+        />
       </Stack__>
     </div>
   ) as React.ReactElement | null;
 }
 
 const PlasmicDescendants = {
-  root: ["root", "button", "img"],
-  button: ["button", "img"],
-  img: ["img"]
+  root: ["root", "freeBox"],
+  freeBox: ["freeBox"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
-  button: "button";
-  img: typeof PlasmicImg__;
+  freeBox: "div";
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -377,8 +412,7 @@ export const PlasmicPlayerPickerRow = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
-    button: makeNodeComponent("button"),
-    img: makeNodeComponent("img"),
+    freeBox: makeNodeComponent("freeBox"),
 
     // Metadata about props expected for PlasmicPlayerPickerRow
     internalVariantProps: PlasmicPlayerPickerRow__VariantProps,

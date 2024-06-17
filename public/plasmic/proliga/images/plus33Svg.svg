@@ -1,0 +1,5 @@
+<svg class="svg-icon" style="width:1em;height:1em;vertical-align:middle" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" fill="currentColor" overflow="hidden">
+  <path d="M64 512a448 448 0 10896 0 448 448 0 10-896 0z" fill="#4CAF50"/>
+  <path d="M448 298.667h128v426.666H448z" fill="#FFF"/>
+  <path d="M298.667 448h426.666v128H298.667z" fill="#FFF"/>
+</svg>

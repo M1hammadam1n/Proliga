@@ -96,11 +96,14 @@ export type PlasmicEditTeam__OverridesType = {
   navbar?: Flex__<typeof Navbar>;
   userteamNavbar?: Flex__<typeof UserteamNavbar>;
   columns?: Flex__<"div">;
+  stadion?: Flex__<"div">;
+  teamInfo?: Flex__<"div">;
   goa?: Flex__<"div">;
   def?: Flex__<"div">;
   mid?: Flex__<"div">;
   str?: Flex__<"div">;
   soccerPlaceMens2?: Flex__<typeof SoccerPlaceMens2>;
+  column?: Flex__<"div">;
   filter?: Flex__<"div">;
   playerList?: Flex__<"div">;
   playerPickerRow?: Flex__<typeof PlayerPickerRow>;
@@ -181,6 +184,18 @@ function PlasmicEditTeam__RenderFunc(props: {
         invalidatedKeys: null,
         roleId: "f8970d3a-c1ae-4ba8-80dd-90e548ee70d6"
       };
+    }),
+    playerList: usePlasmicDataOp(() => {
+      return {
+        sourceId: "vQtRPuFArSfh43vUmgx2PS",
+        opId: "3a9f74e8-7624-42d9-8d1c-464b195bf62a",
+        userArgs: {
+          params: [$queries.query.data.response[0].competition_id]
+        },
+        cacheKey: `plasmic.$.3a9f74e8-7624-42d9-8d1c-464b195bf62a.$.`,
+        invalidatedKeys: null,
+        roleId: "f8970d3a-c1ae-4ba8-80dd-90e548ee70d6"
+      };
     })
   };
   if (Object.keys(new$Queries).some(k => new$Queries[k] !== $queries[k])) {
@@ -248,236 +263,252 @@ function PlasmicEditTeam__RenderFunc(props: {
               data-plasmic-override={overrides.columns}
               className={classNames(projectcss.all, sty.columns)}
             >
-              <div className={classNames(projectcss.all, sty.column__jzZV)}>
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox__selJy)}
+              <div
+                data-plasmic-name={"stadion"}
+                data-plasmic-override={overrides.stadion}
+                className={classNames(projectcss.all, sty.stadion)}
+              >
+                <div
+                  className={classNames(projectcss.all, sty.freeBox___3JtsZ)}
                 >
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__l9Km6
-                    )}
+                  <Stack__
+                    as={"div"}
+                    data-plasmic-name={"teamInfo"}
+                    data-plasmic-override={overrides.teamInfo}
+                    hasGap={true}
+                    className={classNames(projectcss.all, sty.teamInfo)}
                   >
-                    <React.Fragment>
-                      {(() => {
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__l9Km6
+                      )}
+                    >
+                      <React.Fragment>
+                        {(() => {
+                          try {
+                            return (
+                              "(" +
+                              $queries.teamPlayer.data.response.filter(
+                                x => x.player_id != null
+                              ).length +
+                              "/11)"
+                            );
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return "";
+                            }
+                            throw e;
+                          }
+                        })()}
+                      </React.Fragment>
+                    </div>
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text___0Xzpm
+                      )}
+                    >
+                      <React.Fragment>
+                        {(() => {
+                          try {
+                            return (
+                              "$" + $queries.query.data.response[0].balance
+                            );
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return "";
+                            }
+                            throw e;
+                          }
+                        })()}
+                      </React.Fragment>
+                    </div>
+                  </Stack__>
+                  <div
+                    data-plasmic-name={"goa"}
+                    data-plasmic-override={overrides.goa}
+                    className={classNames(projectcss.all, sty.goa)}
+                  >
+                    {(_par =>
+                      !_par ? [] : Array.isArray(_par) ? _par : [_par])(
+                      (() => {
                         try {
-                          return (
-                            "(" +
-                            $queries.teamPlayer.data.response.filter(
-                              x => x.player_id != null
-                            ).length +
-                            "/11)"
+                          return $queries.teamPlayer.data.response.filter(
+                            x => x.position === "GOA"
                           );
                         } catch (e) {
                           if (
                             e instanceof TypeError ||
                             e?.plasmicType === "PlasmicUndefinedDataError"
                           ) {
-                            return "";
+                            return [];
                           }
                           throw e;
                         }
-                      })()}
-                    </React.Fragment>
+                      })()
+                    ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                      const currentItem = __plasmic_item_0;
+                      const currentIndex = __plasmic_idx_0;
+                      return (
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox__aPb5
+                          )}
+                          key={currentIndex}
+                        >
+                          <AvatarPlayer
+                            className={classNames(
+                              "__wab_instance",
+                              sty.avatarPlayer___3W3Wy
+                            )}
+                            name={"GOA"}
+                          />
+                        </div>
+                      );
+                    })}
                   </div>
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text___0Xzpm
-                    )}
+                    data-plasmic-name={"def"}
+                    data-plasmic-override={overrides.def}
+                    className={classNames(projectcss.all, sty.def)}
                   >
-                    <React.Fragment>
-                      {(() => {
+                    {(_par =>
+                      !_par ? [] : Array.isArray(_par) ? _par : [_par])(
+                      (() => {
                         try {
-                          return "$" + $queries.query.data.response[0].balance;
+                          return $queries.teamPlayer.data.response.filter(
+                            x => x.position === "DEF"
+                          );
                         } catch (e) {
                           if (
                             e instanceof TypeError ||
                             e?.plasmicType === "PlasmicUndefinedDataError"
                           ) {
-                            return "";
+                            return [];
                           }
                           throw e;
                         }
-                      })()}
-                    </React.Fragment>
+                      })()
+                    ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                      const currentItem = __plasmic_item_0;
+                      const currentIndex = __plasmic_idx_0;
+                      return (
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox___4QjEq
+                          )}
+                          key={currentIndex}
+                        >
+                          <AvatarPlayer
+                            className={classNames(
+                              "__wab_instance",
+                              sty.avatarPlayer__tbmJu
+                            )}
+                            name={"DEF"}
+                          />
+                        </div>
+                      );
+                    })}
                   </div>
-                </Stack__>
-                <div
-                  data-plasmic-name={"goa"}
-                  data-plasmic-override={overrides.goa}
-                  className={classNames(projectcss.all, sty.goa)}
-                >
-                  {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
-                    (() => {
-                      try {
-                        return $queries.teamPlayer.data.response.filter(
-                          x => x.position === "GOA"
-                        );
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return [];
+                  <div
+                    data-plasmic-name={"mid"}
+                    data-plasmic-override={overrides.mid}
+                    className={classNames(projectcss.all, sty.mid)}
+                  >
+                    {(_par =>
+                      !_par ? [] : Array.isArray(_par) ? _par : [_par])(
+                      (() => {
+                        try {
+                          return $queries.teamPlayer.data.response.filter(
+                            x => x.position === "MID"
+                          );
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return [];
+                          }
+                          throw e;
                         }
-                        throw e;
-                      }
-                    })()
-                  ).map((__plasmic_item_0, __plasmic_idx_0) => {
-                    const currentItem = __plasmic_item_0;
-                    const currentIndex = __plasmic_idx_0;
-                    return (
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__aPb5
-                        )}
-                        key={currentIndex}
-                      >
-                        <AvatarPlayer
+                      })()
+                    ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                      const currentItem = __plasmic_item_0;
+                      const currentIndex = __plasmic_idx_0;
+                      return (
+                        <div
                           className={classNames(
-                            "__wab_instance",
-                            sty.avatarPlayer___3W3Wy
+                            projectcss.all,
+                            sty.freeBox__hYu4
                           )}
-                          name={"GOA"}
-                        />
-                      </div>
-                    );
-                  })}
-                </div>
-                <div
-                  data-plasmic-name={"def"}
-                  data-plasmic-override={overrides.def}
-                  className={classNames(projectcss.all, sty.def)}
-                >
-                  {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
-                    (() => {
-                      try {
-                        return $queries.teamPlayer.data.response.filter(
-                          x => x.position === "DEF"
-                        );
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return [];
+                          key={currentIndex}
+                        >
+                          <AvatarPlayer
+                            className={classNames(
+                              "__wab_instance",
+                              sty.avatarPlayer__riCee
+                            )}
+                            name={"MID"}
+                          />
+                        </div>
+                      );
+                    })}
+                  </div>
+                  <div
+                    data-plasmic-name={"str"}
+                    data-plasmic-override={overrides.str}
+                    className={classNames(projectcss.all, sty.str)}
+                  >
+                    {(_par =>
+                      !_par ? [] : Array.isArray(_par) ? _par : [_par])(
+                      (() => {
+                        try {
+                          return $queries.teamPlayer.data.response.filter(
+                            x => x.position === "STR"
+                          );
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return [];
+                          }
+                          throw e;
                         }
-                        throw e;
-                      }
-                    })()
-                  ).map((__plasmic_item_0, __plasmic_idx_0) => {
-                    const currentItem = __plasmic_item_0;
-                    const currentIndex = __plasmic_idx_0;
-                    return (
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox___4QjEq
-                        )}
-                        key={currentIndex}
-                      >
-                        <AvatarPlayer
+                      })()
+                    ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                      const currentItem = __plasmic_item_0;
+                      const currentIndex = __plasmic_idx_0;
+                      return (
+                        <div
                           className={classNames(
-                            "__wab_instance",
-                            sty.avatarPlayer__tbmJu
+                            projectcss.all,
+                            sty.freeBox__we8EE
                           )}
-                          name={"DEF"}
-                        />
-                      </div>
-                    );
-                  })}
-                </div>
-                <div
-                  data-plasmic-name={"mid"}
-                  data-plasmic-override={overrides.mid}
-                  className={classNames(projectcss.all, sty.mid)}
-                >
-                  {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
-                    (() => {
-                      try {
-                        return $queries.teamPlayer.data.response.filter(
-                          x => x.position === "MID"
-                        );
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return [];
-                        }
-                        throw e;
-                      }
-                    })()
-                  ).map((__plasmic_item_0, __plasmic_idx_0) => {
-                    const currentItem = __plasmic_item_0;
-                    const currentIndex = __plasmic_idx_0;
-                    return (
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__hYu4
-                        )}
-                        key={currentIndex}
-                      >
-                        <AvatarPlayer
-                          className={classNames(
-                            "__wab_instance",
-                            sty.avatarPlayer__riCee
-                          )}
-                          name={"MID"}
-                        />
-                      </div>
-                    );
-                  })}
-                </div>
-                <div
-                  data-plasmic-name={"str"}
-                  data-plasmic-override={overrides.str}
-                  className={classNames(projectcss.all, sty.str)}
-                >
-                  {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
-                    (() => {
-                      try {
-                        return $queries.teamPlayer.data.response.filter(
-                          x => x.position === "STR"
-                        );
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return [];
-                        }
-                        throw e;
-                      }
-                    })()
-                  ).map((__plasmic_item_0, __plasmic_idx_0) => {
-                    const currentItem = __plasmic_item_0;
-                    const currentIndex = __plasmic_idx_0;
-                    return (
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__we8EE
-                        )}
-                        key={currentIndex}
-                      >
-                        <AvatarPlayer
-                          className={classNames(
-                            "__wab_instance",
-                            sty.avatarPlayer__pyVn0
-                          )}
-                          name={"STR"}
-                        />
-                      </div>
-                    );
-                  })}
+                          key={currentIndex}
+                        >
+                          <AvatarPlayer
+                            className={classNames(
+                              "__wab_instance",
+                              sty.avatarPlayer__pyVn0
+                            )}
+                            name={"STR"}
+                          />
+                        </div>
+                      );
+                    })}
+                  </div>
                 </div>
                 <SoccerPlaceMens2
                   data-plasmic-name={"soccerPlaceMens2"}
@@ -485,7 +516,11 @@ function PlasmicEditTeam__RenderFunc(props: {
                   className={classNames("__wab_instance", sty.soccerPlaceMens2)}
                 />
               </div>
-              <div className={classNames(projectcss.all, sty.column__rzO2Y)}>
+              <div
+                data-plasmic-name={"column"}
+                data-plasmic-override={overrides.column}
+                className={classNames(projectcss.all, sty.column)}
+              >
                 <div
                   data-plasmic-name={"filter"}
                   data-plasmic-override={overrides.filter}
@@ -497,14 +532,87 @@ function PlasmicEditTeam__RenderFunc(props: {
                   data-plasmic-override={overrides.playerList}
                   className={classNames(projectcss.all, sty.playerList)}
                 >
-                  <PlayerPickerRow
-                    data-plasmic-name={"playerPickerRow"}
-                    data-plasmic-override={overrides.playerPickerRow}
-                    className={classNames(
-                      "__wab_instance",
-                      sty.playerPickerRow
-                    )}
-                  />
+                  {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
+                    (() => {
+                      try {
+                        return $queries.playerList.data.response;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return [];
+                        }
+                        throw e;
+                      }
+                    })()
+                  ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                    const currentItem = __plasmic_item_0;
+                    const currentIndex = __plasmic_idx_0;
+                    return (
+                      <PlayerPickerRow
+                        data-plasmic-name={"playerPickerRow"}
+                        data-plasmic-override={overrides.playerPickerRow}
+                        className={classNames(
+                          "__wab_instance",
+                          sty.playerPickerRow
+                        )}
+                        fsyp={(() => {
+                          try {
+                            return currentItem.ochko;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()}
+                        key={currentIndex}
+                        name={(() => {
+                          try {
+                            return currentItem.name;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()}
+                        position={(() => {
+                          try {
+                            return currentItem.position;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()}
+                        price={(() => {
+                          try {
+                            return currentItem.price;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()}
+                      />
+                    );
+                  })}
                 </div>
               </div>
             </div>
@@ -521,11 +629,14 @@ const PlasmicDescendants = {
     "navbar",
     "userteamNavbar",
     "columns",
+    "stadion",
+    "teamInfo",
     "goa",
     "def",
     "mid",
     "str",
     "soccerPlaceMens2",
+    "column",
     "filter",
     "playerList",
     "playerPickerRow"
@@ -534,20 +645,34 @@ const PlasmicDescendants = {
   userteamNavbar: ["userteamNavbar"],
   columns: [
     "columns",
+    "stadion",
+    "teamInfo",
     "goa",
     "def",
     "mid",
     "str",
     "soccerPlaceMens2",
+    "column",
     "filter",
     "playerList",
     "playerPickerRow"
   ],
+  stadion: [
+    "stadion",
+    "teamInfo",
+    "goa",
+    "def",
+    "mid",
+    "str",
+    "soccerPlaceMens2"
+  ],
+  teamInfo: ["teamInfo"],
   goa: ["goa"],
   def: ["def"],
   mid: ["mid"],
   str: ["str"],
   soccerPlaceMens2: ["soccerPlaceMens2"],
+  column: ["column", "filter", "playerList", "playerPickerRow"],
   filter: ["filter"],
   playerList: ["playerList", "playerPickerRow"],
   playerPickerRow: ["playerPickerRow"]
@@ -560,11 +685,14 @@ type NodeDefaultElementType = {
   navbar: typeof Navbar;
   userteamNavbar: typeof UserteamNavbar;
   columns: "div";
+  stadion: "div";
+  teamInfo: "div";
   goa: "div";
   def: "div";
   mid: "div";
   str: "div";
   soccerPlaceMens2: typeof SoccerPlaceMens2;
+  column: "div";
   filter: "div";
   playerList: "div";
   playerPickerRow: typeof PlayerPickerRow;
@@ -650,11 +778,14 @@ export const PlasmicEditTeam = Object.assign(
     navbar: makeNodeComponent("navbar"),
     userteamNavbar: makeNodeComponent("userteamNavbar"),
     columns: makeNodeComponent("columns"),
+    stadion: makeNodeComponent("stadion"),
+    teamInfo: makeNodeComponent("teamInfo"),
     goa: makeNodeComponent("goa"),
     def: makeNodeComponent("def"),
     mid: makeNodeComponent("mid"),
     str: makeNodeComponent("str"),
     soccerPlaceMens2: makeNodeComponent("soccerPlaceMens2"),
+    column: makeNodeComponent("column"),
     filter: makeNodeComponent("filter"),
     playerList: makeNodeComponent("playerList"),
     playerPickerRow: makeNodeComponent("playerPickerRow"),
