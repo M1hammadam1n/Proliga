@@ -358,14 +358,17 @@ function PlasmicCreateTeam__RenderFunc(props: {
                   onClick={async event => {
                     const $steps = {};
 
-                    $steps["useIntegration"] = true
+                    $steps["updateName"] = true
                       ? (() => {
                           const actionArgs = {
                             dataOp: {
                               sourceId: "vQtRPuFArSfh43vUmgx2PS",
-                              opId: "9d0a283d-80c7-4755-a124-b82655a12dc1",
+                              opId: "5a02af5c-a3d5-4c02-b63b-60a37a55d539",
                               userArgs: {
-                                params: [$queries.query.data.response[0].id],
+                                params: [
+                                  $state.userId,
+                                  $queries.query.data.response[0].id
+                                ],
                                 body: [$state.textInput.value]
                               },
                               cacheKey: null,
@@ -394,11 +397,11 @@ function PlasmicCreateTeam__RenderFunc(props: {
                         })()
                       : undefined;
                     if (
-                      $steps["useIntegration"] != null &&
-                      typeof $steps["useIntegration"] === "object" &&
-                      typeof $steps["useIntegration"].then === "function"
+                      $steps["updateName"] != null &&
+                      typeof $steps["updateName"] === "object" &&
+                      typeof $steps["updateName"].then === "function"
                     ) {
-                      $steps["useIntegration"] = await $steps["useIntegration"];
+                      $steps["updateName"] = await $steps["updateName"];
                     }
 
                     $steps["goToEditTeam"] = true
