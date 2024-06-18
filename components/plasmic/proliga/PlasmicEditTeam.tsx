@@ -67,10 +67,12 @@ import {
 } from "@plasmicapp/react-web/lib/data-sources";
 
 import Navbar from "../../Navbar"; // plasmic-import: TKT8XnZtrLZi/component
-import UserteamNavbar from "../../UserteamNavbar"; // plasmic-import: P-uBnHr89-in/component
+import SearchComponent from "../../SearchComponent"; // plasmic-import: mmk_GiTXUtux/component
 import AvatarPlayer from "../../AvatarPlayer"; // plasmic-import: 4QnaRcOLXj0D/component
 import SoccerPlaceMens2 from "../../SoccerPlaceMens2"; // plasmic-import: xodLqMOhDs29/component
 import PlayerPickerRow from "../../PlayerPickerRow"; // plasmic-import: NaQtMjgilBY9/component
+import { AntdPagination } from "@plasmicpkgs/antd5/skinny/registerPagination";
+import { paginationHelpers as AntdPagination_Helpers } from "@plasmicpkgs/antd5/skinny/registerPagination";
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 
 import "@plasmicapp/react-web/lib/plasmic.css";
@@ -94,7 +96,7 @@ export const PlasmicEditTeam__ArgProps = new Array<ArgPropType>();
 export type PlasmicEditTeam__OverridesType = {
   root?: Flex__<"div">;
   navbar?: Flex__<typeof Navbar>;
-  userteamNavbar?: Flex__<typeof UserteamNavbar>;
+  searchComponent?: Flex__<typeof SearchComponent>;
   columns?: Flex__<"div">;
   stadion?: Flex__<"div">;
   teamInfo?: Flex__<"div">;
@@ -111,6 +113,7 @@ export type PlasmicEditTeam__OverridesType = {
   filter?: Flex__<"div">;
   playerList?: Flex__<"div">;
   playerPickerRow?: Flex__<typeof PlayerPickerRow>;
+  pagination?: Flex__<typeof AntdPagination>;
 };
 
 export interface DefaultEditTeamProps {}
@@ -144,12 +147,56 @@ function PlasmicEditTeam__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
+  const $globalActions = useGlobalActions?.();
+
   const currentUser = useCurrentUser?.() || {};
 
   let [$queries, setDollarQueries] = React.useState<
     Record<string, ReturnType<typeof usePlasmicDataOp>>
   >({});
+  const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
+    () => [
+      {
+        path: "pagination.currentPage",
+        type: "private",
+        variableType: "number",
+        initFunc: ({ $props, $state, $queries, $ctx }) => 1,
 
+        onMutate: generateOnMutateForSpec("currentPage", AntdPagination_Helpers)
+      },
+      {
+        path: "pagination.pageSize",
+        type: "private",
+        variableType: "number",
+        initFunc: ({ $props, $state, $queries, $ctx }) => 6,
+
+        onMutate: generateOnMutateForSpec("pageSize", AntdPagination_Helpers)
+      },
+      {
+        path: "pagination.startIndex",
+        type: "private",
+        variableType: "number",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+
+        onMutate: generateOnMutateForSpec("startIndex", AntdPagination_Helpers)
+      },
+      {
+        path: "pagination.endIndex",
+        type: "private",
+        variableType: "number",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+
+        onMutate: generateOnMutateForSpec("endIndex", AntdPagination_Helpers)
+      }
+    ],
+    [$props, $ctx, $refs]
+  );
+  const $state = useDollarState(stateSpecs, {
+    $props,
+    $ctx,
+    $queries: $queries,
+    $refs
+  });
   const dataSourcesCtx = usePlasmicDataSourceContext();
   const plasmicInvalidate = usePlasmicInvalidate();
 
@@ -201,6 +248,31 @@ function PlasmicEditTeam__RenderFunc(props: {
         invalidatedKeys: null,
         roleId: "f8970d3a-c1ae-4ba8-80dd-90e548ee70d6"
       };
+    }),
+    playercount: usePlasmicDataOp(() => {
+      return {
+        sourceId: "vQtRPuFArSfh43vUmgx2PS",
+        opId: "da05eeef-ea8a-4a5b-90fc-d5abd2340b2e",
+        userArgs: {
+          params: [$queries.query.data.response[0].competition_id]
+        },
+        cacheKey: `plasmic.$.da05eeef-ea8a-4a5b-90fc-d5abd2340b2e.$.`,
+        invalidatedKeys: null,
+        roleId: null
+      };
+    }),
+    playerPag: usePlasmicDataOp(() => {
+      return {
+        sourceId: "vQtRPuFArSfh43vUmgx2PS",
+        opId: "0dddd310-2179-41d8-989e-37b2827d310c",
+        userArgs: {
+          path: [$state.pagination.pageSize, $state.pagination.startIndex],
+          params: [$queries.query.data.response[0].competition_id]
+        },
+        cacheKey: `plasmic.$.0dddd310-2179-41d8-989e-37b2827d310c.$.`,
+        invalidatedKeys: null,
+        roleId: "f8970d3a-c1ae-4ba8-80dd-90e548ee70d6"
+      };
     })
   };
   if (Object.keys(new$Queries).some(k => new$Queries[k] !== $queries[k])) {
@@ -243,24 +315,10 @@ function PlasmicEditTeam__RenderFunc(props: {
           />
 
           <div className={classNames(projectcss.all, sty.freeBox__zJXxL)}>
-            <UserteamNavbar
-              data-plasmic-name={"userteamNavbar"}
-              data-plasmic-override={overrides.userteamNavbar}
-              className={classNames("__wab_instance", sty.userteamNavbar)}
-              nameOfTeam={` ${$queries.query.data.response[0].name}`}
-              teamBalance={(() => {
-                try {
-                  return $queries.query.data.response[0].balance;
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return 0;
-                  }
-                  throw e;
-                }
-              })()}
+            <SearchComponent
+              data-plasmic-name={"searchComponent"}
+              data-plasmic-override={overrides.searchComponent}
+              className={classNames("__wab_instance", sty.searchComponent)}
             />
 
             <div
@@ -288,6 +346,29 @@ function PlasmicEditTeam__RenderFunc(props: {
                         projectcss.all,
                         projectcss.__wab_text,
                         sty.text__l9Km6
+                      )}
+                    >
+                      <React.Fragment>
+                        {(() => {
+                          try {
+                            return $queries.query.data.response[0].name;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return "";
+                            }
+                            throw e;
+                          }
+                        })()}
+                      </React.Fragment>
+                    </div>
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__sE4SN
                       )}
                     >
                       <React.Fragment>
@@ -673,7 +754,7 @@ function PlasmicEditTeam__RenderFunc(props: {
                   {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
                     (() => {
                       try {
-                        return $queries.playerList.data.response;
+                        return $queries.playerPag.data.response;
                       } catch (e) {
                         if (
                           e instanceof TypeError ||
@@ -841,6 +922,32 @@ function PlasmicEditTeam__RenderFunc(props: {
                               "updatePlayer"
                             ];
                           }
+
+                          $steps["invokeGlobalAction"] =
+                            $steps.updatePlayer.data.response ===
+                            "Postion is full!!!!"
+                              ? (() => {
+                                  const actionArgs = {
+                                    args: [
+                                      "error",
+                                      "BU pozitsiya to'ldi. bosh joy yo'q"
+                                    ]
+                                  };
+                                  return $globalActions[
+                                    "plasmic-antd5-config-provider.showNotification"
+                                  ]?.apply(null, [...actionArgs.args]);
+                                })()
+                              : undefined;
+                          if (
+                            $steps["invokeGlobalAction"] != null &&
+                            typeof $steps["invokeGlobalAction"] === "object" &&
+                            typeof $steps["invokeGlobalAction"].then ===
+                              "function"
+                          ) {
+                            $steps["invokeGlobalAction"] = await $steps[
+                              "invokeGlobalAction"
+                            ];
+                          }
                         }}
                         oneclickMinus={async event => {
                           const $steps = {};
@@ -923,6 +1030,106 @@ function PlasmicEditTeam__RenderFunc(props: {
                     );
                   })}
                 </Stack__>
+                {(() => {
+                  const child$Props = {
+                    className: classNames("__wab_instance", sty.pagination),
+                    current: generateStateValueProp($state, [
+                      "pagination",
+                      "currentPage"
+                    ]),
+                    defaultCurrent: 1,
+                    defaultPageSize: 6,
+                    disabled: false,
+                    hideOnSinglePage: false,
+                    onChange: async (...eventArgs: any) => {
+                      generateStateOnChangePropForCodeComponents(
+                        $state,
+                        "currentPage",
+                        ["pagination", "currentPage"],
+                        AntdPagination_Helpers
+                      ).apply(null, eventArgs);
+                      generateStateOnChangePropForCodeComponents(
+                        $state,
+                        "startIndex",
+                        ["pagination", "startIndex"],
+                        AntdPagination_Helpers
+                      ).apply(null, eventArgs);
+                      generateStateOnChangePropForCodeComponents(
+                        $state,
+                        "endIndex",
+                        ["pagination", "endIndex"],
+                        AntdPagination_Helpers
+                      ).apply(null, eventArgs);
+                    },
+                    onShowSizeChange:
+                      generateStateOnChangePropForCodeComponents(
+                        $state,
+                        "pageSize",
+                        ["pagination", "pageSize"],
+                        AntdPagination_Helpers
+                      ),
+                    pageSize: generateStateValueProp($state, [
+                      "pagination",
+                      "pageSize"
+                    ]),
+                    pageSizeOptions: [
+                      { pageSize: 10 },
+                      { pageSize: 20 },
+                      { pageSize: 50 },
+                      { pageSize: 100 }
+                    ],
+                    showLessItems: false,
+                    showQuickJumper: false,
+                    showSizeChanger: false,
+                    simple: false,
+                    size: "default",
+                    total: (() => {
+                      try {
+                        return $queries.playerList.data.response.length;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return 24;
+                        }
+                        throw e;
+                      }
+                    })()
+                  };
+                  initializeCodeComponentStates(
+                    $state,
+                    [
+                      {
+                        name: "currentPage",
+                        plasmicStateName: "pagination.currentPage"
+                      },
+                      {
+                        name: "pageSize",
+                        plasmicStateName: "pagination.pageSize"
+                      },
+                      {
+                        name: "startIndex",
+                        plasmicStateName: "pagination.startIndex"
+                      },
+                      {
+                        name: "endIndex",
+                        plasmicStateName: "pagination.endIndex"
+                      }
+                    ],
+                    [],
+                    AntdPagination_Helpers ?? {},
+                    child$Props
+                  );
+
+                  return (
+                    <AntdPagination
+                      data-plasmic-name={"pagination"}
+                      data-plasmic-override={overrides.pagination}
+                      {...child$Props}
+                    />
+                  );
+                })()}
               </div>
             </div>
           </div>
@@ -936,7 +1143,7 @@ const PlasmicDescendants = {
   root: [
     "root",
     "navbar",
-    "userteamNavbar",
+    "searchComponent",
     "columns",
     "stadion",
     "teamInfo",
@@ -952,10 +1159,11 @@ const PlasmicDescendants = {
     "column",
     "filter",
     "playerList",
-    "playerPickerRow"
+    "playerPickerRow",
+    "pagination"
   ],
   navbar: ["navbar"],
-  userteamNavbar: ["userteamNavbar"],
+  searchComponent: ["searchComponent"],
   columns: [
     "columns",
     "stadion",
@@ -972,7 +1180,8 @@ const PlasmicDescendants = {
     "column",
     "filter",
     "playerList",
-    "playerPickerRow"
+    "playerPickerRow",
+    "pagination"
   ],
   stadion: [
     "stadion",
@@ -997,10 +1206,11 @@ const PlasmicDescendants = {
   str: ["str", "avatarPlayer4"],
   avatarPlayer4: ["avatarPlayer4"],
   soccerPlaceMens2: ["soccerPlaceMens2"],
-  column: ["column", "filter", "playerList", "playerPickerRow"],
+  column: ["column", "filter", "playerList", "playerPickerRow", "pagination"],
   filter: ["filter"],
   playerList: ["playerList", "playerPickerRow"],
-  playerPickerRow: ["playerPickerRow"]
+  playerPickerRow: ["playerPickerRow"],
+  pagination: ["pagination"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -1008,7 +1218,7 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   navbar: typeof Navbar;
-  userteamNavbar: typeof UserteamNavbar;
+  searchComponent: typeof SearchComponent;
   columns: "div";
   stadion: "div";
   teamInfo: "div";
@@ -1025,6 +1235,7 @@ type NodeDefaultElementType = {
   filter: "div";
   playerList: "div";
   playerPickerRow: typeof PlayerPickerRow;
+  pagination: typeof AntdPagination;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -1105,7 +1316,7 @@ export const PlasmicEditTeam = Object.assign(
   {
     // Helper components rendering sub-elements
     navbar: makeNodeComponent("navbar"),
-    userteamNavbar: makeNodeComponent("userteamNavbar"),
+    searchComponent: makeNodeComponent("searchComponent"),
     columns: makeNodeComponent("columns"),
     stadion: makeNodeComponent("stadion"),
     teamInfo: makeNodeComponent("teamInfo"),
@@ -1122,6 +1333,7 @@ export const PlasmicEditTeam = Object.assign(
     filter: makeNodeComponent("filter"),
     playerList: makeNodeComponent("playerList"),
     playerPickerRow: makeNodeComponent("playerPickerRow"),
+    pagination: makeNodeComponent("pagination"),
 
     // Metadata about props expected for PlasmicEditTeam
     internalVariantProps: PlasmicEditTeam__VariantProps,

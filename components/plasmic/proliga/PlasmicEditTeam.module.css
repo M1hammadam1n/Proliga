@@ -42,7 +42,7 @@
   grid-column-end: -1 !important;
   padding: 8px;
 }
-.userteamNavbar:global(.__wab_instance) {
+.searchComponent:global(.__wab_instance) {
   max-width: 100%;
   position: relative;
 }
@@ -134,6 +134,15 @@
   margin-left: 50px;
 }
 .text__l9Km6 {
+  position: relative;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  color: var(--token-jgohepLVeKvh);
+  font-size: 25px;
+  font-family: "Judson", serif;
+}
+.text__sE4SN {
   position: relative;
   width: auto;
   height: auto;
@@ -328,7 +337,8 @@
   height: auto;
   max-width: 100%;
   justify-content: flex-start;
-  align-items: center;
+  align-items: flex-end;
+  background: var(--token-OthO-wlH0yMz);
   min-width: 0;
   padding: 8px;
 }
@@ -374,4 +384,11 @@
 .playerPickerRow:global(.__wab_instance) {
   max-width: 100%;
   position: relative;
+}
+.pagination:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+  position: relative;
+  color: var(--token-jgohepLVeKvh);
+  background: #ffffff;
 }
