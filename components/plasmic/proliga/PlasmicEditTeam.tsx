@@ -99,9 +99,13 @@ export type PlasmicEditTeam__OverridesType = {
   stadion?: Flex__<"div">;
   teamInfo?: Flex__<"div">;
   goa?: Flex__<"div">;
+  avatarPlayer?: Flex__<typeof AvatarPlayer>;
   def?: Flex__<"div">;
+  avatarPlayer2?: Flex__<typeof AvatarPlayer>;
   mid?: Flex__<"div">;
+  avatarPlayer3?: Flex__<typeof AvatarPlayer>;
   str?: Flex__<"div">;
+  avatarPlayer4?: Flex__<typeof AvatarPlayer>;
   soccerPlaceMens2?: Flex__<typeof SoccerPlaceMens2>;
   column?: Flex__<"div">;
   filter?: Flex__<"div">;
@@ -368,31 +372,32 @@ function PlasmicEditTeam__RenderFunc(props: {
                           key={currentIndex}
                         >
                           <AvatarPlayer
+                            data-plasmic-name={"avatarPlayer"}
+                            data-plasmic-override={overrides.avatarPlayer}
                             className={classNames(
                               "__wab_instance",
-                              sty.avatarPlayer___3W3Wy
+                              sty.avatarPlayer
                             )}
                             image={(() => {
                               try {
-                                return undefined;
+                                return $queries.playerList.data.response.find(
+                                  x => x.id === currentItem.player_id
+                                ).image;
                               } catch (e) {
                                 if (
                                   e instanceof TypeError ||
                                   e?.plasmicType === "PlasmicUndefinedDataError"
                                 ) {
-                                  return {
-                                    src: "/plasmic/proliga/images/shirt066Png.png",
-                                    fullWidth: 66,
-                                    fullHeight: 87,
-                                    aspectRatio: undefined
-                                  };
+                                  return undefined;
                                 }
                                 throw e;
                               }
                             })()}
                             name={(() => {
                               try {
-                                return currentItem.pl_name;
+                                return $queries.playerList.data.response.find(
+                                  x => x.id === currentItem.player_id
+                                ).name;
                               } catch (e) {
                                 if (
                                   e instanceof TypeError ||
@@ -442,13 +447,32 @@ function PlasmicEditTeam__RenderFunc(props: {
                           key={currentIndex}
                         >
                           <AvatarPlayer
+                            data-plasmic-name={"avatarPlayer2"}
+                            data-plasmic-override={overrides.avatarPlayer2}
                             className={classNames(
                               "__wab_instance",
-                              sty.avatarPlayer__tbmJu
+                              sty.avatarPlayer2
                             )}
+                            image={(() => {
+                              try {
+                                return $queries.playerList.data.response.find(
+                                  x => x.id === currentItem.player_id
+                                ).image;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return undefined;
+                                }
+                                throw e;
+                              }
+                            })()}
                             name={(() => {
                               try {
-                                return currentItem.pl_name;
+                                return $queries.playerList.data.response.find(
+                                  x => x.id === currentItem.player_id
+                                ).name;
                               } catch (e) {
                                 if (
                                   e instanceof TypeError ||
@@ -498,13 +522,32 @@ function PlasmicEditTeam__RenderFunc(props: {
                           key={currentIndex}
                         >
                           <AvatarPlayer
+                            data-plasmic-name={"avatarPlayer3"}
+                            data-plasmic-override={overrides.avatarPlayer3}
                             className={classNames(
                               "__wab_instance",
-                              sty.avatarPlayer__riCee
+                              sty.avatarPlayer3
                             )}
+                            image={(() => {
+                              try {
+                                return $queries.playerList.data.response.find(
+                                  x => x.id === currentItem.player_id
+                                ).image;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return undefined;
+                                }
+                                throw e;
+                              }
+                            })()}
                             name={(() => {
                               try {
-                                return currentItem.pl_name;
+                                return $queries.playerList.data.response.find(
+                                  x => x.id === currentItem.player_id
+                                ).name;
                               } catch (e) {
                                 if (
                                   e instanceof TypeError ||
@@ -554,14 +597,33 @@ function PlasmicEditTeam__RenderFunc(props: {
                           key={currentIndex}
                         >
                           <AvatarPlayer
+                            data-plasmic-name={"avatarPlayer4"}
+                            data-plasmic-override={overrides.avatarPlayer4}
                             capitanVisibility={false}
                             className={classNames(
                               "__wab_instance",
-                              sty.avatarPlayer__pyVn0
+                              sty.avatarPlayer4
                             )}
+                            image={(() => {
+                              try {
+                                return $queries.playerList.data.response.find(
+                                  x => x.id === currentItem.player_id
+                                ).image;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return undefined;
+                                }
+                                throw e;
+                              }
+                            })()}
                             name={(() => {
                               try {
-                                return currentItem.pl_name;
+                                return $queries.playerList.data.response.find(
+                                  x => x.id === currentItem.player_id
+                                ).name;
                               } catch (e) {
                                 if (
                                   e instanceof TypeError ||
@@ -805,9 +867,13 @@ const PlasmicDescendants = {
     "stadion",
     "teamInfo",
     "goa",
+    "avatarPlayer",
     "def",
+    "avatarPlayer2",
     "mid",
+    "avatarPlayer3",
     "str",
+    "avatarPlayer4",
     "soccerPlaceMens2",
     "column",
     "filter",
@@ -821,9 +887,13 @@ const PlasmicDescendants = {
     "stadion",
     "teamInfo",
     "goa",
+    "avatarPlayer",
     "def",
+    "avatarPlayer2",
     "mid",
+    "avatarPlayer3",
     "str",
+    "avatarPlayer4",
     "soccerPlaceMens2",
     "column",
     "filter",
@@ -834,16 +904,24 @@ const PlasmicDescendants = {
     "stadion",
     "teamInfo",
     "goa",
+    "avatarPlayer",
     "def",
+    "avatarPlayer2",
     "mid",
+    "avatarPlayer3",
     "str",
+    "avatarPlayer4",
     "soccerPlaceMens2"
   ],
   teamInfo: ["teamInfo"],
-  goa: ["goa"],
-  def: ["def"],
-  mid: ["mid"],
-  str: ["str"],
+  goa: ["goa", "avatarPlayer"],
+  avatarPlayer: ["avatarPlayer"],
+  def: ["def", "avatarPlayer2"],
+  avatarPlayer2: ["avatarPlayer2"],
+  mid: ["mid", "avatarPlayer3"],
+  avatarPlayer3: ["avatarPlayer3"],
+  str: ["str", "avatarPlayer4"],
+  avatarPlayer4: ["avatarPlayer4"],
   soccerPlaceMens2: ["soccerPlaceMens2"],
   column: ["column", "filter", "playerList", "playerPickerRow"],
   filter: ["filter"],
@@ -861,9 +939,13 @@ type NodeDefaultElementType = {
   stadion: "div";
   teamInfo: "div";
   goa: "div";
+  avatarPlayer: typeof AvatarPlayer;
   def: "div";
+  avatarPlayer2: typeof AvatarPlayer;
   mid: "div";
+  avatarPlayer3: typeof AvatarPlayer;
   str: "div";
+  avatarPlayer4: typeof AvatarPlayer;
   soccerPlaceMens2: typeof SoccerPlaceMens2;
   column: "div";
   filter: "div";
@@ -954,9 +1036,13 @@ export const PlasmicEditTeam = Object.assign(
     stadion: makeNodeComponent("stadion"),
     teamInfo: makeNodeComponent("teamInfo"),
     goa: makeNodeComponent("goa"),
+    avatarPlayer: makeNodeComponent("avatarPlayer"),
     def: makeNodeComponent("def"),
+    avatarPlayer2: makeNodeComponent("avatarPlayer2"),
     mid: makeNodeComponent("mid"),
+    avatarPlayer3: makeNodeComponent("avatarPlayer3"),
     str: makeNodeComponent("str"),
+    avatarPlayer4: makeNodeComponent("avatarPlayer4"),
     soccerPlaceMens2: makeNodeComponent("soccerPlaceMens2"),
     column: makeNodeComponent("column"),
     filter: makeNodeComponent("filter"),

@@ -74,30 +74,29 @@ type VariantPropType = keyof PlasmicAvatarPlayer__VariantsArgs;
 export const PlasmicAvatarPlayer__VariantProps = new Array<VariantPropType>();
 
 export type PlasmicAvatarPlayer__ArgsType = {
-  image?: React.ComponentProps<typeof PlasmicImg__>["src"];
   name?: string;
   clickOn?: (event: any) => void;
   capitanVisibility?: boolean;
+  image?: React.ComponentProps<typeof PlasmicImg__>["src"];
 };
 type ArgPropType = keyof PlasmicAvatarPlayer__ArgsType;
 export const PlasmicAvatarPlayer__ArgProps = new Array<ArgPropType>(
-  "image",
   "name",
   "clickOn",
-  "capitanVisibility"
+  "capitanVisibility",
+  "image"
 );
 
 export type PlasmicAvatarPlayer__OverridesType = {
   root?: Flex__<"div">;
-  freeBox?: Flex__<"div">;
   text?: Flex__<"div">;
 };
 
 export interface DefaultAvatarPlayerProps {
-  image?: React.ComponentProps<typeof PlasmicImg__>["src"];
   name?: string;
   clickOn?: (event: any) => void;
   capitanVisibility?: boolean;
+  image?: React.ComponentProps<typeof PlasmicImg__>["src"];
   className?: string;
 }
 
@@ -122,12 +121,6 @@ function PlasmicAvatarPlayer__RenderFunc(props: {
     () =>
       Object.assign(
         {
-          image: {
-            src: "/plasmic/proliga/images/shirt066Png.png",
-            fullWidth: 66,
-            fullHeight: 87,
-            aspectRatio: undefined
-          },
           capitanVisibility: false
         },
         props.args
@@ -193,25 +186,72 @@ function PlasmicAvatarPlayer__RenderFunc(props: {
           width={"15px"}
         />
       ) : null}
-      <div
-        data-plasmic-name={"freeBox"}
-        data-plasmic-override={overrides.freeBox}
-        className={classNames(projectcss.all, sty.freeBox)}
-      >
-        <PlasmicImg__
-          alt={""}
-          className={classNames(sty.img__a9SuT)}
-          displayHeight={"auto"}
-          displayMaxHeight={"none"}
-          displayMaxWidth={"100%"}
-          displayMinHeight={"0"}
-          displayMinWidth={"0"}
-          displayWidth={"auto"}
-          loading={"lazy"}
-          onClick={args.clickOn}
-          src={args.image}
-          width={"52.5px"}
-        />
+      <div className={classNames(projectcss.all, sty.freeBox__bEBy)}>
+        <div className={classNames(projectcss.all, sty.freeBox__hmmVi)}>
+          {(() => {
+            try {
+              return $props.image === undefined;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return true;
+              }
+              throw e;
+            }
+          })() ? (
+            <PlasmicImg__
+              alt={""}
+              className={classNames(sty.img__a9SuT)}
+              displayHeight={"auto"}
+              displayMaxHeight={"none"}
+              displayMaxWidth={"100%"}
+              displayMinHeight={"0"}
+              displayMinWidth={"0"}
+              displayWidth={"auto"}
+              loading={"lazy"}
+              onClick={args.clickOn}
+              src={{
+                src: "/plasmic/proliga/images/shirt066Png.png",
+                fullWidth: 66,
+                fullHeight: 87,
+                aspectRatio: undefined
+              }}
+              width={"52.5px"}
+            />
+          ) : null}
+          {(() => {
+            try {
+              return $props.image != undefined;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return true;
+              }
+              throw e;
+            }
+          })() ? (
+            <PlasmicImg__
+              alt={""}
+              className={classNames(sty.img___8NZd)}
+              displayHeight={"auto"}
+              displayMaxHeight={"none"}
+              displayMaxWidth={"100%"}
+              displayMinHeight={"0"}
+              displayMinWidth={"0"}
+              displayWidth={"auto"}
+              loading={"lazy"}
+              onClick={async event => {
+                const $steps = {};
+              }}
+              src={args.image}
+              width={"52.5px"}
+            />
+          ) : null}
+        </div>
       </div>
       <div
         data-plasmic-name={"text"}
@@ -239,8 +279,7 @@ function PlasmicAvatarPlayer__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "freeBox", "text"],
-  freeBox: ["freeBox"],
+  root: ["root", "text"],
   text: ["text"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
@@ -248,7 +287,6 @@ type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
-  freeBox: "div";
   text: "div";
 };
 
@@ -312,7 +350,6 @@ export const PlasmicAvatarPlayer = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
-    freeBox: makeNodeComponent("freeBox"),
     text: makeNodeComponent("text"),
 
     // Metadata about props expected for PlasmicAvatarPlayer

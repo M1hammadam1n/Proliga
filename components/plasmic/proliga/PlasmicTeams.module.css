@@ -239,7 +239,7 @@
   left: auto;
   display: flex;
 }
-.avatarPlayer__uvTA:global(.__wab_instance) {
+.avatarPlayer:global(.__wab_instance) {
   max-width: 100%;
 }
 .def {
@@ -274,7 +274,7 @@
   position: relative;
   display: flex;
 }
-.avatarPlayer__gYokA:global(.__wab_instance) {
+.avatarPlayer2:global(.__wab_instance) {
   max-width: 100%;
   transform: none;
 }
@@ -307,7 +307,7 @@
   position: relative;
   display: flex;
 }
-.avatarPlayer__nu6Lx:global(.__wab_instance) {
+.avatarPlayer3:global(.__wab_instance) {
   max-width: 100%;
 }
 .str {
@@ -339,7 +339,7 @@
   position: relative;
   display: flex;
 }
-.avatarPlayer__jttBq:global(.__wab_instance) {
+.avatarPlayer4:global(.__wab_instance) {
   max-width: 100%;
 }
 .soccerPlaceMens2:global(.__wab_instance) {

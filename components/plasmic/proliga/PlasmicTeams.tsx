@@ -106,9 +106,13 @@ export type PlasmicTeams__OverridesType = {
   _532?: Flex__<typeof AntdDropdown>;
   button?: Flex__<typeof AntdButton>;
   goa?: Flex__<"div">;
+  avatarPlayer?: Flex__<typeof AvatarPlayer>;
   def?: Flex__<"div">;
+  avatarPlayer2?: Flex__<typeof AvatarPlayer>;
   mid?: Flex__<"div">;
+  avatarPlayer3?: Flex__<typeof AvatarPlayer>;
   str?: Flex__<"div">;
+  avatarPlayer4?: Flex__<typeof AvatarPlayer>;
   soccerPlaceMens2?: Flex__<typeof SoccerPlaceMens2>;
   playerPickerRow?: Flex__<typeof PlayerPickerRow>;
   sideBarMyTeam?: Flex__<typeof SideBarMyTeam>;
@@ -579,6 +583,8 @@ function PlasmicTeams__RenderFunc(props: {
                           const currentIndex = __plasmic_idx_0;
                           return (
                             <AvatarPlayer
+                              data-plasmic-name={"avatarPlayer"}
+                              data-plasmic-override={overrides.avatarPlayer}
                               capitanVisibility={(() => {
                                 try {
                                   return currentItem.is_captain;
@@ -595,7 +601,7 @@ function PlasmicTeams__RenderFunc(props: {
                               })()}
                               className={classNames(
                                 "__wab_instance",
-                                sty.avatarPlayer__uvTA
+                                sty.avatarPlayer
                               )}
                               clickOn={async event => {
                                 const $steps = {};
@@ -789,22 +795,6 @@ function PlasmicTeams__RenderFunc(props: {
                                   ];
                                 }
                               }}
-                              image={(() => {
-                                try {
-                                  return $queries.player.data.find(
-                                    x => x.id === currentItem.player_id
-                                  ).image;
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return "https://fantasy.premierleague.com/dist/img/shirts/standard/shirt_0-66.png";
-                                  }
-                                  throw e;
-                                }
-                              })()}
                               key={currentIndex}
                               name={(() => {
                                 try {
@@ -861,6 +851,8 @@ function PlasmicTeams__RenderFunc(props: {
                             key={currentIndex}
                           >
                             <AvatarPlayer
+                              data-plasmic-name={"avatarPlayer2"}
+                              data-plasmic-override={overrides.avatarPlayer2}
                               capitanVisibility={(() => {
                                 try {
                                   return currentItem.is_captain;
@@ -877,7 +869,7 @@ function PlasmicTeams__RenderFunc(props: {
                               })()}
                               className={classNames(
                                 "__wab_instance",
-                                sty.avatarPlayer__gYokA
+                                sty.avatarPlayer2
                               )}
                               clickOn={async event => {
                                 const $steps = {};
@@ -1071,22 +1063,6 @@ function PlasmicTeams__RenderFunc(props: {
                                   ];
                                 }
                               }}
-                              image={(() => {
-                                try {
-                                  return $queries.player.data.find(
-                                    x => x.id === currentItem.player_id
-                                  ).image;
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return "https://fantasy.premierleague.com/dist/img/shirts/standard/shirt_0-66.png";
-                                  }
-                                  throw e;
-                                }
-                              })()}
                               name={(() => {
                                 try {
                                   return $queries.player.data.find(
@@ -1142,6 +1118,8 @@ function PlasmicTeams__RenderFunc(props: {
                             key={currentIndex}
                           >
                             <AvatarPlayer
+                              data-plasmic-name={"avatarPlayer3"}
+                              data-plasmic-override={overrides.avatarPlayer3}
                               capitanVisibility={(() => {
                                 try {
                                   return currentItem.is_captain;
@@ -1158,7 +1136,7 @@ function PlasmicTeams__RenderFunc(props: {
                               })()}
                               className={classNames(
                                 "__wab_instance",
-                                sty.avatarPlayer__nu6Lx
+                                sty.avatarPlayer3
                               )}
                               clickOn={async event => {
                                 const $steps = {};
@@ -1353,22 +1331,6 @@ function PlasmicTeams__RenderFunc(props: {
                                   ];
                                 }
                               }}
-                              image={(() => {
-                                try {
-                                  return $queries.player.data.find(
-                                    x => x.id === currentItem.player_id
-                                  ).image;
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return "https://fantasy.premierleague.com/dist/img/shirts/standard/shirt_0-66.png";
-                                  }
-                                  throw e;
-                                }
-                              })()}
                               name={(() => {
                                 try {
                                   return $queries.player.data.find(
@@ -1424,6 +1386,8 @@ function PlasmicTeams__RenderFunc(props: {
                             key={currentIndex}
                           >
                             <AvatarPlayer
+                              data-plasmic-name={"avatarPlayer4"}
+                              data-plasmic-override={overrides.avatarPlayer4}
                               capitanVisibility={(() => {
                                 try {
                                   return currentItem.is_captain;
@@ -1440,7 +1404,7 @@ function PlasmicTeams__RenderFunc(props: {
                               })()}
                               className={classNames(
                                 "__wab_instance",
-                                sty.avatarPlayer__jttBq
+                                sty.avatarPlayer4
                               )}
                               clickOn={async event => {
                                 const $steps = {};
@@ -1635,22 +1599,6 @@ function PlasmicTeams__RenderFunc(props: {
                                   ];
                                 }
                               }}
-                              image={(() => {
-                                try {
-                                  return $queries.player.data.find(
-                                    x => x.id === currentItem.player_id
-                                  ).image;
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return "https://fantasy.premierleague.com/dist/img/shirts/standard/shirt_0-66.png";
-                                  }
-                                  throw e;
-                                }
-                              })()}
                               name={(() => {
                                 try {
                                   return $queries.player.data.find(
@@ -1911,9 +1859,13 @@ const PlasmicDescendants = {
     "_532",
     "button",
     "goa",
+    "avatarPlayer",
     "def",
+    "avatarPlayer2",
     "mid",
+    "avatarPlayer3",
     "str",
+    "avatarPlayer4",
     "soccerPlaceMens2",
     "playerPickerRow",
     "sideBarMyTeam",
@@ -1926,18 +1878,26 @@ const PlasmicDescendants = {
     "_532",
     "button",
     "goa",
+    "avatarPlayer",
     "def",
+    "avatarPlayer2",
     "mid",
+    "avatarPlayer3",
     "str",
+    "avatarPlayer4",
     "soccerPlaceMens2",
     "playerPickerRow"
   ],
   _532: ["_532", "button"],
   button: ["button"],
-  goa: ["goa"],
-  def: ["def"],
-  mid: ["mid"],
-  str: ["str"],
+  goa: ["goa", "avatarPlayer"],
+  avatarPlayer: ["avatarPlayer"],
+  def: ["def", "avatarPlayer2"],
+  avatarPlayer2: ["avatarPlayer2"],
+  mid: ["mid", "avatarPlayer3"],
+  avatarPlayer3: ["avatarPlayer3"],
+  str: ["str", "avatarPlayer4"],
+  avatarPlayer4: ["avatarPlayer4"],
   soccerPlaceMens2: ["soccerPlaceMens2"],
   playerPickerRow: ["playerPickerRow"],
   sideBarMyTeam: ["sideBarMyTeam"],
@@ -1954,9 +1914,13 @@ type NodeDefaultElementType = {
   _532: typeof AntdDropdown;
   button: typeof AntdButton;
   goa: "div";
+  avatarPlayer: typeof AvatarPlayer;
   def: "div";
+  avatarPlayer2: typeof AvatarPlayer;
   mid: "div";
+  avatarPlayer3: typeof AvatarPlayer;
   str: "div";
+  avatarPlayer4: typeof AvatarPlayer;
   soccerPlaceMens2: typeof SoccerPlaceMens2;
   playerPickerRow: typeof PlayerPickerRow;
   sideBarMyTeam: typeof SideBarMyTeam;
@@ -2046,9 +2010,13 @@ export const PlasmicTeams = Object.assign(
     _532: makeNodeComponent("_532"),
     button: makeNodeComponent("button"),
     goa: makeNodeComponent("goa"),
+    avatarPlayer: makeNodeComponent("avatarPlayer"),
     def: makeNodeComponent("def"),
+    avatarPlayer2: makeNodeComponent("avatarPlayer2"),
     mid: makeNodeComponent("mid"),
+    avatarPlayer3: makeNodeComponent("avatarPlayer3"),
     str: makeNodeComponent("str"),
+    avatarPlayer4: makeNodeComponent("avatarPlayer4"),
     soccerPlaceMens2: makeNodeComponent("soccerPlaceMens2"),
     playerPickerRow: makeNodeComponent("playerPickerRow"),
     sideBarMyTeam: makeNodeComponent("sideBarMyTeam"),

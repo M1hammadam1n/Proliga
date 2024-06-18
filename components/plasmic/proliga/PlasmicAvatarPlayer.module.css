@@ -25,7 +25,19 @@
 .img__cfuKp > picture > img {
   object-fit: cover;
 }
-.freeBox {
+.freeBox__bEBy {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+  padding: 8px;
+}
+.freeBox__hmmVi {
   display: flex;
   position: relative;
   flex-direction: row;
@@ -38,11 +50,10 @@
   padding: 8px;
 }
 .img__a9SuT {
-  object-fit: cover;
   max-width: 100%;
 }
-.img__a9SuT > picture > img {
-  object-fit: cover;
+.img___8NZd {
+  max-width: 100%;
 }
 .text {
   position: relative;
@@ -53,6 +64,6 @@
   background: none;
   font-size: 20px;
   font-weight: 900;
-  text-align: center;
+  text-align: left;
   font-family: "Inria Serif", serif;
 }

@@ -83,9 +83,21 @@ export const PlasmicTeamPlayerCreate__ArgProps = new Array<ArgPropType>();
 export type PlasmicTeamPlayerCreate__OverridesType = {
   playersTable?: Flex__<"div">;
   goa?: Flex__<"div">;
+  avatarPlayer?: Flex__<typeof AvatarPlayer>;
   def?: Flex__<"div">;
+  avatarPlayer2?: Flex__<typeof AvatarPlayer>;
+  avatarPlayer3?: Flex__<typeof AvatarPlayer>;
+  avatarPlayer4?: Flex__<typeof AvatarPlayer>;
+  avatarPlayer5?: Flex__<typeof AvatarPlayer>;
   mid?: Flex__<"div">;
+  avatarPlayer6?: Flex__<typeof AvatarPlayer>;
+  avatarPlayer7?: Flex__<typeof AvatarPlayer>;
+  avatarPlayer8?: Flex__<typeof AvatarPlayer>;
+  avatarPlayer9?: Flex__<typeof AvatarPlayer>;
   str?: Flex__<"div">;
+  avatarPlayer10?: Flex__<typeof AvatarPlayer>;
+  avatarPlayer11?: Flex__<typeof AvatarPlayer>;
+  avatarPlayer12?: Flex__<typeof AvatarPlayer>;
 };
 
 export interface DefaultTeamPlayerCreateProps {
@@ -148,7 +160,9 @@ function PlasmicTeamPlayerCreate__RenderFunc(props: {
         className={classNames(projectcss.all, sty.goa)}
       >
         <AvatarPlayer
-          className={classNames("__wab_instance", sty.avatarPlayer__kJOkr)}
+          data-plasmic-name={"avatarPlayer"}
+          data-plasmic-override={overrides.avatarPlayer}
+          className={classNames("__wab_instance", sty.avatarPlayer)}
         />
       </div>
       <Stack__
@@ -159,19 +173,27 @@ function PlasmicTeamPlayerCreate__RenderFunc(props: {
         className={classNames(projectcss.all, sty.def)}
       >
         <AvatarPlayer
-          className={classNames("__wab_instance", sty.avatarPlayer__bgv2L)}
+          data-plasmic-name={"avatarPlayer2"}
+          data-plasmic-override={overrides.avatarPlayer2}
+          className={classNames("__wab_instance", sty.avatarPlayer2)}
         />
 
         <AvatarPlayer
-          className={classNames("__wab_instance", sty.avatarPlayer__f242G)}
+          data-plasmic-name={"avatarPlayer3"}
+          data-plasmic-override={overrides.avatarPlayer3}
+          className={classNames("__wab_instance", sty.avatarPlayer3)}
         />
 
         <AvatarPlayer
-          className={classNames("__wab_instance", sty.avatarPlayer__fDjs8)}
+          data-plasmic-name={"avatarPlayer4"}
+          data-plasmic-override={overrides.avatarPlayer4}
+          className={classNames("__wab_instance", sty.avatarPlayer4)}
         />
 
         <AvatarPlayer
-          className={classNames("__wab_instance", sty.avatarPlayer__sLjG)}
+          data-plasmic-name={"avatarPlayer5"}
+          data-plasmic-override={overrides.avatarPlayer5}
+          className={classNames("__wab_instance", sty.avatarPlayer5)}
         />
       </Stack__>
       <Stack__
@@ -182,19 +204,27 @@ function PlasmicTeamPlayerCreate__RenderFunc(props: {
         className={classNames(projectcss.all, sty.mid)}
       >
         <AvatarPlayer
-          className={classNames("__wab_instance", sty.avatarPlayer___0Q93E)}
+          data-plasmic-name={"avatarPlayer6"}
+          data-plasmic-override={overrides.avatarPlayer6}
+          className={classNames("__wab_instance", sty.avatarPlayer6)}
         />
 
         <AvatarPlayer
-          className={classNames("__wab_instance", sty.avatarPlayer__jj1UF)}
+          data-plasmic-name={"avatarPlayer7"}
+          data-plasmic-override={overrides.avatarPlayer7}
+          className={classNames("__wab_instance", sty.avatarPlayer7)}
         />
 
         <AvatarPlayer
-          className={classNames("__wab_instance", sty.avatarPlayer__cWDjm)}
+          data-plasmic-name={"avatarPlayer8"}
+          data-plasmic-override={overrides.avatarPlayer8}
+          className={classNames("__wab_instance", sty.avatarPlayer8)}
         />
 
         <AvatarPlayer
-          className={classNames("__wab_instance", sty.avatarPlayer__yiv5I)}
+          data-plasmic-name={"avatarPlayer9"}
+          data-plasmic-override={overrides.avatarPlayer9}
+          className={classNames("__wab_instance", sty.avatarPlayer9)}
         />
       </Stack__>
       <Stack__
@@ -205,15 +235,21 @@ function PlasmicTeamPlayerCreate__RenderFunc(props: {
         className={classNames(projectcss.all, sty.str)}
       >
         <AvatarPlayer
-          className={classNames("__wab_instance", sty.avatarPlayer__broCp)}
+          data-plasmic-name={"avatarPlayer10"}
+          data-plasmic-override={overrides.avatarPlayer10}
+          className={classNames("__wab_instance", sty.avatarPlayer10)}
         />
 
         <AvatarPlayer
-          className={classNames("__wab_instance", sty.avatarPlayer__dvzTb)}
+          data-plasmic-name={"avatarPlayer11"}
+          data-plasmic-override={overrides.avatarPlayer11}
+          className={classNames("__wab_instance", sty.avatarPlayer11)}
         />
 
         <AvatarPlayer
-          className={classNames("__wab_instance", sty.avatarPlayer__zHb7X)}
+          data-plasmic-name={"avatarPlayer12"}
+          data-plasmic-override={overrides.avatarPlayer12}
+          className={classNames("__wab_instance", sty.avatarPlayer12)}
         />
       </Stack__>
     </Stack__>
@@ -221,11 +257,53 @@ function PlasmicTeamPlayerCreate__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  playersTable: ["playersTable", "goa", "def", "mid", "str"],
-  goa: ["goa"],
-  def: ["def"],
-  mid: ["mid"],
-  str: ["str"]
+  playersTable: [
+    "playersTable",
+    "goa",
+    "avatarPlayer",
+    "def",
+    "avatarPlayer2",
+    "avatarPlayer3",
+    "avatarPlayer4",
+    "avatarPlayer5",
+    "mid",
+    "avatarPlayer6",
+    "avatarPlayer7",
+    "avatarPlayer8",
+    "avatarPlayer9",
+    "str",
+    "avatarPlayer10",
+    "avatarPlayer11",
+    "avatarPlayer12"
+  ],
+  goa: ["goa", "avatarPlayer"],
+  avatarPlayer: ["avatarPlayer"],
+  def: [
+    "def",
+    "avatarPlayer2",
+    "avatarPlayer3",
+    "avatarPlayer4",
+    "avatarPlayer5"
+  ],
+  avatarPlayer2: ["avatarPlayer2"],
+  avatarPlayer3: ["avatarPlayer3"],
+  avatarPlayer4: ["avatarPlayer4"],
+  avatarPlayer5: ["avatarPlayer5"],
+  mid: [
+    "mid",
+    "avatarPlayer6",
+    "avatarPlayer7",
+    "avatarPlayer8",
+    "avatarPlayer9"
+  ],
+  avatarPlayer6: ["avatarPlayer6"],
+  avatarPlayer7: ["avatarPlayer7"],
+  avatarPlayer8: ["avatarPlayer8"],
+  avatarPlayer9: ["avatarPlayer9"],
+  str: ["str", "avatarPlayer10", "avatarPlayer11", "avatarPlayer12"],
+  avatarPlayer10: ["avatarPlayer10"],
+  avatarPlayer11: ["avatarPlayer11"],
+  avatarPlayer12: ["avatarPlayer12"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -233,9 +311,21 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   playersTable: "div";
   goa: "div";
+  avatarPlayer: typeof AvatarPlayer;
   def: "div";
+  avatarPlayer2: typeof AvatarPlayer;
+  avatarPlayer3: typeof AvatarPlayer;
+  avatarPlayer4: typeof AvatarPlayer;
+  avatarPlayer5: typeof AvatarPlayer;
   mid: "div";
+  avatarPlayer6: typeof AvatarPlayer;
+  avatarPlayer7: typeof AvatarPlayer;
+  avatarPlayer8: typeof AvatarPlayer;
+  avatarPlayer9: typeof AvatarPlayer;
   str: "div";
+  avatarPlayer10: typeof AvatarPlayer;
+  avatarPlayer11: typeof AvatarPlayer;
+  avatarPlayer12: typeof AvatarPlayer;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -299,9 +389,21 @@ export const PlasmicTeamPlayerCreate = Object.assign(
   {
     // Helper components rendering sub-elements
     goa: makeNodeComponent("goa"),
+    avatarPlayer: makeNodeComponent("avatarPlayer"),
     def: makeNodeComponent("def"),
+    avatarPlayer2: makeNodeComponent("avatarPlayer2"),
+    avatarPlayer3: makeNodeComponent("avatarPlayer3"),
+    avatarPlayer4: makeNodeComponent("avatarPlayer4"),
+    avatarPlayer5: makeNodeComponent("avatarPlayer5"),
     mid: makeNodeComponent("mid"),
+    avatarPlayer6: makeNodeComponent("avatarPlayer6"),
+    avatarPlayer7: makeNodeComponent("avatarPlayer7"),
+    avatarPlayer8: makeNodeComponent("avatarPlayer8"),
+    avatarPlayer9: makeNodeComponent("avatarPlayer9"),
     str: makeNodeComponent("str"),
+    avatarPlayer10: makeNodeComponent("avatarPlayer10"),
+    avatarPlayer11: makeNodeComponent("avatarPlayer11"),
+    avatarPlayer12: makeNodeComponent("avatarPlayer12"),
 
     // Metadata about props expected for PlasmicTeamPlayerCreate
     internalVariantProps: PlasmicTeamPlayerCreate__VariantProps,
