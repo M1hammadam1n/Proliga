@@ -689,6 +689,21 @@ function PlasmicEditTeam__RenderFunc(props: {
                       <PlayerPickerRow
                         data-plasmic-name={"playerPickerRow"}
                         data-plasmic-override={overrides.playerPickerRow}
+                        buttonVisibility={(() => {
+                          try {
+                            return $queries.teamPlayer.data.response.find(
+                              x => x.player_id === currentItem.id
+                            );
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()}
                         className={classNames(
                           "__wab_instance",
                           sty.playerPickerRow

@@ -83,6 +83,7 @@ export type PlasmicPlayerPickerRow__ArgsType = {
   price?: string;
   onclickPlus?: (event: any) => void;
   oneclickMinus?: (event: any) => void;
+  buttonVisibility?: string;
 };
 type ArgPropType = keyof PlasmicPlayerPickerRow__ArgsType;
 export const PlasmicPlayerPickerRow__ArgProps = new Array<ArgPropType>(
@@ -91,7 +92,8 @@ export const PlasmicPlayerPickerRow__ArgProps = new Array<ArgPropType>(
   "name",
   "price",
   "onclickPlus",
-  "oneclickMinus"
+  "oneclickMinus",
+  "buttonVisibility"
 );
 
 export type PlasmicPlayerPickerRow__OverridesType = {
@@ -106,6 +108,7 @@ export interface DefaultPlayerPickerRowProps {
   price?: string;
   onclickPlus?: (event: any) => void;
   oneclickMinus?: (event: any) => void;
+  buttonVisibility?: string;
   className?: string;
 }
 
@@ -298,43 +301,70 @@ function PlasmicPlayerPickerRow__RenderFunc(props: {
             })()}
           </React.Fragment>
         </div>
-        <PlasmicImg__
-          alt={""}
-          className={classNames(sty.img__bzOLj)}
-          displayHeight={"auto"}
-          displayMaxHeight={"none"}
-          displayMaxWidth={"100%"}
-          displayMinHeight={"0"}
-          displayMinWidth={"0"}
-          displayWidth={"32px"}
-          loading={"lazy"}
-          onClick={args.onclickPlus}
-          src={{
-            src: "/plasmic/proliga/images/plus33Svg.svg",
-            fullWidth: 1024,
-            fullHeight: 1024,
-            aspectRatio: 1
-          }}
-        />
-
-        <PlasmicImg__
-          alt={""}
-          className={classNames(sty.img__dlHuV)}
-          displayHeight={"auto"}
-          displayMaxHeight={"none"}
-          displayMaxWidth={"100%"}
-          displayMinHeight={"0"}
-          displayMinWidth={"0"}
-          displayWidth={"32px"}
-          loading={"lazy"}
-          onClick={args.oneclickMinus}
-          src={{
-            src: "/plasmic/proliga/images/x11Svg.svg",
-            fullWidth: 1024,
-            fullHeight: 1024,
-            aspectRatio: 1
-          }}
-        />
+        {(() => {
+          try {
+            return $props.buttonVisibility === undefined;
+          } catch (e) {
+            if (
+              e instanceof TypeError ||
+              e?.plasmicType === "PlasmicUndefinedDataError"
+            ) {
+              return true;
+            }
+            throw e;
+          }
+        })() ? (
+          <PlasmicImg__
+            alt={""}
+            className={classNames(sty.img__bzOLj)}
+            displayHeight={"auto"}
+            displayMaxHeight={"none"}
+            displayMaxWidth={"100%"}
+            displayMinHeight={"0"}
+            displayMinWidth={"0"}
+            displayWidth={"32px"}
+            loading={"lazy"}
+            onClick={args.onclickPlus}
+            src={{
+              src: "/plasmic/proliga/images/plus33Svg.svg",
+              fullWidth: 1024,
+              fullHeight: 1024,
+              aspectRatio: 1
+            }}
+          />
+        ) : null}
+        {(() => {
+          try {
+            return $props.buttonVisibility != undefined;
+          } catch (e) {
+            if (
+              e instanceof TypeError ||
+              e?.plasmicType === "PlasmicUndefinedDataError"
+            ) {
+              return true;
+            }
+            throw e;
+          }
+        })() ? (
+          <PlasmicImg__
+            alt={""}
+            className={classNames(sty.img__dlHuV)}
+            displayHeight={"auto"}
+            displayMaxHeight={"none"}
+            displayMaxWidth={"100%"}
+            displayMinHeight={"0"}
+            displayMinWidth={"0"}
+            displayWidth={"32px"}
+            loading={"lazy"}
+            onClick={args.oneclickMinus}
+            src={{
+              src: "/plasmic/proliga/images/x11Svg.svg",
+              fullWidth: 1024,
+              fullHeight: 1024,
+              aspectRatio: 1
+            }}
+          />
+        ) : null}
       </Stack__>
     </div>
   ) as React.ReactElement | null;
