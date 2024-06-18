@@ -98,7 +98,6 @@ export const PlasmicPlayerPickerRow__ArgProps = new Array<ArgPropType>(
 
 export type PlasmicPlayerPickerRow__OverridesType = {
   root?: Flex__<"div">;
-  freeBox?: Flex__<"div">;
 };
 
 export interface DefaultPlayerPickerRowProps {
@@ -175,211 +174,201 @@ function PlasmicPlayerPickerRow__RenderFunc(props: {
         sty.root
       )}
     >
-      <Stack__
-        as={"div"}
-        data-plasmic-name={"freeBox"}
-        data-plasmic-override={overrides.freeBox}
-        hasGap={true}
-        className={classNames(projectcss.all, sty.freeBox)}
+      <div
+        className={classNames(
+          projectcss.all,
+          projectcss.__wab_text,
+          sty.text__kWvhV
+        )}
       >
-        <div
-          className={classNames(
-            projectcss.all,
-            projectcss.__wab_text,
-            sty.text__kWvhV
-          )}
-        >
-          <React.Fragment>
-            {(() => {
-              try {
-                return $props.name;
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return "Oblak";
-                }
-                throw e;
+        <React.Fragment>
+          {(() => {
+            try {
+              return $props.name;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return "Oblak";
               }
-            })()}
-          </React.Fragment>
-        </div>
-        <div
-          className={classNames(
-            projectcss.all,
-            projectcss.__wab_text,
-            sty.text__e1ZrQ
-          )}
-        >
-          <React.Fragment>
-            {(() => {
-              try {
-                return $props.position;
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return "GOA";
-                }
-                throw e;
+              throw e;
+            }
+          })()}
+        </React.Fragment>
+      </div>
+      <div
+        className={classNames(
+          projectcss.all,
+          projectcss.__wab_text,
+          sty.text__e1ZrQ
+        )}
+      >
+        <React.Fragment>
+          {(() => {
+            try {
+              return $props.position;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return "GOA";
               }
-            })()}
-          </React.Fragment>
-        </div>
+              throw e;
+            }
+          })()}
+        </React.Fragment>
+      </div>
+      <PlasmicImg__
+        alt={""}
+        className={classNames(sty.img__oDyDd)}
+        displayHeight={"auto"}
+        displayMaxHeight={"none"}
+        displayMaxWidth={"100%"}
+        displayMinHeight={"0"}
+        displayMinWidth={"0"}
+        displayWidth={"14px"}
+        loading={"lazy"}
+        src={{
+          src: "/plasmic/proliga/images/pngtreeEuroSymbolCurrencyPngImage3974231Png2.png",
+          fullWidth: 512,
+          fullHeight: 512,
+          aspectRatio: undefined
+        }}
+      />
+
+      <div
+        className={classNames(
+          projectcss.all,
+          projectcss.__wab_text,
+          sty.text__uFtA1
+        )}
+      >
+        <React.Fragment>
+          {(() => {
+            try {
+              return $props.price;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return "1.920.356";
+              }
+              throw e;
+            }
+          })()}
+        </React.Fragment>
+      </div>
+      <div
+        className={classNames(
+          projectcss.all,
+          projectcss.__wab_text,
+          sty.text__rhWYp
+        )}
+      >
+        <React.Fragment>
+          {(() => {
+            try {
+              return $props.fsyp;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return "93";
+              }
+              throw e;
+            }
+          })()}
+        </React.Fragment>
+      </div>
+      <div
+        className={classNames(
+          projectcss.all,
+          projectcss.__wab_text,
+          sty.text___6Ak9J
+        )}
+      >
+        {"Ochko"}
+      </div>
+      {(() => {
+        try {
+          return $props.buttonVisibility === undefined;
+        } catch (e) {
+          if (
+            e instanceof TypeError ||
+            e?.plasmicType === "PlasmicUndefinedDataError"
+          ) {
+            return true;
+          }
+          throw e;
+        }
+      })() ? (
         <PlasmicImg__
           alt={""}
-          className={classNames(sty.img__oDyDd)}
+          className={classNames(sty.img__bzOLj)}
           displayHeight={"auto"}
           displayMaxHeight={"none"}
           displayMaxWidth={"100%"}
           displayMinHeight={"0"}
           displayMinWidth={"0"}
-          displayWidth={"14px"}
+          displayWidth={"32px"}
           loading={"lazy"}
+          onClick={args.onclickPlus}
           src={{
-            src: "/plasmic/proliga/images/pngtreeEuroSymbolCurrencyPngImage3974231Png2.png",
-            fullWidth: 512,
-            fullHeight: 512,
-            aspectRatio: undefined
+            src: "/plasmic/proliga/images/plus33Svg.svg",
+            fullWidth: 1024,
+            fullHeight: 1024,
+            aspectRatio: 1
           }}
         />
-
-        <div
-          className={classNames(
-            projectcss.all,
-            projectcss.__wab_text,
-            sty.text__uFtA1
-          )}
-        >
-          <React.Fragment>
-            {(() => {
-              try {
-                return $props.price;
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return "1.920.356";
-                }
-                throw e;
-              }
-            })()}
-          </React.Fragment>
-        </div>
-        <div
-          className={classNames(
-            projectcss.all,
-            projectcss.__wab_text,
-            sty.text___6Ak9J
-          )}
-        >
-          {"Ochko"}
-        </div>
-        <div
-          className={classNames(
-            projectcss.all,
-            projectcss.__wab_text,
-            sty.text__rhWYp
-          )}
-        >
-          <React.Fragment>
-            {(() => {
-              try {
-                return $props.fsyp;
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return "93";
-                }
-                throw e;
-              }
-            })()}
-          </React.Fragment>
-        </div>
-        {(() => {
-          try {
-            return $props.buttonVisibility === undefined;
-          } catch (e) {
-            if (
-              e instanceof TypeError ||
-              e?.plasmicType === "PlasmicUndefinedDataError"
-            ) {
-              return true;
-            }
-            throw e;
+      ) : null}
+      {(() => {
+        try {
+          return $props.buttonVisibility != undefined;
+        } catch (e) {
+          if (
+            e instanceof TypeError ||
+            e?.plasmicType === "PlasmicUndefinedDataError"
+          ) {
+            return true;
           }
-        })() ? (
-          <PlasmicImg__
-            alt={""}
-            className={classNames(sty.img__bzOLj)}
-            displayHeight={"auto"}
-            displayMaxHeight={"none"}
-            displayMaxWidth={"100%"}
-            displayMinHeight={"0"}
-            displayMinWidth={"0"}
-            displayWidth={"32px"}
-            loading={"lazy"}
-            onClick={args.onclickPlus}
-            src={{
-              src: "/plasmic/proliga/images/plus33Svg.svg",
-              fullWidth: 1024,
-              fullHeight: 1024,
-              aspectRatio: 1
-            }}
-          />
-        ) : null}
-        {(() => {
-          try {
-            return $props.buttonVisibility != undefined;
-          } catch (e) {
-            if (
-              e instanceof TypeError ||
-              e?.plasmicType === "PlasmicUndefinedDataError"
-            ) {
-              return true;
-            }
-            throw e;
-          }
-        })() ? (
-          <PlasmicImg__
-            alt={""}
-            className={classNames(sty.img__dlHuV)}
-            displayHeight={"auto"}
-            displayMaxHeight={"none"}
-            displayMaxWidth={"100%"}
-            displayMinHeight={"0"}
-            displayMinWidth={"0"}
-            displayWidth={"32px"}
-            loading={"lazy"}
-            onClick={args.oneclickMinus}
-            src={{
-              src: "/plasmic/proliga/images/x11Svg.svg",
-              fullWidth: 1024,
-              fullHeight: 1024,
-              aspectRatio: 1
-            }}
-          />
-        ) : null}
-      </Stack__>
+          throw e;
+        }
+      })() ? (
+        <PlasmicImg__
+          alt={""}
+          className={classNames(sty.img__dlHuV)}
+          displayHeight={"auto"}
+          displayMaxHeight={"none"}
+          displayMaxWidth={"100%"}
+          displayMinHeight={"0"}
+          displayMinWidth={"0"}
+          displayWidth={"32px"}
+          loading={"lazy"}
+          onClick={args.oneclickMinus}
+          src={{
+            src: "/plasmic/proliga/images/x11Svg.svg",
+            fullWidth: 1024,
+            fullHeight: 1024,
+            aspectRatio: 1
+          }}
+        />
+      ) : null}
     </div>
   ) as React.ReactElement | null;
 }
 
 const PlasmicDescendants = {
-  root: ["root", "freeBox"],
-  freeBox: ["freeBox"]
+  root: ["root"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
-  freeBox: "div";
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -442,7 +431,6 @@ export const PlasmicPlayerPickerRow = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
-    freeBox: makeNodeComponent("freeBox"),
 
     // Metadata about props expected for PlasmicPlayerPickerRow
     internalVariantProps: PlasmicPlayerPickerRow__VariantProps,

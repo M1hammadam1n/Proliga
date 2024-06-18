@@ -663,9 +663,11 @@ function PlasmicEditTeam__RenderFunc(props: {
                   className={classNames(projectcss.all, sty.filter)}
                 />
 
-                <div
+                <Stack__
+                  as={"div"}
                   data-plasmic-name={"playerList"}
                   data-plasmic-override={overrides.playerList}
+                  hasGap={true}
                   className={classNames(projectcss.all, sty.playerList)}
                 >
                   {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
@@ -920,7 +922,7 @@ function PlasmicEditTeam__RenderFunc(props: {
                       />
                     );
                   })}
-                </div>
+                </Stack__>
               </div>
             </div>
           </div>
