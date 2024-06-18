@@ -1584,6 +1584,19 @@
           "cssFilePath": "plasmic/proliga/PlasmicUserteamNavbar.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "FmVyQ1WB4e_T",
+          "name": "PlayerPicker",
+          "type": "managed",
+          "projectId": "tDWy3GXn2mzd9e2xUaPdmu",
+          "renderModuleFilePath": "plasmic/proliga/PlasmicPlayerPicker.tsx",
+          "importSpec": {
+            "modulePath": "PlayerPicker.tsx"
+          },
+          "cssFilePath": "plasmic/proliga/PlasmicPlayerPicker.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [
@@ -2058,6 +2071,16 @@
           "id": "E00fAp7aQTHU",
           "name": "pitch-small.e4e4ad56.svg",
           "filePath": "../public/plasmic/proliga/images/pitchSmalle4E4Ad56Svg.svg"
+        },
+        {
+          "id": "xsaxrT7BGbcT",
+          "name": "icons8-x.svg",
+          "filePath": "../public/plasmic/proliga/images/icons8Xsvg.svg"
+        },
+        {
+          "id": "1nlj3sMnLhZ9",
+          "name": "red-x-line-icon.svg",
+          "filePath": "../public/plasmic/proliga/images/redXLineIconsvg.svg"
         }
       ],
       "indirect": false,

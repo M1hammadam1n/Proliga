@@ -8,6 +8,7 @@
   height: auto;
   max-width: 100%;
   justify-self: flex-start;
+  background: none;
   min-width: 0;
   padding: 10px;
 }
@@ -21,7 +22,6 @@
   width: 100%;
   height: auto;
   max-width: 100%;
-  color: var(--token-jgohepLVeKvh);
   font-weight: 700;
   text-align: left;
   min-width: 0;
@@ -40,7 +40,6 @@
 .text__e1ZrQ {
   position: relative;
   margin-left: 5px;
-  color: var(--token-_Z-x7YSfdB4D);
   background: none;
   font-weight: 700;
   font-size: 12px;
@@ -67,7 +66,6 @@
   width: 60px;
   height: auto;
   max-width: 100%;
-  color: var(--token-jgohepLVeKvh);
   font-weight: 700;
   flex-shrink: 0;
 }
@@ -89,7 +87,6 @@
   max-width: 100%;
   font-size: 18px;
   padding-left: 5px;
-  color: var(--token-jgohepLVeKvh);
   font-weight: 800;
 }
 @media (max-width: 1800px) {
@@ -108,7 +105,6 @@
   width: auto;
   height: auto;
   max-width: 100%;
-  color: var(--token-41VRhDKfihhY);
   padding: 8px;
 }
 @media (max-width: 1800px) {

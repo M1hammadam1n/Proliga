@@ -1,0 +1,102 @@
+.root {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  width: 100%;
+  height: auto;
+  justify-self: flex-start;
+  background: var(--token-Le07ngBUPl2h);
+  min-width: 0;
+  padding: 10px;
+}
+.root > :global(.__wab_flex-container) {
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  min-width: 0;
+  margin-left: calc(0px - 15px);
+  width: calc(100% + 15px);
+}
+.root > :global(.__wab_flex-container) > *,
+.root > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.root > :global(.__wab_flex-container) > picture > img,
+.root > :global(.__wab_flex-container) > :global(.__wab_slot) > picture > img {
+  margin-left: 15px;
+}
+.text__vkwbp {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  color: var(--token-jgohepLVeKvh);
+  font-weight: 700;
+  min-width: 0;
+}
+.text___7Pmh5 {
+  position: relative;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  color: var(--token-jgohepLVeKvh);
+}
+.text___2PJjK {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  color: var(--token-jgohepLVeKvh);
+  min-width: 0;
+}
+.img__npfZv {
+  position: relative;
+  object-fit: cover;
+  max-width: 100%;
+  width: 16px;
+  flex-shrink: 0;
+}
+.img__npfZv > picture > img {
+  object-fit: cover;
+}
+.text__scVzY {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  color: var(--token-jgohepLVeKvh);
+  min-width: 0;
+}
+.text__sWvEe {
+  position: relative;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  color: var(--token-jgohepLVeKvh);
+}
+.text__ibl8M {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  color: var(--token-jgohepLVeKvh);
+  min-width: 0;
+}
+.img__xghAn {
+  position: relative;
+  object-fit: cover;
+  max-width: 100%;
+  width: 32px;
+  flex-shrink: 0;
+}
+.img__xghAn > picture > img {
+  object-fit: cover;
+}
+.img__gc0Y {
+  position: relative;
+  object-fit: cover;
+  max-width: 100%;
+  width: 32px;
+  flex-shrink: 0;
+}
+.img__gc0Y > picture > img {
+  object-fit: cover;
+}
