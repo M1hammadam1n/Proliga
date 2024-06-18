@@ -71,6 +71,7 @@ import SearchComponent from "../../SearchComponent"; // plasmic-import: mmk_GiTX
 import AvatarPlayer from "../../AvatarPlayer"; // plasmic-import: 4QnaRcOLXj0D/component
 import SoccerPlaceMens2 from "../../SoccerPlaceMens2"; // plasmic-import: xodLqMOhDs29/component
 import PlayerPicker from "../../PlayerPicker"; // plasmic-import: FmVyQ1WB4e_T/component
+import PlayerPickerRow from "../../PlayerPickerRow"; // plasmic-import: NaQtMjgilBY9/component
 import { AntdPagination } from "@plasmicpkgs/antd5/skinny/registerPagination";
 import { paginationHelpers as AntdPagination_Helpers } from "@plasmicpkgs/antd5/skinny/registerPagination";
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
@@ -113,6 +114,7 @@ export type PlasmicEditTeam__OverridesType = {
   filter?: Flex__<"div">;
   playerList?: Flex__<"div">;
   playerPicker?: Flex__<typeof PlayerPicker>;
+  playerPickerRow?: Flex__<typeof PlayerPickerRow>;
   pagination?: Flex__<typeof AntdPagination>;
 };
 
@@ -813,10 +815,11 @@ function PlasmicEditTeam__RenderFunc(props: {
                                 const actionArgs = {
                                   dataOp: {
                                     sourceId: "vQtRPuFArSfh43vUmgx2PS",
-                                    opId: "89f98d2a-310d-48d7-859d-1229b981793f",
+                                    opId: "e9a890f6-eb44-4aaf-88ac-c5b253512b01",
                                     userArgs: {
                                       params: [
-                                        $queries.query.data.response[0].id
+                                        $queries.query.data.response[0].id,
+                                        currentItem.id
                                       ]
                                     },
                                     cacheKey: null,
@@ -991,6 +994,235 @@ function PlasmicEditTeam__RenderFunc(props: {
                       />
                     );
                   })}
+                  {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
+                    (() => {
+                      try {
+                        return $queries.playerPag.data.response;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return [];
+                        }
+                        throw e;
+                      }
+                    })()
+                  ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                    const currentItem = __plasmic_item_0;
+                    const currentIndex = __plasmic_idx_0;
+                    return (
+                      <PlayerPickerRow
+                        data-plasmic-name={"playerPickerRow"}
+                        data-plasmic-override={overrides.playerPickerRow}
+                        buttonVisibility={(() => {
+                          try {
+                            return $queries.teamPlayer.data.response.find(
+                              x => x.player_id === currentItem.id
+                            );
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()}
+                        className={classNames(
+                          "__wab_instance",
+                          sty.playerPickerRow
+                        )}
+                        fsyp={(() => {
+                          try {
+                            return currentItem.ochko;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()}
+                        key={currentIndex}
+                        name={(() => {
+                          try {
+                            return currentItem.name;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()}
+                        onclickPlus={async event => {
+                          const $steps = {};
+
+                          $steps["updatePlayer"] = true
+                            ? (() => {
+                                const actionArgs = {
+                                  dataOp: {
+                                    sourceId: "vQtRPuFArSfh43vUmgx2PS",
+                                    opId: "4a933963-1e52-4384-90b9-aa0c8ed99eb7",
+                                    userArgs: {
+                                      body: [
+                                        currentItem.id,
+                                        currentItem.position,
+                                        $queries.query.data.response[0].id
+                                      ]
+                                    },
+                                    cacheKey: null,
+                                    invalidatedKeys: ["plasmic_refresh_all"],
+                                    roleId:
+                                      "f8970d3a-c1ae-4ba8-80dd-90e548ee70d6"
+                                  }
+                                };
+                                return (async ({ dataOp, continueOnError }) => {
+                                  try {
+                                    const response = await executePlasmicDataOp(
+                                      dataOp,
+                                      {
+                                        userAuthToken:
+                                          dataSourcesCtx?.userAuthToken,
+                                        user: dataSourcesCtx?.user
+                                      }
+                                    );
+                                    await plasmicInvalidate(
+                                      dataOp.invalidatedKeys
+                                    );
+                                    return response;
+                                  } catch (e) {
+                                    if (!continueOnError) {
+                                      throw e;
+                                    }
+                                    return e;
+                                  }
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                          if (
+                            $steps["updatePlayer"] != null &&
+                            typeof $steps["updatePlayer"] === "object" &&
+                            typeof $steps["updatePlayer"].then === "function"
+                          ) {
+                            $steps["updatePlayer"] = await $steps[
+                              "updatePlayer"
+                            ];
+                          }
+
+                          $steps["invokeGlobalAction"] =
+                            $steps.updatePlayer.data.response ===
+                            "Postion is full!!!!"
+                              ? (() => {
+                                  const actionArgs = {
+                                    args: [
+                                      "error",
+                                      "BU pozitsiya to'ldi. bosh joy yo'q"
+                                    ]
+                                  };
+                                  return $globalActions[
+                                    "plasmic-antd5-config-provider.showNotification"
+                                  ]?.apply(null, [...actionArgs.args]);
+                                })()
+                              : undefined;
+                          if (
+                            $steps["invokeGlobalAction"] != null &&
+                            typeof $steps["invokeGlobalAction"] === "object" &&
+                            typeof $steps["invokeGlobalAction"].then ===
+                              "function"
+                          ) {
+                            $steps["invokeGlobalAction"] = await $steps[
+                              "invokeGlobalAction"
+                            ];
+                          }
+                        }}
+                        oneclickMinus={async event => {
+                          const $steps = {};
+
+                          $steps["sellPlayer"] = true
+                            ? (() => {
+                                const actionArgs = {
+                                  dataOp: {
+                                    sourceId: "vQtRPuFArSfh43vUmgx2PS",
+                                    opId: "ac8e6943-2d31-4adc-a80e-8b319c6d888a",
+                                    userArgs: {
+                                      params: [
+                                        $queries.query.data.response[0].id,
+                                        currentItem.id
+                                      ]
+                                    },
+                                    cacheKey: null,
+                                    invalidatedKeys: ["plasmic_refresh_all"],
+                                    roleId:
+                                      "f8970d3a-c1ae-4ba8-80dd-90e548ee70d6"
+                                  }
+                                };
+                                return (async ({ dataOp, continueOnError }) => {
+                                  try {
+                                    const response = await executePlasmicDataOp(
+                                      dataOp,
+                                      {
+                                        userAuthToken:
+                                          dataSourcesCtx?.userAuthToken,
+                                        user: dataSourcesCtx?.user
+                                      }
+                                    );
+                                    await plasmicInvalidate(
+                                      dataOp.invalidatedKeys
+                                    );
+                                    return response;
+                                  } catch (e) {
+                                    if (!continueOnError) {
+                                      throw e;
+                                    }
+                                    return e;
+                                  }
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                          if (
+                            $steps["sellPlayer"] != null &&
+                            typeof $steps["sellPlayer"] === "object" &&
+                            typeof $steps["sellPlayer"].then === "function"
+                          ) {
+                            $steps["sellPlayer"] = await $steps["sellPlayer"];
+                          }
+                        }}
+                        position={(() => {
+                          try {
+                            return currentItem.position;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()}
+                        price={(() => {
+                          try {
+                            return currentItem.price;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()}
+                      />
+                    );
+                  })}
                   {(() => {
                     const child$Props = {
                       className: classNames("__wab_instance", sty.pagination),
@@ -1122,6 +1354,7 @@ const PlasmicDescendants = {
     "filter",
     "playerList",
     "playerPicker",
+    "playerPickerRow",
     "pagination"
   ],
   navbar: ["navbar"],
@@ -1143,6 +1376,7 @@ const PlasmicDescendants = {
     "filter",
     "playerList",
     "playerPicker",
+    "playerPickerRow",
     "pagination"
   ],
   stadion: [
@@ -1168,10 +1402,18 @@ const PlasmicDescendants = {
   str: ["str", "avatarPlayer4"],
   avatarPlayer4: ["avatarPlayer4"],
   soccerPlaceMens2: ["soccerPlaceMens2"],
-  column: ["column", "filter", "playerList", "playerPicker", "pagination"],
+  column: [
+    "column",
+    "filter",
+    "playerList",
+    "playerPicker",
+    "playerPickerRow",
+    "pagination"
+  ],
   filter: ["filter"],
-  playerList: ["playerList", "playerPicker", "pagination"],
+  playerList: ["playerList", "playerPicker", "playerPickerRow", "pagination"],
   playerPicker: ["playerPicker"],
+  playerPickerRow: ["playerPickerRow"],
   pagination: ["pagination"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
@@ -1197,6 +1439,7 @@ type NodeDefaultElementType = {
   filter: "div";
   playerList: "div";
   playerPicker: typeof PlayerPicker;
+  playerPickerRow: typeof PlayerPickerRow;
   pagination: typeof AntdPagination;
 };
 
@@ -1295,6 +1538,7 @@ export const PlasmicEditTeam = Object.assign(
     filter: makeNodeComponent("filter"),
     playerList: makeNodeComponent("playerList"),
     playerPicker: makeNodeComponent("playerPicker"),
+    playerPickerRow: makeNodeComponent("playerPickerRow"),
     pagination: makeNodeComponent("pagination"),
 
     // Metadata about props expected for PlasmicEditTeam
