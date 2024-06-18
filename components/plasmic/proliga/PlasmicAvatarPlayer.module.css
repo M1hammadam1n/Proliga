@@ -57,13 +57,14 @@
 }
 .text {
   position: relative;
-  width: 53px;
+  width: 100%;
   height: auto;
   max-width: 100%;
-  color: var(--token-41VRhDKfihhY);
   background: none;
-  font-size: 20px;
+  font-size: 14px;
   font-weight: 900;
-  text-align: left;
-  font-family: "Inria Serif", serif;
+  text-align: center;
+  align-self: center;
+  color: var(--token-jgohepLVeKvh);
+  min-width: 0;
 }

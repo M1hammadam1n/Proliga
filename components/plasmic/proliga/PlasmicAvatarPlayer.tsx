@@ -121,6 +121,7 @@ function PlasmicAvatarPlayer__RenderFunc(props: {
     () =>
       Object.assign(
         {
+          name: "Player",
           capitanVisibility: false
         },
         props.args

@@ -1,14 +1,22 @@
 .root {
-  display: flex;
+  display: inline-flex;
   flex-direction: column;
   position: relative;
-  width: 661px;
-  height: 854px;
+  width: auto;
+  height: auto;
   justify-content: flex-start;
   align-items: center;
-  background: url("https://www.serieafantasy.com/static/media/pitch-small.e4e4ad56.svg")
-    top 50% left 50% / cover repeat;
+  background: none;
   padding-bottom: 0px;
   padding-left: 0px;
   margin-left: 0px;
+  justify-self: flex-start;
+}
+.img {
+  position: relative;
+  object-fit: cover;
+  max-width: 100%;
+}
+.img > picture > img {
+  object-fit: cover;
 }

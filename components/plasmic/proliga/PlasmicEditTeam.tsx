@@ -413,9 +413,11 @@ function PlasmicEditTeam__RenderFunc(props: {
                       );
                     })}
                   </div>
-                  <div
+                  <Stack__
+                    as={"div"}
                     data-plasmic-name={"def"}
                     data-plasmic-override={overrides.def}
+                    hasGap={true}
                     className={classNames(projectcss.all, sty.def)}
                   >
                     {(_par =>
@@ -487,10 +489,12 @@ function PlasmicEditTeam__RenderFunc(props: {
                         </div>
                       );
                     })}
-                  </div>
-                  <div
+                  </Stack__>
+                  <Stack__
+                    as={"div"}
                     data-plasmic-name={"mid"}
                     data-plasmic-override={overrides.mid}
+                    hasGap={true}
                     className={classNames(projectcss.all, sty.mid)}
                   >
                     {(_par =>
@@ -562,10 +566,12 @@ function PlasmicEditTeam__RenderFunc(props: {
                         </div>
                       );
                     })}
-                  </div>
-                  <div
+                  </Stack__>
+                  <Stack__
+                    as={"div"}
                     data-plasmic-name={"str"}
                     data-plasmic-override={overrides.str}
+                    hasGap={true}
                     className={classNames(projectcss.all, sty.str)}
                   >
                     {(_par =>
@@ -638,7 +644,7 @@ function PlasmicEditTeam__RenderFunc(props: {
                         </div>
                       );
                     })}
-                  </div>
+                  </Stack__>
                 </div>
                 <SoccerPlaceMens2
                   data-plasmic-name={"soccerPlaceMens2"}

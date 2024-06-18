@@ -80,6 +80,7 @@ export const PlasmicSoccerPlaceMens2__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicSoccerPlaceMens2__OverridesType = {
   root?: Flex__<"div">;
+  img?: Flex__<typeof PlasmicImg__>;
 };
 
 export interface DefaultSoccerPlaceMens2Props {
@@ -133,18 +134,40 @@ function PlasmicSoccerPlaceMens2__RenderFunc(props: {
         plasmic_plasmic_rich_components_css.plasmic_tokens,
         sty.root
       )}
-    />
+    >
+      <PlasmicImg__
+        data-plasmic-name={"img"}
+        data-plasmic-override={overrides.img}
+        alt={""}
+        className={classNames(sty.img)}
+        displayHeight={"auto"}
+        displayMaxHeight={"none"}
+        displayMaxWidth={"100%"}
+        displayMinHeight={"0"}
+        displayMinWidth={"0"}
+        displayWidth={"auto"}
+        loading={"lazy"}
+        src={{
+          src: "/plasmic/proliga/images/pitchSmalle4E4Ad56Svg.svg",
+          fullWidth: 820,
+          fullHeight: 645,
+          aspectRatio: 1.271318
+        }}
+      />
+    </div>
   ) as React.ReactElement | null;
 }
 
 const PlasmicDescendants = {
-  root: ["root"]
+  root: ["root", "img"],
+  img: ["img"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
+  img: typeof PlasmicImg__;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -207,6 +230,7 @@ export const PlasmicSoccerPlaceMens2 = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
+    img: makeNodeComponent("img"),
 
     // Metadata about props expected for PlasmicSoccerPlaceMens2
     internalVariantProps: PlasmicSoccerPlaceMens2__VariantProps,

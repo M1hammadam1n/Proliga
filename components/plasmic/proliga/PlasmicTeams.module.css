@@ -350,11 +350,6 @@
   min-width: 0;
   flex-shrink: 0;
 }
-@media (max-width: 768px) {
-  .soccerPlaceMens2:global(.__wab_instance) {
-    flex-shrink: 0;
-  }
-}
 .column__wTiGc {
   display: flex;
   position: relative;
