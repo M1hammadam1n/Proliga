@@ -723,7 +723,7 @@ function PlasmicEditTeam__RenderFunc(props: {
                         onclickPlus={async event => {
                           const $steps = {};
 
-                          $steps["updateMoney"] = true
+                          $steps["updateMoney"] = false
                             ? (() => {
                                 const actionArgs = {
                                   dataOp: {
@@ -823,6 +823,57 @@ function PlasmicEditTeam__RenderFunc(props: {
                             $steps["updatePlayer"] = await $steps[
                               "updatePlayer"
                             ];
+                          }
+                        }}
+                        oneclickMinus={async event => {
+                          const $steps = {};
+
+                          $steps["sellPlayer"] = true
+                            ? (() => {
+                                const actionArgs = {
+                                  dataOp: {
+                                    sourceId: "vQtRPuFArSfh43vUmgx2PS",
+                                    opId: "eadf07b1-2bb5-40d2-94bf-ee3c223c3a33",
+                                    userArgs: {
+                                      params: [
+                                        $queries.query.data.response[0].id,
+                                        currentItem.id
+                                      ]
+                                    },
+                                    cacheKey: null,
+                                    invalidatedKeys: ["plasmic_refresh_all"],
+                                    roleId: null
+                                  }
+                                };
+                                return (async ({ dataOp, continueOnError }) => {
+                                  try {
+                                    const response = await executePlasmicDataOp(
+                                      dataOp,
+                                      {
+                                        userAuthToken:
+                                          dataSourcesCtx?.userAuthToken,
+                                        user: dataSourcesCtx?.user
+                                      }
+                                    );
+                                    await plasmicInvalidate(
+                                      dataOp.invalidatedKeys
+                                    );
+                                    return response;
+                                  } catch (e) {
+                                    if (!continueOnError) {
+                                      throw e;
+                                    }
+                                    return e;
+                                  }
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                          if (
+                            $steps["sellPlayer"] != null &&
+                            typeof $steps["sellPlayer"] === "object" &&
+                            typeof $steps["sellPlayer"].then === "function"
+                          ) {
+                            $steps["sellPlayer"] = await $steps["sellPlayer"];
                           }
                         }}
                         position={(() => {
