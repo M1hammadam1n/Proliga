@@ -59,8 +59,6 @@ import {
   useGlobalActions
 } from "@plasmicapp/react-web/lib/host";
 
-import { AntdAvatar } from "@plasmicpkgs/antd5/skinny/registerAvatar";
-
 import "@plasmicapp/react-web/lib/plasmic.css";
 
 import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
@@ -87,7 +85,6 @@ export const PlasmicMessageCard__ArgProps = new Array<ArgPropType>(
 
 export type PlasmicMessageCard__OverridesType = {
   root?: Flex__<"div">;
-  modirator?: Flex__<typeof AntdAvatar>;
 };
 
 export interface DefaultMessageCardProps {
@@ -199,28 +196,18 @@ function PlasmicMessageCard__RenderFunc(props: {
           </React.Fragment>
         </div>
       </Stack__>
-      <div className={classNames(projectcss.all, sty.freeBox__oFp4A)}>
-        <AntdAvatar
-          data-plasmic-name={"modirator"}
-          data-plasmic-override={overrides.modirator}
-          className={classNames("__wab_instance", sty.modirator)}
-          letters={``}
-        />
-      </div>
     </div>
   ) as React.ReactElement | null;
 }
 
 const PlasmicDescendants = {
-  root: ["root", "modirator"],
-  modirator: ["modirator"]
+  root: ["root"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
-  modirator: typeof AntdAvatar;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -283,7 +270,6 @@ export const PlasmicMessageCard = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
-    modirator: makeNodeComponent("modirator"),
 
     // Metadata about props expected for PlasmicMessageCard
     internalVariantProps: PlasmicMessageCard__VariantProps,

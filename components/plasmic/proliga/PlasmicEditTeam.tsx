@@ -70,6 +70,7 @@ import Navbar from "../../Navbar"; // plasmic-import: TKT8XnZtrLZi/component
 import SearchComponent from "../../SearchComponent"; // plasmic-import: mmk_GiTXUtux/component
 import AvatarPlayer from "../../AvatarPlayer"; // plasmic-import: 4QnaRcOLXj0D/component
 import SoccerPlaceMens2 from "../../SoccerPlaceMens2"; // plasmic-import: xodLqMOhDs29/component
+import MessageCard from "../../MessageCard"; // plasmic-import: KNRpEkS9bXP0/component
 import Select from "../../Select"; // plasmic-import: bCMc_ebYmgPo/component
 import TextInput from "../../TextInput"; // plasmic-import: xwgFLXqL07mD/component
 import PlayerPicker from "../../PlayerPicker"; // plasmic-import: FmVyQ1WB4e_T/component
@@ -1045,8 +1046,40 @@ function PlasmicEditTeam__RenderFunc(props: {
                   className={classNames("__wab_instance", sty.soccerPlaceMens2)}
                 />
               </div>
-              <div className={classNames(projectcss.all, sty.column__qdqiz)} />
+              <Stack__
+                as={"div"}
+                hasGap={true}
+                className={classNames(projectcss.all, sty.column__qdqiz)}
+              >
+                <MessageCard
+                  className={classNames(
+                    "__wab_instance",
+                    sty.messageCard__ba79A
+                  )}
+                  heading={"1 jamoadan 2tadan ortiq o'yinchi olib bo'lmaydi"}
+                  textInfo={"Cheklovni 3tadan 5tagacha oshirish"}
+                />
 
+                <MessageCard
+                  className={classNames(
+                    "__wab_instance",
+                    sty.messageCard__ljhfi
+                  )}
+                  heading={
+                    "Sotib olingan o'yinchilar 100dan oshib ketmasligi kerak"
+                  }
+                  textInfo={"100dan 150ga oshirish"}
+                />
+
+                <MessageCard
+                  className={classNames(
+                    "__wab_instance",
+                    sty.messageCard__ii39S
+                  )}
+                  heading={"Har turda 2tadan ortiq transfer qilib bo'lmaydi"}
+                  textInfo={"Transfer sonini oshirish"}
+                />
+              </Stack__>
               <div className={classNames(projectcss.all, sty.column__rzO2Y)}>
                 <Stack__
                   as={"div"}
