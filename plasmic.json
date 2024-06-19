@@ -2105,6 +2105,11 @@
           "id": "HMCmCF77Z-QS",
           "name": "stadion_sports_ru.svg",
           "filePath": "../public/plasmic/proliga/images/stadionSportsRusvg.svg"
+        },
+        {
+          "id": "eeG1CpoF_sia",
+          "name": "pitch-large.0c9a0331.svg",
+          "filePath": "../public/plasmic/proliga/images/pitchLarge0C9A0331Svg.svg"
         }
       ],
       "indirect": false,

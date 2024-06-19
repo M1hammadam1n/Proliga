@@ -1,0 +1,54 @@
+<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1140 654">
+  <path d="M864 528c4.418-4.03 10.209-9.672 120-120m39-40c-11.04 11.039-21 21.003-30 30m52-52c3.21-3.205 6.54-6.537 10-10m8-7c1.31-1.313 2.65-2.646 4-4" stroke="#ECC435" stroke-width="2"/>
+  <path d="M1061.76 243.887c4.44-4.047-33.3 33.893 77.24-76.887" stroke="#008FD7" stroke-width="2"/>
+  <path d="M928 421c4.424-4.03 90.06-89.672 200-200" stroke="#008FD7" stroke-width="5"/>
+  <path d="M1 382c4.418-4.03 10.21-9.672 120-120m39-40c-11.037 11.039-21 21.003-30 30m52-52l10-10m8-7l4-4" stroke="#ECC435" stroke-width="2"/>
+  <path d="M65 275.5c4.424-4.03 90.061-89.672 200-200" stroke="#008FD7" stroke-width="5"/>
+  <path d="M200.756 97.887C205.205 93.84 167.457 131.78 278 21" stroke="#008FD7" stroke-width="2"/>
+  <mask id="k1uuiCydx1ZZa" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="99" y="0" width="950" height="654">
+    <path d="M249.953 0h648.094L1049 654H99L249.953 0z" fill="#008FD7"/>
+  </mask>
+  <g mask="url(#k1uuiCydx1ZZa)">
+    <g opacity=".5" filter="url(#k1uuiCydx1ZZb)">
+      <path d="M179 704h770l-50.338-250H229.338L179 704z" fill="#0082C4"/>
+    </g>
+    <path d="M99 629h950l-20.11 25H119.106L99 629z" fill="#0082C4"/>
+    <path d="M119 654h910l20-25h-5l-17.5 22h-905L104 629h-5l20 25z" fill="#4CB1E3"/>
+    <path d="M249.794 4h648.412L1049 629H99L249.794 4z" fill="#008FD7"/>
+    <path d="M102.175 626.5l149.587-620h644.476l149.592 620H102.175z" stroke="#4CB1E3" stroke-width="5"/>
+    <path d="M402.159 626.5l23.607-100h296.468l23.607 100H402.159z" stroke="#4CB1E3" stroke-width="5"/>
+    <path d="M477.122 626.5l11.202-50h171.352l11.202 50H477.122zM627 524c0-16.569-23.729-30-53-30s-53 13.431-53 30" stroke="#4CB1E3" stroke-width="5"/>
+    <path fill="#4CB1E3" d="M191 254h765v5H191z"/>
+    <path d="M656.5 256c0 16.127-8.957 30.944-23.869 41.821C617.72 308.697 596.999 315.5 574 315.5c-22.999 0-43.72-6.803-58.631-17.679C500.457 286.944 491.5 272.127 491.5 256s8.957-30.944 23.869-41.821C530.28 203.303 551.001 196.5 574 196.5c22.999 0 43.72 6.803 58.631 17.679C647.543 225.056 656.5 239.873 656.5 256z" stroke="#4CB1E3" stroke-width="5"/>
+    <ellipse cx="574" cy="256" rx="9" ry="7" fill="#4CB1E3"/>
+    <path d="M607 84c0 8.284-14.775 15-33 15s-33-6.716-33-15M479.953 6.5l-17.791 75h223.676l-17.791-75H479.953z" stroke="#4CB1E3" stroke-width="5"/>
+    <path d="M518.873 6.5l-6.837 35h123.928l-6.837-35H518.873z" stroke="#4CB1E3" stroke-width="5"/>
+    <path opacity=".1" transform="rotate(-135 555.553 301.776) skewX(.14)" fill="url(#k1uuiCydx1ZZc)" d="M0 0h350v650H0z"/>
+    <path opacity=".1" transform="rotate(-135 574.09 256.022) skewX(.14)" fill="url(#k1uuiCydx1ZZd)" d="M0 0h250v470H0z"/>
+    <path opacity=".1" transform="rotate(45 511.803 224.996) skewX(.14)" fill="url(#k1uuiCydx1ZZe)" d="M0 0h350v600H0z"/>
+    <path opacity=".1" transform="rotate(45 391.664 242.233) skewX(.14)" fill="url(#k1uuiCydx1ZZf)" d="M0 0h250v450H0z"/>
+  </g>
+  <defs>
+    <linearGradient id="k1uuiCydx1ZZc" x1="342.775" y1="65.111" x2="263.081" y2="511.4" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#fff"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="k1uuiCydx1ZZd" x1="244.839" y1="47.08" x2="186.55" y2="369.534" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#fff"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="k1uuiCydx1ZZe" x1="342.775" y1="60.102" x2="274.558" y2="473.953" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#fff"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="k1uuiCydx1ZZf" x1="244.839" y1="45.077" x2="191.264" y2="354.625" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#fff"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="k1uuiCydx1ZZb" x="29" y="304" width="1070" height="550" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+      <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+      <feGaussianBlur stdDeviation="75" result="effect1_foregroundBlur_438_27273"/>
+    </filter>
+  </defs>
+</svg>

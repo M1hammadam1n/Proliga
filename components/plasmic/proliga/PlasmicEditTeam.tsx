@@ -1056,7 +1056,7 @@ function PlasmicEditTeam__RenderFunc(props: {
                     "__wab_instance",
                     sty.messageCard__ba79A
                   )}
-                  heading={"1 jamoadan 2tadan ortiq o'yinchi olib bo'lmaydi"}
+                  heading={"1ta jamoadan 2tadan ortiq o'yinchi olib bo'lmaydi"}
                   textInfo={"Cheklovni 3tadan 5tagacha oshirish"}
                 />
 
