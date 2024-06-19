@@ -582,6 +582,61 @@ function PlasmicEditTeam__RenderFunc(props: {
                                 throw e;
                               }
                             })()}
+                            onclickX={async event => {
+                              const $steps = {};
+
+                              $steps["httpPatch"] = true
+                                ? (() => {
+                                    const actionArgs = {
+                                      dataOp: {
+                                        sourceId: "vQtRPuFArSfh43vUmgx2PS",
+                                        opId: "28960905-911c-4a10-8acc-fe30e7251f66",
+                                        userArgs: {
+                                          params: [
+                                            currentItem.player_id,
+                                            $queries.query.data.response[0].id
+                                          ]
+                                        },
+                                        cacheKey: null,
+                                        invalidatedKeys: [
+                                          "plasmic_refresh_all"
+                                        ],
+                                        roleId:
+                                          "f8970d3a-c1ae-4ba8-80dd-90e548ee70d6"
+                                      }
+                                    };
+                                    return (async ({
+                                      dataOp,
+                                      continueOnError
+                                    }) => {
+                                      try {
+                                        const response =
+                                          await executePlasmicDataOp(dataOp, {
+                                            userAuthToken:
+                                              dataSourcesCtx?.userAuthToken,
+                                            user: dataSourcesCtx?.user
+                                          });
+                                        await plasmicInvalidate(
+                                          dataOp.invalidatedKeys
+                                        );
+                                        return response;
+                                      } catch (e) {
+                                        if (!continueOnError) {
+                                          throw e;
+                                        }
+                                        return e;
+                                      }
+                                    })?.apply(null, [actionArgs]);
+                                  })()
+                                : undefined;
+                              if (
+                                $steps["httpPatch"] != null &&
+                                typeof $steps["httpPatch"] === "object" &&
+                                typeof $steps["httpPatch"].then === "function"
+                              ) {
+                                $steps["httpPatch"] = await $steps["httpPatch"];
+                              }
+                            }}
                           />
                         </div>
                       );
@@ -667,7 +722,7 @@ function PlasmicEditTeam__RenderFunc(props: {
                                     const actionArgs = {
                                       dataOp: {
                                         sourceId: "vQtRPuFArSfh43vUmgx2PS",
-                                        opId: "eadf07b1-2bb5-40d2-94bf-ee3c223c3a33",
+                                        opId: "ac8e6943-2d31-4adc-a80e-8b319c6d888a",
                                         userArgs: {
                                           params: [
                                             currentItem.team_id,
@@ -678,7 +733,8 @@ function PlasmicEditTeam__RenderFunc(props: {
                                         invalidatedKeys: [
                                           "plasmic_refresh_all"
                                         ],
-                                        roleId: null
+                                        roleId:
+                                          "f8970d3a-c1ae-4ba8-80dd-90e548ee70d6"
                                       }
                                     };
                                     return (async ({
@@ -790,6 +846,61 @@ function PlasmicEditTeam__RenderFunc(props: {
                                 throw e;
                               }
                             })()}
+                            onclickX={async event => {
+                              const $steps = {};
+
+                              $steps["httpPatch"] = true
+                                ? (() => {
+                                    const actionArgs = {
+                                      dataOp: {
+                                        sourceId: "vQtRPuFArSfh43vUmgx2PS",
+                                        opId: "28960905-911c-4a10-8acc-fe30e7251f66",
+                                        userArgs: {
+                                          params: [
+                                            currentItem.player_id,
+                                            $queries.query.data.response[0].id
+                                          ]
+                                        },
+                                        cacheKey: null,
+                                        invalidatedKeys: [
+                                          "plasmic_refresh_all"
+                                        ],
+                                        roleId:
+                                          "f8970d3a-c1ae-4ba8-80dd-90e548ee70d6"
+                                      }
+                                    };
+                                    return (async ({
+                                      dataOp,
+                                      continueOnError
+                                    }) => {
+                                      try {
+                                        const response =
+                                          await executePlasmicDataOp(dataOp, {
+                                            userAuthToken:
+                                              dataSourcesCtx?.userAuthToken,
+                                            user: dataSourcesCtx?.user
+                                          });
+                                        await plasmicInvalidate(
+                                          dataOp.invalidatedKeys
+                                        );
+                                        return response;
+                                      } catch (e) {
+                                        if (!continueOnError) {
+                                          throw e;
+                                        }
+                                        return e;
+                                      }
+                                    })?.apply(null, [actionArgs]);
+                                  })()
+                                : undefined;
+                              if (
+                                $steps["httpPatch"] != null &&
+                                typeof $steps["httpPatch"] === "object" &&
+                                typeof $steps["httpPatch"].then === "function"
+                              ) {
+                                $steps["httpPatch"] = await $steps["httpPatch"];
+                              }
+                            }}
                           />
                         </div>
                       );
@@ -868,6 +979,61 @@ function PlasmicEditTeam__RenderFunc(props: {
                                 throw e;
                               }
                             })()}
+                            onclickX={async event => {
+                              const $steps = {};
+
+                              $steps["httpPatch"] = true
+                                ? (() => {
+                                    const actionArgs = {
+                                      dataOp: {
+                                        sourceId: "vQtRPuFArSfh43vUmgx2PS",
+                                        opId: "ac8e6943-2d31-4adc-a80e-8b319c6d888a",
+                                        userArgs: {
+                                          params: [
+                                            $queries.query.data.response[0].id,
+                                            currentItem.player_id
+                                          ]
+                                        },
+                                        cacheKey: null,
+                                        invalidatedKeys: [
+                                          "plasmic_refresh_all"
+                                        ],
+                                        roleId:
+                                          "f8970d3a-c1ae-4ba8-80dd-90e548ee70d6"
+                                      }
+                                    };
+                                    return (async ({
+                                      dataOp,
+                                      continueOnError
+                                    }) => {
+                                      try {
+                                        const response =
+                                          await executePlasmicDataOp(dataOp, {
+                                            userAuthToken:
+                                              dataSourcesCtx?.userAuthToken,
+                                            user: dataSourcesCtx?.user
+                                          });
+                                        await plasmicInvalidate(
+                                          dataOp.invalidatedKeys
+                                        );
+                                        return response;
+                                      } catch (e) {
+                                        if (!continueOnError) {
+                                          throw e;
+                                        }
+                                        return e;
+                                      }
+                                    })?.apply(null, [actionArgs]);
+                                  })()
+                                : undefined;
+                              if (
+                                $steps["httpPatch"] != null &&
+                                typeof $steps["httpPatch"] === "object" &&
+                                typeof $steps["httpPatch"].then === "function"
+                              ) {
+                                $steps["httpPatch"] = await $steps["httpPatch"];
+                              }
+                            }}
                           />
                         </div>
                       );
