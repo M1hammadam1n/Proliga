@@ -71,6 +71,7 @@ import SearchComponent from "../../SearchComponent"; // plasmic-import: mmk_GiTX
 import AvatarPlayer from "../../AvatarPlayer"; // plasmic-import: 4QnaRcOLXj0D/component
 import SoccerPlaceMens2 from "../../SoccerPlaceMens2"; // plasmic-import: xodLqMOhDs29/component
 import Select from "../../Select"; // plasmic-import: bCMc_ebYmgPo/component
+import TextInput from "../../TextInput"; // plasmic-import: xwgFLXqL07mD/component
 import PlayerPicker from "../../PlayerPicker"; // plasmic-import: FmVyQ1WB4e_T/component
 import PlayerPickerRow from "../../PlayerPickerRow"; // plasmic-import: NaQtMjgilBY9/component
 import { AntdPagination } from "@plasmicpkgs/antd5/skinny/registerPagination";
@@ -83,6 +84,9 @@ import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css";
 import plasmic_plasmic_rich_components_css from "../plasmic_rich_components/plasmic.module.css"; // plasmic-import: jkU633o1Cz7HrJdwdxhVHk/projectcss
 import projectcss from "./plasmic.module.css"; // plasmic-import: tDWy3GXn2mzd9e2xUaPdmu/projectcss
 import sty from "./PlasmicEditTeam.module.css"; // plasmic-import: 2LqbY1eBUixE/css
+
+import SearchsvgIcon from "./icons/PlasmicIcon__Searchsvg"; // plasmic-import: TfB627kbYt5s/icon
+import ChecksvgIcon from "./icons/PlasmicIcon__Checksvg"; // plasmic-import: BLgPkmgd4hOv/icon
 
 createPlasmicElementProxy;
 
@@ -114,6 +118,7 @@ export type PlasmicEditTeam__OverridesType = {
   column?: Flex__<"div">;
   filter?: Flex__<"div">;
   select?: Flex__<typeof Select>;
+  textInput?: Flex__<typeof TextInput>;
   playerList?: Flex__<"div">;
   playerPicker?: Flex__<typeof PlayerPicker>;
   playerPickerRow?: Flex__<typeof PlayerPickerRow>;
@@ -241,6 +246,12 @@ function PlasmicEditTeam__RenderFunc(props: {
         type: "private",
         variableType: "number",
         initFunc: ({ $props, $state, $queries, $ctx }) => 0
+      },
+      {
+        path: "textInput.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
       }
     ],
     [$props, $ctx, $refs]
@@ -318,16 +329,17 @@ function PlasmicEditTeam__RenderFunc(props: {
     playerPag: usePlasmicDataOp(() => {
       return {
         sourceId: "vQtRPuFArSfh43vUmgx2PS",
-        opId: "43001ac0-cfaa-4b96-b933-1a681565d2b3",
+        opId: "5db9ae12-3b02-4b67-ab7e-023bef8a28af",
         userArgs: {
           path: [
             $state.pagination.pageSize,
             $state.pagination.startIndex,
-            $state.select.value
+            $state.select.value,
+            $state.textInput.value
           ],
           params: [$queries.query.data.response[0].competition_id]
         },
-        cacheKey: `plasmic.$.43001ac0-cfaa-4b96-b933-1a681565d2b3.$.`,
+        cacheKey: `plasmic.$.5db9ae12-3b02-4b67-ab7e-023bef8a28af.$.`,
         invalidatedKeys: null,
         roleId: "f8970d3a-c1ae-4ba8-80dd-90e548ee70d6"
       };
@@ -820,42 +832,62 @@ function PlasmicEditTeam__RenderFunc(props: {
                 data-plasmic-override={overrides.column}
                 className={classNames(projectcss.all, sty.column)}
               >
-                <div className={classNames(projectcss.all, sty.freeBox___7S3P)}>
-                  <div
-                    data-plasmic-name={"filter"}
-                    data-plasmic-override={overrides.filter}
-                    className={classNames(projectcss.all, sty.filter)}
-                  >
-                    <Select
-                      data-plasmic-name={"select"}
-                      data-plasmic-override={overrides.select}
-                      className={classNames("__wab_instance", sty.select)}
-                      onChange={(...eventArgs) => {
-                        generateStateOnChangeProp($state, ["select", "value"])(
-                          eventArgs[0]
-                        );
-                      }}
-                      options={(() => {
-                        try {
-                          return $state.clubs;
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return [];
-                          }
-                          throw e;
+                <Stack__
+                  as={"div"}
+                  data-plasmic-name={"filter"}
+                  data-plasmic-override={overrides.filter}
+                  hasGap={true}
+                  className={classNames(projectcss.all, sty.filter)}
+                >
+                  <Select
+                    data-plasmic-name={"select"}
+                    data-plasmic-override={overrides.select}
+                    className={classNames("__wab_instance", sty.select)}
+                    color={"softGray"}
+                    onChange={(...eventArgs) => {
+                      generateStateOnChangeProp($state, ["select", "value"])(
+                        eventArgs[0]
+                      );
+                    }}
+                    options={(() => {
+                      try {
+                        return $state.clubs;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return [];
                         }
-                      })()}
-                      placeholder={null}
-                      value={generateStateValueProp($state, [
-                        "select",
-                        "value"
-                      ])}
-                    />
-                  </div>
-                </div>
+                        throw e;
+                      }
+                    })()}
+                    placeholder={null}
+                    value={generateStateValueProp($state, ["select", "value"])}
+                  />
+
+                  <TextInput
+                    data-plasmic-name={"textInput"}
+                    data-plasmic-override={overrides.textInput}
+                    autoFocus={false}
+                    className={classNames("__wab_instance", sty.textInput)}
+                    color={"dark"}
+                    onChange={(...eventArgs) => {
+                      generateStateOnChangeProp($state, ["textInput", "value"])(
+                        (e => e.target?.value).apply(null, eventArgs)
+                      );
+                    }}
+                    placeholder={
+                      "\u041f\u043e\u0438\u0441\u043a \u043f\u043e \u0438\u043c\u0435\u043d\u0430\u043c"
+                    }
+                    showStartIcon={true}
+                    type={"text"}
+                    value={
+                      generateStateValueProp($state, ["textInput", "value"]) ??
+                      ""
+                    }
+                  />
+                </Stack__>
                 <Stack__
                   as={"div"}
                   data-plasmic-name={"playerList"}
@@ -1493,6 +1525,7 @@ const PlasmicDescendants = {
     "column",
     "filter",
     "select",
+    "textInput",
     "playerList",
     "playerPicker",
     "playerPickerRow",
@@ -1516,6 +1549,7 @@ const PlasmicDescendants = {
     "column",
     "filter",
     "select",
+    "textInput",
     "playerList",
     "playerPicker",
     "playerPickerRow",
@@ -1548,13 +1582,15 @@ const PlasmicDescendants = {
     "column",
     "filter",
     "select",
+    "textInput",
     "playerList",
     "playerPicker",
     "playerPickerRow",
     "pagination"
   ],
-  filter: ["filter", "select"],
+  filter: ["filter", "select", "textInput"],
   select: ["select"],
+  textInput: ["textInput"],
   playerList: ["playerList", "playerPicker", "playerPickerRow", "pagination"],
   playerPicker: ["playerPicker"],
   playerPickerRow: ["playerPickerRow"],
@@ -1582,6 +1618,7 @@ type NodeDefaultElementType = {
   column: "div";
   filter: "div";
   select: typeof Select;
+  textInput: typeof TextInput;
   playerList: "div";
   playerPicker: typeof PlayerPicker;
   playerPickerRow: typeof PlayerPickerRow;
@@ -1682,6 +1719,7 @@ export const PlasmicEditTeam = Object.assign(
     column: makeNodeComponent("column"),
     filter: makeNodeComponent("filter"),
     select: makeNodeComponent("select"),
+    textInput: makeNodeComponent("textInput"),
     playerList: makeNodeComponent("playerList"),
     playerPicker: makeNodeComponent("playerPicker"),
     playerPickerRow: makeNodeComponent("playerPickerRow"),
