@@ -187,6 +187,38 @@ function PlasmicAvatarPlayer__RenderFunc(props: {
           width={"15px"}
         />
       ) : null}
+      {(() => {
+        try {
+          return $props.image != undefined;
+        } catch (e) {
+          if (
+            e instanceof TypeError ||
+            e?.plasmicType === "PlasmicUndefinedDataError"
+          ) {
+            return true;
+          }
+          throw e;
+        }
+      })() ? (
+        <PlasmicImg__
+          alt={""}
+          className={classNames(sty.img___54Pea)}
+          displayHeight={"auto"}
+          displayMaxHeight={"none"}
+          displayMaxWidth={"100%"}
+          displayMinHeight={"0"}
+          displayMinWidth={"0"}
+          displayWidth={"16px"}
+          loading={"lazy"}
+          onClick={args.onclickX}
+          src={{
+            src: "/plasmic/proliga/images/error10378Svg.svg",
+            fullWidth: 256,
+            fullHeight: 256,
+            aspectRatio: 1
+          }}
+        />
+      ) : null}
       <div className={classNames(projectcss.all, sty.freeBox__hmmVi)}>
         {(() => {
           try {
@@ -244,7 +276,7 @@ function PlasmicAvatarPlayer__RenderFunc(props: {
             displayMaxWidth={"100%"}
             displayMinHeight={"0"}
             displayMinWidth={"0"}
-            displayWidth={"30px"}
+            displayWidth={"40px"}
             loading={"lazy"}
             onClick={async event => {
               const $steps = {};
@@ -284,38 +316,6 @@ function PlasmicAvatarPlayer__RenderFunc(props: {
             })()}
           </React.Fragment>
         </div>
-        {(() => {
-          try {
-            return $props.image != undefined;
-          } catch (e) {
-            if (
-              e instanceof TypeError ||
-              e?.plasmicType === "PlasmicUndefinedDataError"
-            ) {
-              return true;
-            }
-            throw e;
-          }
-        })() ? (
-          <PlasmicImg__
-            alt={""}
-            className={classNames(sty.img___54Pea)}
-            displayHeight={"auto"}
-            displayMaxHeight={"none"}
-            displayMaxWidth={"100%"}
-            displayMinHeight={"0"}
-            displayMinWidth={"0"}
-            displayWidth={"7px"}
-            loading={"lazy"}
-            onClick={args.onclickX}
-            src={{
-              src: "/plasmic/proliga/images/redXLineIconsvg.svg",
-              fullWidth: 122.88,
-              fullHeight: 122.879,
-              aspectRatio: 1.000008
-            }}
-          />
-        ) : null}
       </Stack__>
     </div>
   ) as React.ReactElement | null;

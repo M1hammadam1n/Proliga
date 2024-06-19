@@ -4,8 +4,8 @@
   position: relative;
   width: auto;
   height: auto;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-start;
+  align-items: flex-end;
   background: none;
   justify-self: flex-start;
   transition-property: all;
@@ -23,6 +23,19 @@
   top: 2px;
 }
 .img__cfuKp > picture > img {
+  object-fit: cover;
+}
+.img___54Pea {
+  object-fit: cover;
+  max-width: 100%;
+  width: 16px;
+  transition-property: all;
+  transition-duration: 1s;
+  cursor: pointer;
+  -webkit-transition-property: all;
+  -webkit-transition-duration: 1s;
+}
+.img___54Pea > picture > img {
   object-fit: cover;
 }
 .freeBox__hmmVi {
@@ -50,7 +63,7 @@
 .img___8NZd {
   max-width: 100%;
   object-fit: contain;
-  width: 30px;
+  width: 40px;
   flex-shrink: 0;
 }
 .img___8NZd > picture > img {
@@ -65,7 +78,7 @@
   max-width: 100%;
   align-self: center;
   min-width: 0;
-  padding: 8px;
+  padding: 0px;
 }
 .freeBox__ieZeG > :global(.__wab_flex-container) {
   flex-direction: row;
@@ -90,24 +103,9 @@
   height: auto;
   max-width: 100%;
   background: none;
-  font-size: 7px;
+  font-size: 10px;
   font-weight: 900;
   text-align: center;
   color: var(--token-jgohepLVeKvh);
   min-width: 0;
-}
-.img___54Pea {
-  position: relative;
-  object-fit: cover;
-  max-width: 100%;
-  width: 7px;
-  transition-property: all;
-  transition-duration: 1s;
-  cursor: pointer;
-  flex-shrink: 0;
-  -webkit-transition-property: all;
-  -webkit-transition-duration: 1s;
-}
-.img___54Pea > picture > img {
-  object-fit: cover;
 }
