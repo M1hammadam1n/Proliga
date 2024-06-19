@@ -370,13 +370,6 @@
   max-width: 100%;
   position: relative;
 }
-.text__sPuqd {
-  position: relative;
-  width: auto;
-  height: auto;
-  max-width: 100%;
-  color: var(--token-jgohepLVeKvh);
-}
 .playerList {
   display: flex;
   position: relative;

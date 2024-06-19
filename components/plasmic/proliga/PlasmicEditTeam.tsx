@@ -216,6 +216,31 @@ function PlasmicEditTeam__RenderFunc(props: {
               throw e;
             }
           })()
+      },
+      {
+        path: "userId",
+        type: "private",
+        variableType: "number",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return currentUser.customProperties.response[0].id;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return 0;
+              }
+              throw e;
+            }
+          })()
+      },
+      {
+        path: "all",
+        type: "private",
+        variableType: "number",
+        initFunc: ({ $props, $state, $queries, $ctx }) => 0
       }
     ],
     [$props, $ctx, $refs]
@@ -233,9 +258,9 @@ function PlasmicEditTeam__RenderFunc(props: {
     query: usePlasmicDataOp(() => {
       return {
         sourceId: "vQtRPuFArSfh43vUmgx2PS",
-        opId: "f978efab-7db3-41c0-82cd-ea83803fac9b",
+        opId: "7fdbe987-bd46-4f70-a2d9-112b3516faeb",
         userArgs: {
-          params: [$ctx.params.id, $ctx.params.comp_id]
+          params: [$ctx.params.id, $ctx.params.comp_id, $state.userId]
         },
         cacheKey: `plasmic.$.${(() => {
           try {
@@ -249,7 +274,7 @@ function PlasmicEditTeam__RenderFunc(props: {
             }
             throw e;
           }
-        })()}.$.f978efab-7db3-41c0-82cd-ea83803fac9b.$.`,
+        })()}.$.7fdbe987-bd46-4f70-a2d9-112b3516faeb.$.`,
         invalidatedKeys: null,
         roleId: "f8970d3a-c1ae-4ba8-80dd-90e548ee70d6"
       };
@@ -293,12 +318,16 @@ function PlasmicEditTeam__RenderFunc(props: {
     playerPag: usePlasmicDataOp(() => {
       return {
         sourceId: "vQtRPuFArSfh43vUmgx2PS",
-        opId: "0dddd310-2179-41d8-989e-37b2827d310c",
+        opId: "43001ac0-cfaa-4b96-b933-1a681565d2b3",
         userArgs: {
-          path: [$state.pagination.pageSize, $state.pagination.startIndex],
+          path: [
+            $state.pagination.pageSize,
+            $state.pagination.startIndex,
+            $state.select.value
+          ],
           params: [$queries.query.data.response[0].competition_id]
         },
-        cacheKey: `plasmic.$.0dddd310-2179-41d8-989e-37b2827d310c.$.`,
+        cacheKey: `plasmic.$.43001ac0-cfaa-4b96-b933-1a681565d2b3.$.`,
         invalidatedKeys: null,
         roleId: "f8970d3a-c1ae-4ba8-80dd-90e548ee70d6"
       };
@@ -306,9 +335,23 @@ function PlasmicEditTeam__RenderFunc(props: {
     clubsnameid: usePlasmicDataOp(() => {
       return {
         sourceId: "vQtRPuFArSfh43vUmgx2PS",
-        opId: "3703995d-59f5-4b46-9eb3-8685993b4257",
-        userArgs: {},
-        cacheKey: `plasmic.$.3703995d-59f5-4b46-9eb3-8685993b4257.$.`,
+        opId: "e620609e-fb56-417f-a235-3eae35443b9d",
+        userArgs: {
+          params: [$queries.countryId.data.response[0].country_id]
+        },
+        cacheKey: `plasmic.$.e620609e-fb56-417f-a235-3eae35443b9d.$.`,
+        invalidatedKeys: null,
+        roleId: null
+      };
+    }),
+    countryId: usePlasmicDataOp(() => {
+      return {
+        sourceId: "vQtRPuFArSfh43vUmgx2PS",
+        opId: "f1c7bf22-4390-490f-aa49-4bf897292d0c",
+        userArgs: {
+          params: [$queries.query.data.response[0].competition_id]
+        },
+        cacheKey: `plasmic.$.f1c7bf22-4390-490f-aa49-4bf897292d0c.$.`,
         invalidatedKeys: null,
         roleId: null
       };
@@ -800,40 +843,17 @@ function PlasmicEditTeam__RenderFunc(props: {
                             e instanceof TypeError ||
                             e?.plasmicType === "PlasmicUndefinedDataError"
                           ) {
-                            return [{}];
+                            return [];
                           }
                           throw e;
                         }
                       })()}
+                      placeholder={null}
                       value={generateStateValueProp($state, [
                         "select",
                         "value"
                       ])}
                     />
-
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text__sPuqd
-                      )}
-                    >
-                      <React.Fragment>
-                        {(() => {
-                          try {
-                            return $state.select.value;
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return "";
-                            }
-                            throw e;
-                          }
-                        })()}
-                      </React.Fragment>
-                    </div>
                   </div>
                 </div>
                 <Stack__
@@ -883,6 +903,21 @@ function PlasmicEditTeam__RenderFunc(props: {
                           "__wab_instance",
                           sty.playerPicker
                         )}
+                        clubName={(() => {
+                          try {
+                            return $queries.clubsnameid.data.response.find(
+                              x => x.value === currentItem.club_id
+                            ).label;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()}
                         key={currentIndex}
                         name={(() => {
                           try {
@@ -1383,7 +1418,7 @@ function PlasmicEditTeam__RenderFunc(props: {
                       size: "default",
                       total: (() => {
                         try {
-                          return $queries.playerList.data.response.length;
+                          return $queries.playerPag.data.response.length;
                         } catch (e) {
                           if (
                             e instanceof TypeError ||
