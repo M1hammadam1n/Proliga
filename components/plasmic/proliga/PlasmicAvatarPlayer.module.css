@@ -25,29 +25,17 @@
 .img__cfuKp > picture > img {
   object-fit: cover;
 }
-.freeBox__bEBy {
-  display: flex;
-  position: relative;
-  flex-direction: row;
-  align-items: stretch;
-  justify-content: flex-start;
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-  min-width: 0;
-  padding: 8px;
-}
 .freeBox__hmmVi {
   display: flex;
   position: relative;
   flex-direction: row;
-  align-items: stretch;
-  justify-content: flex-start;
+  align-items: center;
+  justify-content: center;
   width: 100%;
   height: auto;
   max-width: 100%;
   min-width: 0;
-  padding: 8px;
+  padding: 0px;
 }
 .img__a9SuT {
   max-width: 100%;
@@ -55,8 +43,36 @@
 .img___8NZd {
   max-width: 100%;
 }
-.text {
+.freeBox__ieZeG {
+  display: flex;
   position: relative;
+  flex-direction: row;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  align-self: center;
+  min-width: 0;
+  padding: 8px;
+}
+.freeBox__ieZeG > :global(.__wab_flex-container) {
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  min-width: 0;
+  margin-left: calc(0px - 5px);
+  width: calc(100% + 5px);
+}
+.freeBox__ieZeG > :global(.__wab_flex-container) > *,
+.freeBox__ieZeG > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.freeBox__ieZeG > :global(.__wab_flex-container) > picture > img,
+.freeBox__ieZeG
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > picture
+  > img {
+  margin-left: 5px;
+}
+.text {
   width: 100%;
   height: auto;
   max-width: 100%;
@@ -64,7 +80,16 @@
   font-size: 14px;
   font-weight: 900;
   text-align: center;
-  align-self: center;
   color: var(--token-jgohepLVeKvh);
   min-width: 0;
+}
+.img___54Pea {
+  position: relative;
+  object-fit: cover;
+  max-width: 100%;
+  width: 20px;
+  flex-shrink: 0;
+}
+.img___54Pea > picture > img {
+  object-fit: cover;
 }

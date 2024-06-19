@@ -75,16 +75,16 @@ export const PlasmicAvatarPlayer__VariantProps = new Array<VariantPropType>();
 
 export type PlasmicAvatarPlayer__ArgsType = {
   name?: string;
-  clickOn?: (event: any) => void;
   capitanVisibility?: boolean;
   image?: React.ComponentProps<typeof PlasmicImg__>["src"];
+  onclickX?: (event: any) => void;
 };
 type ArgPropType = keyof PlasmicAvatarPlayer__ArgsType;
 export const PlasmicAvatarPlayer__ArgProps = new Array<ArgPropType>(
   "name",
-  "clickOn",
   "capitanVisibility",
-  "image"
+  "image",
+  "onclickX"
 );
 
 export type PlasmicAvatarPlayer__OverridesType = {
@@ -94,9 +94,9 @@ export type PlasmicAvatarPlayer__OverridesType = {
 
 export interface DefaultAvatarPlayerProps {
   name?: string;
-  clickOn?: (event: any) => void;
   capitanVisibility?: boolean;
   image?: React.ComponentProps<typeof PlasmicImg__>["src"];
+  onclickX?: (event: any) => void;
   className?: string;
 }
 
@@ -187,94 +187,136 @@ function PlasmicAvatarPlayer__RenderFunc(props: {
           width={"15px"}
         />
       ) : null}
-      <div className={classNames(projectcss.all, sty.freeBox__bEBy)}>
-        <div className={classNames(projectcss.all, sty.freeBox__hmmVi)}>
-          {(() => {
-            try {
-              return $props.image === undefined;
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return true;
-              }
-              throw e;
+      <div className={classNames(projectcss.all, sty.freeBox__hmmVi)}>
+        {(() => {
+          try {
+            return $props.image === undefined;
+          } catch (e) {
+            if (
+              e instanceof TypeError ||
+              e?.plasmicType === "PlasmicUndefinedDataError"
+            ) {
+              return true;
             }
-          })() ? (
-            <PlasmicImg__
-              alt={""}
-              className={classNames(sty.img__a9SuT)}
-              displayHeight={"auto"}
-              displayMaxHeight={"none"}
-              displayMaxWidth={"100%"}
-              displayMinHeight={"0"}
-              displayMinWidth={"0"}
-              displayWidth={"auto"}
-              loading={"lazy"}
-              onClick={args.clickOn}
-              src={{
-                src: "/plasmic/proliga/images/shirt066Png.png",
-                fullWidth: 66,
-                fullHeight: 87,
-                aspectRatio: undefined
-              }}
-              width={"52.5px"}
-            />
-          ) : null}
-          {(() => {
-            try {
-              return $props.image != undefined;
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return true;
-              }
-              throw e;
+            throw e;
+          }
+        })() ? (
+          <PlasmicImg__
+            alt={""}
+            className={classNames(sty.img__a9SuT)}
+            displayHeight={"auto"}
+            displayMaxHeight={"none"}
+            displayMaxWidth={"100%"}
+            displayMinHeight={"0"}
+            displayMinWidth={"0"}
+            displayWidth={"auto"}
+            loading={"lazy"}
+            onClick={async event => {
+              const $steps = {};
+            }}
+            src={{
+              src: "/plasmic/proliga/images/shirt066Png.png",
+              fullWidth: 66,
+              fullHeight: 87,
+              aspectRatio: undefined
+            }}
+            width={"52.5px"}
+          />
+        ) : null}
+        {(() => {
+          try {
+            return $props.image != undefined;
+          } catch (e) {
+            if (
+              e instanceof TypeError ||
+              e?.plasmicType === "PlasmicUndefinedDataError"
+            ) {
+              return true;
             }
-          })() ? (
-            <PlasmicImg__
-              alt={""}
-              className={classNames(sty.img___8NZd)}
-              displayHeight={"auto"}
-              displayMaxHeight={"none"}
-              displayMaxWidth={"100%"}
-              displayMinHeight={"0"}
-              displayMinWidth={"0"}
-              displayWidth={"auto"}
-              loading={"lazy"}
-              onClick={async event => {
-                const $steps = {};
-              }}
-              src={args.image}
-              width={"52.5px"}
-            />
-          ) : null}
-        </div>
+            throw e;
+          }
+        })() ? (
+          <PlasmicImg__
+            alt={""}
+            className={classNames(sty.img___8NZd)}
+            displayHeight={"auto"}
+            displayMaxHeight={"none"}
+            displayMaxWidth={"100%"}
+            displayMinHeight={"0"}
+            displayMinWidth={"0"}
+            displayWidth={"auto"}
+            loading={"lazy"}
+            onClick={async event => {
+              const $steps = {};
+            }}
+            src={args.image}
+            width={"52.5px"}
+          />
+        ) : null}
       </div>
-      <div
-        data-plasmic-name={"text"}
-        data-plasmic-override={overrides.text}
-        className={classNames(projectcss.all, projectcss.__wab_text, sty.text)}
+      <Stack__
+        as={"div"}
+        hasGap={true}
+        className={classNames(projectcss.all, sty.freeBox__ieZeG)}
       >
-        <React.Fragment>
-          {(() => {
-            try {
-              return $props.name;
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return "Player";
+        <div
+          data-plasmic-name={"text"}
+          data-plasmic-override={overrides.text}
+          className={classNames(
+            projectcss.all,
+            projectcss.__wab_text,
+            sty.text
+          )}
+        >
+          <React.Fragment>
+            {(() => {
+              try {
+                return $props.name;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return "Player";
+                }
+                throw e;
               }
-              throw e;
+            })()}
+          </React.Fragment>
+        </div>
+        {(() => {
+          try {
+            return $props.image != undefined;
+          } catch (e) {
+            if (
+              e instanceof TypeError ||
+              e?.plasmicType === "PlasmicUndefinedDataError"
+            ) {
+              return true;
             }
-          })()}
-        </React.Fragment>
-      </div>
+            throw e;
+          }
+        })() ? (
+          <PlasmicImg__
+            alt={""}
+            className={classNames(sty.img___54Pea)}
+            displayHeight={"auto"}
+            displayMaxHeight={"none"}
+            displayMaxWidth={"100%"}
+            displayMinHeight={"0"}
+            displayMinWidth={"0"}
+            displayWidth={"20px"}
+            loading={"lazy"}
+            onClick={args.onclickX}
+            src={{
+              src: "/plasmic/proliga/images/redXLineIconsvg.svg",
+              fullWidth: 122.88,
+              fullHeight: 122.879,
+              aspectRatio: 1.000008
+            }}
+          />
+        ) : null}
+      </Stack__>
     </div>
   ) as React.ReactElement | null;
 }

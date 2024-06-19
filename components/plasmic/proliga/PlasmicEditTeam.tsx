@@ -659,6 +659,60 @@ function PlasmicEditTeam__RenderFunc(props: {
                                 throw e;
                               }
                             })()}
+                            onclickX={async event => {
+                              const $steps = {};
+
+                              $steps["httpPatch"] = true
+                                ? (() => {
+                                    const actionArgs = {
+                                      dataOp: {
+                                        sourceId: "vQtRPuFArSfh43vUmgx2PS",
+                                        opId: "eadf07b1-2bb5-40d2-94bf-ee3c223c3a33",
+                                        userArgs: {
+                                          params: [
+                                            currentItem.team_id,
+                                            currentItem.player_id
+                                          ]
+                                        },
+                                        cacheKey: null,
+                                        invalidatedKeys: [
+                                          "plasmic_refresh_all"
+                                        ],
+                                        roleId: null
+                                      }
+                                    };
+                                    return (async ({
+                                      dataOp,
+                                      continueOnError
+                                    }) => {
+                                      try {
+                                        const response =
+                                          await executePlasmicDataOp(dataOp, {
+                                            userAuthToken:
+                                              dataSourcesCtx?.userAuthToken,
+                                            user: dataSourcesCtx?.user
+                                          });
+                                        await plasmicInvalidate(
+                                          dataOp.invalidatedKeys
+                                        );
+                                        return response;
+                                      } catch (e) {
+                                        if (!continueOnError) {
+                                          throw e;
+                                        }
+                                        return e;
+                                      }
+                                    })?.apply(null, [actionArgs]);
+                                  })()
+                                : undefined;
+                              if (
+                                $steps["httpPatch"] != null &&
+                                typeof $steps["httpPatch"] === "object" &&
+                                typeof $steps["httpPatch"].then === "function"
+                              ) {
+                                $steps["httpPatch"] = await $steps["httpPatch"];
+                              }
+                            }}
                           />
                         </div>
                       );
