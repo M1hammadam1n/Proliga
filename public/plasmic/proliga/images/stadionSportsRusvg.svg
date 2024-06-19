@@ -1,0 +1,12 @@
+<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320">
+  <path fill-rule="evenodd" clip-rule="evenodd" d="M285.751 0a9.999 9.999 0 019.969 9.221L320 320H0L24.28 9.221A10 10 0 0134.25 0h251.5z" fill="#006E1E"/>
+  <mask id="oA8B84jOslyza" mask-type="alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="320" height="320">
+    <path fill-rule="evenodd" clip-rule="evenodd" d="M285.751 0a9.999 9.999 0 019.969 9.221L320 320H0L24.28 9.221A10 10 0 0134.25 0h251.5z" fill="#fff"/>
+  </mask>
+  <g mask="url(#oA8B84jOslyza)">
+    <path d="M4 320.792c.004-.138.01-.277.021-.415L28.117 10.729C28.37 7.478 30.529 5 33.109 5h251.778c2.581 0 4.74 2.478 4.993 5.729l24.095 309.648c.016.197.025.392.025.585V321" stroke="#00AA32" stroke-width="2"/>
+    <path d="M129.943 321C109.773 310.401 96 289.111 96 264.576 96 229.464 124.206 201 159 201s63 28.464 63 63.576c0 24.535-13.773 45.825-33.943 56.424" stroke="#00AA32" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <path fill-rule="evenodd" clip-rule="evenodd" d="M308 265H9v-2h299v2z" fill="#00AA32"/>
+    <path d="M116 6h86v21a3 3 0 01-3 3h-80a3 3 0 01-3-3V6z" stroke="#00AA32" stroke-width="2"/>
+  </g>
+</svg>

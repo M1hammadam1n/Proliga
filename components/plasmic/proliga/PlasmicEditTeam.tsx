@@ -115,7 +115,6 @@ export type PlasmicEditTeam__OverridesType = {
   str?: Flex__<"div">;
   avatarPlayer4?: Flex__<typeof AvatarPlayer>;
   soccerPlaceMens2?: Flex__<typeof SoccerPlaceMens2>;
-  column?: Flex__<"div">;
   filter?: Flex__<"div">;
   select?: Flex__<typeof Select>;
   textInput?: Flex__<typeof TextInput>;
@@ -1046,11 +1045,9 @@ function PlasmicEditTeam__RenderFunc(props: {
                   className={classNames("__wab_instance", sty.soccerPlaceMens2)}
                 />
               </div>
-              <div
-                data-plasmic-name={"column"}
-                data-plasmic-override={overrides.column}
-                className={classNames(projectcss.all, sty.column)}
-              >
+              <div className={classNames(projectcss.all, sty.column__qdqiz)} />
+
+              <div className={classNames(projectcss.all, sty.column__rzO2Y)}>
                 <Stack__
                   as={"div"}
                   data-plasmic-name={"filter"}
@@ -1741,7 +1738,6 @@ const PlasmicDescendants = {
     "str",
     "avatarPlayer4",
     "soccerPlaceMens2",
-    "column",
     "filter",
     "select",
     "textInput",
@@ -1765,7 +1761,6 @@ const PlasmicDescendants = {
     "str",
     "avatarPlayer4",
     "soccerPlaceMens2",
-    "column",
     "filter",
     "select",
     "textInput",
@@ -1797,16 +1792,6 @@ const PlasmicDescendants = {
   str: ["str", "avatarPlayer4"],
   avatarPlayer4: ["avatarPlayer4"],
   soccerPlaceMens2: ["soccerPlaceMens2"],
-  column: [
-    "column",
-    "filter",
-    "select",
-    "textInput",
-    "playerList",
-    "playerPicker",
-    "pagination",
-    "playerPickerRow"
-  ],
   filter: ["filter", "select", "textInput"],
   select: ["select"],
   textInput: ["textInput"],
@@ -1834,7 +1819,6 @@ type NodeDefaultElementType = {
   str: "div";
   avatarPlayer4: typeof AvatarPlayer;
   soccerPlaceMens2: typeof SoccerPlaceMens2;
-  column: "div";
   filter: "div";
   select: typeof Select;
   textInput: typeof TextInput;
@@ -1935,7 +1919,6 @@ export const PlasmicEditTeam = Object.assign(
     str: makeNodeComponent("str"),
     avatarPlayer4: makeNodeComponent("avatarPlayer4"),
     soccerPlaceMens2: makeNodeComponent("soccerPlaceMens2"),
-    column: makeNodeComponent("column"),
     filter: makeNodeComponent("filter"),
     select: makeNodeComponent("select"),
     textInput: makeNodeComponent("textInput"),

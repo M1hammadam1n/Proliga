@@ -209,16 +209,16 @@ function PlasmicAvatarPlayer__RenderFunc(props: {
             displayMaxWidth={"100%"}
             displayMinHeight={"0"}
             displayMinWidth={"0"}
-            displayWidth={"auto"}
+            displayWidth={"47px"}
             loading={"lazy"}
             onClick={async event => {
               const $steps = {};
             }}
             src={{
-              src: "/plasmic/proliga/images/shirt066Png.png",
-              fullWidth: 66,
-              fullHeight: 87,
-              aspectRatio: undefined
+              src: "/plasmic/proliga/images/formsvg.svg",
+              fullWidth: 42,
+              fullHeight: 42,
+              aspectRatio: 1
             }}
             width={"52.5px"}
           />
@@ -305,7 +305,7 @@ function PlasmicAvatarPlayer__RenderFunc(props: {
             displayMaxWidth={"100%"}
             displayMinHeight={"0"}
             displayMinWidth={"0"}
-            displayWidth={"20px"}
+            displayWidth={"10px"}
             loading={"lazy"}
             onClick={args.onclickX}
             src={{

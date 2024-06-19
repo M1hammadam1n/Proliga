@@ -39,9 +39,20 @@
 }
 .img__a9SuT {
   max-width: 100%;
+  flex-grow: 0;
+  flex-shrink: 1;
+  object-fit: contain;
+  width: 47px;
+}
+.img__a9SuT > picture > img {
+  object-fit: contain;
 }
 .img___8NZd {
   max-width: 100%;
+  object-fit: contain;
+}
+.img___8NZd > picture > img {
+  object-fit: contain;
 }
 .freeBox__ieZeG {
   display: flex;
@@ -77,7 +88,7 @@
   height: auto;
   max-width: 100%;
   background: none;
-  font-size: 14px;
+  font-size: 10px;
   font-weight: 900;
   text-align: center;
   color: var(--token-jgohepLVeKvh);
@@ -87,7 +98,7 @@
   position: relative;
   object-fit: cover;
   max-width: 100%;
-  width: 20px;
+  width: 10px;
   transition-property: all;
   transition-duration: 1s;
   cursor: pointer;

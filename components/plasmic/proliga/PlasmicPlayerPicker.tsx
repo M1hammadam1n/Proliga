@@ -243,24 +243,6 @@ function PlasmicPlayerPicker__RenderFunc(props: {
           })()}
         </React.Fragment>
       </div>
-      <PlasmicImg__
-        alt={""}
-        className={classNames(sty.img__npfZv)}
-        displayHeight={"auto"}
-        displayMaxHeight={"none"}
-        displayMaxWidth={"100%"}
-        displayMinHeight={"0"}
-        displayMinWidth={"0"}
-        displayWidth={"16px"}
-        loading={"lazy"}
-        src={{
-          src: "/plasmic/proliga/images/pngtreeEuroSymbolCurrencyPngImage3974231Png2.png",
-          fullWidth: 512,
-          fullHeight: 512,
-          aspectRatio: undefined
-        }}
-      />
-
       <div
         className={classNames(
           projectcss.all,
@@ -272,29 +254,6 @@ function PlasmicPlayerPicker__RenderFunc(props: {
           {(() => {
             try {
               return $props.price;
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return "";
-              }
-              throw e;
-            }
-          })()}
-        </React.Fragment>
-      </div>
-      <div
-        className={classNames(
-          projectcss.all,
-          projectcss.__wab_text,
-          sty.text__sWvEe
-        )}
-      >
-        <React.Fragment>
-          {(() => {
-            try {
-              return "Ochko";
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -351,7 +310,7 @@ function PlasmicPlayerPicker__RenderFunc(props: {
           displayMaxWidth={"100%"}
           displayMinHeight={"0"}
           displayMinWidth={"0"}
-          displayWidth={"32px"}
+          displayWidth={"20px"}
           loading={"lazy"}
           onClick={args.onclickPlus}
           src={{
@@ -383,7 +342,7 @@ function PlasmicPlayerPicker__RenderFunc(props: {
           displayMaxWidth={"100%"}
           displayMinHeight={"0"}
           displayMinWidth={"0"}
-          displayWidth={"32px"}
+          displayWidth={"20px"}
           loading={"lazy"}
           onClick={args.onclickMinus}
           src={{

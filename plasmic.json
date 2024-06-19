@@ -1597,6 +1597,20 @@
           "cssFilePath": "plasmic/proliga/PlasmicPlayerPicker.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "oBPioaL9rKKS",
+          "name": "Test",
+          "type": "managed",
+          "projectId": "tDWy3GXn2mzd9e2xUaPdmu",
+          "renderModuleFilePath": "plasmic/proliga/PlasmicTest.tsx",
+          "importSpec": {
+            "modulePath": "../pages/test.tsx"
+          },
+          "cssFilePath": "plasmic/proliga/PlasmicTest.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/test"
         }
       ],
       "icons": [
@@ -2081,6 +2095,16 @@
           "id": "1nlj3sMnLhZ9",
           "name": "red-x-line-icon.svg",
           "filePath": "../public/plasmic/proliga/images/redXLineIconsvg.svg"
+        },
+        {
+          "id": "wDPh7e1SjxTQ",
+          "name": "form.svg",
+          "filePath": "../public/plasmic/proliga/images/formsvg.svg"
+        },
+        {
+          "id": "HMCmCF77Z-QS",
+          "name": "stadion_sports_ru.svg",
+          "filePath": "../public/plasmic/proliga/images/stadionSportsRusvg.svg"
         }
       ],
       "indirect": false,
