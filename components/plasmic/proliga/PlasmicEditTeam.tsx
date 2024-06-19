@@ -1274,7 +1274,7 @@ function PlasmicEditTeam__RenderFunc(props: {
                       size: "default",
                       total: (() => {
                         try {
-                          return $queries.playerPag.data.response.length;
+                          return $queries.playerList.data.response.length;
                         } catch (e) {
                           if (
                             e instanceof TypeError ||
