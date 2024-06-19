@@ -815,7 +815,7 @@ function PlasmicEditTeam__RenderFunc(props: {
                                 const actionArgs = {
                                   dataOp: {
                                     sourceId: "vQtRPuFArSfh43vUmgx2PS",
-                                    opId: "e9a890f6-eb44-4aaf-88ac-c5b253512b01",
+                                    opId: "ac8e6943-2d31-4adc-a80e-8b319c6d888a",
                                     userArgs: {
                                       params: [
                                         $queries.query.data.response[0].id,
@@ -824,7 +824,8 @@ function PlasmicEditTeam__RenderFunc(props: {
                                     },
                                     cacheKey: null,
                                     invalidatedKeys: ["plasmic_refresh_all"],
-                                    roleId: null
+                                    roleId:
+                                      "f8970d3a-c1ae-4ba8-80dd-90e548ee70d6"
                                   }
                                 };
                                 return (async ({ dataOp, continueOnError }) => {
@@ -861,12 +862,12 @@ function PlasmicEditTeam__RenderFunc(props: {
                         onclickPlus={async event => {
                           const $steps = {};
 
-                          $steps["buyPlayer"] = true
+                          $steps["updatePlayerFast"] = true
                             ? (() => {
                                 const actionArgs = {
                                   dataOp: {
                                     sourceId: "vQtRPuFArSfh43vUmgx2PS",
-                                    opId: "ecb73c25-5e21-48e6-8b7d-cc47635d3ab8",
+                                    opId: "4a933963-1e52-4384-90b9-aa0c8ed99eb7",
                                     userArgs: {
                                       body: [
                                         currentItem.id,
@@ -875,8 +876,9 @@ function PlasmicEditTeam__RenderFunc(props: {
                                       ]
                                     },
                                     cacheKey: null,
-                                    invalidatedKeys: null,
-                                    roleId: null
+                                    invalidatedKeys: ["plasmic_refresh_all"],
+                                    roleId:
+                                      "f8970d3a-c1ae-4ba8-80dd-90e548ee70d6"
                                   }
                                 };
                                 return (async ({ dataOp, continueOnError }) => {
@@ -903,52 +905,65 @@ function PlasmicEditTeam__RenderFunc(props: {
                               })()
                             : undefined;
                           if (
-                            $steps["buyPlayer"] != null &&
-                            typeof $steps["buyPlayer"] === "object" &&
-                            typeof $steps["buyPlayer"].then === "function"
-                          ) {
-                            $steps["buyPlayer"] = await $steps["buyPlayer"];
-                          }
-
-                          $steps["invokeGlobalAction"] =
-                            $steps.buyPlayer.data.response ===
-                            "Postion is full!!!!"
-                              ? (() => {
-                                  const actionArgs = {
-                                    args: [
-                                      "error",
-                                      (() => {
-                                        try {
-                                          return (
-                                            "bu pozitsiya to'lgan: " +
-                                            currentItem.position
-                                          );
-                                        } catch (e) {
-                                          if (
-                                            e instanceof TypeError ||
-                                            e?.plasmicType ===
-                                              "PlasmicUndefinedDataError"
-                                          ) {
-                                            return undefined;
-                                          }
-                                          throw e;
-                                        }
-                                      })()
-                                    ]
-                                  };
-                                  return $globalActions[
-                                    "plasmic-antd5-config-provider.showNotification"
-                                  ]?.apply(null, [...actionArgs.args]);
-                                })()
-                              : undefined;
-                          if (
-                            $steps["invokeGlobalAction"] != null &&
-                            typeof $steps["invokeGlobalAction"] === "object" &&
-                            typeof $steps["invokeGlobalAction"].then ===
+                            $steps["updatePlayerFast"] != null &&
+                            typeof $steps["updatePlayerFast"] === "object" &&
+                            typeof $steps["updatePlayerFast"].then ===
                               "function"
                           ) {
-                            $steps["invokeGlobalAction"] = await $steps[
-                              "invokeGlobalAction"
+                            $steps["updatePlayerFast"] = await $steps[
+                              "updatePlayerFast"
+                            ];
+                          }
+
+                          $steps["updatePlayer"] = false
+                            ? (() => {
+                                const actionArgs = {
+                                  dataOp: {
+                                    sourceId: "vQtRPuFArSfh43vUmgx2PS",
+                                    opId: "4a933963-1e52-4384-90b9-aa0c8ed99eb7",
+                                    userArgs: {
+                                      body: [
+                                        currentItem.id,
+                                        currentItem.position,
+                                        $queries.query.data.response[0].id
+                                      ]
+                                    },
+                                    cacheKey: null,
+                                    invalidatedKeys: null,
+                                    roleId:
+                                      "f8970d3a-c1ae-4ba8-80dd-90e548ee70d6"
+                                  }
+                                };
+                                return (async ({ dataOp, continueOnError }) => {
+                                  try {
+                                    const response = await executePlasmicDataOp(
+                                      dataOp,
+                                      {
+                                        userAuthToken:
+                                          dataSourcesCtx?.userAuthToken,
+                                        user: dataSourcesCtx?.user
+                                      }
+                                    );
+                                    await plasmicInvalidate(
+                                      dataOp.invalidatedKeys
+                                    );
+                                    return response;
+                                  } catch (e) {
+                                    if (!continueOnError) {
+                                      throw e;
+                                    }
+                                    return e;
+                                  }
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                          if (
+                            $steps["updatePlayer"] != null &&
+                            typeof $steps["updatePlayer"] === "object" &&
+                            typeof $steps["updatePlayer"].then === "function"
+                          ) {
+                            $steps["updatePlayer"] = await $steps[
+                              "updatePlayer"
                             ];
                           }
                         }}
@@ -960,7 +975,7 @@ function PlasmicEditTeam__RenderFunc(props: {
                               e instanceof TypeError ||
                               e?.plasmicType === "PlasmicUndefinedDataError"
                             ) {
-                              return undefined;
+                              return 88;
                             }
                             throw e;
                           }
@@ -986,7 +1001,7 @@ function PlasmicEditTeam__RenderFunc(props: {
                               e instanceof TypeError ||
                               e?.plasmicType === "PlasmicUndefinedDataError"
                             ) {
-                              return undefined;
+                              return 9;
                             }
                             throw e;
                           }

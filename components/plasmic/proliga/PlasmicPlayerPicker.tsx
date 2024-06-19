@@ -76,23 +76,23 @@ export const PlasmicPlayerPicker__VariantProps = new Array<VariantPropType>();
 export type PlasmicPlayerPicker__ArgsType = {
   name?: string;
   position?: string;
-  price?: string;
-  point?: string;
   buttonVisibility?: string;
   onclickPlus?: (event: any) => void;
   onclickMinus?: (event: any) => void;
   clubName?: string;
+  price?: number;
+  point?: number;
 };
 type ArgPropType = keyof PlasmicPlayerPicker__ArgsType;
 export const PlasmicPlayerPicker__ArgProps = new Array<ArgPropType>(
   "name",
   "position",
-  "price",
-  "point",
   "buttonVisibility",
   "onclickPlus",
   "onclickMinus",
-  "clubName"
+  "clubName",
+  "price",
+  "point"
 );
 
 export type PlasmicPlayerPicker__OverridesType = {
@@ -102,12 +102,12 @@ export type PlasmicPlayerPicker__OverridesType = {
 export interface DefaultPlayerPickerProps {
   name?: string;
   position?: string;
-  price?: string;
-  point?: string;
   buttonVisibility?: string;
   onclickPlus?: (event: any) => void;
   onclickMinus?: (event: any) => void;
   clubName?: string;
+  price?: number;
+  point?: number;
   className?: string;
 }
 
@@ -134,9 +134,9 @@ function PlasmicPlayerPicker__RenderFunc(props: {
         {
           name: "Player",
           position: "DEF",
-          price: "9",
-          point: "77",
-          clubName: "RealMadrid"
+          clubName: "RealMadrid",
+          price: 9,
+          point: 88
         },
         props.args
       ),
