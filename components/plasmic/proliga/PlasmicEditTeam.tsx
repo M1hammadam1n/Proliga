@@ -73,9 +73,9 @@ import SoccerPlaceMens2 from "../../SoccerPlaceMens2"; // plasmic-import: xodLqM
 import Select from "../../Select"; // plasmic-import: bCMc_ebYmgPo/component
 import TextInput from "../../TextInput"; // plasmic-import: xwgFLXqL07mD/component
 import PlayerPicker from "../../PlayerPicker"; // plasmic-import: FmVyQ1WB4e_T/component
-import PlayerPickerRow from "../../PlayerPickerRow"; // plasmic-import: NaQtMjgilBY9/component
 import { AntdPagination } from "@plasmicpkgs/antd5/skinny/registerPagination";
 import { paginationHelpers as AntdPagination_Helpers } from "@plasmicpkgs/antd5/skinny/registerPagination";
+import PlayerPickerRow from "../../PlayerPickerRow"; // plasmic-import: NaQtMjgilBY9/component
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 
 import "@plasmicapp/react-web/lib/plasmic.css";
@@ -121,8 +121,8 @@ export type PlasmicEditTeam__OverridesType = {
   textInput?: Flex__<typeof TextInput>;
   playerList?: Flex__<"div">;
   playerPicker?: Flex__<typeof PlayerPicker>;
-  playerPickerRow?: Flex__<typeof PlayerPickerRow>;
   pagination?: Flex__<typeof AntdPagination>;
+  playerPickerRow?: Flex__<typeof PlayerPickerRow>;
 };
 
 export interface DefaultEditTeamProps {}
@@ -329,17 +329,16 @@ function PlasmicEditTeam__RenderFunc(props: {
     playerPag: usePlasmicDataOp(() => {
       return {
         sourceId: "vQtRPuFArSfh43vUmgx2PS",
-        opId: "5db9ae12-3b02-4b67-ab7e-023bef8a28af",
+        opId: "4e379dcc-549f-4268-8e5b-e2489186871a",
         userArgs: {
           path: [
             $state.pagination.pageSize,
             $state.pagination.startIndex,
-            $state.select.value,
             $state.textInput.value
           ],
           params: [$queries.query.data.response[0].competition_id]
         },
-        cacheKey: `plasmic.$.5db9ae12-3b02-4b67-ab7e-023bef8a28af.$.`,
+        cacheKey: `plasmic.$.4e379dcc-549f-4268-8e5b-e2489186871a.$.`,
         invalidatedKeys: null,
         roleId: "f8970d3a-c1ae-4ba8-80dd-90e548ee70d6"
       };
@@ -1166,6 +1165,106 @@ function PlasmicEditTeam__RenderFunc(props: {
                       />
                     );
                   })}
+                  {(() => {
+                    const child$Props = {
+                      className: classNames("__wab_instance", sty.pagination),
+                      current: generateStateValueProp($state, [
+                        "pagination",
+                        "currentPage"
+                      ]),
+                      defaultCurrent: 1,
+                      defaultPageSize: 8,
+                      disabled: false,
+                      hideOnSinglePage: false,
+                      onChange: async (...eventArgs: any) => {
+                        generateStateOnChangePropForCodeComponents(
+                          $state,
+                          "currentPage",
+                          ["pagination", "currentPage"],
+                          AntdPagination_Helpers
+                        ).apply(null, eventArgs);
+                        generateStateOnChangePropForCodeComponents(
+                          $state,
+                          "startIndex",
+                          ["pagination", "startIndex"],
+                          AntdPagination_Helpers
+                        ).apply(null, eventArgs);
+                        generateStateOnChangePropForCodeComponents(
+                          $state,
+                          "endIndex",
+                          ["pagination", "endIndex"],
+                          AntdPagination_Helpers
+                        ).apply(null, eventArgs);
+                      },
+                      onShowSizeChange:
+                        generateStateOnChangePropForCodeComponents(
+                          $state,
+                          "pageSize",
+                          ["pagination", "pageSize"],
+                          AntdPagination_Helpers
+                        ),
+                      pageSize: generateStateValueProp($state, [
+                        "pagination",
+                        "pageSize"
+                      ]),
+                      pageSizeOptions: [
+                        { pageSize: 10 },
+                        { pageSize: 20 },
+                        { pageSize: 50 },
+                        { pageSize: 100 }
+                      ],
+                      showLessItems: false,
+                      showQuickJumper: false,
+                      showSizeChanger: false,
+                      simple: false,
+                      size: "default",
+                      total: (() => {
+                        try {
+                          return $queries.playerPag.data.response.length;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return 24;
+                          }
+                          throw e;
+                        }
+                      })()
+                    };
+                    initializeCodeComponentStates(
+                      $state,
+                      [
+                        {
+                          name: "currentPage",
+                          plasmicStateName: "pagination.currentPage"
+                        },
+                        {
+                          name: "pageSize",
+                          plasmicStateName: "pagination.pageSize"
+                        },
+                        {
+                          name: "startIndex",
+                          plasmicStateName: "pagination.startIndex"
+                        },
+                        {
+                          name: "endIndex",
+                          plasmicStateName: "pagination.endIndex"
+                        }
+                      ],
+                      [],
+                      AntdPagination_Helpers ?? {},
+                      child$Props
+                    );
+
+                    return (
+                      <AntdPagination
+                        data-plasmic-name={"pagination"}
+                        data-plasmic-override={overrides.pagination}
+                        {...child$Props}
+                      />
+                    );
+                  })()}
                   {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
                     (() => {
                       try {
@@ -1395,106 +1494,6 @@ function PlasmicEditTeam__RenderFunc(props: {
                       />
                     );
                   })}
-                  {(() => {
-                    const child$Props = {
-                      className: classNames("__wab_instance", sty.pagination),
-                      current: generateStateValueProp($state, [
-                        "pagination",
-                        "currentPage"
-                      ]),
-                      defaultCurrent: 1,
-                      defaultPageSize: 8,
-                      disabled: false,
-                      hideOnSinglePage: false,
-                      onChange: async (...eventArgs: any) => {
-                        generateStateOnChangePropForCodeComponents(
-                          $state,
-                          "currentPage",
-                          ["pagination", "currentPage"],
-                          AntdPagination_Helpers
-                        ).apply(null, eventArgs);
-                        generateStateOnChangePropForCodeComponents(
-                          $state,
-                          "startIndex",
-                          ["pagination", "startIndex"],
-                          AntdPagination_Helpers
-                        ).apply(null, eventArgs);
-                        generateStateOnChangePropForCodeComponents(
-                          $state,
-                          "endIndex",
-                          ["pagination", "endIndex"],
-                          AntdPagination_Helpers
-                        ).apply(null, eventArgs);
-                      },
-                      onShowSizeChange:
-                        generateStateOnChangePropForCodeComponents(
-                          $state,
-                          "pageSize",
-                          ["pagination", "pageSize"],
-                          AntdPagination_Helpers
-                        ),
-                      pageSize: generateStateValueProp($state, [
-                        "pagination",
-                        "pageSize"
-                      ]),
-                      pageSizeOptions: [
-                        { pageSize: 10 },
-                        { pageSize: 20 },
-                        { pageSize: 50 },
-                        { pageSize: 100 }
-                      ],
-                      showLessItems: false,
-                      showQuickJumper: false,
-                      showSizeChanger: false,
-                      simple: false,
-                      size: "default",
-                      total: (() => {
-                        try {
-                          return $queries.playerPag.data.response.length;
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return 24;
-                          }
-                          throw e;
-                        }
-                      })()
-                    };
-                    initializeCodeComponentStates(
-                      $state,
-                      [
-                        {
-                          name: "currentPage",
-                          plasmicStateName: "pagination.currentPage"
-                        },
-                        {
-                          name: "pageSize",
-                          plasmicStateName: "pagination.pageSize"
-                        },
-                        {
-                          name: "startIndex",
-                          plasmicStateName: "pagination.startIndex"
-                        },
-                        {
-                          name: "endIndex",
-                          plasmicStateName: "pagination.endIndex"
-                        }
-                      ],
-                      [],
-                      AntdPagination_Helpers ?? {},
-                      child$Props
-                    );
-
-                    return (
-                      <AntdPagination
-                        data-plasmic-name={"pagination"}
-                        data-plasmic-override={overrides.pagination}
-                        {...child$Props}
-                      />
-                    );
-                  })()}
                 </Stack__>
               </div>
             </div>
@@ -1528,8 +1527,8 @@ const PlasmicDescendants = {
     "textInput",
     "playerList",
     "playerPicker",
-    "playerPickerRow",
-    "pagination"
+    "pagination",
+    "playerPickerRow"
   ],
   navbar: ["navbar"],
   searchComponent: ["searchComponent"],
@@ -1552,8 +1551,8 @@ const PlasmicDescendants = {
     "textInput",
     "playerList",
     "playerPicker",
-    "playerPickerRow",
-    "pagination"
+    "pagination",
+    "playerPickerRow"
   ],
   stadion: [
     "stadion",
@@ -1585,16 +1584,16 @@ const PlasmicDescendants = {
     "textInput",
     "playerList",
     "playerPicker",
-    "playerPickerRow",
-    "pagination"
+    "pagination",
+    "playerPickerRow"
   ],
   filter: ["filter", "select", "textInput"],
   select: ["select"],
   textInput: ["textInput"],
-  playerList: ["playerList", "playerPicker", "playerPickerRow", "pagination"],
+  playerList: ["playerList", "playerPicker", "pagination", "playerPickerRow"],
   playerPicker: ["playerPicker"],
-  playerPickerRow: ["playerPickerRow"],
-  pagination: ["pagination"]
+  pagination: ["pagination"],
+  playerPickerRow: ["playerPickerRow"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -1621,8 +1620,8 @@ type NodeDefaultElementType = {
   textInput: typeof TextInput;
   playerList: "div";
   playerPicker: typeof PlayerPicker;
-  playerPickerRow: typeof PlayerPickerRow;
   pagination: typeof AntdPagination;
+  playerPickerRow: typeof PlayerPickerRow;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -1722,8 +1721,8 @@ export const PlasmicEditTeam = Object.assign(
     textInput: makeNodeComponent("textInput"),
     playerList: makeNodeComponent("playerList"),
     playerPicker: makeNodeComponent("playerPicker"),
-    playerPickerRow: makeNodeComponent("playerPickerRow"),
     pagination: makeNodeComponent("pagination"),
+    playerPickerRow: makeNodeComponent("playerPickerRow"),
 
     // Metadata about props expected for PlasmicEditTeam
     internalVariantProps: PlasmicEditTeam__VariantProps,

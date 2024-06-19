@@ -425,11 +425,6 @@
   max-width: 100%;
   position: relative;
 }
-.playerPickerRow:global(.__wab_instance) {
-  max-width: 100%;
-  position: relative;
-  display: none;
-}
 .pagination:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;
@@ -442,4 +437,9 @@
   white-space: pre-wrap;
   font-weight: 500;
   color: #535353;
+}
+.playerPickerRow:global(.__wab_instance) {
+  max-width: 100%;
+  position: relative;
+  display: none;
 }
