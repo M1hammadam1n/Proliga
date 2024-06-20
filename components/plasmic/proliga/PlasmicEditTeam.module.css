@@ -583,7 +583,7 @@
   > img {
   margin-top: 5px;
 }
-.playerPicker:global(.__wab_instance) {
+.playerPicker__nhwaM:global(.__wab_instance) {
   max-width: 100%;
   width: 100%;
   min-width: 0;
@@ -617,10 +617,62 @@
   width: 100%;
   height: auto;
   max-width: 100%;
-  justify-content: flex-start;
-  align-items: center;
   min-width: 0;
   padding: 8px;
+}
+.freeBox___0Vd6E > :global(.__wab_flex-container) {
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  min-width: 0;
+  margin-top: calc(0px - 2px);
+  height: calc(100% + 2px);
+}
+.freeBox___0Vd6E > :global(.__wab_flex-container) > *,
+.freeBox___0Vd6E > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.freeBox___0Vd6E > :global(.__wab_flex-container) > picture > img,
+.freeBox___0Vd6E
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > picture
+  > img {
+  margin-top: 2px;
+}
+.freeBox__odpu9 {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+  padding: 8px;
+}
+.freeBox__odpu9 > :global(.__wab_flex-container) {
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  min-width: 0;
+  margin-left: calc(0px - 10px);
+  width: calc(100% + 10px);
+}
+.freeBox__odpu9 > :global(.__wab_flex-container) > *,
+.freeBox__odpu9 > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.freeBox__odpu9 > :global(.__wab_flex-container) > picture > img,
+.freeBox__odpu9
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > picture
+  > img {
+  margin-left: 10px;
+}
+.text__olJ1V {
+  position: relative;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  color: var(--token-jgohepLVeKvh);
+  align-self: center;
 }
 .select:global(.__wab_instance) {
   max-width: 100%;
@@ -631,6 +683,24 @@
   height: auto;
   max-width: 100%;
   min-width: 0;
+}
+.playerPicker__nM98Y:global(.__wab_instance) {
+  max-width: 100%;
+  width: 100%;
+  min-width: 0;
+}
+.pagclubtab:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+  position: relative;
+  background: var(--token-OthO-wlH0yMz);
+  font-size: 16px;
+  text-align: left;
+  font-style: normal;
+  user-select: text;
+  white-space: pre-wrap;
+  font-weight: 500;
+  color: #535353;
 }
 .playerPickerRow:global(.__wab_instance) {
   max-width: 100%;
