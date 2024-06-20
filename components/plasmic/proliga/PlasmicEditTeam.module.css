@@ -499,7 +499,7 @@
   > img {
   margin-left: 5px;
 }
-.tabButton___8WgZq:global(.__wab_instance) {
+.tabAll:global(.__wab_instance) {
   width: auto;
   max-width: 100%;
   object-fit: cover;
@@ -523,7 +523,7 @@
   width: auto;
   height: 1em;
 }
-.tabButton__bo5Tu:global(.__wab_instance) {
+.tabClub:global(.__wab_instance) {
   width: auto;
   max-width: 100%;
   object-fit: cover;
@@ -547,7 +547,7 @@
   width: auto;
   height: 1em;
 }
-.tabButton__i8Tmg:global(.__wab_instance) {
+.tabPosition:global(.__wab_instance) {
   width: auto;
   max-width: 100%;
   object-fit: cover;
@@ -572,6 +572,31 @@
   width: auto;
   height: 1em;
 }
+.tabPrice:global(.__wab_instance) {
+  width: auto;
+  max-width: 100%;
+  object-fit: cover;
+  position: relative;
+}
+.text__b23L {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+}
+.svg__wJln9 {
+  position: relative;
+  object-fit: cover;
+  width: auto;
+  height: 1em;
+}
+.svg__xcgbr {
+  position: relative;
+  object-fit: cover;
+  width: auto;
+  height: 1em;
+}
 .tabUnderline:global(.__wab_instance) {
   background: #7777ff;
   height: 2px;
@@ -590,7 +615,7 @@
   min-height: 0;
   padding: 0px;
 }
-.tabContent__f2D3P:global(.__wab_instance) {
+.tabAllContent:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;
   position: relative;
@@ -642,7 +667,7 @@
   font-weight: 500;
   color: #535353;
 }
-.tabContent__q7Akf:global(.__wab_instance) {
+.tabClubContent:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;
   position: relative;
@@ -744,7 +769,7 @@
   font-weight: 500;
   color: #535353;
 }
-.tabContent__kiEyj:global(.__wab_instance) {
+.tabPositionContent:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;
   position: relative;
@@ -808,6 +833,126 @@
   min-width: 0;
 }
 .pagpostab:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+  position: relative;
+  background: var(--token-OthO-wlH0yMz);
+  font-size: 16px;
+  text-align: left;
+  font-style: normal;
+  user-select: text;
+  white-space: pre-wrap;
+  font-weight: 500;
+  color: #535353;
+}
+.tabPriceContent:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+  position: relative;
+}
+.freeBox__unMHx {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+  padding: 8px;
+}
+.freeBox__unMHx > :global(.__wab_flex-container) {
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  min-width: 0;
+  margin-top: calc(0px - 2px);
+  height: calc(100% + 2px);
+}
+.freeBox__unMHx > :global(.__wab_flex-container) > *,
+.freeBox__unMHx > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.freeBox__unMHx > :global(.__wab_flex-container) > picture > img,
+.freeBox__unMHx
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > picture
+  > img {
+  margin-top: 2px;
+}
+.freeBox__dIJmS {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+  padding: 8px;
+}
+.freeBox__dIJmS > :global(.__wab_flex-container) {
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  min-width: 0;
+  margin-left: calc(0px - 5px);
+  width: calc(100% + 5px);
+}
+.freeBox__dIJmS > :global(.__wab_flex-container) > *,
+.freeBox__dIJmS > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.freeBox__dIJmS > :global(.__wab_flex-container) > picture > img,
+.freeBox__dIJmS
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > picture
+  > img {
+  margin-left: 5px;
+}
+.text__eUsD {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  color: var(--token-jgohepLVeKvh);
+  min-width: 0;
+}
+.startPrice:global(.__wab_instance) {
+  max-width: 100%;
+  position: relative;
+  width: auto;
+}
+.svg__kWvll {
+  position: relative;
+  object-fit: cover;
+  width: auto;
+  height: 1em;
+}
+.svg__csp5 {
+  position: relative;
+  object-fit: cover;
+  width: auto;
+  height: 1em;
+}
+.endPrice:global(.__wab_instance) {
+  max-width: 100%;
+  position: relative;
+  width: auto;
+}
+.svg___65Zqq {
+  position: relative;
+  object-fit: cover;
+  width: auto;
+  height: 1em;
+}
+.svg__tXhJv {
+  position: relative;
+  object-fit: cover;
+  width: auto;
+  height: 1em;
+}
+.playerPicker__qOjZ:global(.__wab_instance) {
+  max-width: 100%;
+  width: 100%;
+  min-width: 0;
+}
+.pagpricetab:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;
   position: relative;

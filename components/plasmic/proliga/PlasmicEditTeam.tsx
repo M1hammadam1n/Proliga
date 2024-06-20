@@ -126,12 +126,23 @@ export type PlasmicEditTeam__OverridesType = {
   playerList?: Flex__<"div">;
   textInput?: Flex__<typeof TextInput>;
   tabsContainer?: Flex__<typeof TabsContainer>;
+  tabAll?: Flex__<typeof TabButton>;
+  tabClub?: Flex__<typeof TabButton>;
+  tabPosition?: Flex__<typeof TabButton>;
+  tabPrice?: Flex__<typeof TabButton>;
   tabUnderline?: Flex__<typeof TabUnderline>;
+  tabAllContent?: Flex__<typeof TabContent>;
   pagination?: Flex__<typeof AntdPagination>;
+  tabClubContent?: Flex__<typeof TabContent>;
   select?: Flex__<typeof Select>;
   pagclubtab?: Flex__<typeof AntdPagination>;
+  tabPositionContent?: Flex__<typeof TabContent>;
   select2?: Flex__<typeof Select>;
   pagpostab?: Flex__<typeof AntdPagination>;
+  tabPriceContent?: Flex__<typeof TabContent>;
+  startPrice?: Flex__<typeof TextInput>;
+  endPrice?: Flex__<typeof TextInput>;
+  pagpricetab?: Flex__<typeof AntdPagination>;
   playerPickerRow?: Flex__<typeof PlayerPickerRow>;
 };
 
@@ -332,6 +343,50 @@ function PlasmicEditTeam__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
 
         onMutate: generateOnMutateForSpec("endIndex", AntdPagination_Helpers)
+      },
+      {
+        path: "pagpricetab.currentPage",
+        type: "private",
+        variableType: "number",
+        initFunc: ({ $props, $state, $queries, $ctx }) => 1,
+
+        onMutate: generateOnMutateForSpec("currentPage", AntdPagination_Helpers)
+      },
+      {
+        path: "pagpricetab.pageSize",
+        type: "private",
+        variableType: "number",
+        initFunc: ({ $props, $state, $queries, $ctx }) => 8,
+
+        onMutate: generateOnMutateForSpec("pageSize", AntdPagination_Helpers)
+      },
+      {
+        path: "pagpricetab.startIndex",
+        type: "private",
+        variableType: "number",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+
+        onMutate: generateOnMutateForSpec("startIndex", AntdPagination_Helpers)
+      },
+      {
+        path: "pagpricetab.endIndex",
+        type: "private",
+        variableType: "number",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+
+        onMutate: generateOnMutateForSpec("endIndex", AntdPagination_Helpers)
+      },
+      {
+        path: "startPrice.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "endPrice.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
       }
     ],
     [$props, $ctx, $refs]
@@ -481,6 +536,25 @@ function PlasmicEditTeam__RenderFunc(props: {
         cacheKey: `plasmic.$.b2a3ebb6-5177-426c-a8bd-52ca7083100e.$.`,
         invalidatedKeys: null,
         roleId: null
+      };
+    }),
+    tabPrice: usePlasmicDataOp(() => {
+      return {
+        sourceId: "vQtRPuFArSfh43vUmgx2PS",
+        opId: "bc4586e3-b656-41fb-b6d6-b30799fc542e",
+        userArgs: {
+          path: [
+            $state.startPrice.value,
+            $state.endPrice.value,
+            $state.pagpricetab.pageSize,
+            $state.pagpricetab.startIndex,
+            $state.textInput.value
+          ],
+          params: [$queries.query.data.response[0].competition_id]
+        },
+        cacheKey: `plasmic.$.bc4586e3-b656-41fb-b6d6-b30799fc542e.$.`,
+        invalidatedKeys: null,
+        roleId: "f8970d3a-c1ae-4ba8-80dd-90e548ee70d6"
       };
     })
   };
@@ -1253,9 +1327,11 @@ function PlasmicEditTeam__RenderFunc(props: {
                             )}
                           >
                             <TabButton
+                              data-plasmic-name={"tabAll"}
+                              data-plasmic-override={overrides.tabAll}
                               className={classNames(
                                 "__wab_instance",
-                                sty.tabButton___8WgZq
+                                sty.tabAll
                               )}
                               tabKey={"tab1"}
                             >
@@ -1272,9 +1348,11 @@ function PlasmicEditTeam__RenderFunc(props: {
                               </Button>
                             </TabButton>
                             <TabButton
+                              data-plasmic-name={"tabClub"}
+                              data-plasmic-override={overrides.tabClub}
                               className={classNames(
                                 "__wab_instance",
-                                sty.tabButton__bo5Tu
+                                sty.tabClub
                               )}
                               tabKey={"tab2"}
                             >
@@ -1291,9 +1369,11 @@ function PlasmicEditTeam__RenderFunc(props: {
                               </Button>
                             </TabButton>
                             <TabButton
+                              data-plasmic-name={"tabPosition"}
+                              data-plasmic-override={overrides.tabPosition}
                               className={classNames(
                                 "__wab_instance",
-                                sty.tabButton__i8Tmg
+                                sty.tabPosition
                               )}
                               tabKey={"tab3"}
                             >
@@ -1306,6 +1386,27 @@ function PlasmicEditTeam__RenderFunc(props: {
                                   )}
                                 >
                                   {"\u041f\u043e\u0437\u0438\u0446\u0438\u044f"}
+                                </div>
+                              </Button>
+                            </TabButton>
+                            <TabButton
+                              data-plasmic-name={"tabPrice"}
+                              data-plasmic-override={overrides.tabPrice}
+                              className={classNames(
+                                "__wab_instance",
+                                sty.tabPrice
+                              )}
+                              tabKey={"tab4"}
+                            >
+                              <Button>
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    projectcss.__wab_text,
+                                    sty.text__b23L
+                                  )}
+                                >
+                                  {"\u0426\u0435\u043d\u0430"}
                                 </div>
                               </Button>
                             </TabButton>
@@ -1325,9 +1426,11 @@ function PlasmicEditTeam__RenderFunc(props: {
                             )}
                           >
                             <TabContent
+                              data-plasmic-name={"tabAllContent"}
+                              data-plasmic-override={overrides.tabAllContent}
                               className={classNames(
                                 "__wab_instance",
-                                sty.tabContent__f2D3P
+                                sty.tabAllContent
                               )}
                               tabKey={"tab1"}
                             >
@@ -1760,9 +1863,11 @@ function PlasmicEditTeam__RenderFunc(props: {
                               </Stack__>
                             </TabContent>
                             <TabContent
+                              data-plasmic-name={"tabClubContent"}
+                              data-plasmic-override={overrides.tabClubContent}
                               className={classNames(
                                 "__wab_instance",
-                                sty.tabContent__q7Akf
+                                sty.tabClubContent
                               )}
                               tabKey={"tab2"}
                             >
@@ -2259,9 +2364,13 @@ function PlasmicEditTeam__RenderFunc(props: {
                               </Stack__>
                             </TabContent>
                             <TabContent
+                              data-plasmic-name={"tabPositionContent"}
+                              data-plasmic-override={
+                                overrides.tabPositionContent
+                              }
                               className={classNames(
                                 "__wab_instance",
-                                sty.tabContent__kiEyj
+                                sty.tabPositionContent
                               )}
                               tabKey={"tab3"}
                             >
@@ -2749,6 +2858,518 @@ function PlasmicEditTeam__RenderFunc(props: {
                                 })()}
                               </Stack__>
                             </TabContent>
+                            <TabContent
+                              data-plasmic-name={"tabPriceContent"}
+                              data-plasmic-override={overrides.tabPriceContent}
+                              className={classNames(
+                                "__wab_instance",
+                                sty.tabPriceContent
+                              )}
+                              tabKey={"tab4"}
+                            >
+                              <Stack__
+                                as={"div"}
+                                hasGap={true}
+                                className={classNames(
+                                  projectcss.all,
+                                  sty.freeBox__unMHx
+                                )}
+                              >
+                                <Stack__
+                                  as={"div"}
+                                  hasGap={true}
+                                  className={classNames(
+                                    projectcss.all,
+                                    sty.freeBox__dIJmS
+                                  )}
+                                >
+                                  <div
+                                    className={classNames(
+                                      projectcss.all,
+                                      projectcss.__wab_text,
+                                      sty.text__eUsD
+                                    )}
+                                  >
+                                    {
+                                      "\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0446\u0435\u043d\u0443"
+                                    }
+                                  </div>
+                                  <TextInput
+                                    data-plasmic-name={"startPrice"}
+                                    data-plasmic-override={overrides.startPrice}
+                                    className={classNames(
+                                      "__wab_instance",
+                                      sty.startPrice
+                                    )}
+                                    onChange={(...eventArgs) => {
+                                      generateStateOnChangeProp($state, [
+                                        "startPrice",
+                                        "value"
+                                      ])(
+                                        (e => e.target?.value).apply(
+                                          null,
+                                          eventArgs
+                                        )
+                                      );
+                                    }}
+                                    placeholder={"\u041e\u0442"}
+                                    type={"number"}
+                                    value={
+                                      generateStateValueProp($state, [
+                                        "startPrice",
+                                        "value"
+                                      ]) ?? ""
+                                    }
+                                  />
+
+                                  <TextInput
+                                    data-plasmic-name={"endPrice"}
+                                    data-plasmic-override={overrides.endPrice}
+                                    className={classNames(
+                                      "__wab_instance",
+                                      sty.endPrice
+                                    )}
+                                    onChange={(...eventArgs) => {
+                                      generateStateOnChangeProp($state, [
+                                        "endPrice",
+                                        "value"
+                                      ])(
+                                        (e => e.target?.value).apply(
+                                          null,
+                                          eventArgs
+                                        )
+                                      );
+                                    }}
+                                    placeholder={"\u0414\u043e"}
+                                    type={"number"}
+                                    value={
+                                      generateStateValueProp($state, [
+                                        "endPrice",
+                                        "value"
+                                      ]) ?? ""
+                                    }
+                                  />
+                                </Stack__>
+                                {(_par =>
+                                  !_par
+                                    ? []
+                                    : Array.isArray(_par)
+                                    ? _par
+                                    : [_par])(
+                                  (() => {
+                                    try {
+                                      return $queries.tabPrice.data.response;
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return [];
+                                      }
+                                      throw e;
+                                    }
+                                  })()
+                                ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                                  const currentItem = __plasmic_item_0;
+                                  const currentIndex = __plasmic_idx_0;
+                                  return (
+                                    <PlayerPicker
+                                      buttonVisibility={(() => {
+                                        try {
+                                          return $queries.teamPlayer.data.response.find(
+                                            x => x.player_id === currentItem.id
+                                          );
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return undefined;
+                                          }
+                                          throw e;
+                                        }
+                                      })()}
+                                      className={classNames(
+                                        "__wab_instance",
+                                        sty.playerPicker__qOjZ
+                                      )}
+                                      clubName={(() => {
+                                        try {
+                                          return $queries.clubsnameid.data.response.find(
+                                            x => x.value === currentItem.club_id
+                                          ).label;
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return undefined;
+                                          }
+                                          throw e;
+                                        }
+                                      })()}
+                                      key={currentIndex}
+                                      name={(() => {
+                                        try {
+                                          return currentItem.name;
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return undefined;
+                                          }
+                                          throw e;
+                                        }
+                                      })()}
+                                      onclickMinus={async event => {
+                                        const $steps = {};
+
+                                        $steps["sellPlayer"] = true
+                                          ? (() => {
+                                              const actionArgs = {
+                                                dataOp: {
+                                                  sourceId:
+                                                    "vQtRPuFArSfh43vUmgx2PS",
+                                                  opId: "ac8e6943-2d31-4adc-a80e-8b319c6d888a",
+                                                  userArgs: {
+                                                    params: [
+                                                      $queries.query.data
+                                                        .response[0].id,
+                                                      currentItem.id
+                                                    ]
+                                                  },
+                                                  cacheKey: null,
+                                                  invalidatedKeys: [
+                                                    "plasmic_refresh_all"
+                                                  ],
+                                                  roleId:
+                                                    "f8970d3a-c1ae-4ba8-80dd-90e548ee70d6"
+                                                }
+                                              };
+                                              return (async ({
+                                                dataOp,
+                                                continueOnError
+                                              }) => {
+                                                try {
+                                                  const response =
+                                                    await executePlasmicDataOp(
+                                                      dataOp,
+                                                      {
+                                                        userAuthToken:
+                                                          dataSourcesCtx?.userAuthToken,
+                                                        user: dataSourcesCtx?.user
+                                                      }
+                                                    );
+                                                  await plasmicInvalidate(
+                                                    dataOp.invalidatedKeys
+                                                  );
+                                                  return response;
+                                                } catch (e) {
+                                                  if (!continueOnError) {
+                                                    throw e;
+                                                  }
+                                                  return e;
+                                                }
+                                              })?.apply(null, [actionArgs]);
+                                            })()
+                                          : undefined;
+                                        if (
+                                          $steps["sellPlayer"] != null &&
+                                          typeof $steps["sellPlayer"] ===
+                                            "object" &&
+                                          typeof $steps["sellPlayer"].then ===
+                                            "function"
+                                        ) {
+                                          $steps["sellPlayer"] = await $steps[
+                                            "sellPlayer"
+                                          ];
+                                        }
+                                      }}
+                                      onclickPlus={async event => {
+                                        const $steps = {};
+
+                                        $steps["updatePlayerFast"] = true
+                                          ? (() => {
+                                              const actionArgs = {
+                                                dataOp: {
+                                                  sourceId:
+                                                    "vQtRPuFArSfh43vUmgx2PS",
+                                                  opId: "4a933963-1e52-4384-90b9-aa0c8ed99eb7",
+                                                  userArgs: {
+                                                    body: [
+                                                      currentItem.id,
+                                                      currentItem.position,
+                                                      $queries.query.data
+                                                        .response[0].id
+                                                    ]
+                                                  },
+                                                  cacheKey: null,
+                                                  invalidatedKeys: [
+                                                    "plasmic_refresh_all"
+                                                  ],
+                                                  roleId:
+                                                    "f8970d3a-c1ae-4ba8-80dd-90e548ee70d6"
+                                                }
+                                              };
+                                              return (async ({
+                                                dataOp,
+                                                continueOnError
+                                              }) => {
+                                                try {
+                                                  const response =
+                                                    await executePlasmicDataOp(
+                                                      dataOp,
+                                                      {
+                                                        userAuthToken:
+                                                          dataSourcesCtx?.userAuthToken,
+                                                        user: dataSourcesCtx?.user
+                                                      }
+                                                    );
+                                                  await plasmicInvalidate(
+                                                    dataOp.invalidatedKeys
+                                                  );
+                                                  return response;
+                                                } catch (e) {
+                                                  if (!continueOnError) {
+                                                    throw e;
+                                                  }
+                                                  return e;
+                                                }
+                                              })?.apply(null, [actionArgs]);
+                                            })()
+                                          : undefined;
+                                        if (
+                                          $steps["updatePlayerFast"] != null &&
+                                          typeof $steps["updatePlayerFast"] ===
+                                            "object" &&
+                                          typeof $steps["updatePlayerFast"]
+                                            .then === "function"
+                                        ) {
+                                          $steps["updatePlayerFast"] =
+                                            await $steps["updatePlayerFast"];
+                                        }
+
+                                        $steps["updatePlayer"] = false
+                                          ? (() => {
+                                              const actionArgs = {
+                                                dataOp: {
+                                                  sourceId:
+                                                    "vQtRPuFArSfh43vUmgx2PS",
+                                                  opId: "4a933963-1e52-4384-90b9-aa0c8ed99eb7",
+                                                  userArgs: {
+                                                    body: [
+                                                      currentItem.id,
+                                                      currentItem.position,
+                                                      $queries.query.data
+                                                        .response[0].id
+                                                    ]
+                                                  },
+                                                  cacheKey: null,
+                                                  invalidatedKeys: null,
+                                                  roleId:
+                                                    "f8970d3a-c1ae-4ba8-80dd-90e548ee70d6"
+                                                }
+                                              };
+                                              return (async ({
+                                                dataOp,
+                                                continueOnError
+                                              }) => {
+                                                try {
+                                                  const response =
+                                                    await executePlasmicDataOp(
+                                                      dataOp,
+                                                      {
+                                                        userAuthToken:
+                                                          dataSourcesCtx?.userAuthToken,
+                                                        user: dataSourcesCtx?.user
+                                                      }
+                                                    );
+                                                  await plasmicInvalidate(
+                                                    dataOp.invalidatedKeys
+                                                  );
+                                                  return response;
+                                                } catch (e) {
+                                                  if (!continueOnError) {
+                                                    throw e;
+                                                  }
+                                                  return e;
+                                                }
+                                              })?.apply(null, [actionArgs]);
+                                            })()
+                                          : undefined;
+                                        if (
+                                          $steps["updatePlayer"] != null &&
+                                          typeof $steps["updatePlayer"] ===
+                                            "object" &&
+                                          typeof $steps["updatePlayer"].then ===
+                                            "function"
+                                        ) {
+                                          $steps["updatePlayer"] = await $steps[
+                                            "updatePlayer"
+                                          ];
+                                        }
+                                      }}
+                                      point={(() => {
+                                        try {
+                                          return currentItem.ochko;
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return 88;
+                                          }
+                                          throw e;
+                                        }
+                                      })()}
+                                      position={(() => {
+                                        try {
+                                          return currentItem.position;
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return undefined;
+                                          }
+                                          throw e;
+                                        }
+                                      })()}
+                                      price={(() => {
+                                        try {
+                                          return currentItem.price;
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return 9;
+                                          }
+                                          throw e;
+                                        }
+                                      })()}
+                                    />
+                                  );
+                                })}
+                                {(() => {
+                                  const child$Props = {
+                                    className: classNames(
+                                      "__wab_instance",
+                                      sty.pagpricetab
+                                    ),
+                                    current: generateStateValueProp($state, [
+                                      "pagpricetab",
+                                      "currentPage"
+                                    ]),
+                                    defaultCurrent: 1,
+                                    defaultPageSize: 8,
+                                    disabled: false,
+                                    hideOnSinglePage: false,
+                                    onChange: async (...eventArgs: any) => {
+                                      generateStateOnChangePropForCodeComponents(
+                                        $state,
+                                        "currentPage",
+                                        ["pagpricetab", "currentPage"],
+                                        AntdPagination_Helpers
+                                      ).apply(null, eventArgs);
+                                      generateStateOnChangePropForCodeComponents(
+                                        $state,
+                                        "startIndex",
+                                        ["pagpricetab", "startIndex"],
+                                        AntdPagination_Helpers
+                                      ).apply(null, eventArgs);
+                                      generateStateOnChangePropForCodeComponents(
+                                        $state,
+                                        "endIndex",
+                                        ["pagpricetab", "endIndex"],
+                                        AntdPagination_Helpers
+                                      ).apply(null, eventArgs);
+                                    },
+                                    onShowSizeChange:
+                                      generateStateOnChangePropForCodeComponents(
+                                        $state,
+                                        "pageSize",
+                                        ["pagpricetab", "pageSize"],
+                                        AntdPagination_Helpers
+                                      ),
+                                    pageSize: generateStateValueProp($state, [
+                                      "pagpricetab",
+                                      "pageSize"
+                                    ]),
+                                    pageSizeOptions: [
+                                      { pageSize: 10 },
+                                      { pageSize: 20 },
+                                      { pageSize: 50 },
+                                      { pageSize: 100 }
+                                    ],
+                                    showLessItems: false,
+                                    showQuickJumper: false,
+                                    showSizeChanger: false,
+                                    simple: false,
+                                    size: "default",
+                                    total: (() => {
+                                      try {
+                                        return $queries.playerList.data.response
+                                          .length;
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return 24;
+                                        }
+                                        throw e;
+                                      }
+                                    })()
+                                  };
+                                  initializeCodeComponentStates(
+                                    $state,
+                                    [
+                                      {
+                                        name: "currentPage",
+                                        plasmicStateName:
+                                          "pagpricetab.currentPage"
+                                      },
+                                      {
+                                        name: "pageSize",
+                                        plasmicStateName: "pagpricetab.pageSize"
+                                      },
+                                      {
+                                        name: "startIndex",
+                                        plasmicStateName:
+                                          "pagpricetab.startIndex"
+                                      },
+                                      {
+                                        name: "endIndex",
+                                        plasmicStateName: "pagpricetab.endIndex"
+                                      }
+                                    ],
+                                    [],
+                                    AntdPagination_Helpers ?? {},
+                                    child$Props
+                                  );
+
+                                  return (
+                                    <AntdPagination
+                                      data-plasmic-name={"pagpricetab"}
+                                      data-plasmic-override={
+                                        overrides.pagpricetab
+                                      }
+                                      {...child$Props}
+                                    />
+                                  );
+                                })()}
+                              </Stack__>
+                            </TabContent>
                           </div>
                         </Stack__>
                       )}
@@ -3013,12 +3634,23 @@ const PlasmicDescendants = {
     "playerList",
     "textInput",
     "tabsContainer",
+    "tabAll",
+    "tabClub",
+    "tabPosition",
+    "tabPrice",
     "tabUnderline",
+    "tabAllContent",
     "pagination",
+    "tabClubContent",
     "select",
     "pagclubtab",
+    "tabPositionContent",
     "select2",
     "pagpostab",
+    "tabPriceContent",
+    "startPrice",
+    "endPrice",
+    "pagpricetab",
     "playerPickerRow"
   ],
   navbar: ["navbar"],
@@ -3039,12 +3671,23 @@ const PlasmicDescendants = {
     "playerList",
     "textInput",
     "tabsContainer",
+    "tabAll",
+    "tabClub",
+    "tabPosition",
+    "tabPrice",
     "tabUnderline",
+    "tabAllContent",
     "pagination",
+    "tabClubContent",
     "select",
     "pagclubtab",
+    "tabPositionContent",
     "select2",
     "pagpostab",
+    "tabPriceContent",
+    "startPrice",
+    "endPrice",
+    "pagpricetab",
     "playerPickerRow"
   ],
   stadion: [
@@ -3074,30 +3717,63 @@ const PlasmicDescendants = {
     "playerList",
     "textInput",
     "tabsContainer",
+    "tabAll",
+    "tabClub",
+    "tabPosition",
+    "tabPrice",
     "tabUnderline",
+    "tabAllContent",
     "pagination",
+    "tabClubContent",
     "select",
     "pagclubtab",
+    "tabPositionContent",
     "select2",
     "pagpostab",
+    "tabPriceContent",
+    "startPrice",
+    "endPrice",
+    "pagpricetab",
     "playerPickerRow"
   ],
   textInput: ["textInput"],
   tabsContainer: [
     "tabsContainer",
+    "tabAll",
+    "tabClub",
+    "tabPosition",
+    "tabPrice",
     "tabUnderline",
+    "tabAllContent",
     "pagination",
+    "tabClubContent",
     "select",
     "pagclubtab",
+    "tabPositionContent",
     "select2",
-    "pagpostab"
+    "pagpostab",
+    "tabPriceContent",
+    "startPrice",
+    "endPrice",
+    "pagpricetab"
   ],
+  tabAll: ["tabAll"],
+  tabClub: ["tabClub"],
+  tabPosition: ["tabPosition"],
+  tabPrice: ["tabPrice"],
   tabUnderline: ["tabUnderline"],
+  tabAllContent: ["tabAllContent", "pagination"],
   pagination: ["pagination"],
+  tabClubContent: ["tabClubContent", "select", "pagclubtab"],
   select: ["select"],
   pagclubtab: ["pagclubtab"],
+  tabPositionContent: ["tabPositionContent", "select2", "pagpostab"],
   select2: ["select2"],
   pagpostab: ["pagpostab"],
+  tabPriceContent: ["tabPriceContent", "startPrice", "endPrice", "pagpricetab"],
+  startPrice: ["startPrice"],
+  endPrice: ["endPrice"],
+  pagpricetab: ["pagpricetab"],
   playerPickerRow: ["playerPickerRow"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
@@ -3122,12 +3798,23 @@ type NodeDefaultElementType = {
   playerList: "div";
   textInput: typeof TextInput;
   tabsContainer: typeof TabsContainer;
+  tabAll: typeof TabButton;
+  tabClub: typeof TabButton;
+  tabPosition: typeof TabButton;
+  tabPrice: typeof TabButton;
   tabUnderline: typeof TabUnderline;
+  tabAllContent: typeof TabContent;
   pagination: typeof AntdPagination;
+  tabClubContent: typeof TabContent;
   select: typeof Select;
   pagclubtab: typeof AntdPagination;
+  tabPositionContent: typeof TabContent;
   select2: typeof Select;
   pagpostab: typeof AntdPagination;
+  tabPriceContent: typeof TabContent;
+  startPrice: typeof TextInput;
+  endPrice: typeof TextInput;
+  pagpricetab: typeof AntdPagination;
   playerPickerRow: typeof PlayerPickerRow;
 };
 
@@ -3225,12 +3912,23 @@ export const PlasmicEditTeam = Object.assign(
     playerList: makeNodeComponent("playerList"),
     textInput: makeNodeComponent("textInput"),
     tabsContainer: makeNodeComponent("tabsContainer"),
+    tabAll: makeNodeComponent("tabAll"),
+    tabClub: makeNodeComponent("tabClub"),
+    tabPosition: makeNodeComponent("tabPosition"),
+    tabPrice: makeNodeComponent("tabPrice"),
     tabUnderline: makeNodeComponent("tabUnderline"),
+    tabAllContent: makeNodeComponent("tabAllContent"),
     pagination: makeNodeComponent("pagination"),
+    tabClubContent: makeNodeComponent("tabClubContent"),
     select: makeNodeComponent("select"),
     pagclubtab: makeNodeComponent("pagclubtab"),
+    tabPositionContent: makeNodeComponent("tabPositionContent"),
     select2: makeNodeComponent("select2"),
     pagpostab: makeNodeComponent("pagpostab"),
+    tabPriceContent: makeNodeComponent("tabPriceContent"),
+    startPrice: makeNodeComponent("startPrice"),
+    endPrice: makeNodeComponent("endPrice"),
+    pagpricetab: makeNodeComponent("pagpricetab"),
     playerPickerRow: makeNodeComponent("playerPickerRow"),
 
     // Metadata about props expected for PlasmicEditTeam
