@@ -89,13 +89,15 @@ export type PlasmicUserteamNavbar__ArgsType = {
   sellBtnBool?: boolean;
   teamBalance?: number;
   nameOfTeam?: string;
+  onlickEditTeam?: (event: any) => void;
 };
 type ArgPropType = keyof PlasmicUserteamNavbar__ArgsType;
 export const PlasmicUserteamNavbar__ArgProps = new Array<ArgPropType>(
   "capitanBtnVisibility",
   "sellBtnBool",
   "teamBalance",
-  "nameOfTeam"
+  "nameOfTeam",
+  "onlickEditTeam"
 );
 
 export type PlasmicUserteamNavbar__OverridesType = {
@@ -110,6 +112,7 @@ export interface DefaultUserteamNavbarProps {
   sellBtnBool?: boolean;
   teamBalance?: number;
   nameOfTeam?: string;
+  onlickEditTeam?: (event: any) => void;
   className?: string;
 }
 
@@ -229,6 +232,16 @@ function PlasmicUserteamNavbar__RenderFunc(props: {
             }
           })()}
         </React.Fragment>
+      </div>
+      <div
+        className={classNames(
+          projectcss.all,
+          projectcss.__wab_text,
+          sty.text__iUrX3
+        )}
+        onClick={args.onlickEditTeam}
+      >
+        {"Edit team"}
       </div>
       <div
         className={classNames(

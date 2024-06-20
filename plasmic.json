@@ -1597,20 +1597,6 @@
           "cssFilePath": "plasmic/proliga/PlasmicPlayerPicker.module.css",
           "scheme": "blackbox",
           "componentType": "component"
-        },
-        {
-          "id": "oBPioaL9rKKS",
-          "name": "Test",
-          "type": "managed",
-          "projectId": "tDWy3GXn2mzd9e2xUaPdmu",
-          "renderModuleFilePath": "plasmic/proliga/PlasmicTest.tsx",
-          "importSpec": {
-            "modulePath": "../pages/test.tsx"
-          },
-          "cssFilePath": "plasmic/proliga/PlasmicTest.module.css",
-          "scheme": "blackbox",
-          "componentType": "page",
-          "path": "/test"
         }
       ],
       "icons": [
@@ -2243,6 +2229,73 @@
           "name": "ToolbarUnderline",
           "displayName": "hostless-tiptap-toolbar-underline",
           "componentImportPath": "@plasmicpkgs/tiptap/skinny/registerToolbarUnderline"
+        }
+      ],
+      "customFunctions": [],
+      "jsBundleThemes": []
+    },
+    {
+      "projectId": "gLnoj82AzKVVT7qXiqAbHD",
+      "projectApiToken": "30Q6Vm3wLmLUouXUphjiHN1eerUuQNmjcIHNiu6sFoeK8pIoi3LRDH2gMh9txlrZGCbOh9s0VaoZHqtvs3hQ",
+      "projectName": "plasmic-tabs",
+      "version": ">0.0.0",
+      "cssFilePath": "plasmic/plasmic_tabs/plasmic.module.css",
+      "components": [
+        {
+          "id": "lBHNzts6tFyj",
+          "name": "Button",
+          "type": "managed",
+          "projectId": "gLnoj82AzKVVT7qXiqAbHD",
+          "renderModuleFilePath": "plasmic/plasmic_tabs/PlasmicButton.tsx",
+          "importSpec": {
+            "modulePath": "Button.tsx"
+          },
+          "cssFilePath": "plasmic/plasmic_tabs/PlasmicButton.module.css",
+          "scheme": "blackbox",
+          "componentType": "component",
+          "plumeType": "button"
+        }
+      ],
+      "icons": [
+        {
+          "id": "zq2s7N0xWucT",
+          "name": "ChecksvgIcon",
+          "moduleFilePath": "plasmic/plasmic_tabs/icons/PlasmicIcon__Checksvg.tsx"
+        },
+        {
+          "id": "8K40faRNhuCj",
+          "name": "IconIcon",
+          "moduleFilePath": "plasmic/plasmic_tabs/icons/PlasmicIcon__Icon.tsx"
+        }
+      ],
+      "images": [],
+      "indirect": true,
+      "globalContextsFilePath": "",
+      "splitsProviderFilePath": "",
+      "codeComponents": [
+        {
+          "id": "qT-BBamUwNg",
+          "name": "TabsContainer",
+          "displayName": "hostless-tabs-container",
+          "componentImportPath": "@plasmicpkgs/plasmic-tabs"
+        },
+        {
+          "id": "7uvxnLIBlo3",
+          "name": "TabUnderline",
+          "displayName": "hostless-tab-underline",
+          "componentImportPath": "@plasmicpkgs/plasmic-tabs"
+        },
+        {
+          "id": "5jaBI7A4_ak",
+          "name": "TabButton",
+          "displayName": "hostless-tab-button",
+          "componentImportPath": "@plasmicpkgs/plasmic-tabs"
+        },
+        {
+          "id": "KyRr6GQ_tPI",
+          "name": "TabContent",
+          "displayName": "hostless-tab-content",
+          "componentImportPath": "@plasmicpkgs/plasmic-tabs"
         }
       ],
       "customFunctions": [],

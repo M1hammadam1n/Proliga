@@ -448,6 +448,48 @@ function PlasmicTeams__RenderFunc(props: {
             data-plasmic-override={overrides.userteamNavbar}
             capitanBtnVisibility={$state.capitanBtnVisibility}
             className={classNames("__wab_instance", sty.userteamNavbar)}
+            onlickEditTeam={async event => {
+              const $steps = {};
+
+              $steps["goToEditTeam"] = true
+                ? (() => {
+                    const actionArgs = {
+                      destination: `/${"1"}/${(() => {
+                        try {
+                          return $ctx.params.id;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return undefined;
+                          }
+                          throw e;
+                        }
+                      })()}`
+                    };
+                    return (({ destination }) => {
+                      if (
+                        typeof destination === "string" &&
+                        destination.startsWith("#")
+                      ) {
+                        document
+                          .getElementById(destination.substr(1))
+                          .scrollIntoView({ behavior: "smooth" });
+                      } else {
+                        __nextRouter?.push(destination);
+                      }
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["goToEditTeam"] != null &&
+                typeof $steps["goToEditTeam"] === "object" &&
+                typeof $steps["goToEditTeam"].then === "function"
+              ) {
+                $steps["goToEditTeam"] = await $steps["goToEditTeam"];
+              }
+            }}
             sellBtnBool={$state.sellBtnBool}
           />
 

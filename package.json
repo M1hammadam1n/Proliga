@@ -22,6 +22,7 @@
     "@plasmicpkgs/plasmic-nav": "^0.0.167",
     "@plasmicpkgs/plasmic-query": "^0.0.215",
     "@plasmicpkgs/plasmic-rich-components": "^1.0.186",
+    "@plasmicpkgs/plasmic-tabs": "^0.0.39",
     "@plasmicpkgs/react-awesome-reveal": "^3.8.198",
     "@plasmicpkgs/react-chartjs-2": "^1.0.102",
     "@plasmicpkgs/react-slick": "^0.0.218",

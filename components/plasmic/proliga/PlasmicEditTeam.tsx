@@ -71,11 +71,16 @@ import SearchComponent from "../../SearchComponent"; // plasmic-import: mmk_GiTX
 import AvatarPlayer from "../../AvatarPlayer"; // plasmic-import: 4QnaRcOLXj0D/component
 import SoccerPlaceMens2 from "../../SoccerPlaceMens2"; // plasmic-import: xodLqMOhDs29/component
 import MessageCard from "../../MessageCard"; // plasmic-import: KNRpEkS9bXP0/component
-import Select from "../../Select"; // plasmic-import: bCMc_ebYmgPo/component
 import TextInput from "../../TextInput"; // plasmic-import: xwgFLXqL07mD/component
+import { TabsContainer } from "@plasmicpkgs/plasmic-tabs";
+import { TabButton } from "@plasmicpkgs/plasmic-tabs";
+import Button from "../../Button"; // plasmic-import: lBHNzts6tFyj/component
+import { TabUnderline } from "@plasmicpkgs/plasmic-tabs";
+import { TabContent } from "@plasmicpkgs/plasmic-tabs";
 import PlayerPicker from "../../PlayerPicker"; // plasmic-import: FmVyQ1WB4e_T/component
 import { AntdPagination } from "@plasmicpkgs/antd5/skinny/registerPagination";
 import { paginationHelpers as AntdPagination_Helpers } from "@plasmicpkgs/antd5/skinny/registerPagination";
+import Select from "../../Select"; // plasmic-import: bCMc_ebYmgPo/component
 import PlayerPickerRow from "../../PlayerPickerRow"; // plasmic-import: NaQtMjgilBY9/component
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 
@@ -88,6 +93,8 @@ import sty from "./PlasmicEditTeam.module.css"; // plasmic-import: 2LqbY1eBUixE/
 
 import SearchsvgIcon from "./icons/PlasmicIcon__Searchsvg"; // plasmic-import: TfB627kbYt5s/icon
 import ChecksvgIcon from "./icons/PlasmicIcon__Checksvg"; // plasmic-import: BLgPkmgd4hOv/icon
+import ChecksvgIcon2 from "../plasmic_tabs/icons/PlasmicIcon__Checksvg"; // plasmic-import: zq2s7N0xWucT/icon
+import IconIcon from "../plasmic_tabs/icons/PlasmicIcon__Icon"; // plasmic-import: 8K40faRNhuCj/icon
 
 createPlasmicElementProxy;
 
@@ -116,12 +123,13 @@ export type PlasmicEditTeam__OverridesType = {
   str?: Flex__<"div">;
   avatarPlayer4?: Flex__<typeof AvatarPlayer>;
   soccerPlaceMens2?: Flex__<typeof SoccerPlaceMens2>;
-  filter?: Flex__<"div">;
-  select?: Flex__<typeof Select>;
-  textInput?: Flex__<typeof TextInput>;
   playerList?: Flex__<"div">;
+  textInput?: Flex__<typeof TextInput>;
+  tabsContainer?: Flex__<typeof TabsContainer>;
+  tabUnderline?: Flex__<typeof TabUnderline>;
   playerPicker?: Flex__<typeof PlayerPicker>;
   pagination?: Flex__<typeof AntdPagination>;
+  select?: Flex__<typeof Select>;
   playerPickerRow?: Flex__<typeof PlayerPickerRow>;
 };
 
@@ -177,7 +185,7 @@ function PlasmicEditTeam__RenderFunc(props: {
         path: "pagination.pageSize",
         type: "private",
         variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) => 8,
+        initFunc: ({ $props, $state, $queries, $ctx }) => 10,
 
         onMutate: generateOnMutateForSpec("pageSize", AntdPagination_Helpers)
       },
@@ -326,7 +334,7 @@ function PlasmicEditTeam__RenderFunc(props: {
         roleId: null
       };
     }),
-    playerPag: usePlasmicDataOp(() => {
+    tabAll: usePlasmicDataOp(() => {
       return {
         sourceId: "vQtRPuFArSfh43vUmgx2PS",
         opId: "4e379dcc-549f-4268-8e5b-e2489186871a",
@@ -1083,38 +1091,11 @@ function PlasmicEditTeam__RenderFunc(props: {
               <div className={classNames(projectcss.all, sty.column__rzO2Y)}>
                 <Stack__
                   as={"div"}
-                  data-plasmic-name={"filter"}
-                  data-plasmic-override={overrides.filter}
+                  data-plasmic-name={"playerList"}
+                  data-plasmic-override={overrides.playerList}
                   hasGap={true}
-                  className={classNames(projectcss.all, sty.filter)}
+                  className={classNames(projectcss.all, sty.playerList)}
                 >
-                  <Select
-                    data-plasmic-name={"select"}
-                    data-plasmic-override={overrides.select}
-                    className={classNames("__wab_instance", sty.select)}
-                    color={"softGray"}
-                    onChange={(...eventArgs) => {
-                      generateStateOnChangeProp($state, ["select", "value"])(
-                        eventArgs[0]
-                      );
-                    }}
-                    options={(() => {
-                      try {
-                        return $state.clubs;
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return [];
-                        }
-                        throw e;
-                      }
-                    })()}
-                    placeholder={null}
-                    value={generateStateValueProp($state, ["select", "value"])}
-                  />
-
                   <TextInput
                     data-plasmic-name={"textInput"}
                     data-plasmic-override={overrides.textInput}
@@ -1136,389 +1117,591 @@ function PlasmicEditTeam__RenderFunc(props: {
                       ""
                     }
                   />
-                </Stack__>
-                <Stack__
-                  as={"div"}
-                  data-plasmic-name={"playerList"}
-                  data-plasmic-override={overrides.playerList}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.playerList)}
-                >
+
+                  <TabsContainer
+                    data-plasmic-name={"tabsContainer"}
+                    data-plasmic-override={overrides.tabsContainer}
+                    className={classNames("__wab_instance", sty.tabsContainer)}
+                    initialKey={"tab1"}
+                    mountMode={"mountOneAtATime"}
+                    previewAll={false}
+                  >
+                    <DataCtxReader__>
+                      {$ctx => (
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox__bwYlu
+                          )}
+                        >
+                          <Stack__
+                            as={"div"}
+                            hasGap={true}
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox__uEab
+                            )}
+                          >
+                            <TabButton
+                              className={classNames(
+                                "__wab_instance",
+                                sty.tabButton___8WgZq
+                              )}
+                              tabKey={"tab1"}
+                            >
+                              <Button>
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    projectcss.__wab_text,
+                                    sty.text__yo52F
+                                  )}
+                                >
+                                  {"\u0412\u0441\u0435"}
+                                </div>
+                              </Button>
+                            </TabButton>
+                            <TabButton
+                              className={classNames(
+                                "__wab_instance",
+                                sty.tabButton___4PfRl
+                              )}
+                              tabKey={"tab2"}
+                            >
+                              <Button>
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    projectcss.__wab_text,
+                                    sty.text__ntlEn
+                                  )}
+                                >
+                                  {"\u041a\u043b\u0443\u0431"}
+                                </div>
+                              </Button>
+                            </TabButton>
+                            <TabUnderline
+                              data-plasmic-name={"tabUnderline"}
+                              data-plasmic-override={overrides.tabUnderline}
+                              className={classNames(
+                                "__wab_instance",
+                                sty.tabUnderline
+                              )}
+                            />
+                          </Stack__>
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox__zRgVw
+                            )}
+                          >
+                            <TabContent
+                              className={classNames(
+                                "__wab_instance",
+                                sty.tabContent__f2D3P
+                              )}
+                              tabKey={"tab1"}
+                            >
+                              <Stack__
+                                as={"div"}
+                                hasGap={true}
+                                className={classNames(
+                                  projectcss.all,
+                                  sty.freeBox__cUkzP
+                                )}
+                              >
+                                {(_par =>
+                                  !_par
+                                    ? []
+                                    : Array.isArray(_par)
+                                    ? _par
+                                    : [_par])(
+                                  (() => {
+                                    try {
+                                      return $queries.tabAll.data.response;
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return [];
+                                      }
+                                      throw e;
+                                    }
+                                  })()
+                                ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                                  const currentItem = __plasmic_item_0;
+                                  const currentIndex = __plasmic_idx_0;
+                                  return (
+                                    <PlayerPicker
+                                      data-plasmic-name={"playerPicker"}
+                                      data-plasmic-override={
+                                        overrides.playerPicker
+                                      }
+                                      buttonVisibility={(() => {
+                                        try {
+                                          return $queries.teamPlayer.data.response.find(
+                                            x => x.player_id === currentItem.id
+                                          );
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return undefined;
+                                          }
+                                          throw e;
+                                        }
+                                      })()}
+                                      className={classNames(
+                                        "__wab_instance",
+                                        sty.playerPicker
+                                      )}
+                                      clubName={(() => {
+                                        try {
+                                          return $queries.clubsnameid.data.response.find(
+                                            x => x.value === currentItem.club_id
+                                          ).label;
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return undefined;
+                                          }
+                                          throw e;
+                                        }
+                                      })()}
+                                      key={currentIndex}
+                                      name={(() => {
+                                        try {
+                                          return currentItem.name;
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return undefined;
+                                          }
+                                          throw e;
+                                        }
+                                      })()}
+                                      onclickMinus={async event => {
+                                        const $steps = {};
+
+                                        $steps["sellPlayer"] = true
+                                          ? (() => {
+                                              const actionArgs = {
+                                                dataOp: {
+                                                  sourceId:
+                                                    "vQtRPuFArSfh43vUmgx2PS",
+                                                  opId: "ac8e6943-2d31-4adc-a80e-8b319c6d888a",
+                                                  userArgs: {
+                                                    params: [
+                                                      $queries.query.data
+                                                        .response[0].id,
+                                                      currentItem.id
+                                                    ]
+                                                  },
+                                                  cacheKey: null,
+                                                  invalidatedKeys: [
+                                                    "plasmic_refresh_all"
+                                                  ],
+                                                  roleId:
+                                                    "f8970d3a-c1ae-4ba8-80dd-90e548ee70d6"
+                                                }
+                                              };
+                                              return (async ({
+                                                dataOp,
+                                                continueOnError
+                                              }) => {
+                                                try {
+                                                  const response =
+                                                    await executePlasmicDataOp(
+                                                      dataOp,
+                                                      {
+                                                        userAuthToken:
+                                                          dataSourcesCtx?.userAuthToken,
+                                                        user: dataSourcesCtx?.user
+                                                      }
+                                                    );
+                                                  await plasmicInvalidate(
+                                                    dataOp.invalidatedKeys
+                                                  );
+                                                  return response;
+                                                } catch (e) {
+                                                  if (!continueOnError) {
+                                                    throw e;
+                                                  }
+                                                  return e;
+                                                }
+                                              })?.apply(null, [actionArgs]);
+                                            })()
+                                          : undefined;
+                                        if (
+                                          $steps["sellPlayer"] != null &&
+                                          typeof $steps["sellPlayer"] ===
+                                            "object" &&
+                                          typeof $steps["sellPlayer"].then ===
+                                            "function"
+                                        ) {
+                                          $steps["sellPlayer"] = await $steps[
+                                            "sellPlayer"
+                                          ];
+                                        }
+                                      }}
+                                      onclickPlus={async event => {
+                                        const $steps = {};
+
+                                        $steps["updatePlayerFast"] = true
+                                          ? (() => {
+                                              const actionArgs = {
+                                                dataOp: {
+                                                  sourceId:
+                                                    "vQtRPuFArSfh43vUmgx2PS",
+                                                  opId: "4a933963-1e52-4384-90b9-aa0c8ed99eb7",
+                                                  userArgs: {
+                                                    body: [
+                                                      currentItem.id,
+                                                      currentItem.position,
+                                                      $queries.query.data
+                                                        .response[0].id
+                                                    ]
+                                                  },
+                                                  cacheKey: null,
+                                                  invalidatedKeys: [
+                                                    "plasmic_refresh_all"
+                                                  ],
+                                                  roleId:
+                                                    "f8970d3a-c1ae-4ba8-80dd-90e548ee70d6"
+                                                }
+                                              };
+                                              return (async ({
+                                                dataOp,
+                                                continueOnError
+                                              }) => {
+                                                try {
+                                                  const response =
+                                                    await executePlasmicDataOp(
+                                                      dataOp,
+                                                      {
+                                                        userAuthToken:
+                                                          dataSourcesCtx?.userAuthToken,
+                                                        user: dataSourcesCtx?.user
+                                                      }
+                                                    );
+                                                  await plasmicInvalidate(
+                                                    dataOp.invalidatedKeys
+                                                  );
+                                                  return response;
+                                                } catch (e) {
+                                                  if (!continueOnError) {
+                                                    throw e;
+                                                  }
+                                                  return e;
+                                                }
+                                              })?.apply(null, [actionArgs]);
+                                            })()
+                                          : undefined;
+                                        if (
+                                          $steps["updatePlayerFast"] != null &&
+                                          typeof $steps["updatePlayerFast"] ===
+                                            "object" &&
+                                          typeof $steps["updatePlayerFast"]
+                                            .then === "function"
+                                        ) {
+                                          $steps["updatePlayerFast"] =
+                                            await $steps["updatePlayerFast"];
+                                        }
+
+                                        $steps["updatePlayer"] = false
+                                          ? (() => {
+                                              const actionArgs = {
+                                                dataOp: {
+                                                  sourceId:
+                                                    "vQtRPuFArSfh43vUmgx2PS",
+                                                  opId: "4a933963-1e52-4384-90b9-aa0c8ed99eb7",
+                                                  userArgs: {
+                                                    body: [
+                                                      currentItem.id,
+                                                      currentItem.position,
+                                                      $queries.query.data
+                                                        .response[0].id
+                                                    ]
+                                                  },
+                                                  cacheKey: null,
+                                                  invalidatedKeys: null,
+                                                  roleId:
+                                                    "f8970d3a-c1ae-4ba8-80dd-90e548ee70d6"
+                                                }
+                                              };
+                                              return (async ({
+                                                dataOp,
+                                                continueOnError
+                                              }) => {
+                                                try {
+                                                  const response =
+                                                    await executePlasmicDataOp(
+                                                      dataOp,
+                                                      {
+                                                        userAuthToken:
+                                                          dataSourcesCtx?.userAuthToken,
+                                                        user: dataSourcesCtx?.user
+                                                      }
+                                                    );
+                                                  await plasmicInvalidate(
+                                                    dataOp.invalidatedKeys
+                                                  );
+                                                  return response;
+                                                } catch (e) {
+                                                  if (!continueOnError) {
+                                                    throw e;
+                                                  }
+                                                  return e;
+                                                }
+                                              })?.apply(null, [actionArgs]);
+                                            })()
+                                          : undefined;
+                                        if (
+                                          $steps["updatePlayer"] != null &&
+                                          typeof $steps["updatePlayer"] ===
+                                            "object" &&
+                                          typeof $steps["updatePlayer"].then ===
+                                            "function"
+                                        ) {
+                                          $steps["updatePlayer"] = await $steps[
+                                            "updatePlayer"
+                                          ];
+                                        }
+                                      }}
+                                      point={(() => {
+                                        try {
+                                          return currentItem.ochko;
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return 88;
+                                          }
+                                          throw e;
+                                        }
+                                      })()}
+                                      position={(() => {
+                                        try {
+                                          return currentItem.position;
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return undefined;
+                                          }
+                                          throw e;
+                                        }
+                                      })()}
+                                      price={(() => {
+                                        try {
+                                          return currentItem.price;
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return 9;
+                                          }
+                                          throw e;
+                                        }
+                                      })()}
+                                    />
+                                  );
+                                })}
+                                {(() => {
+                                  const child$Props = {
+                                    className: classNames(
+                                      "__wab_instance",
+                                      sty.pagination
+                                    ),
+                                    current: generateStateValueProp($state, [
+                                      "pagination",
+                                      "currentPage"
+                                    ]),
+                                    defaultCurrent: 1,
+                                    defaultPageSize: 10,
+                                    disabled: false,
+                                    hideOnSinglePage: false,
+                                    onChange: async (...eventArgs: any) => {
+                                      generateStateOnChangePropForCodeComponents(
+                                        $state,
+                                        "currentPage",
+                                        ["pagination", "currentPage"],
+                                        AntdPagination_Helpers
+                                      ).apply(null, eventArgs);
+                                      generateStateOnChangePropForCodeComponents(
+                                        $state,
+                                        "startIndex",
+                                        ["pagination", "startIndex"],
+                                        AntdPagination_Helpers
+                                      ).apply(null, eventArgs);
+                                      generateStateOnChangePropForCodeComponents(
+                                        $state,
+                                        "endIndex",
+                                        ["pagination", "endIndex"],
+                                        AntdPagination_Helpers
+                                      ).apply(null, eventArgs);
+                                    },
+                                    onShowSizeChange:
+                                      generateStateOnChangePropForCodeComponents(
+                                        $state,
+                                        "pageSize",
+                                        ["pagination", "pageSize"],
+                                        AntdPagination_Helpers
+                                      ),
+                                    pageSize: generateStateValueProp($state, [
+                                      "pagination",
+                                      "pageSize"
+                                    ]),
+                                    pageSizeOptions: [
+                                      { pageSize: 10 },
+                                      { pageSize: 20 },
+                                      { pageSize: 50 },
+                                      { pageSize: 100 }
+                                    ],
+                                    showLessItems: false,
+                                    showQuickJumper: false,
+                                    showSizeChanger: false,
+                                    simple: false,
+                                    size: "default",
+                                    total: (() => {
+                                      try {
+                                        return $queries.playerList.data.response
+                                          .length;
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return 24;
+                                        }
+                                        throw e;
+                                      }
+                                    })()
+                                  };
+                                  initializeCodeComponentStates(
+                                    $state,
+                                    [
+                                      {
+                                        name: "currentPage",
+                                        plasmicStateName:
+                                          "pagination.currentPage"
+                                      },
+                                      {
+                                        name: "pageSize",
+                                        plasmicStateName: "pagination.pageSize"
+                                      },
+                                      {
+                                        name: "startIndex",
+                                        plasmicStateName:
+                                          "pagination.startIndex"
+                                      },
+                                      {
+                                        name: "endIndex",
+                                        plasmicStateName: "pagination.endIndex"
+                                      }
+                                    ],
+                                    [],
+                                    AntdPagination_Helpers ?? {},
+                                    child$Props
+                                  );
+
+                                  return (
+                                    <AntdPagination
+                                      data-plasmic-name={"pagination"}
+                                      data-plasmic-override={
+                                        overrides.pagination
+                                      }
+                                      {...child$Props}
+                                    />
+                                  );
+                                })()}
+                              </Stack__>
+                            </TabContent>
+                            <TabContent
+                              className={classNames(
+                                "__wab_instance",
+                                sty.tabContent__q7Akf
+                              )}
+                              tabKey={"tab2"}
+                            >
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  sty.freeBox___0Vd6E
+                                )}
+                              >
+                                <Select
+                                  data-plasmic-name={"select"}
+                                  data-plasmic-override={overrides.select}
+                                  className={classNames(
+                                    "__wab_instance",
+                                    sty.select
+                                  )}
+                                  color={"softGray"}
+                                  onChange={(...eventArgs) => {
+                                    generateStateOnChangeProp($state, [
+                                      "select",
+                                      "value"
+                                    ])(eventArgs[0]);
+                                  }}
+                                  options={(() => {
+                                    try {
+                                      return $state.clubs;
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return [];
+                                      }
+                                      throw e;
+                                    }
+                                  })()}
+                                  placeholder={
+                                    <div
+                                      className={classNames(
+                                        projectcss.all,
+                                        projectcss.__wab_text,
+                                        sty.text__psNy
+                                      )}
+                                    >
+                                      {"Club"}
+                                    </div>
+                                  }
+                                  value={generateStateValueProp($state, [
+                                    "select",
+                                    "value"
+                                  ])}
+                                />
+                              </div>
+                            </TabContent>
+                          </div>
+                        </div>
+                      )}
+                    </DataCtxReader__>
+                  </TabsContainer>
                   {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
                     (() => {
                       try {
-                        return $queries.playerPag.data.response;
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return [];
-                        }
-                        throw e;
-                      }
-                    })()
-                  ).map((__plasmic_item_0, __plasmic_idx_0) => {
-                    const currentItem = __plasmic_item_0;
-                    const currentIndex = __plasmic_idx_0;
-                    return (
-                      <PlayerPicker
-                        data-plasmic-name={"playerPicker"}
-                        data-plasmic-override={overrides.playerPicker}
-                        buttonVisibility={(() => {
-                          try {
-                            return $queries.teamPlayer.data.response.find(
-                              x => x.player_id === currentItem.id
-                            );
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return undefined;
-                            }
-                            throw e;
-                          }
-                        })()}
-                        className={classNames(
-                          "__wab_instance",
-                          sty.playerPicker
-                        )}
-                        clubName={(() => {
-                          try {
-                            return $queries.clubsnameid.data.response.find(
-                              x => x.value === currentItem.club_id
-                            ).label;
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return undefined;
-                            }
-                            throw e;
-                          }
-                        })()}
-                        key={currentIndex}
-                        name={(() => {
-                          try {
-                            return currentItem.name;
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return undefined;
-                            }
-                            throw e;
-                          }
-                        })()}
-                        onclickMinus={async event => {
-                          const $steps = {};
-
-                          $steps["sellPlayer"] = true
-                            ? (() => {
-                                const actionArgs = {
-                                  dataOp: {
-                                    sourceId: "vQtRPuFArSfh43vUmgx2PS",
-                                    opId: "ac8e6943-2d31-4adc-a80e-8b319c6d888a",
-                                    userArgs: {
-                                      params: [
-                                        $queries.query.data.response[0].id,
-                                        currentItem.id
-                                      ]
-                                    },
-                                    cacheKey: null,
-                                    invalidatedKeys: ["plasmic_refresh_all"],
-                                    roleId:
-                                      "f8970d3a-c1ae-4ba8-80dd-90e548ee70d6"
-                                  }
-                                };
-                                return (async ({ dataOp, continueOnError }) => {
-                                  try {
-                                    const response = await executePlasmicDataOp(
-                                      dataOp,
-                                      {
-                                        userAuthToken:
-                                          dataSourcesCtx?.userAuthToken,
-                                        user: dataSourcesCtx?.user
-                                      }
-                                    );
-                                    await plasmicInvalidate(
-                                      dataOp.invalidatedKeys
-                                    );
-                                    return response;
-                                  } catch (e) {
-                                    if (!continueOnError) {
-                                      throw e;
-                                    }
-                                    return e;
-                                  }
-                                })?.apply(null, [actionArgs]);
-                              })()
-                            : undefined;
-                          if (
-                            $steps["sellPlayer"] != null &&
-                            typeof $steps["sellPlayer"] === "object" &&
-                            typeof $steps["sellPlayer"].then === "function"
-                          ) {
-                            $steps["sellPlayer"] = await $steps["sellPlayer"];
-                          }
-                        }}
-                        onclickPlus={async event => {
-                          const $steps = {};
-
-                          $steps["updatePlayerFast"] = true
-                            ? (() => {
-                                const actionArgs = {
-                                  dataOp: {
-                                    sourceId: "vQtRPuFArSfh43vUmgx2PS",
-                                    opId: "4a933963-1e52-4384-90b9-aa0c8ed99eb7",
-                                    userArgs: {
-                                      body: [
-                                        currentItem.id,
-                                        currentItem.position,
-                                        $queries.query.data.response[0].id
-                                      ]
-                                    },
-                                    cacheKey: null,
-                                    invalidatedKeys: ["plasmic_refresh_all"],
-                                    roleId:
-                                      "f8970d3a-c1ae-4ba8-80dd-90e548ee70d6"
-                                  }
-                                };
-                                return (async ({ dataOp, continueOnError }) => {
-                                  try {
-                                    const response = await executePlasmicDataOp(
-                                      dataOp,
-                                      {
-                                        userAuthToken:
-                                          dataSourcesCtx?.userAuthToken,
-                                        user: dataSourcesCtx?.user
-                                      }
-                                    );
-                                    await plasmicInvalidate(
-                                      dataOp.invalidatedKeys
-                                    );
-                                    return response;
-                                  } catch (e) {
-                                    if (!continueOnError) {
-                                      throw e;
-                                    }
-                                    return e;
-                                  }
-                                })?.apply(null, [actionArgs]);
-                              })()
-                            : undefined;
-                          if (
-                            $steps["updatePlayerFast"] != null &&
-                            typeof $steps["updatePlayerFast"] === "object" &&
-                            typeof $steps["updatePlayerFast"].then ===
-                              "function"
-                          ) {
-                            $steps["updatePlayerFast"] = await $steps[
-                              "updatePlayerFast"
-                            ];
-                          }
-
-                          $steps["updatePlayer"] = false
-                            ? (() => {
-                                const actionArgs = {
-                                  dataOp: {
-                                    sourceId: "vQtRPuFArSfh43vUmgx2PS",
-                                    opId: "4a933963-1e52-4384-90b9-aa0c8ed99eb7",
-                                    userArgs: {
-                                      body: [
-                                        currentItem.id,
-                                        currentItem.position,
-                                        $queries.query.data.response[0].id
-                                      ]
-                                    },
-                                    cacheKey: null,
-                                    invalidatedKeys: null,
-                                    roleId:
-                                      "f8970d3a-c1ae-4ba8-80dd-90e548ee70d6"
-                                  }
-                                };
-                                return (async ({ dataOp, continueOnError }) => {
-                                  try {
-                                    const response = await executePlasmicDataOp(
-                                      dataOp,
-                                      {
-                                        userAuthToken:
-                                          dataSourcesCtx?.userAuthToken,
-                                        user: dataSourcesCtx?.user
-                                      }
-                                    );
-                                    await plasmicInvalidate(
-                                      dataOp.invalidatedKeys
-                                    );
-                                    return response;
-                                  } catch (e) {
-                                    if (!continueOnError) {
-                                      throw e;
-                                    }
-                                    return e;
-                                  }
-                                })?.apply(null, [actionArgs]);
-                              })()
-                            : undefined;
-                          if (
-                            $steps["updatePlayer"] != null &&
-                            typeof $steps["updatePlayer"] === "object" &&
-                            typeof $steps["updatePlayer"].then === "function"
-                          ) {
-                            $steps["updatePlayer"] = await $steps[
-                              "updatePlayer"
-                            ];
-                          }
-                        }}
-                        point={(() => {
-                          try {
-                            return currentItem.ochko;
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return 88;
-                            }
-                            throw e;
-                          }
-                        })()}
-                        position={(() => {
-                          try {
-                            return currentItem.position;
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return undefined;
-                            }
-                            throw e;
-                          }
-                        })()}
-                        price={(() => {
-                          try {
-                            return currentItem.price;
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return 9;
-                            }
-                            throw e;
-                          }
-                        })()}
-                      />
-                    );
-                  })}
-                  {(() => {
-                    const child$Props = {
-                      className: classNames("__wab_instance", sty.pagination),
-                      current: generateStateValueProp($state, [
-                        "pagination",
-                        "currentPage"
-                      ]),
-                      defaultCurrent: 1,
-                      defaultPageSize: 8,
-                      disabled: false,
-                      hideOnSinglePage: false,
-                      onChange: async (...eventArgs: any) => {
-                        generateStateOnChangePropForCodeComponents(
-                          $state,
-                          "currentPage",
-                          ["pagination", "currentPage"],
-                          AntdPagination_Helpers
-                        ).apply(null, eventArgs);
-                        generateStateOnChangePropForCodeComponents(
-                          $state,
-                          "startIndex",
-                          ["pagination", "startIndex"],
-                          AntdPagination_Helpers
-                        ).apply(null, eventArgs);
-                        generateStateOnChangePropForCodeComponents(
-                          $state,
-                          "endIndex",
-                          ["pagination", "endIndex"],
-                          AntdPagination_Helpers
-                        ).apply(null, eventArgs);
-                      },
-                      onShowSizeChange:
-                        generateStateOnChangePropForCodeComponents(
-                          $state,
-                          "pageSize",
-                          ["pagination", "pageSize"],
-                          AntdPagination_Helpers
-                        ),
-                      pageSize: generateStateValueProp($state, [
-                        "pagination",
-                        "pageSize"
-                      ]),
-                      pageSizeOptions: [
-                        { pageSize: 10 },
-                        { pageSize: 20 },
-                        { pageSize: 50 },
-                        { pageSize: 100 }
-                      ],
-                      showLessItems: false,
-                      showQuickJumper: false,
-                      showSizeChanger: false,
-                      simple: false,
-                      size: "default",
-                      total: (() => {
-                        try {
-                          return $queries.playerList.data.response.length;
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return 24;
-                          }
-                          throw e;
-                        }
-                      })()
-                    };
-                    initializeCodeComponentStates(
-                      $state,
-                      [
-                        {
-                          name: "currentPage",
-                          plasmicStateName: "pagination.currentPage"
-                        },
-                        {
-                          name: "pageSize",
-                          plasmicStateName: "pagination.pageSize"
-                        },
-                        {
-                          name: "startIndex",
-                          plasmicStateName: "pagination.startIndex"
-                        },
-                        {
-                          name: "endIndex",
-                          plasmicStateName: "pagination.endIndex"
-                        }
-                      ],
-                      [],
-                      AntdPagination_Helpers ?? {},
-                      child$Props
-                    );
-
-                    return (
-                      <AntdPagination
-                        data-plasmic-name={"pagination"}
-                        data-plasmic-override={overrides.pagination}
-                        {...child$Props}
-                      />
-                    );
-                  })()}
-                  {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
-                    (() => {
-                      try {
-                        return $queries.playerPag.data.response;
+                        return $queries.tabAll.data.response;
                       } catch (e) {
                         if (
                           e instanceof TypeError ||
@@ -1771,12 +1954,13 @@ const PlasmicDescendants = {
     "str",
     "avatarPlayer4",
     "soccerPlaceMens2",
-    "filter",
-    "select",
-    "textInput",
     "playerList",
+    "textInput",
+    "tabsContainer",
+    "tabUnderline",
     "playerPicker",
     "pagination",
+    "select",
     "playerPickerRow"
   ],
   navbar: ["navbar"],
@@ -1794,12 +1978,13 @@ const PlasmicDescendants = {
     "str",
     "avatarPlayer4",
     "soccerPlaceMens2",
-    "filter",
-    "select",
-    "textInput",
     "playerList",
+    "textInput",
+    "tabsContainer",
+    "tabUnderline",
     "playerPicker",
     "pagination",
+    "select",
     "playerPickerRow"
   ],
   stadion: [
@@ -1825,12 +2010,28 @@ const PlasmicDescendants = {
   str: ["str", "avatarPlayer4"],
   avatarPlayer4: ["avatarPlayer4"],
   soccerPlaceMens2: ["soccerPlaceMens2"],
-  filter: ["filter", "select", "textInput"],
-  select: ["select"],
+  playerList: [
+    "playerList",
+    "textInput",
+    "tabsContainer",
+    "tabUnderline",
+    "playerPicker",
+    "pagination",
+    "select",
+    "playerPickerRow"
+  ],
   textInput: ["textInput"],
-  playerList: ["playerList", "playerPicker", "pagination", "playerPickerRow"],
+  tabsContainer: [
+    "tabsContainer",
+    "tabUnderline",
+    "playerPicker",
+    "pagination",
+    "select"
+  ],
+  tabUnderline: ["tabUnderline"],
   playerPicker: ["playerPicker"],
   pagination: ["pagination"],
+  select: ["select"],
   playerPickerRow: ["playerPickerRow"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
@@ -1852,12 +2053,13 @@ type NodeDefaultElementType = {
   str: "div";
   avatarPlayer4: typeof AvatarPlayer;
   soccerPlaceMens2: typeof SoccerPlaceMens2;
-  filter: "div";
-  select: typeof Select;
-  textInput: typeof TextInput;
   playerList: "div";
+  textInput: typeof TextInput;
+  tabsContainer: typeof TabsContainer;
+  tabUnderline: typeof TabUnderline;
   playerPicker: typeof PlayerPicker;
   pagination: typeof AntdPagination;
+  select: typeof Select;
   playerPickerRow: typeof PlayerPickerRow;
 };
 
@@ -1952,12 +2154,13 @@ export const PlasmicEditTeam = Object.assign(
     str: makeNodeComponent("str"),
     avatarPlayer4: makeNodeComponent("avatarPlayer4"),
     soccerPlaceMens2: makeNodeComponent("soccerPlaceMens2"),
-    filter: makeNodeComponent("filter"),
-    select: makeNodeComponent("select"),
-    textInput: makeNodeComponent("textInput"),
     playerList: makeNodeComponent("playerList"),
+    textInput: makeNodeComponent("textInput"),
+    tabsContainer: makeNodeComponent("tabsContainer"),
+    tabUnderline: makeNodeComponent("tabUnderline"),
     playerPicker: makeNodeComponent("playerPicker"),
     pagination: makeNodeComponent("pagination"),
+    select: makeNodeComponent("select"),
     playerPickerRow: makeNodeComponent("playerPickerRow"),
 
     // Metadata about props expected for PlasmicEditTeam
