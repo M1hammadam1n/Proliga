@@ -82,6 +82,7 @@ import { AntdPagination } from "@plasmicpkgs/antd5/skinny/registerPagination";
 import { paginationHelpers as AntdPagination_Helpers } from "@plasmicpkgs/antd5/skinny/registerPagination";
 import { AntdSelect } from "@plasmicpkgs/antd5/skinny/registerSelect";
 import Select from "../../Select"; // plasmic-import: bCMc_ebYmgPo/component
+import { AntdInputNumber } from "@plasmicpkgs/antd5/skinny/registerInput";
 import PlayerPickerRow from "../../PlayerPickerRow"; // plasmic-import: NaQtMjgilBY9/component
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 
@@ -141,8 +142,8 @@ export type PlasmicEditTeam__OverridesType = {
   select2?: Flex__<typeof Select>;
   pagpostab?: Flex__<typeof AntdPagination>;
   tabPriceContent?: Flex__<typeof TabContent>;
-  startPrice?: Flex__<typeof TextInput>;
-  endPrice?: Flex__<typeof TextInput>;
+  startPrice?: Flex__<typeof AntdInputNumber>;
+  endPrice?: Flex__<typeof AntdInputNumber>;
   price?: Flex__<"div">;
   pagpricetab?: Flex__<typeof AntdPagination>;
   all2?: Flex__<"div">;
@@ -375,18 +376,6 @@ function PlasmicEditTeam__RenderFunc(props: {
         onMutate: generateOnMutateForSpec("endIndex", AntdPagination_Helpers)
       },
       {
-        path: "startPrice.value",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => "0"
-      },
-      {
-        path: "endPrice.value",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => "100"
-      },
-      {
         path: "pagination2.currentPage",
         type: "private",
         variableType: "number",
@@ -423,6 +412,18 @@ function PlasmicEditTeam__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => 1
+      },
+      {
+        path: "startPrice.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => 0
+      },
+      {
+        path: "endPrice.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => 100
       }
     ],
     [$props, $ctx, $refs]
@@ -2933,61 +2934,46 @@ function PlasmicEditTeam__RenderFunc(props: {
                                       "\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0446\u0435\u043d\u0443"
                                     }
                                   </div>
-                                  <TextInput
+                                  <AntdInputNumber
                                     data-plasmic-name={"startPrice"}
                                     data-plasmic-override={overrides.startPrice}
                                     className={classNames(
                                       "__wab_instance",
                                       sty.startPrice
                                     )}
-                                    onChange={(...eventArgs) => {
-                                      generateStateOnChangeProp($state, [
-                                        "startPrice",
-                                        "value"
-                                      ])(
-                                        (e => e.target?.value).apply(
-                                          null,
-                                          eventArgs
-                                        )
-                                      );
-                                    }}
+                                    max={1000}
+                                    min={0}
+                                    onChange={generateStateOnChangeProp(
+                                      $state,
+                                      ["startPrice", "value"]
+                                    )}
                                     placeholder={"\u041e\u0442"}
-                                    required={false}
                                     type={"number"}
-                                    value={
-                                      generateStateValueProp($state, [
-                                        "startPrice",
-                                        "value"
-                                      ]) ?? ""
-                                    }
+                                    value={generateStateValueProp($state, [
+                                      "startPrice",
+                                      "value"
+                                    ])}
                                   />
 
-                                  <TextInput
+                                  <AntdInputNumber
                                     data-plasmic-name={"endPrice"}
                                     data-plasmic-override={overrides.endPrice}
                                     className={classNames(
                                       "__wab_instance",
                                       sty.endPrice
                                     )}
-                                    onChange={(...eventArgs) => {
-                                      generateStateOnChangeProp($state, [
-                                        "endPrice",
-                                        "value"
-                                      ])(
-                                        (e => e.target?.value).apply(
-                                          null,
-                                          eventArgs
-                                        )
-                                      );
-                                    }}
+                                    max={1000}
+                                    min={0}
+                                    onChange={generateStateOnChangeProp(
+                                      $state,
+                                      ["endPrice", "value"]
+                                    )}
                                     placeholder={"\u0414\u043e"}
                                     type={"number"}
-                                    value={
-                                      generateStateValueProp($state, [
-                                        "endPrice",
-                                        "value"
-                                      ]) ?? ""
-                                    }
+                                    value={generateStateValueProp($state, [
+                                      "endPrice",
+                                      "value"
+                                    ])}
                                   />
                                 </Stack__>
                                 {(() => {
@@ -4390,8 +4376,8 @@ type NodeDefaultElementType = {
   select2: typeof Select;
   pagpostab: typeof AntdPagination;
   tabPriceContent: typeof TabContent;
-  startPrice: typeof TextInput;
-  endPrice: typeof TextInput;
+  startPrice: typeof AntdInputNumber;
+  endPrice: typeof AntdInputNumber;
   price: "div";
   pagpricetab: typeof AntdPagination;
   all2: "div";
