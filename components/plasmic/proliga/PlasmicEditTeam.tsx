@@ -438,44 +438,6 @@ function PlasmicEditTeam__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => "asc"
-      },
-      {
-        path: "asc",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
-          (() => {
-            try {
-              return "asc";
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return undefined;
-              }
-              throw e;
-            }
-          })()
-      },
-      {
-        path: "desc",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
-          (() => {
-            try {
-              return "desc";
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return undefined;
-              }
-              throw e;
-            }
-          })()
       }
     ],
     [$props, $ctx, $refs]
@@ -1446,29 +1408,6 @@ function PlasmicEditTeam__RenderFunc(props: {
                     }
                   />
 
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__rWxM
-                    )}
-                  >
-                    <React.Fragment>
-                      {(() => {
-                        try {
-                          return $state.orderType;
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return "";
-                          }
-                          throw e;
-                        }
-                      })()}
-                    </React.Fragment>
-                  </div>
                   <TabsContainer
                     data-plasmic-name={"tabsContainer"}
                     data-plasmic-override={overrides.tabsContainer}
@@ -1664,94 +1603,6 @@ function PlasmicEditTeam__RenderFunc(props: {
                                         "orderName"
                                       ];
                                     }
-
-                                    $steps["updateOrderType"] =
-                                      $state.orderType === "desc"
-                                        ? (() => {
-                                            const actionArgs = {
-                                              variable: {
-                                                objRoot: $state,
-                                                variablePath: ["orderType"]
-                                              },
-                                              operation: 0,
-                                              value: $state.asc
-                                            };
-                                            return (({
-                                              variable,
-                                              value,
-                                              startIndex,
-                                              deleteCount
-                                            }) => {
-                                              if (!variable) {
-                                                return;
-                                              }
-                                              const { objRoot, variablePath } =
-                                                variable;
-
-                                              $stateSet(
-                                                objRoot,
-                                                variablePath,
-                                                value
-                                              );
-                                              return value;
-                                            })?.apply(null, [actionArgs]);
-                                          })()
-                                        : undefined;
-                                    if (
-                                      $steps["updateOrderType"] != null &&
-                                      typeof $steps["updateOrderType"] ===
-                                        "object" &&
-                                      typeof $steps["updateOrderType"].then ===
-                                        "function"
-                                    ) {
-                                      $steps["updateOrderType"] = await $steps[
-                                        "updateOrderType"
-                                      ];
-                                    }
-
-                                    $steps["updateOrderType2"] =
-                                      $state.orderType === $state.asc
-                                        ? (() => {
-                                            const actionArgs = {
-                                              variable: {
-                                                objRoot: $state,
-                                                variablePath: ["orderType"]
-                                              },
-                                              operation: 0,
-                                              value: $state.desc
-                                            };
-                                            return (({
-                                              variable,
-                                              value,
-                                              startIndex,
-                                              deleteCount
-                                            }) => {
-                                              if (!variable) {
-                                                return;
-                                              }
-                                              const { objRoot, variablePath } =
-                                                variable;
-
-                                              $stateSet(
-                                                objRoot,
-                                                variablePath,
-                                                value
-                                              );
-                                              return value;
-                                            })?.apply(null, [actionArgs]);
-                                          })()
-                                        : undefined;
-                                    if (
-                                      $steps["updateOrderType2"] != null &&
-                                      typeof $steps["updateOrderType2"] ===
-                                        "object" &&
-                                      typeof $steps["updateOrderType2"].then ===
-                                        "function"
-                                    ) {
-                                      $steps["updateOrderType2"] = await $steps[
-                                        "updateOrderType2"
-                                      ];
-                                    }
                                   }}
                                   onclickAllPoint={async event => {
                                     const $steps = {};
@@ -1842,49 +1693,6 @@ function PlasmicEditTeam__RenderFunc(props: {
                                     ) {
                                       $steps["updatePoint"] = await $steps[
                                         "updatePoint"
-                                      ];
-                                    }
-
-                                    $steps["updateOrderType"] = true
-                                      ? (() => {
-                                          const actionArgs = {
-                                            variable: {
-                                              objRoot: $state,
-                                              variablePath: ["orderType"]
-                                            },
-                                            operation: 0,
-                                            value: "desc"
-                                          };
-                                          return (({
-                                            variable,
-                                            value,
-                                            startIndex,
-                                            deleteCount
-                                          }) => {
-                                            if (!variable) {
-                                              return;
-                                            }
-                                            const { objRoot, variablePath } =
-                                              variable;
-
-                                            $stateSet(
-                                              objRoot,
-                                              variablePath,
-                                              value
-                                            );
-                                            return value;
-                                          })?.apply(null, [actionArgs]);
-                                        })()
-                                      : undefined;
-                                    if (
-                                      $steps["updateOrderType"] != null &&
-                                      typeof $steps["updateOrderType"] ===
-                                        "object" &&
-                                      typeof $steps["updateOrderType"].then ===
-                                        "function"
-                                    ) {
-                                      $steps["updateOrderType"] = await $steps[
-                                        "updateOrderType"
                                       ];
                                     }
                                   }}
@@ -2399,6 +2207,98 @@ function PlasmicEditTeam__RenderFunc(props: {
                                     "__wab_instance",
                                     sty.orderBy__n3Wf
                                   )}
+                                  onclickAllPoint={async event => {
+                                    const $steps = {};
+
+                                    $steps["updateOrderName"] = true
+                                      ? (() => {
+                                          const actionArgs = {
+                                            variable: {
+                                              objRoot: $state,
+                                              variablePath: ["orderName"]
+                                            },
+                                            operation: 0,
+                                            value: "ochko"
+                                          };
+                                          return (({
+                                            variable,
+                                            value,
+                                            startIndex,
+                                            deleteCount
+                                          }) => {
+                                            if (!variable) {
+                                              return;
+                                            }
+                                            const { objRoot, variablePath } =
+                                              variable;
+
+                                            $stateSet(
+                                              objRoot,
+                                              variablePath,
+                                              value
+                                            );
+                                            return value;
+                                          })?.apply(null, [actionArgs]);
+                                        })()
+                                      : undefined;
+                                    if (
+                                      $steps["updateOrderName"] != null &&
+                                      typeof $steps["updateOrderName"] ===
+                                        "object" &&
+                                      typeof $steps["updateOrderName"].then ===
+                                        "function"
+                                    ) {
+                                      $steps["updateOrderName"] = await $steps[
+                                        "updateOrderName"
+                                      ];
+                                    }
+                                  }}
+                                  onclickPrice={async event => {
+                                    const $steps = {};
+
+                                    $steps["updateOrderName"] = true
+                                      ? (() => {
+                                          const actionArgs = {
+                                            variable: {
+                                              objRoot: $state,
+                                              variablePath: ["orderName"]
+                                            },
+                                            operation: 0,
+                                            value: "price"
+                                          };
+                                          return (({
+                                            variable,
+                                            value,
+                                            startIndex,
+                                            deleteCount
+                                          }) => {
+                                            if (!variable) {
+                                              return;
+                                            }
+                                            const { objRoot, variablePath } =
+                                              variable;
+
+                                            $stateSet(
+                                              objRoot,
+                                              variablePath,
+                                              value
+                                            );
+                                            return value;
+                                          })?.apply(null, [actionArgs]);
+                                        })()
+                                      : undefined;
+                                    if (
+                                      $steps["updateOrderName"] != null &&
+                                      typeof $steps["updateOrderName"] ===
+                                        "object" &&
+                                      typeof $steps["updateOrderName"].then ===
+                                        "function"
+                                    ) {
+                                      $steps["updateOrderName"] = await $steps[
+                                        "updateOrderName"
+                                      ];
+                                    }
+                                  }}
                                 />
 
                                 {(_par =>
@@ -2902,6 +2802,98 @@ function PlasmicEditTeam__RenderFunc(props: {
                                     "__wab_instance",
                                     sty.orderBy__h0Adb
                                   )}
+                                  onclickAllPoint={async event => {
+                                    const $steps = {};
+
+                                    $steps["updateOrderName"] = true
+                                      ? (() => {
+                                          const actionArgs = {
+                                            variable: {
+                                              objRoot: $state,
+                                              variablePath: ["orderName"]
+                                            },
+                                            operation: 0,
+                                            value: "ochko"
+                                          };
+                                          return (({
+                                            variable,
+                                            value,
+                                            startIndex,
+                                            deleteCount
+                                          }) => {
+                                            if (!variable) {
+                                              return;
+                                            }
+                                            const { objRoot, variablePath } =
+                                              variable;
+
+                                            $stateSet(
+                                              objRoot,
+                                              variablePath,
+                                              value
+                                            );
+                                            return value;
+                                          })?.apply(null, [actionArgs]);
+                                        })()
+                                      : undefined;
+                                    if (
+                                      $steps["updateOrderName"] != null &&
+                                      typeof $steps["updateOrderName"] ===
+                                        "object" &&
+                                      typeof $steps["updateOrderName"].then ===
+                                        "function"
+                                    ) {
+                                      $steps["updateOrderName"] = await $steps[
+                                        "updateOrderName"
+                                      ];
+                                    }
+                                  }}
+                                  onclickPrice={async event => {
+                                    const $steps = {};
+
+                                    $steps["updateOrderName"] = true
+                                      ? (() => {
+                                          const actionArgs = {
+                                            variable: {
+                                              objRoot: $state,
+                                              variablePath: ["orderName"]
+                                            },
+                                            operation: 0,
+                                            value: "price"
+                                          };
+                                          return (({
+                                            variable,
+                                            value,
+                                            startIndex,
+                                            deleteCount
+                                          }) => {
+                                            if (!variable) {
+                                              return;
+                                            }
+                                            const { objRoot, variablePath } =
+                                              variable;
+
+                                            $stateSet(
+                                              objRoot,
+                                              variablePath,
+                                              value
+                                            );
+                                            return value;
+                                          })?.apply(null, [actionArgs]);
+                                        })()
+                                      : undefined;
+                                    if (
+                                      $steps["updateOrderName"] != null &&
+                                      typeof $steps["updateOrderName"] ===
+                                        "object" &&
+                                      typeof $steps["updateOrderName"].then ===
+                                        "function"
+                                    ) {
+                                      $steps["updateOrderName"] = await $steps[
+                                        "updateOrderName"
+                                      ];
+                                    }
+                                  }}
                                 />
 
                                 {(_par =>
@@ -3433,6 +3425,100 @@ function PlasmicEditTeam__RenderFunc(props: {
                                         "__wab_instance",
                                         sty.orderBy___9Somt
                                       )}
+                                      onclickAllPoint={async event => {
+                                        const $steps = {};
+
+                                        $steps["updateOrderName"] = true
+                                          ? (() => {
+                                              const actionArgs = {
+                                                variable: {
+                                                  objRoot: $state,
+                                                  variablePath: ["orderName"]
+                                                },
+                                                operation: 0,
+                                                value: "ochko"
+                                              };
+                                              return (({
+                                                variable,
+                                                value,
+                                                startIndex,
+                                                deleteCount
+                                              }) => {
+                                                if (!variable) {
+                                                  return;
+                                                }
+                                                const {
+                                                  objRoot,
+                                                  variablePath
+                                                } = variable;
+
+                                                $stateSet(
+                                                  objRoot,
+                                                  variablePath,
+                                                  value
+                                                );
+                                                return value;
+                                              })?.apply(null, [actionArgs]);
+                                            })()
+                                          : undefined;
+                                        if (
+                                          $steps["updateOrderName"] != null &&
+                                          typeof $steps["updateOrderName"] ===
+                                            "object" &&
+                                          typeof $steps["updateOrderName"]
+                                            .then === "function"
+                                        ) {
+                                          $steps["updateOrderName"] =
+                                            await $steps["updateOrderName"];
+                                        }
+                                      }}
+                                      onclickPrice={async event => {
+                                        const $steps = {};
+
+                                        $steps["updateOrderName"] = true
+                                          ? (() => {
+                                              const actionArgs = {
+                                                variable: {
+                                                  objRoot: $state,
+                                                  variablePath: ["orderName"]
+                                                },
+                                                operation: 0,
+                                                value: "price"
+                                              };
+                                              return (({
+                                                variable,
+                                                value,
+                                                startIndex,
+                                                deleteCount
+                                              }) => {
+                                                if (!variable) {
+                                                  return;
+                                                }
+                                                const {
+                                                  objRoot,
+                                                  variablePath
+                                                } = variable;
+
+                                                $stateSet(
+                                                  objRoot,
+                                                  variablePath,
+                                                  value
+                                                );
+                                                return value;
+                                              })?.apply(null, [actionArgs]);
+                                            })()
+                                          : undefined;
+                                        if (
+                                          $steps["updateOrderName"] != null &&
+                                          typeof $steps["updateOrderName"] ===
+                                            "object" &&
+                                          typeof $steps["updateOrderName"]
+                                            .then === "function"
+                                        ) {
+                                          $steps["updateOrderName"] =
+                                            await $steps["updateOrderName"];
+                                        }
+                                      }}
                                     />
 
                                     {(_par =>
