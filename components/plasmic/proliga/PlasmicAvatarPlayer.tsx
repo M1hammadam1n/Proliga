@@ -78,13 +78,15 @@ export type PlasmicAvatarPlayer__ArgsType = {
   capitanVisibility?: boolean;
   image?: React.ComponentProps<typeof PlasmicImg__>["src"];
   onclickX?: (event: any) => void;
+  updateCapitan?: (event: any) => void;
 };
 type ArgPropType = keyof PlasmicAvatarPlayer__ArgsType;
 export const PlasmicAvatarPlayer__ArgProps = new Array<ArgPropType>(
   "name",
   "capitanVisibility",
   "image",
-  "onclickX"
+  "onclickX",
+  "updateCapitan"
 );
 
 export type PlasmicAvatarPlayer__OverridesType = {
@@ -97,6 +99,7 @@ export interface DefaultAvatarPlayerProps {
   capitanVisibility?: boolean;
   image?: React.ComponentProps<typeof PlasmicImg__>["src"];
   onclickX?: (event: any) => void;
+  updateCapitan?: (event: any) => void;
   className?: string;
 }
 
@@ -219,7 +222,10 @@ function PlasmicAvatarPlayer__RenderFunc(props: {
           }}
         />
       ) : null}
-      <div className={classNames(projectcss.all, sty.freeBox__hmmVi)}>
+      <div
+        className={classNames(projectcss.all, sty.freeBox__hmmVi)}
+        onClick={args.updateCapitan}
+      >
         {(() => {
           try {
             return $props.image === undefined;

@@ -438,6 +438,31 @@ function PlasmicEditTeam__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => "asc"
+      },
+      {
+        path: "playerId",
+        type: "private",
+        variableType: "number",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $queries.teamPlayer.data.response[0].id;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return 0;
+              }
+              throw e;
+            }
+          })()
+      },
+      {
+        path: "updateCapitanVisibility",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       }
     ],
     [$props, $ctx, $refs]
@@ -809,6 +834,129 @@ function PlasmicEditTeam__RenderFunc(props: {
                         })()}
                       </React.Fragment>
                     </div>
+                    {(() => {
+                      try {
+                        return $state.updateCapitanVisibility != true;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return true;
+                        }
+                        throw e;
+                      }
+                    })() ? (
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__xmoF4
+                        )}
+                        onClick={async event => {
+                          const $steps = {};
+
+                          $steps["clearCapitan"] = true
+                            ? (() => {
+                                const actionArgs = {
+                                  dataOp: {
+                                    sourceId: "vQtRPuFArSfh43vUmgx2PS",
+                                    opId: "da78de66-c9a6-4610-b2dd-5cbdcfc68a2b",
+                                    userArgs: {
+                                      params: [
+                                        $queries.query.data.response[0].id
+                                      ]
+                                    },
+                                    cacheKey: null,
+                                    invalidatedKeys: ["plasmic_refresh_all"],
+                                    roleId: null
+                                  }
+                                };
+                                return (async ({ dataOp, continueOnError }) => {
+                                  try {
+                                    const response = await executePlasmicDataOp(
+                                      dataOp,
+                                      {
+                                        userAuthToken:
+                                          dataSourcesCtx?.userAuthToken,
+                                        user: dataSourcesCtx?.user
+                                      }
+                                    );
+                                    await plasmicInvalidate(
+                                      dataOp.invalidatedKeys
+                                    );
+                                    return response;
+                                  } catch (e) {
+                                    if (!continueOnError) {
+                                      throw e;
+                                    }
+                                    return e;
+                                  }
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                          if (
+                            $steps["clearCapitan"] != null &&
+                            typeof $steps["clearCapitan"] === "object" &&
+                            typeof $steps["clearCapitan"].then === "function"
+                          ) {
+                            $steps["clearCapitan"] = await $steps[
+                              "clearCapitan"
+                            ];
+                          }
+
+                          $steps["httpPatch"] = true
+                            ? (() => {
+                                const actionArgs = {
+                                  dataOp: {
+                                    sourceId: "vQtRPuFArSfh43vUmgx2PS",
+                                    opId: "a66f9bf4-9933-41f8-974b-1f6b6fd937c7",
+                                    userArgs: {
+                                      params: [
+                                        $state.playerId,
+                                        $queries.query.data.response[0].id
+                                      ]
+                                    },
+                                    cacheKey: null,
+                                    invalidatedKeys: ["plasmic_refresh_all"],
+                                    roleId: null
+                                  }
+                                };
+                                return (async ({ dataOp, continueOnError }) => {
+                                  try {
+                                    const response = await executePlasmicDataOp(
+                                      dataOp,
+                                      {
+                                        userAuthToken:
+                                          dataSourcesCtx?.userAuthToken,
+                                        user: dataSourcesCtx?.user
+                                      }
+                                    );
+                                    await plasmicInvalidate(
+                                      dataOp.invalidatedKeys
+                                    );
+                                    return response;
+                                  } catch (e) {
+                                    if (!continueOnError) {
+                                      throw e;
+                                    }
+                                    return e;
+                                  }
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                          if (
+                            $steps["httpPatch"] != null &&
+                            typeof $steps["httpPatch"] === "object" &&
+                            typeof $steps["httpPatch"].then === "function"
+                          ) {
+                            $steps["httpPatch"] = await $steps["httpPatch"];
+                          }
+                        }}
+                      >
+                        {"\u041a\u0430\u043f\u0438\u0442\u0430\u043d"}
+                      </div>
+                    ) : null}
                   </Stack__>
                   <div
                     data-plasmic-name={"goa"}
@@ -846,6 +994,19 @@ function PlasmicEditTeam__RenderFunc(props: {
                           <AvatarPlayer
                             data-plasmic-name={"avatarPlayer"}
                             data-plasmic-override={overrides.avatarPlayer}
+                            capitanVisibility={(() => {
+                              try {
+                                return currentItem.is_captain === true;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return false;
+                                }
+                                throw e;
+                              }
+                            })()}
                             className={classNames(
                               "__wab_instance",
                               sty.avatarPlayer
@@ -935,6 +1096,89 @@ function PlasmicEditTeam__RenderFunc(props: {
                                 $steps["httpPatch"] = await $steps["httpPatch"];
                               }
                             }}
+                            updateCapitan={async event => {
+                              const $steps = {};
+
+                              $steps["updatePlayerId"] = true
+                                ? (() => {
+                                    const actionArgs = {
+                                      variable: {
+                                        objRoot: $state,
+                                        variablePath: ["playerId"]
+                                      },
+                                      operation: 0,
+                                      value: currentItem.id
+                                    };
+                                    return (({
+                                      variable,
+                                      value,
+                                      startIndex,
+                                      deleteCount
+                                    }) => {
+                                      if (!variable) {
+                                        return;
+                                      }
+                                      const { objRoot, variablePath } =
+                                        variable;
+
+                                      $stateSet(objRoot, variablePath, value);
+                                      return value;
+                                    })?.apply(null, [actionArgs]);
+                                  })()
+                                : undefined;
+                              if (
+                                $steps["updatePlayerId"] != null &&
+                                typeof $steps["updatePlayerId"] === "object" &&
+                                typeof $steps["updatePlayerId"].then ===
+                                  "function"
+                              ) {
+                                $steps["updatePlayerId"] = await $steps[
+                                  "updatePlayerId"
+                                ];
+                              }
+
+                              $steps["updateUpdateCapitanVisibility"] = true
+                                ? (() => {
+                                    const actionArgs = {
+                                      variable: {
+                                        objRoot: $state,
+                                        variablePath: [
+                                          "updateCapitanVisibility"
+                                        ]
+                                      },
+                                      operation: 0,
+                                      value: currentItem.is_captain
+                                    };
+                                    return (({
+                                      variable,
+                                      value,
+                                      startIndex,
+                                      deleteCount
+                                    }) => {
+                                      if (!variable) {
+                                        return;
+                                      }
+                                      const { objRoot, variablePath } =
+                                        variable;
+
+                                      $stateSet(objRoot, variablePath, value);
+                                      return value;
+                                    })?.apply(null, [actionArgs]);
+                                  })()
+                                : undefined;
+                              if (
+                                $steps["updateUpdateCapitanVisibility"] !=
+                                  null &&
+                                typeof $steps[
+                                  "updateUpdateCapitanVisibility"
+                                ] === "object" &&
+                                typeof $steps["updateUpdateCapitanVisibility"]
+                                  .then === "function"
+                              ) {
+                                $steps["updateUpdateCapitanVisibility"] =
+                                  await $steps["updateUpdateCapitanVisibility"];
+                              }
+                            }}
                           />
                         </div>
                       );
@@ -978,6 +1222,19 @@ function PlasmicEditTeam__RenderFunc(props: {
                           <AvatarPlayer
                             data-plasmic-name={"avatarPlayer2"}
                             data-plasmic-override={overrides.avatarPlayer2}
+                            capitanVisibility={(() => {
+                              try {
+                                return currentItem.is_captain === true;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return false;
+                                }
+                                throw e;
+                              }
+                            })()}
                             className={classNames(
                               "__wab_instance",
                               sty.avatarPlayer2
@@ -1067,6 +1324,89 @@ function PlasmicEditTeam__RenderFunc(props: {
                                 $steps["httpPatch"] = await $steps["httpPatch"];
                               }
                             }}
+                            updateCapitan={async event => {
+                              const $steps = {};
+
+                              $steps["updatePlayerId"] = true
+                                ? (() => {
+                                    const actionArgs = {
+                                      variable: {
+                                        objRoot: $state,
+                                        variablePath: ["playerId"]
+                                      },
+                                      operation: 0,
+                                      value: currentItem.id
+                                    };
+                                    return (({
+                                      variable,
+                                      value,
+                                      startIndex,
+                                      deleteCount
+                                    }) => {
+                                      if (!variable) {
+                                        return;
+                                      }
+                                      const { objRoot, variablePath } =
+                                        variable;
+
+                                      $stateSet(objRoot, variablePath, value);
+                                      return value;
+                                    })?.apply(null, [actionArgs]);
+                                  })()
+                                : undefined;
+                              if (
+                                $steps["updatePlayerId"] != null &&
+                                typeof $steps["updatePlayerId"] === "object" &&
+                                typeof $steps["updatePlayerId"].then ===
+                                  "function"
+                              ) {
+                                $steps["updatePlayerId"] = await $steps[
+                                  "updatePlayerId"
+                                ];
+                              }
+
+                              $steps["updateUpdateCapitanVisibility"] = true
+                                ? (() => {
+                                    const actionArgs = {
+                                      variable: {
+                                        objRoot: $state,
+                                        variablePath: [
+                                          "updateCapitanVisibility"
+                                        ]
+                                      },
+                                      operation: 0,
+                                      value: currentItem.is_captain
+                                    };
+                                    return (({
+                                      variable,
+                                      value,
+                                      startIndex,
+                                      deleteCount
+                                    }) => {
+                                      if (!variable) {
+                                        return;
+                                      }
+                                      const { objRoot, variablePath } =
+                                        variable;
+
+                                      $stateSet(objRoot, variablePath, value);
+                                      return value;
+                                    })?.apply(null, [actionArgs]);
+                                  })()
+                                : undefined;
+                              if (
+                                $steps["updateUpdateCapitanVisibility"] !=
+                                  null &&
+                                typeof $steps[
+                                  "updateUpdateCapitanVisibility"
+                                ] === "object" &&
+                                typeof $steps["updateUpdateCapitanVisibility"]
+                                  .then === "function"
+                              ) {
+                                $steps["updateUpdateCapitanVisibility"] =
+                                  await $steps["updateUpdateCapitanVisibility"];
+                              }
+                            }}
                           />
                         </div>
                       );
@@ -1110,6 +1450,19 @@ function PlasmicEditTeam__RenderFunc(props: {
                           <AvatarPlayer
                             data-plasmic-name={"avatarPlayer3"}
                             data-plasmic-override={overrides.avatarPlayer3}
+                            capitanVisibility={(() => {
+                              try {
+                                return currentItem.is_captain === true;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return false;
+                                }
+                                throw e;
+                              }
+                            })()}
                             className={classNames(
                               "__wab_instance",
                               sty.avatarPlayer3
@@ -1199,6 +1552,89 @@ function PlasmicEditTeam__RenderFunc(props: {
                                 $steps["httpPatch"] = await $steps["httpPatch"];
                               }
                             }}
+                            updateCapitan={async event => {
+                              const $steps = {};
+
+                              $steps["updatePlayerId"] = true
+                                ? (() => {
+                                    const actionArgs = {
+                                      variable: {
+                                        objRoot: $state,
+                                        variablePath: ["playerId"]
+                                      },
+                                      operation: 0,
+                                      value: currentItem.id
+                                    };
+                                    return (({
+                                      variable,
+                                      value,
+                                      startIndex,
+                                      deleteCount
+                                    }) => {
+                                      if (!variable) {
+                                        return;
+                                      }
+                                      const { objRoot, variablePath } =
+                                        variable;
+
+                                      $stateSet(objRoot, variablePath, value);
+                                      return value;
+                                    })?.apply(null, [actionArgs]);
+                                  })()
+                                : undefined;
+                              if (
+                                $steps["updatePlayerId"] != null &&
+                                typeof $steps["updatePlayerId"] === "object" &&
+                                typeof $steps["updatePlayerId"].then ===
+                                  "function"
+                              ) {
+                                $steps["updatePlayerId"] = await $steps[
+                                  "updatePlayerId"
+                                ];
+                              }
+
+                              $steps["updateUpdateCapitanVisibility"] = true
+                                ? (() => {
+                                    const actionArgs = {
+                                      variable: {
+                                        objRoot: $state,
+                                        variablePath: [
+                                          "updateCapitanVisibility"
+                                        ]
+                                      },
+                                      operation: 0,
+                                      value: currentItem.is_captain
+                                    };
+                                    return (({
+                                      variable,
+                                      value,
+                                      startIndex,
+                                      deleteCount
+                                    }) => {
+                                      if (!variable) {
+                                        return;
+                                      }
+                                      const { objRoot, variablePath } =
+                                        variable;
+
+                                      $stateSet(objRoot, variablePath, value);
+                                      return value;
+                                    })?.apply(null, [actionArgs]);
+                                  })()
+                                : undefined;
+                              if (
+                                $steps["updateUpdateCapitanVisibility"] !=
+                                  null &&
+                                typeof $steps[
+                                  "updateUpdateCapitanVisibility"
+                                ] === "object" &&
+                                typeof $steps["updateUpdateCapitanVisibility"]
+                                  .then === "function"
+                              ) {
+                                $steps["updateUpdateCapitanVisibility"] =
+                                  await $steps["updateUpdateCapitanVisibility"];
+                              }
+                            }}
                           />
                         </div>
                       );
@@ -1242,7 +1678,19 @@ function PlasmicEditTeam__RenderFunc(props: {
                           <AvatarPlayer
                             data-plasmic-name={"avatarPlayer4"}
                             data-plasmic-override={overrides.avatarPlayer4}
-                            capitanVisibility={false}
+                            capitanVisibility={(() => {
+                              try {
+                                return currentItem.is_captain === true;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return false;
+                                }
+                                throw e;
+                              }
+                            })()}
                             className={classNames(
                               "__wab_instance",
                               sty.avatarPlayer4
@@ -1330,6 +1778,89 @@ function PlasmicEditTeam__RenderFunc(props: {
                                 typeof $steps["httpPatch"].then === "function"
                               ) {
                                 $steps["httpPatch"] = await $steps["httpPatch"];
+                              }
+                            }}
+                            updateCapitan={async event => {
+                              const $steps = {};
+
+                              $steps["updatePlayerId"] = true
+                                ? (() => {
+                                    const actionArgs = {
+                                      variable: {
+                                        objRoot: $state,
+                                        variablePath: ["playerId"]
+                                      },
+                                      operation: 0,
+                                      value: currentItem.id
+                                    };
+                                    return (({
+                                      variable,
+                                      value,
+                                      startIndex,
+                                      deleteCount
+                                    }) => {
+                                      if (!variable) {
+                                        return;
+                                      }
+                                      const { objRoot, variablePath } =
+                                        variable;
+
+                                      $stateSet(objRoot, variablePath, value);
+                                      return value;
+                                    })?.apply(null, [actionArgs]);
+                                  })()
+                                : undefined;
+                              if (
+                                $steps["updatePlayerId"] != null &&
+                                typeof $steps["updatePlayerId"] === "object" &&
+                                typeof $steps["updatePlayerId"].then ===
+                                  "function"
+                              ) {
+                                $steps["updatePlayerId"] = await $steps[
+                                  "updatePlayerId"
+                                ];
+                              }
+
+                              $steps["updateUpdateCapitanVisibility"] = true
+                                ? (() => {
+                                    const actionArgs = {
+                                      variable: {
+                                        objRoot: $state,
+                                        variablePath: [
+                                          "updateCapitanVisibility"
+                                        ]
+                                      },
+                                      operation: 0,
+                                      value: currentItem.is_captain
+                                    };
+                                    return (({
+                                      variable,
+                                      value,
+                                      startIndex,
+                                      deleteCount
+                                    }) => {
+                                      if (!variable) {
+                                        return;
+                                      }
+                                      const { objRoot, variablePath } =
+                                        variable;
+
+                                      $stateSet(objRoot, variablePath, value);
+                                      return value;
+                                    })?.apply(null, [actionArgs]);
+                                  })()
+                                : undefined;
+                              if (
+                                $steps["updateUpdateCapitanVisibility"] !=
+                                  null &&
+                                typeof $steps[
+                                  "updateUpdateCapitanVisibility"
+                                ] === "object" &&
+                                typeof $steps["updateUpdateCapitanVisibility"]
+                                  .then === "function"
+                              ) {
+                                $steps["updateUpdateCapitanVisibility"] =
+                                  await $steps["updateUpdateCapitanVisibility"];
                               }
                             }}
                           />

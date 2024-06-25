@@ -164,6 +164,14 @@
   font-size: 25px;
   font-family: "Judson", serif;
 }
+.text__xmoF4 {
+  position: relative;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  color: var(--token-jgohepLVeKvh);
+  cursor: pointer;
+}
 .goa {
   display: flex;
   position: absolute;
