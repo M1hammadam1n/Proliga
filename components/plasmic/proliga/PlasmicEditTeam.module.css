@@ -435,6 +435,14 @@
   width: auto;
   height: 1em;
 }
+.text__rWxM {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  color: var(--token-jgohepLVeKvh);
+  min-width: 0;
+}
 .tabsContainer:global(.__wab_instance) {
   width: 100%;
   max-width: 100%;

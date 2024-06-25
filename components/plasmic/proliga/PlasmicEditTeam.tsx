@@ -431,13 +431,51 @@ function PlasmicEditTeam__RenderFunc(props: {
         path: "orderName",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => "name"
+        initFunc: ({ $props, $state, $queries, $ctx }) => "price"
       },
       {
         path: "orderType",
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => "asc"
+      },
+      {
+        path: "asc",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return "asc";
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()
+      },
+      {
+        path: "desc",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return "desc";
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()
       }
     ],
     [$props, $ctx, $refs]
@@ -558,17 +596,19 @@ function PlasmicEditTeam__RenderFunc(props: {
     tabsClub: usePlasmicDataOp(() => {
       return {
         sourceId: "vQtRPuFArSfh43vUmgx2PS",
-        opId: "fd9a2a03-4512-4021-8099-f6e73955edaa",
+        opId: "741b3e19-7a55-440e-a958-d94afc481e53",
         userArgs: {
           path: [
             $state.selectClub.value,
             $state.pagclubtab.pageSize,
             $state.pagclubtab.startIndex,
-            $state.textInput.value
+            $state.textInput.value,
+            $state.orderName,
+            $state.orderType
           ],
           params: [$queries.query.data.response[0].competition_id]
         },
-        cacheKey: `plasmic.$.fd9a2a03-4512-4021-8099-f6e73955edaa.$.`,
+        cacheKey: `plasmic.$.741b3e19-7a55-440e-a958-d94afc481e53.$.`,
         invalidatedKeys: null,
         roleId: "f8970d3a-c1ae-4ba8-80dd-90e548ee70d6"
       };
@@ -576,17 +616,19 @@ function PlasmicEditTeam__RenderFunc(props: {
     tabsPos: usePlasmicDataOp(() => {
       return {
         sourceId: "vQtRPuFArSfh43vUmgx2PS",
-        opId: "b2a3ebb6-5177-426c-a8bd-52ca7083100e",
+        opId: "a5638d63-8e32-4c72-be38-bf4f3f421a1a",
         userArgs: {
           path: [
             $state.select2.value,
             $state.pagpostab.pageSize,
             $state.pagpostab.startIndex,
-            $state.textInput.value
+            $state.textInput.value,
+            $state.orderName,
+            $state.orderType
           ],
           params: [$queries.query.data.response[0].competition_id]
         },
-        cacheKey: `plasmic.$.b2a3ebb6-5177-426c-a8bd-52ca7083100e.$.`,
+        cacheKey: `plasmic.$.a5638d63-8e32-4c72-be38-bf4f3f421a1a.$.`,
         invalidatedKeys: null,
         roleId: null
       };
@@ -594,18 +636,20 @@ function PlasmicEditTeam__RenderFunc(props: {
     tabPrice: usePlasmicDataOp(() => {
       return {
         sourceId: "vQtRPuFArSfh43vUmgx2PS",
-        opId: "bc4586e3-b656-41fb-b6d6-b30799fc542e",
+        opId: "87479bca-1fe4-4dce-a0b8-47d2d66114a5",
         userArgs: {
           path: [
             $state.startPrice.value,
             $state.endPrice.value,
             $state.pagpricetab.pageSize,
             $state.pagpricetab.startIndex,
-            $state.textInput.value
+            $state.textInput.value,
+            $state.orderName,
+            $state.orderType
           ],
           params: [$queries.query.data.response[0].competition_id]
         },
-        cacheKey: `plasmic.$.bc4586e3-b656-41fb-b6d6-b30799fc542e.$.`,
+        cacheKey: `plasmic.$.87479bca-1fe4-4dce-a0b8-47d2d66114a5.$.`,
         invalidatedKeys: null,
         roleId: "f8970d3a-c1ae-4ba8-80dd-90e548ee70d6"
       };
@@ -1402,6 +1446,29 @@ function PlasmicEditTeam__RenderFunc(props: {
                     }
                   />
 
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__rWxM
+                    )}
+                  >
+                    <React.Fragment>
+                      {(() => {
+                        try {
+                          return $state.orderType;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return "";
+                          }
+                          throw e;
+                        }
+                      })()}
+                    </React.Fragment>
+                  </div>
                   <TabsContainer
                     data-plasmic-name={"tabsContainer"}
                     data-plasmic-override={overrides.tabsContainer}
@@ -1597,6 +1664,94 @@ function PlasmicEditTeam__RenderFunc(props: {
                                         "orderName"
                                       ];
                                     }
+
+                                    $steps["updateOrderType"] =
+                                      $state.orderType === "desc"
+                                        ? (() => {
+                                            const actionArgs = {
+                                              variable: {
+                                                objRoot: $state,
+                                                variablePath: ["orderType"]
+                                              },
+                                              operation: 0,
+                                              value: $state.asc
+                                            };
+                                            return (({
+                                              variable,
+                                              value,
+                                              startIndex,
+                                              deleteCount
+                                            }) => {
+                                              if (!variable) {
+                                                return;
+                                              }
+                                              const { objRoot, variablePath } =
+                                                variable;
+
+                                              $stateSet(
+                                                objRoot,
+                                                variablePath,
+                                                value
+                                              );
+                                              return value;
+                                            })?.apply(null, [actionArgs]);
+                                          })()
+                                        : undefined;
+                                    if (
+                                      $steps["updateOrderType"] != null &&
+                                      typeof $steps["updateOrderType"] ===
+                                        "object" &&
+                                      typeof $steps["updateOrderType"].then ===
+                                        "function"
+                                    ) {
+                                      $steps["updateOrderType"] = await $steps[
+                                        "updateOrderType"
+                                      ];
+                                    }
+
+                                    $steps["updateOrderType2"] =
+                                      $state.orderType === $state.asc
+                                        ? (() => {
+                                            const actionArgs = {
+                                              variable: {
+                                                objRoot: $state,
+                                                variablePath: ["orderType"]
+                                              },
+                                              operation: 0,
+                                              value: $state.desc
+                                            };
+                                            return (({
+                                              variable,
+                                              value,
+                                              startIndex,
+                                              deleteCount
+                                            }) => {
+                                              if (!variable) {
+                                                return;
+                                              }
+                                              const { objRoot, variablePath } =
+                                                variable;
+
+                                              $stateSet(
+                                                objRoot,
+                                                variablePath,
+                                                value
+                                              );
+                                              return value;
+                                            })?.apply(null, [actionArgs]);
+                                          })()
+                                        : undefined;
+                                    if (
+                                      $steps["updateOrderType2"] != null &&
+                                      typeof $steps["updateOrderType2"] ===
+                                        "object" &&
+                                      typeof $steps["updateOrderType2"].then ===
+                                        "function"
+                                    ) {
+                                      $steps["updateOrderType2"] = await $steps[
+                                        "updateOrderType2"
+                                      ];
+                                    }
                                   }}
                                   onclickAllPoint={async event => {
                                     const $steps = {};
@@ -1689,88 +1844,48 @@ function PlasmicEditTeam__RenderFunc(props: {
                                         "updatePoint"
                                       ];
                                     }
-                                  }}
-                                  upDown={async val => {
-                                    const $steps = {};
 
-                                    $steps["asc"] =
-                                      $state.orderType === "asc"
-                                        ? (() => {
-                                            const actionArgs = {
-                                              variable: {
-                                                objRoot: $state,
-                                                variablePath: ["orderType"]
-                                              },
-                                              operation: 0,
-                                              value: "desc"
-                                            };
-                                            return (({
-                                              variable,
-                                              value,
-                                              startIndex,
-                                              deleteCount
-                                            }) => {
-                                              if (!variable) {
-                                                return;
-                                              }
-                                              const { objRoot, variablePath } =
-                                                variable;
+                                    $steps["updateOrderType"] = true
+                                      ? (() => {
+                                          const actionArgs = {
+                                            variable: {
+                                              objRoot: $state,
+                                              variablePath: ["orderType"]
+                                            },
+                                            operation: 0,
+                                            value: "desc"
+                                          };
+                                          return (({
+                                            variable,
+                                            value,
+                                            startIndex,
+                                            deleteCount
+                                          }) => {
+                                            if (!variable) {
+                                              return;
+                                            }
+                                            const { objRoot, variablePath } =
+                                              variable;
 
-                                              $stateSet(
-                                                objRoot,
-                                                variablePath,
-                                                value
-                                              );
-                                              return value;
-                                            })?.apply(null, [actionArgs]);
-                                          })()
-                                        : undefined;
+                                            $stateSet(
+                                              objRoot,
+                                              variablePath,
+                                              value
+                                            );
+                                            return value;
+                                          })?.apply(null, [actionArgs]);
+                                        })()
+                                      : undefined;
                                     if (
-                                      $steps["asc"] != null &&
-                                      typeof $steps["asc"] === "object" &&
-                                      typeof $steps["asc"].then === "function"
+                                      $steps["updateOrderType"] != null &&
+                                      typeof $steps["updateOrderType"] ===
+                                        "object" &&
+                                      typeof $steps["updateOrderType"].then ===
+                                        "function"
                                     ) {
-                                      $steps["asc"] = await $steps["asc"];
-                                    }
-
-                                    $steps["desc"] =
-                                      $state.orderType === "desc"
-                                        ? (() => {
-                                            const actionArgs = {
-                                              variable: {
-                                                objRoot: $state,
-                                                variablePath: ["orderType"]
-                                              },
-                                              operation: 0,
-                                              value: "asc"
-                                            };
-                                            return (({
-                                              variable,
-                                              value,
-                                              startIndex,
-                                              deleteCount
-                                            }) => {
-                                              if (!variable) {
-                                                return;
-                                              }
-                                              const { objRoot, variablePath } =
-                                                variable;
-
-                                              $stateSet(
-                                                objRoot,
-                                                variablePath,
-                                                value
-                                              );
-                                              return value;
-                                            })?.apply(null, [actionArgs]);
-                                          })()
-                                        : undefined;
-                                    if (
-                                      $steps["desc"] != null &&
-                                      typeof $steps["desc"] === "object" &&
-                                      typeof $steps["desc"].then === "function"
-                                    ) {
-                                      $steps["desc"] = await $steps["desc"];
+                                      $steps["updateOrderType"] = await $steps[
+                                        "updateOrderType"
+                                      ];
                                     }
                                   }}
                                 />
