@@ -203,7 +203,7 @@ function PlasmicEditTeam__RenderFunc(props: {
         path: "pagination.pageSize",
         type: "private",
         variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) => 10,
+        initFunc: ({ $props, $state, $queries, $ctx }) => 6,
 
         onMutate: generateOnMutateForSpec("pageSize", AntdPagination_Helpers)
       },
@@ -285,7 +285,7 @@ function PlasmicEditTeam__RenderFunc(props: {
         path: "pagclubtab.pageSize",
         type: "private",
         variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) => 8,
+        initFunc: ({ $props, $state, $queries, $ctx }) => 6,
 
         onMutate: generateOnMutateForSpec("pageSize", AntdPagination_Helpers)
       },
@@ -323,7 +323,7 @@ function PlasmicEditTeam__RenderFunc(props: {
         path: "pagpostab.pageSize",
         type: "private",
         variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) => 8,
+        initFunc: ({ $props, $state, $queries, $ctx }) => 6,
 
         onMutate: generateOnMutateForSpec("pageSize", AntdPagination_Helpers)
       },
@@ -355,7 +355,7 @@ function PlasmicEditTeam__RenderFunc(props: {
         path: "pagpricetab.pageSize",
         type: "private",
         variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) => 8,
+        initFunc: ({ $props, $state, $queries, $ctx }) => 6,
 
         onMutate: generateOnMutateForSpec("pageSize", AntdPagination_Helpers)
       },
@@ -576,6 +576,51 @@ function PlasmicEditTeam__RenderFunc(props: {
       };
     }),
     tabPrice: usePlasmicDataOp(() => {
+      return {
+        sourceId: "vQtRPuFArSfh43vUmgx2PS",
+        opId: "bc4586e3-b656-41fb-b6d6-b30799fc542e",
+        userArgs: {
+          path: [
+            $state.startPrice.value,
+            $state.endPrice.value,
+            $state.pagpricetab.pageSize,
+            $state.pagpricetab.startIndex,
+            $state.textInput.value
+          ],
+          params: [$queries.query.data.response[0].competition_id]
+        },
+        cacheKey: `plasmic.$.bc4586e3-b656-41fb-b6d6-b30799fc542e.$.`,
+        invalidatedKeys: null,
+        roleId: "f8970d3a-c1ae-4ba8-80dd-90e548ee70d6"
+      };
+    }),
+    tabsClubAll: usePlasmicDataOp(() => {
+      return {
+        sourceId: "vQtRPuFArSfh43vUmgx2PS",
+        opId: "2299ed94-2127-49a3-b6d0-c732134efee4",
+        userArgs: {
+          path: [$state.selectClub.value, $state.textInput.value],
+          params: [$queries.query.data.response[0].competition_id]
+        },
+        cacheKey: `plasmic.$.2299ed94-2127-49a3-b6d0-c732134efee4.$.`,
+        invalidatedKeys: null,
+        roleId: "f8970d3a-c1ae-4ba8-80dd-90e548ee70d6"
+      };
+    }),
+    tabsPosAll: usePlasmicDataOp(() => {
+      return {
+        sourceId: "vQtRPuFArSfh43vUmgx2PS",
+        opId: "41f6a3a7-ec61-4a73-87ff-fd2ae4001bda",
+        userArgs: {
+          path: [$state.select2.value, $state.textInput.value],
+          params: [$queries.query.data.response[0].competition_id]
+        },
+        cacheKey: `plasmic.$.41f6a3a7-ec61-4a73-87ff-fd2ae4001bda.$.`,
+        invalidatedKeys: null,
+        roleId: "f8970d3a-c1ae-4ba8-80dd-90e548ee70d6"
+      };
+    }),
+    tabsPriceAll: usePlasmicDataOp(() => {
       return {
         sourceId: "vQtRPuFArSfh43vUmgx2PS",
         opId: "bc4586e3-b656-41fb-b6d6-b30799fc542e",
@@ -1799,7 +1844,7 @@ function PlasmicEditTeam__RenderFunc(props: {
                                       "currentPage"
                                     ]),
                                     defaultCurrent: 1,
-                                    defaultPageSize: 10,
+                                    defaultPageSize: 6,
                                     disabled: false,
                                     hideOnSinglePage: false,
                                     onChange: async (...eventArgs: any) => {
@@ -2303,7 +2348,7 @@ function PlasmicEditTeam__RenderFunc(props: {
                                       "currentPage"
                                     ]),
                                     defaultCurrent: 1,
-                                    defaultPageSize: 8,
+                                    defaultPageSize: 6,
                                     disabled: false,
                                     hideOnSinglePage: false,
                                     onChange: async (...eventArgs: any) => {
@@ -2350,8 +2395,8 @@ function PlasmicEditTeam__RenderFunc(props: {
                                     size: "default",
                                     total: (() => {
                                       try {
-                                        return $queries.playerList.data.response
-                                          .length;
+                                        return $queries.tabsClubAll.data
+                                          .response.length;
                                       } catch (e) {
                                         if (
                                           e instanceof TypeError ||
@@ -2799,7 +2844,7 @@ function PlasmicEditTeam__RenderFunc(props: {
                                       "currentPage"
                                     ]),
                                     defaultCurrent: 1,
-                                    defaultPageSize: 8,
+                                    defaultPageSize: 6,
                                     disabled: false,
                                     hideOnSinglePage: false,
                                     onChange: async (...eventArgs: any) => {
@@ -2846,7 +2891,7 @@ function PlasmicEditTeam__RenderFunc(props: {
                                     size: "default",
                                     total: (() => {
                                       try {
-                                        return $queries.playerList.data.response
+                                        return $queries.tabsPosAll.data.response
                                           .length;
                                       } catch (e) {
                                         if (
@@ -3341,7 +3386,7 @@ function PlasmicEditTeam__RenderFunc(props: {
                                           ["pagpricetab", "currentPage"]
                                         ),
                                         defaultCurrent: 1,
-                                        defaultPageSize: 8,
+                                        defaultPageSize: 6,
                                         disabled: false,
                                         hideOnSinglePage: false,
                                         onChange: async (...eventArgs: any) => {
@@ -3388,7 +3433,7 @@ function PlasmicEditTeam__RenderFunc(props: {
                                         size: "default",
                                         total: (() => {
                                           try {
-                                            return $queries.playerList.data
+                                            return $queries.tabsPriceAll.data
                                               .response.length;
                                           } catch (e) {
                                             if (

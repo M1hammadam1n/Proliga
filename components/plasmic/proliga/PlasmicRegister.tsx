@@ -59,9 +59,10 @@ import {
   useGlobalActions
 } from "@plasmicapp/react-web/lib/host";
 
-import { AntdAvatar } from "@plasmicpkgs/antd5/skinny/registerAvatar";
 import TextInput from "../../TextInput"; // plasmic-import: xwgFLXqL07mD/component
 import Button from "../../Button"; // plasmic-import: H0AldfR-bP7i/component
+
+import { useScreenVariants as useScreenVariants_8Rmrqs5Mzp6I } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 8Rmrqs5Mzp6I/globalVariant
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -87,7 +88,6 @@ export const PlasmicRegister__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicRegister__OverridesType = {
   root?: Flex__<"div">;
-  avatar?: Flex__<typeof AntdAvatar>;
   columns?: Flex__<"div">;
   login?: Flex__<"div">;
   emailInput?: Flex__<typeof TextInput>;
@@ -155,6 +155,10 @@ function PlasmicRegister__RenderFunc(props: {
     $refs
   });
 
+  const globalVariants = ensureGlobalVariants({
+    screen: useScreenVariants_8Rmrqs5Mzp6I()
+  });
+
   return (
     <div
       data-plasmic-name={"root"}
@@ -172,108 +176,6 @@ function PlasmicRegister__RenderFunc(props: {
         sty.root
       )}
     >
-      <div className={classNames(projectcss.all, sty.freeBox__v8B3)}>
-        <AntdAvatar
-          data-plasmic-name={"avatar"}
-          data-plasmic-override={overrides.avatar}
-          className={classNames("__wab_instance", sty.avatar)}
-          letters={"Akk"}
-          src={
-            "https://cdn.pixabay.com/photo/2018/08/28/12/41/avatar-3637425_960_720.png"
-          }
-        />
-
-        <Stack__
-          as={"div"}
-          hasGap={true}
-          className={classNames(projectcss.all, sty.freeBox__e4BK)}
-        >
-          <PlasmicLink__
-            className={classNames(
-              projectcss.all,
-              projectcss.a,
-              projectcss.__wab_text,
-              sty.link__ywis1
-            )}
-            component={Link}
-            href={"https://www.plasmic.app/"}
-            onClick={async event => {
-              const $steps = {};
-
-              $steps["goToChampionships"] = true
-                ? (() => {
-                    const actionArgs = { destination: `/competition` };
-                    return (({ destination }) => {
-                      if (
-                        typeof destination === "string" &&
-                        destination.startsWith("#")
-                      ) {
-                        document
-                          .getElementById(destination.substr(1))
-                          .scrollIntoView({ behavior: "smooth" });
-                      } else {
-                        __nextRouter?.push(destination);
-                      }
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
-              if (
-                $steps["goToChampionships"] != null &&
-                typeof $steps["goToChampionships"] === "object" &&
-                typeof $steps["goToChampionships"].then === "function"
-              ) {
-                $steps["goToChampionships"] = await $steps["goToChampionships"];
-              }
-            }}
-            platform={"nextjs"}
-          >
-            {"CHAMPIONAT"}
-          </PlasmicLink__>
-          <PlasmicLink__
-            className={classNames(
-              projectcss.all,
-              projectcss.a,
-              projectcss.__wab_text,
-              sty.link__m8Z2T
-            )}
-            component={Link}
-            href={"https://www.plasmic.app/"}
-            platform={"nextjs"}
-          >
-            {"O'YIN SOVG'ASI"}
-          </PlasmicLink__>
-          <PlasmicLink__
-            className={classNames(
-              projectcss.all,
-              projectcss.a,
-              projectcss.__wab_text,
-              sty.link__rye8J
-            )}
-            component={Link}
-            href={"https://www.plasmic.app/"}
-            platform={"nextjs"}
-          >
-            {"QOIDALAR"}
-          </PlasmicLink__>
-        </Stack__>
-        <PlasmicImg__
-          alt={""}
-          className={classNames(sty.img__gjNak)}
-          displayHeight={"auto"}
-          displayMaxHeight={"none"}
-          displayMaxWidth={"100%"}
-          displayMinHeight={"0"}
-          displayMinWidth={"0"}
-          displayWidth={"30px"}
-          loading={"lazy"}
-          src={{
-            src: "/plasmic/proliga/images/group33Png.png",
-            fullWidth: 582,
-            fullHeight: 766,
-            aspectRatio: undefined
-          }}
-        />
-      </div>
       <Stack__
         as={"div"}
         hasGap={true}
@@ -326,7 +228,9 @@ function PlasmicRegister__RenderFunc(props: {
                 sty.text__tEQa
               )}
             >
-              {"LOGIN"}
+              {hasVariant(globalVariants, "screen", "dessktop")
+                ? "EMAIL"
+                : "EMAIL"}
             </div>
             <TextInput
               data-plasmic-name={"emailInput"}
@@ -423,7 +327,9 @@ function PlasmicRegister__RenderFunc(props: {
                   sty.text__bz1MA
                 )}
               >
-                {"already have an account?"}
+                {hasVariant(globalVariants, "screen", "dessktop")
+                  ? "Already have an account?"
+                  : "Already have an account?"}
               </div>
               <div
                 className={classNames(
@@ -543,7 +449,6 @@ function PlasmicRegister__RenderFunc(props: {
 const PlasmicDescendants = {
   root: [
     "root",
-    "avatar",
     "columns",
     "login",
     "emailInput",
@@ -551,7 +456,6 @@ const PlasmicDescendants = {
     "submitButton",
     "nadpis"
   ],
-  avatar: ["avatar"],
   columns: [
     "columns",
     "login",
@@ -571,7 +475,6 @@ type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
-  avatar: typeof AntdAvatar;
   columns: "div";
   login: "div";
   emailInput: typeof TextInput;
@@ -640,7 +543,6 @@ export const PlasmicRegister = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
-    avatar: makeNodeComponent("avatar"),
     columns: makeNodeComponent("columns"),
     login: makeNodeComponent("login"),
     emailInput: makeNodeComponent("emailInput"),

@@ -96,7 +96,6 @@ export const PlasmicCreateTeam__ArgProps = new Array<ArgPropType>();
 export type PlasmicCreateTeam__OverridesType = {
   root?: Flex__<"div">;
   navbar?: Flex__<typeof Navbar>;
-  columns?: Flex__<"div">;
   img?: Flex__<typeof PlasmicImg__>;
   h1?: Flex__<"h1">;
   freeBox?: Flex__<"div">;
@@ -256,11 +255,7 @@ function PlasmicCreateTeam__RenderFunc(props: {
             className={classNames("__wab_instance", sty.navbar)}
           />
 
-          <div
-            data-plasmic-name={"columns"}
-            data-plasmic-override={overrides.columns}
-            className={classNames(projectcss.all, sty.columns)}
-          >
+          <div className={classNames(projectcss.all, sty.columns__kxSq4)}>
             <div className={classNames(projectcss.all, sty.column__m7OAd)}>
               <PlasmicImg__
                 data-plasmic-name={"img"}
@@ -322,6 +317,15 @@ function PlasmicCreateTeam__RenderFunc(props: {
                   })()}
                 </React.Fragment>
               </h1>
+              <div className={classNames(projectcss.all, sty.columns__zQuEv)}>
+                <div
+                  className={classNames(projectcss.all, sty.column___3SoRq)}
+                />
+
+                <div
+                  className={classNames(projectcss.all, sty.column__fy0BX)}
+                />
+              </div>
               <Stack__
                 as={"div"}
                 data-plasmic-name={"freeBox"}
@@ -468,18 +472,8 @@ function PlasmicCreateTeam__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: [
-    "root",
-    "navbar",
-    "columns",
-    "img",
-    "h1",
-    "freeBox",
-    "textInput",
-    "button"
-  ],
+  root: ["root", "navbar", "img", "h1", "freeBox", "textInput", "button"],
   navbar: ["navbar"],
-  columns: ["columns", "img", "h1", "freeBox", "textInput", "button"],
   img: ["img"],
   h1: ["h1"],
   freeBox: ["freeBox", "textInput", "button"],
@@ -492,7 +486,6 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   navbar: typeof Navbar;
-  columns: "div";
   img: typeof PlasmicImg__;
   h1: "h1";
   freeBox: "div";
@@ -578,7 +571,6 @@ export const PlasmicCreateTeam = Object.assign(
   {
     // Helper components rendering sub-elements
     navbar: makeNodeComponent("navbar"),
-    columns: makeNodeComponent("columns"),
     img: makeNodeComponent("img"),
     h1: makeNodeComponent("h1"),
     freeBox: makeNodeComponent("freeBox"),
