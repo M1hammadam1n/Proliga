@@ -76,8 +76,8 @@ import { TabsContainer } from "@plasmicpkgs/plasmic-tabs";
 import { TabButton } from "@plasmicpkgs/plasmic-tabs";
 import Button from "../../Button"; // plasmic-import: lBHNzts6tFyj/component
 import { TabUnderline } from "@plasmicpkgs/plasmic-tabs";
-import OrderBy from "../../OrderBy"; // plasmic-import: LibeNAwKH6sF/component
 import { TabContent } from "@plasmicpkgs/plasmic-tabs";
+import OrderBy from "../../OrderBy"; // plasmic-import: LibeNAwKH6sF/component
 import PlayerPicker from "../../PlayerPicker"; // plasmic-import: FmVyQ1WB4e_T/component
 import { AntdPagination } from "@plasmicpkgs/antd5/skinny/registerPagination";
 import { paginationHelpers as AntdPagination_Helpers } from "@plasmicpkgs/antd5/skinny/registerPagination";
@@ -134,8 +134,8 @@ export type PlasmicEditTeam__OverridesType = {
   tabPosition?: Flex__<typeof TabButton>;
   tabPrice?: Flex__<typeof TabButton>;
   tabUnderline?: Flex__<typeof TabUnderline>;
-  orderBy?: Flex__<typeof OrderBy>;
   tabAllContent?: Flex__<typeof TabContent>;
+  orderByAll?: Flex__<typeof OrderBy>;
   pagination?: Flex__<typeof AntdPagination>;
   tabClubContent?: Flex__<typeof TabContent>;
   selectClub?: Flex__<typeof AntdSelect>;
@@ -426,6 +426,18 @@ function PlasmicEditTeam__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => 100
+      },
+      {
+        path: "orderName",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => "name"
+      },
+      {
+        path: "orderType",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => "asc"
       }
     ],
     [$props, $ctx, $refs]
@@ -503,16 +515,18 @@ function PlasmicEditTeam__RenderFunc(props: {
     tabAll: usePlasmicDataOp(() => {
       return {
         sourceId: "vQtRPuFArSfh43vUmgx2PS",
-        opId: "4e379dcc-549f-4268-8e5b-e2489186871a",
+        opId: "01ec26cc-899b-41da-af62-38e246ff7b6d",
         userArgs: {
           path: [
             $state.pagination.pageSize,
             $state.pagination.startIndex,
-            $state.textInput.value
+            $state.textInput.value,
+            $state.orderName,
+            $state.orderType
           ],
           params: [$queries.query.data.response[0].competition_id]
         },
-        cacheKey: `plasmic.$.4e379dcc-549f-4268-8e5b-e2489186871a.$.`,
+        cacheKey: `plasmic.$.01ec26cc-899b-41da-af62-38e246ff7b6d.$.`,
         invalidatedKeys: null,
         roleId: "f8970d3a-c1ae-4ba8-80dd-90e548ee70d6"
       };
@@ -599,12 +613,16 @@ function PlasmicEditTeam__RenderFunc(props: {
     tabsClubAll: usePlasmicDataOp(() => {
       return {
         sourceId: "vQtRPuFArSfh43vUmgx2PS",
-        opId: "2299ed94-2127-49a3-b6d0-c732134efee4",
+        opId: "7e0767c8-c783-4edb-b116-29f24f51299d",
         userArgs: {
-          path: [$state.selectClub.value, $state.textInput.value],
+          path: [
+            $state.selectClub.value,
+            $state.textInput.value,
+            $state.orderName
+          ],
           params: [$queries.query.data.response[0].competition_id]
         },
-        cacheKey: `plasmic.$.2299ed94-2127-49a3-b6d0-c732134efee4.$.`,
+        cacheKey: `plasmic.$.7e0767c8-c783-4edb-b116-29f24f51299d.$.`,
         invalidatedKeys: null,
         roleId: "f8970d3a-c1ae-4ba8-80dd-90e548ee70d6"
       };
@@ -1511,15 +1529,6 @@ function PlasmicEditTeam__RenderFunc(props: {
                               sty.freeBox__zRgVw
                             )}
                           >
-                            <OrderBy
-                              data-plasmic-name={"orderBy"}
-                              data-plasmic-override={overrides.orderBy}
-                              className={classNames(
-                                "__wab_instance",
-                                sty.orderBy
-                              )}
-                            />
-
                             <TabContent
                               data-plasmic-name={"tabAllContent"}
                               data-plasmic-override={overrides.tabAllContent}
@@ -1537,6 +1546,235 @@ function PlasmicEditTeam__RenderFunc(props: {
                                   sty.freeBox__cUkzP
                                 )}
                               >
+                                <OrderBy
+                                  data-plasmic-name={"orderByAll"}
+                                  data-plasmic-override={overrides.orderByAll}
+                                  className={classNames(
+                                    "__wab_instance",
+                                    sty.orderByAll
+                                  )}
+                                  onclickAll={async event => {
+                                    const $steps = {};
+
+                                    $steps["orderName"] = true
+                                      ? (() => {
+                                          const actionArgs = {
+                                            variable: {
+                                              objRoot: $state,
+                                              variablePath: ["orderName"]
+                                            },
+                                            operation: 0,
+                                            value: "name"
+                                          };
+                                          return (({
+                                            variable,
+                                            value,
+                                            startIndex,
+                                            deleteCount
+                                          }) => {
+                                            if (!variable) {
+                                              return;
+                                            }
+                                            const { objRoot, variablePath } =
+                                              variable;
+
+                                            $stateSet(
+                                              objRoot,
+                                              variablePath,
+                                              value
+                                            );
+                                            return value;
+                                          })?.apply(null, [actionArgs]);
+                                        })()
+                                      : undefined;
+                                    if (
+                                      $steps["orderName"] != null &&
+                                      typeof $steps["orderName"] === "object" &&
+                                      typeof $steps["orderName"].then ===
+                                        "function"
+                                    ) {
+                                      $steps["orderName"] = await $steps[
+                                        "orderName"
+                                      ];
+                                    }
+                                  }}
+                                  onclickAllPoint={async event => {
+                                    const $steps = {};
+
+                                    $steps["updatePrice"] = true
+                                      ? (() => {
+                                          const actionArgs = {
+                                            variable: {
+                                              objRoot: $state,
+                                              variablePath: ["orderName"]
+                                            },
+                                            operation: 0,
+                                            value: "ochko"
+                                          };
+                                          return (({
+                                            variable,
+                                            value,
+                                            startIndex,
+                                            deleteCount
+                                          }) => {
+                                            if (!variable) {
+                                              return;
+                                            }
+                                            const { objRoot, variablePath } =
+                                              variable;
+
+                                            $stateSet(
+                                              objRoot,
+                                              variablePath,
+                                              value
+                                            );
+                                            return value;
+                                          })?.apply(null, [actionArgs]);
+                                        })()
+                                      : undefined;
+                                    if (
+                                      $steps["updatePrice"] != null &&
+                                      typeof $steps["updatePrice"] ===
+                                        "object" &&
+                                      typeof $steps["updatePrice"].then ===
+                                        "function"
+                                    ) {
+                                      $steps["updatePrice"] = await $steps[
+                                        "updatePrice"
+                                      ];
+                                    }
+                                  }}
+                                  onclickPrice={async event => {
+                                    const $steps = {};
+
+                                    $steps["updatePoint"] = true
+                                      ? (() => {
+                                          const actionArgs = {
+                                            variable: {
+                                              objRoot: $state,
+                                              variablePath: ["orderName"]
+                                            },
+                                            operation: 0,
+                                            value: "price"
+                                          };
+                                          return (({
+                                            variable,
+                                            value,
+                                            startIndex,
+                                            deleteCount
+                                          }) => {
+                                            if (!variable) {
+                                              return;
+                                            }
+                                            const { objRoot, variablePath } =
+                                              variable;
+
+                                            $stateSet(
+                                              objRoot,
+                                              variablePath,
+                                              value
+                                            );
+                                            return value;
+                                          })?.apply(null, [actionArgs]);
+                                        })()
+                                      : undefined;
+                                    if (
+                                      $steps["updatePoint"] != null &&
+                                      typeof $steps["updatePoint"] ===
+                                        "object" &&
+                                      typeof $steps["updatePoint"].then ===
+                                        "function"
+                                    ) {
+                                      $steps["updatePoint"] = await $steps[
+                                        "updatePoint"
+                                      ];
+                                    }
+                                  }}
+                                  upDown={async val => {
+                                    const $steps = {};
+
+                                    $steps["asc"] =
+                                      $state.orderType === "asc"
+                                        ? (() => {
+                                            const actionArgs = {
+                                              variable: {
+                                                objRoot: $state,
+                                                variablePath: ["orderType"]
+                                              },
+                                              operation: 0,
+                                              value: "desc"
+                                            };
+                                            return (({
+                                              variable,
+                                              value,
+                                              startIndex,
+                                              deleteCount
+                                            }) => {
+                                              if (!variable) {
+                                                return;
+                                              }
+                                              const { objRoot, variablePath } =
+                                                variable;
+
+                                              $stateSet(
+                                                objRoot,
+                                                variablePath,
+                                                value
+                                              );
+                                              return value;
+                                            })?.apply(null, [actionArgs]);
+                                          })()
+                                        : undefined;
+                                    if (
+                                      $steps["asc"] != null &&
+                                      typeof $steps["asc"] === "object" &&
+                                      typeof $steps["asc"].then === "function"
+                                    ) {
+                                      $steps["asc"] = await $steps["asc"];
+                                    }
+
+                                    $steps["desc"] =
+                                      $state.orderType === "desc"
+                                        ? (() => {
+                                            const actionArgs = {
+                                              variable: {
+                                                objRoot: $state,
+                                                variablePath: ["orderType"]
+                                              },
+                                              operation: 0,
+                                              value: "asc"
+                                            };
+                                            return (({
+                                              variable,
+                                              value,
+                                              startIndex,
+                                              deleteCount
+                                            }) => {
+                                              if (!variable) {
+                                                return;
+                                              }
+                                              const { objRoot, variablePath } =
+                                                variable;
+
+                                              $stateSet(
+                                                objRoot,
+                                                variablePath,
+                                                value
+                                              );
+                                              return value;
+                                            })?.apply(null, [actionArgs]);
+                                          })()
+                                        : undefined;
+                                    if (
+                                      $steps["desc"] != null &&
+                                      typeof $steps["desc"] === "object" &&
+                                      typeof $steps["desc"].then === "function"
+                                    ) {
+                                      $steps["desc"] = await $steps["desc"];
+                                    }
+                                  }}
+                                />
+
                                 {(_par =>
                                   !_par
                                     ? []
@@ -2041,6 +2279,13 @@ function PlasmicEditTeam__RenderFunc(props: {
                                     ])}
                                   />
                                 </Stack__>
+                                <OrderBy
+                                  className={classNames(
+                                    "__wab_instance",
+                                    sty.orderBy__n3Wf
+                                  )}
+                                />
+
                                 {(_par =>
                                   !_par
                                     ? []
@@ -2537,6 +2782,13 @@ function PlasmicEditTeam__RenderFunc(props: {
                                     ])}
                                   />
                                 </div>
+                                <OrderBy
+                                  className={classNames(
+                                    "__wab_instance",
+                                    sty.orderBy__h0Adb
+                                  )}
+                                />
+
                                 {(_par =>
                                   !_par
                                     ? []
@@ -3061,6 +3313,13 @@ function PlasmicEditTeam__RenderFunc(props: {
                                       sty.price
                                     )}
                                   >
+                                    <OrderBy
+                                      className={classNames(
+                                        "__wab_instance",
+                                        sty.orderBy___9Somt
+                                      )}
+                                    />
+
                                     {(_par =>
                                       !_par
                                         ? []
@@ -4238,8 +4497,8 @@ const PlasmicDescendants = {
     "tabPosition",
     "tabPrice",
     "tabUnderline",
-    "orderBy",
     "tabAllContent",
+    "orderByAll",
     "pagination",
     "tabClubContent",
     "selectClub",
@@ -4279,8 +4538,8 @@ const PlasmicDescendants = {
     "tabPosition",
     "tabPrice",
     "tabUnderline",
-    "orderBy",
     "tabAllContent",
+    "orderByAll",
     "pagination",
     "tabClubContent",
     "selectClub",
@@ -4329,8 +4588,8 @@ const PlasmicDescendants = {
     "tabPosition",
     "tabPrice",
     "tabUnderline",
-    "orderBy",
     "tabAllContent",
+    "orderByAll",
     "pagination",
     "tabClubContent",
     "selectClub",
@@ -4355,8 +4614,8 @@ const PlasmicDescendants = {
     "tabPosition",
     "tabPrice",
     "tabUnderline",
-    "orderBy",
     "tabAllContent",
+    "orderByAll",
     "pagination",
     "tabClubContent",
     "selectClub",
@@ -4377,8 +4636,8 @@ const PlasmicDescendants = {
   tabPosition: ["tabPosition"],
   tabPrice: ["tabPrice"],
   tabUnderline: ["tabUnderline"],
-  orderBy: ["orderBy"],
-  tabAllContent: ["tabAllContent", "pagination"],
+  tabAllContent: ["tabAllContent", "orderByAll", "pagination"],
+  orderByAll: ["orderByAll"],
   pagination: ["pagination"],
   tabClubContent: ["tabClubContent", "selectClub", "pagclubtab"],
   selectClub: ["selectClub"],
@@ -4430,8 +4689,8 @@ type NodeDefaultElementType = {
   tabPosition: typeof TabButton;
   tabPrice: typeof TabButton;
   tabUnderline: typeof TabUnderline;
-  orderBy: typeof OrderBy;
   tabAllContent: typeof TabContent;
+  orderByAll: typeof OrderBy;
   pagination: typeof AntdPagination;
   tabClubContent: typeof TabContent;
   selectClub: typeof AntdSelect;
@@ -4548,8 +4807,8 @@ export const PlasmicEditTeam = Object.assign(
     tabPosition: makeNodeComponent("tabPosition"),
     tabPrice: makeNodeComponent("tabPrice"),
     tabUnderline: makeNodeComponent("tabUnderline"),
-    orderBy: makeNodeComponent("orderBy"),
     tabAllContent: makeNodeComponent("tabAllContent"),
+    orderByAll: makeNodeComponent("orderByAll"),
     pagination: makeNodeComponent("pagination"),
     tabClubContent: makeNodeComponent("tabClubContent"),
     selectClub: makeNodeComponent("selectClub"),

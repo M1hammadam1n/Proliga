@@ -75,20 +75,37 @@ export type PlasmicOrderBy__VariantsArgs = {};
 type VariantPropType = keyof PlasmicOrderBy__VariantsArgs;
 export const PlasmicOrderBy__VariantProps = new Array<VariantPropType>();
 
-export type PlasmicOrderBy__ArgsType = {};
+export type PlasmicOrderBy__ArgsType = {
+  onclickAll?: (event: any) => void;
+  onclickPrice?: (event: any) => void;
+  onclickAllPoint?: (event: any) => void;
+  upDown?: (val: any) => void;
+};
 type ArgPropType = keyof PlasmicOrderBy__ArgsType;
-export const PlasmicOrderBy__ArgProps = new Array<ArgPropType>();
+export const PlasmicOrderBy__ArgProps = new Array<ArgPropType>(
+  "onclickAll",
+  "onclickPrice",
+  "onclickAllPoint",
+  "upDown"
+);
 
 export type PlasmicOrderBy__OverridesType = {
   orderBy?: Flex__<"div">;
   name?: Flex__<"div">;
+  upDownOrder?: Flex__<typeof UpDownOrder>;
   позиция?: Flex__<"div">;
   клуб?: Flex__<"div">;
   очко?: Flex__<"div">;
+  upDownOrder2?: Flex__<typeof UpDownOrder>;
   цена?: Flex__<"div">;
+  upDownOrder3?: Flex__<typeof UpDownOrder>;
 };
 
 export interface DefaultOrderByProps {
+  onclickAll?: (event: any) => void;
+  onclickPrice?: (event: any) => void;
+  onclickAllPoint?: (event: any) => void;
+  upDown?: (val: any) => void;
   className?: string;
 }
 
@@ -123,6 +140,42 @@ function PlasmicOrderBy__RenderFunc(props: {
 
   const currentUser = useCurrentUser?.() || {};
 
+  const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
+    () => [
+      {
+        path: "orderType",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "upDownOrder.down",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "upDownOrder2.down",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "upDownOrder3.down",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      }
+    ],
+    [$props, $ctx, $refs]
+  );
+  const $state = useDollarState(stateSpecs, {
+    $props,
+    $ctx,
+    $queries: {},
+    $refs
+  });
+
   return (
     <div
       data-plasmic-name={"orderBy"}
@@ -144,6 +197,7 @@ function PlasmicOrderBy__RenderFunc(props: {
         data-plasmic-name={"name"}
         data-plasmic-override={overrides.name}
         className={classNames(projectcss.all, sty.name)}
+        onClick={args.onclickAll}
       >
         <div
           className={classNames(
@@ -155,7 +209,17 @@ function PlasmicOrderBy__RenderFunc(props: {
           {"\u0418\u0433\u0440\u043e\u043a"}
         </div>
         <UpDownOrder
-          className={classNames("__wab_instance", sty.upDownOrder__nH8H)}
+          data-plasmic-name={"upDownOrder"}
+          data-plasmic-override={overrides.upDownOrder}
+          className={classNames("__wab_instance", sty.upDownOrder)}
+          down={generateStateValueProp($state, ["upDownOrder", "down"])}
+          onDownChange={async (...eventArgs: any) => {
+            generateStateOnChangeProp($state, ["upDownOrder", "down"]).apply(
+              null,
+              eventArgs
+            );
+            args.upDown.apply(null, eventArgs);
+          }}
         />
       </div>
       <div
@@ -192,6 +256,7 @@ function PlasmicOrderBy__RenderFunc(props: {
         data-plasmic-name={"\u043e\u0447\u043a\u043e"}
         data-plasmic-override={overrides.очко}
         className={classNames(projectcss.all, sty.очко)}
+        onClick={args.onclickPrice}
       >
         <div
           className={classNames(
@@ -200,16 +265,24 @@ function PlasmicOrderBy__RenderFunc(props: {
             sty.text__ttbo
           )}
         >
-          {"\u041e\u0447\u043a\u043e"}
+          {"\u0426\u0435\u043d\u0430"}
         </div>
         <UpDownOrder
-          className={classNames("__wab_instance", sty.upDownOrder__hxTVp)}
+          data-plasmic-name={"upDownOrder2"}
+          data-plasmic-override={overrides.upDownOrder2}
+          className={classNames("__wab_instance", sty.upDownOrder2)}
+          down={generateStateValueProp($state, ["upDownOrder2", "down"])}
+          onDownChange={generateStateOnChangeProp($state, [
+            "upDownOrder2",
+            "down"
+          ])}
         />
       </div>
       <div
         data-plasmic-name={"\u0446\u0435\u043d\u0430"}
         data-plasmic-override={overrides.цена}
         className={classNames(projectcss.all, sty.цена)}
+        onClick={args.onclickAllPoint}
       >
         <div
           className={classNames(
@@ -218,10 +291,17 @@ function PlasmicOrderBy__RenderFunc(props: {
             sty.text__ohesi
           )}
         >
-          {"\u0426\u0435\u043d\u0430"}
+          {"\u041e\u0447\u043a\u043e"}
         </div>
         <UpDownOrder
-          className={classNames("__wab_instance", sty.upDownOrder___63W5O)}
+          data-plasmic-name={"upDownOrder3"}
+          data-plasmic-override={overrides.upDownOrder3}
+          className={classNames("__wab_instance", sty.upDownOrder3)}
+          down={generateStateValueProp($state, ["upDownOrder3", "down"])}
+          onDownChange={generateStateOnChangeProp($state, [
+            "upDownOrder3",
+            "down"
+          ])}
         />
       </div>
     </div>
@@ -232,16 +312,22 @@ const PlasmicDescendants = {
   orderBy: [
     "orderBy",
     "name",
+    "upDownOrder",
     "\u043f\u043e\u0437\u0438\u0446\u0438\u044f",
     "\u043a\u043b\u0443\u0431",
     "\u043e\u0447\u043a\u043e",
-    "\u0446\u0435\u043d\u0430"
+    "upDownOrder2",
+    "\u0446\u0435\u043d\u0430",
+    "upDownOrder3"
   ],
-  name: ["name"],
+  name: ["name", "upDownOrder"],
+  upDownOrder: ["upDownOrder"],
   позиция: ["\u043f\u043e\u0437\u0438\u0446\u0438\u044f"],
   клуб: ["\u043a\u043b\u0443\u0431"],
-  очко: ["\u043e\u0447\u043a\u043e"],
-  цена: ["\u0446\u0435\u043d\u0430"]
+  очко: ["\u043e\u0447\u043a\u043e", "upDownOrder2"],
+  upDownOrder2: ["upDownOrder2"],
+  цена: ["\u0446\u0435\u043d\u0430", "upDownOrder3"],
+  upDownOrder3: ["upDownOrder3"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -249,10 +335,13 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   orderBy: "div";
   name: "div";
+  upDownOrder: typeof UpDownOrder;
   позиция: "div";
   клуб: "div";
   очко: "div";
+  upDownOrder2: typeof UpDownOrder;
   цена: "div";
+  upDownOrder3: typeof UpDownOrder;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -316,10 +405,13 @@ export const PlasmicOrderBy = Object.assign(
   {
     // Helper components rendering sub-elements
     _name: makeNodeComponent("name"),
+    upDownOrder: makeNodeComponent("upDownOrder"),
     позиция: makeNodeComponent("\u043f\u043e\u0437\u0438\u0446\u0438\u044f"),
     клуб: makeNodeComponent("\u043a\u043b\u0443\u0431"),
     очко: makeNodeComponent("\u043e\u0447\u043a\u043e"),
+    upDownOrder2: makeNodeComponent("upDownOrder2"),
     цена: makeNodeComponent("\u0446\u0435\u043d\u0430"),
+    upDownOrder3: makeNodeComponent("upDownOrder3"),
 
     // Metadata about props expected for PlasmicOrderBy
     internalVariantProps: PlasmicOrderBy__VariantProps,

@@ -82,15 +82,20 @@ export const PlasmicUpDownOrder__VariantProps = new Array<VariantPropType>(
   "down"
 );
 
-export type PlasmicUpDownOrder__ArgsType = {};
+export type PlasmicUpDownOrder__ArgsType = {
+  onDownChange?: (val: any) => void;
+};
 type ArgPropType = keyof PlasmicUpDownOrder__ArgsType;
-export const PlasmicUpDownOrder__ArgProps = new Array<ArgPropType>();
+export const PlasmicUpDownOrder__ArgProps = new Array<ArgPropType>(
+  "onDownChange"
+);
 
 export type PlasmicUpDownOrder__OverridesType = {
   upDown?: Flex__<"div">;
 };
 
 export interface DefaultUpDownOrderProps {
+  onDownChange?: (val: any) => void;
   down?: SingleBooleanChoiceArg<"down">;
   className?: string;
 }
@@ -130,9 +135,11 @@ function PlasmicUpDownOrder__RenderFunc(props: {
     () => [
       {
         path: "down",
-        type: "private",
+        type: "writable",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.down
+
+        valueProp: "down",
+        onChangeProp: "onDownChange"
       }
     ],
     [$props, $ctx, $refs]

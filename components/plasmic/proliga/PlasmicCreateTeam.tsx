@@ -100,6 +100,8 @@ export type PlasmicCreateTeam__OverridesType = {
   freeBox?: Flex__<"div">;
   textInput?: Flex__<typeof TextInput>;
   button?: Flex__<typeof Button>;
+  перейтиВКоманду2?: Flex__<typeof Button>;
+  перейтиВКоманду?: Flex__<"div">;
 };
 
 export interface DefaultCreateTeamProps {}
@@ -475,6 +477,32 @@ function PlasmicCreateTeam__RenderFunc(props: {
                   >
                     {"Team name"}
                   </h1>
+                  <Button
+                    data-plasmic-name={
+                      "\u043f\u0435\u0440\u0435\u0439\u0442\u0438\u0412\u041a\u043e\u043c\u0430\u043d\u0434\u04432"
+                    }
+                    data-plasmic-override={overrides.перейтиВКоманду2}
+                    className={classNames(
+                      "__wab_instance",
+                      sty.перейтивкоманду2
+                    )}
+                  >
+                    <div
+                      data-plasmic-name={
+                        "\u043f\u0435\u0440\u0435\u0439\u0442\u0438\u0412\u041a\u043e\u043c\u0430\u043d\u0434\u0443"
+                      }
+                      data-plasmic-override={overrides.перейтиВКоманду}
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.перейтивкоманду
+                      )}
+                    >
+                      {
+                        "\u041f\u0435\u0440\u0435\u0439\u0442\u0438 \u0432 \u043a\u043e\u043c\u0430\u043d\u0434\u0443"
+                      }
+                    </div>
+                  </Button>
                 </div>
               </div>
             </Stack__>
@@ -486,12 +514,28 @@ function PlasmicCreateTeam__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "navbar", "img", "freeBox", "textInput", "button"],
+  root: [
+    "root",
+    "navbar",
+    "img",
+    "freeBox",
+    "textInput",
+    "button",
+    "\u043f\u0435\u0440\u0435\u0439\u0442\u0438\u0412\u041a\u043e\u043c\u0430\u043d\u0434\u04432",
+    "\u043f\u0435\u0440\u0435\u0439\u0442\u0438\u0412\u041a\u043e\u043c\u0430\u043d\u0434\u0443"
+  ],
   navbar: ["navbar"],
   img: ["img"],
   freeBox: ["freeBox", "textInput", "button"],
   textInput: ["textInput"],
-  button: ["button"]
+  button: ["button"],
+  перейтиВКоманду2: [
+    "\u043f\u0435\u0440\u0435\u0439\u0442\u0438\u0412\u041a\u043e\u043c\u0430\u043d\u0434\u04432",
+    "\u043f\u0435\u0440\u0435\u0439\u0442\u0438\u0412\u041a\u043e\u043c\u0430\u043d\u0434\u0443"
+  ],
+  перейтиВКоманду: [
+    "\u043f\u0435\u0440\u0435\u0439\u0442\u0438\u0412\u041a\u043e\u043c\u0430\u043d\u0434\u0443"
+  ]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -503,6 +547,8 @@ type NodeDefaultElementType = {
   freeBox: "div";
   textInput: typeof TextInput;
   button: typeof Button;
+  перейтиВКоманду2: typeof Button;
+  перейтиВКоманду: "div";
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -587,6 +633,12 @@ export const PlasmicCreateTeam = Object.assign(
     freeBox: makeNodeComponent("freeBox"),
     textInput: makeNodeComponent("textInput"),
     button: makeNodeComponent("button"),
+    перейтиВКоманду2: makeNodeComponent(
+      "\u043f\u0435\u0440\u0435\u0439\u0442\u0438\u0412\u041a\u043e\u043c\u0430\u043d\u0434\u04432"
+    ),
+    перейтиВКоманду: makeNodeComponent(
+      "\u043f\u0435\u0440\u0435\u0439\u0442\u0438\u0412\u041a\u043e\u043c\u0430\u043d\u0434\u0443"
+    ),
 
     // Metadata about props expected for PlasmicCreateTeam
     internalVariantProps: PlasmicCreateTeam__VariantProps,
