@@ -1,0 +1,130 @@
+.orderBy {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  background: var(--token-OthO-wlH0yMz);
+  position: relative;
+  justify-self: flex-start;
+  min-width: 0;
+  padding: 8px;
+}
+.name {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  min-width: 0;
+}
+.text__y5Zib {
+  position: relative;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  color: var(--token-jgohepLVeKvh);
+  font-size: 10px;
+  font-family: "Times New Roman";
+}
+.upDownOrder__nH8H:global(.__wab_instance) {
+  position: relative;
+  width: auto;
+}
+.позиция {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  padding: 0px;
+}
+.text___2S1 {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  color: var(--token-jgohepLVeKvh);
+  font-size: 10px;
+  font-family: "Times New Roman";
+  padding-right: 8px;
+  min-width: 0;
+}
+.клуб {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+  padding: 8px;
+}
+.text__njlaE {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  color: var(--token-jgohepLVeKvh);
+  font-size: 10px;
+  font-family: "Times New Roman";
+  min-width: 0;
+}
+.очко {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+  padding: 0px;
+}
+.text__ttbo {
+  position: relative;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  color: var(--token-jgohepLVeKvh);
+  font-size: 10px;
+  font-family: "Times New Roman";
+}
+.upDownOrder__hxTVp:global(.__wab_instance) {
+  max-width: 100%;
+  position: relative;
+}
+.цена {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+  padding: 0px;
+}
+.text__ohesi {
+  position: relative;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  color: var(--token-jgohepLVeKvh);
+  font-size: 10px;
+  font-family: "Times New Roman";
+}
+.upDownOrder___63W5O:global(.__wab_instance) {
+  max-width: 100%;
+  position: relative;
+}

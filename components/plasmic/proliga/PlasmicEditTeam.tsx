@@ -76,6 +76,7 @@ import { TabsContainer } from "@plasmicpkgs/plasmic-tabs";
 import { TabButton } from "@plasmicpkgs/plasmic-tabs";
 import Button from "../../Button"; // plasmic-import: lBHNzts6tFyj/component
 import { TabUnderline } from "@plasmicpkgs/plasmic-tabs";
+import OrderBy from "../../OrderBy"; // plasmic-import: LibeNAwKH6sF/component
 import { TabContent } from "@plasmicpkgs/plasmic-tabs";
 import PlayerPicker from "../../PlayerPicker"; // plasmic-import: FmVyQ1WB4e_T/component
 import { AntdPagination } from "@plasmicpkgs/antd5/skinny/registerPagination";
@@ -133,6 +134,7 @@ export type PlasmicEditTeam__OverridesType = {
   tabPosition?: Flex__<typeof TabButton>;
   tabPrice?: Flex__<typeof TabButton>;
   tabUnderline?: Flex__<typeof TabUnderline>;
+  orderBy?: Flex__<typeof OrderBy>;
   tabAllContent?: Flex__<typeof TabContent>;
   pagination?: Flex__<typeof AntdPagination>;
   tabClubContent?: Flex__<typeof TabContent>;
@@ -1501,12 +1503,23 @@ function PlasmicEditTeam__RenderFunc(props: {
                               )}
                             />
                           </Stack__>
-                          <div
+                          <Stack__
+                            as={"div"}
+                            hasGap={true}
                             className={classNames(
                               projectcss.all,
                               sty.freeBox__zRgVw
                             )}
                           >
+                            <OrderBy
+                              data-plasmic-name={"orderBy"}
+                              data-plasmic-override={overrides.orderBy}
+                              className={classNames(
+                                "__wab_instance",
+                                sty.orderBy
+                              )}
+                            />
+
                             <TabContent
                               data-plasmic-name={"tabAllContent"}
                               data-plasmic-override={overrides.tabAllContent}
@@ -3956,7 +3969,7 @@ function PlasmicEditTeam__RenderFunc(props: {
                                 ) : null}
                               </Stack__>
                             </TabContent>
-                          </div>
+                          </Stack__>
                         </Stack__>
                       )}
                     </DataCtxReader__>
@@ -4225,6 +4238,7 @@ const PlasmicDescendants = {
     "tabPosition",
     "tabPrice",
     "tabUnderline",
+    "orderBy",
     "tabAllContent",
     "pagination",
     "tabClubContent",
@@ -4265,6 +4279,7 @@ const PlasmicDescendants = {
     "tabPosition",
     "tabPrice",
     "tabUnderline",
+    "orderBy",
     "tabAllContent",
     "pagination",
     "tabClubContent",
@@ -4314,6 +4329,7 @@ const PlasmicDescendants = {
     "tabPosition",
     "tabPrice",
     "tabUnderline",
+    "orderBy",
     "tabAllContent",
     "pagination",
     "tabClubContent",
@@ -4339,6 +4355,7 @@ const PlasmicDescendants = {
     "tabPosition",
     "tabPrice",
     "tabUnderline",
+    "orderBy",
     "tabAllContent",
     "pagination",
     "tabClubContent",
@@ -4360,6 +4377,7 @@ const PlasmicDescendants = {
   tabPosition: ["tabPosition"],
   tabPrice: ["tabPrice"],
   tabUnderline: ["tabUnderline"],
+  orderBy: ["orderBy"],
   tabAllContent: ["tabAllContent", "pagination"],
   pagination: ["pagination"],
   tabClubContent: ["tabClubContent", "selectClub", "pagclubtab"],
@@ -4412,6 +4430,7 @@ type NodeDefaultElementType = {
   tabPosition: typeof TabButton;
   tabPrice: typeof TabButton;
   tabUnderline: typeof TabUnderline;
+  orderBy: typeof OrderBy;
   tabAllContent: typeof TabContent;
   pagination: typeof AntdPagination;
   tabClubContent: typeof TabContent;
@@ -4529,6 +4548,7 @@ export const PlasmicEditTeam = Object.assign(
     tabPosition: makeNodeComponent("tabPosition"),
     tabPrice: makeNodeComponent("tabPrice"),
     tabUnderline: makeNodeComponent("tabUnderline"),
+    orderBy: makeNodeComponent("orderBy"),
     tabAllContent: makeNodeComponent("tabAllContent"),
     pagination: makeNodeComponent("pagination"),
     tabClubContent: makeNodeComponent("tabClubContent"),

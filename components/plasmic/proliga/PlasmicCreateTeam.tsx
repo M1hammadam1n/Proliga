@@ -97,7 +97,6 @@ export type PlasmicCreateTeam__OverridesType = {
   root?: Flex__<"div">;
   navbar?: Flex__<typeof Navbar>;
   img?: Flex__<typeof PlasmicImg__>;
-  h1?: Flex__<"h1">;
   freeBox?: Flex__<"div">;
   textInput?: Flex__<typeof TextInput>;
   button?: Flex__<typeof Button>;
@@ -289,180 +288,195 @@ function PlasmicCreateTeam__RenderFunc(props: {
               hasGap={true}
               className={classNames(projectcss.all, sty.column__q3FjT)}
             >
-              <h1
-                data-plasmic-name={"h1"}
-                data-plasmic-override={overrides.h1}
-                className={classNames(
-                  projectcss.all,
-                  projectcss.h1,
-                  projectcss.__wab_text,
-                  sty.h1
-                )}
-              >
-                <React.Fragment>
-                  {(() => {
-                    try {
-                      return (
-                        "ФЭНТЕЗИ\n " + $queries.query.data.response[0].title
-                      );
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return "";
-                      }
-                      throw e;
-                    }
-                  })()}
-                </React.Fragment>
-              </h1>
               <div className={classNames(projectcss.all, sty.columns__zQuEv)}>
-                <div
-                  className={classNames(projectcss.all, sty.column___3SoRq)}
-                />
+                <div className={classNames(projectcss.all, sty.column___3SoRq)}>
+                  <h1
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.h1,
+                      projectcss.__wab_text,
+                      sty.h1__f3Kgh
+                    )}
+                  >
+                    <React.Fragment>
+                      {(() => {
+                        try {
+                          return (
+                            "ФЭНТЕЗИ\n " + $queries.query.data.response[0].title
+                          );
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return "";
+                          }
+                          throw e;
+                        }
+                      })()}
+                    </React.Fragment>
+                  </h1>
+                  <Stack__
+                    as={"div"}
+                    data-plasmic-name={"freeBox"}
+                    data-plasmic-override={overrides.freeBox}
+                    hasGap={true}
+                    className={classNames(projectcss.all, sty.freeBox)}
+                  >
+                    <TextInput
+                      data-plasmic-name={"textInput"}
+                      data-plasmic-override={overrides.textInput}
+                      autoFocus={false}
+                      className={classNames("__wab_instance", sty.textInput)}
+                      name={``}
+                      onChange={(...eventArgs) => {
+                        generateStateOnChangeProp($state, [
+                          "textInput",
+                          "value"
+                        ])((e => e.target?.value).apply(null, eventArgs));
+                      }}
+                      placeholder={
+                        "\u041d\u0430\u0437\u0432\u0430\u043d\u0438\u0435 \u0442\u0432\u043e\u0435\u0439 \u043a\u043e\u043c\u0430\u043d\u0434\u044b"
+                      }
+                      required={true}
+                      type={"text"}
+                      value={
+                        generateStateValueProp($state, [
+                          "textInput",
+                          "value"
+                        ]) ?? ""
+                      }
+                    />
 
-                <div
-                  className={classNames(projectcss.all, sty.column__fy0BX)}
-                />
+                    <Button
+                      data-plasmic-name={"button"}
+                      data-plasmic-override={overrides.button}
+                      className={classNames("__wab_instance", sty.button)}
+                      color={"green"}
+                      onClick={async event => {
+                        const $steps = {};
+
+                        $steps["updateName"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                dataOp: {
+                                  sourceId: "vQtRPuFArSfh43vUmgx2PS",
+                                  opId: "5a02af5c-a3d5-4c02-b63b-60a37a55d539",
+                                  userArgs: {
+                                    params: [
+                                      $state.userId,
+                                      $queries.query.data.response[0].id
+                                    ],
+                                    body: [$state.textInput.value]
+                                  },
+                                  cacheKey: null,
+                                  invalidatedKeys: ["plasmic_refresh_all"],
+                                  roleId: null
+                                }
+                              };
+                              return (async ({ dataOp, continueOnError }) => {
+                                try {
+                                  const response = await executePlasmicDataOp(
+                                    dataOp,
+                                    {
+                                      userAuthToken:
+                                        dataSourcesCtx?.userAuthToken,
+                                      user: dataSourcesCtx?.user
+                                    }
+                                  );
+                                  await plasmicInvalidate(
+                                    dataOp.invalidatedKeys
+                                  );
+                                  return response;
+                                } catch (e) {
+                                  if (!continueOnError) {
+                                    throw e;
+                                  }
+                                  return e;
+                                }
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["updateName"] != null &&
+                          typeof $steps["updateName"] === "object" &&
+                          typeof $steps["updateName"].then === "function"
+                        ) {
+                          $steps["updateName"] = await $steps["updateName"];
+                        }
+
+                        $steps["goToEditTeam"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                destination: `/${(() => {
+                                  try {
+                                    return $queries.query.data.response[0].id;
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return undefined;
+                                    }
+                                    throw e;
+                                  }
+                                })()}/${(() => {
+                                  try {
+                                    return $queries.userTeam.data.response[0]
+                                      .id;
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return undefined;
+                                    }
+                                    throw e;
+                                  }
+                                })()}`
+                              };
+                              return (({ destination }) => {
+                                if (
+                                  typeof destination === "string" &&
+                                  destination.startsWith("#")
+                                ) {
+                                  document
+                                    .getElementById(destination.substr(1))
+                                    .scrollIntoView({ behavior: "smooth" });
+                                } else {
+                                  __nextRouter?.push(destination);
+                                }
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["goToEditTeam"] != null &&
+                          typeof $steps["goToEditTeam"] === "object" &&
+                          typeof $steps["goToEditTeam"].then === "function"
+                        ) {
+                          $steps["goToEditTeam"] = await $steps["goToEditTeam"];
+                        }
+                      }}
+                    >
+                      {"\u0418\u0433\u0440\u0430\u0442\u044c"}
+                    </Button>
+                  </Stack__>
+                </div>
+                <div className={classNames(projectcss.all, sty.column__fy0BX)}>
+                  <h1
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.h1,
+                      projectcss.__wab_text,
+                      sty.h1__erDew
+                    )}
+                  >
+                    {"Team name"}
+                  </h1>
+                </div>
               </div>
-              <Stack__
-                as={"div"}
-                data-plasmic-name={"freeBox"}
-                data-plasmic-override={overrides.freeBox}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox)}
-              >
-                <TextInput
-                  data-plasmic-name={"textInput"}
-                  data-plasmic-override={overrides.textInput}
-                  autoFocus={false}
-                  className={classNames("__wab_instance", sty.textInput)}
-                  name={``}
-                  onChange={(...eventArgs) => {
-                    generateStateOnChangeProp($state, ["textInput", "value"])(
-                      (e => e.target?.value).apply(null, eventArgs)
-                    );
-                  }}
-                  placeholder={
-                    "\u041d\u0430\u0437\u0432\u0430\u043d\u0438\u0435 \u0442\u0432\u043e\u0435\u0439 \u043a\u043e\u043c\u0430\u043d\u0434\u044b"
-                  }
-                  required={true}
-                  type={"text"}
-                  value={
-                    generateStateValueProp($state, ["textInput", "value"]) ?? ""
-                  }
-                />
-
-                <Button
-                  data-plasmic-name={"button"}
-                  data-plasmic-override={overrides.button}
-                  className={classNames("__wab_instance", sty.button)}
-                  color={"green"}
-                  onClick={async event => {
-                    const $steps = {};
-
-                    $steps["updateName"] = true
-                      ? (() => {
-                          const actionArgs = {
-                            dataOp: {
-                              sourceId: "vQtRPuFArSfh43vUmgx2PS",
-                              opId: "5a02af5c-a3d5-4c02-b63b-60a37a55d539",
-                              userArgs: {
-                                params: [
-                                  $state.userId,
-                                  $queries.query.data.response[0].id
-                                ],
-                                body: [$state.textInput.value]
-                              },
-                              cacheKey: null,
-                              invalidatedKeys: ["plasmic_refresh_all"],
-                              roleId: null
-                            }
-                          };
-                          return (async ({ dataOp, continueOnError }) => {
-                            try {
-                              const response = await executePlasmicDataOp(
-                                dataOp,
-                                {
-                                  userAuthToken: dataSourcesCtx?.userAuthToken,
-                                  user: dataSourcesCtx?.user
-                                }
-                              );
-                              await plasmicInvalidate(dataOp.invalidatedKeys);
-                              return response;
-                            } catch (e) {
-                              if (!continueOnError) {
-                                throw e;
-                              }
-                              return e;
-                            }
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
-                    if (
-                      $steps["updateName"] != null &&
-                      typeof $steps["updateName"] === "object" &&
-                      typeof $steps["updateName"].then === "function"
-                    ) {
-                      $steps["updateName"] = await $steps["updateName"];
-                    }
-
-                    $steps["goToEditTeam"] = true
-                      ? (() => {
-                          const actionArgs = {
-                            destination: `/${(() => {
-                              try {
-                                return $queries.query.data.response[0].id;
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return undefined;
-                                }
-                                throw e;
-                              }
-                            })()}/${(() => {
-                              try {
-                                return $queries.userTeam.data.response[0].id;
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return undefined;
-                                }
-                                throw e;
-                              }
-                            })()}`
-                          };
-                          return (({ destination }) => {
-                            if (
-                              typeof destination === "string" &&
-                              destination.startsWith("#")
-                            ) {
-                              document
-                                .getElementById(destination.substr(1))
-                                .scrollIntoView({ behavior: "smooth" });
-                            } else {
-                              __nextRouter?.push(destination);
-                            }
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
-                    if (
-                      $steps["goToEditTeam"] != null &&
-                      typeof $steps["goToEditTeam"] === "object" &&
-                      typeof $steps["goToEditTeam"].then === "function"
-                    ) {
-                      $steps["goToEditTeam"] = await $steps["goToEditTeam"];
-                    }
-                  }}
-                >
-                  {"\u0418\u0433\u0440\u0430\u0442\u044c"}
-                </Button>
-              </Stack__>
             </Stack__>
           </div>
         </div>
@@ -472,10 +486,9 @@ function PlasmicCreateTeam__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "navbar", "img", "h1", "freeBox", "textInput", "button"],
+  root: ["root", "navbar", "img", "freeBox", "textInput", "button"],
   navbar: ["navbar"],
   img: ["img"],
-  h1: ["h1"],
   freeBox: ["freeBox", "textInput", "button"],
   textInput: ["textInput"],
   button: ["button"]
@@ -487,7 +500,6 @@ type NodeDefaultElementType = {
   root: "div";
   navbar: typeof Navbar;
   img: typeof PlasmicImg__;
-  h1: "h1";
   freeBox: "div";
   textInput: typeof TextInput;
   button: typeof Button;
@@ -572,7 +584,6 @@ export const PlasmicCreateTeam = Object.assign(
     // Helper components rendering sub-elements
     navbar: makeNodeComponent("navbar"),
     img: makeNodeComponent("img"),
-    h1: makeNodeComponent("h1"),
     freeBox: makeNodeComponent("freeBox"),
     textInput: makeNodeComponent("textInput"),
     button: makeNodeComponent("button"),
