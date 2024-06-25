@@ -147,12 +147,9 @@ function PlasmicSoccerPlaceMens2__RenderFunc(props: {
         displayMinWidth={"0"}
         displayWidth={"auto"}
         loading={"lazy"}
-        src={{
-          src: "/plasmic/proliga/images/pitchLarge0C9A0331Svg.svg",
-          fullWidth: 1140,
-          fullHeight: 654,
-          aspectRatio: 1.743119
-        }}
+        src={
+          "https://s5o.ru/storage/dumpster/4/f0/d4432a730f1d768c5a7b4e55534e7.svg"
+        }
       />
     </div>
   ) as React.ReactElement | null;
