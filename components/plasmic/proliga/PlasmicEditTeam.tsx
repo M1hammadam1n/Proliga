@@ -437,7 +437,7 @@ function PlasmicEditTeam__RenderFunc(props: {
         path: "orderType",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => "asc"
+        initFunc: ({ $props, $state, $queries, $ctx }) => "desc"
       },
       {
         path: "playerId",
@@ -2090,51 +2090,6 @@ function PlasmicEditTeam__RenderFunc(props: {
                                     "__wab_instance",
                                     sty.orderByAll
                                   )}
-                                  onclickAll={async event => {
-                                    const $steps = {};
-
-                                    $steps["orderName"] = true
-                                      ? (() => {
-                                          const actionArgs = {
-                                            variable: {
-                                              objRoot: $state,
-                                              variablePath: ["orderName"]
-                                            },
-                                            operation: 0,
-                                            value: "name"
-                                          };
-                                          return (({
-                                            variable,
-                                            value,
-                                            startIndex,
-                                            deleteCount
-                                          }) => {
-                                            if (!variable) {
-                                              return;
-                                            }
-                                            const { objRoot, variablePath } =
-                                              variable;
-
-                                            $stateSet(
-                                              objRoot,
-                                              variablePath,
-                                              value
-                                            );
-                                            return value;
-                                          })?.apply(null, [actionArgs]);
-                                        })()
-                                      : undefined;
-                                    if (
-                                      $steps["orderName"] != null &&
-                                      typeof $steps["orderName"] === "object" &&
-                                      typeof $steps["orderName"].then ===
-                                        "function"
-                                    ) {
-                                      $steps["orderName"] = await $steps[
-                                        "orderName"
-                                      ];
-                                    }
-                                  }}
                                   onclickAllPoint={async event => {
                                     const $steps = {};
 

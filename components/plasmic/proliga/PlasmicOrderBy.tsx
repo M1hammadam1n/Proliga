@@ -76,14 +76,12 @@ type VariantPropType = keyof PlasmicOrderBy__VariantsArgs;
 export const PlasmicOrderBy__VariantProps = new Array<VariantPropType>();
 
 export type PlasmicOrderBy__ArgsType = {
-  onclickAll?: (event: any) => void;
   onclickPrice?: (event: any) => void;
   onclickAllPoint?: (event: any) => void;
   upDown?: (val: any) => void;
 };
 type ArgPropType = keyof PlasmicOrderBy__ArgsType;
 export const PlasmicOrderBy__ArgProps = new Array<ArgPropType>(
-  "onclickAll",
   "onclickPrice",
   "onclickAllPoint",
   "upDown"
@@ -102,7 +100,6 @@ export type PlasmicOrderBy__OverridesType = {
 };
 
 export interface DefaultOrderByProps {
-  onclickAll?: (event: any) => void;
   onclickPrice?: (event: any) => void;
   onclickAllPoint?: (event: any) => void;
   upDown?: (val: any) => void;
@@ -197,7 +194,9 @@ function PlasmicOrderBy__RenderFunc(props: {
         data-plasmic-name={"name"}
         data-plasmic-override={overrides.name}
         className={classNames(projectcss.all, sty.name)}
-        onClick={args.onclickAll}
+        onClick={async event => {
+          const $steps = {};
+        }}
       >
         <div
           className={classNames(
