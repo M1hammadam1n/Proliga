@@ -954,7 +954,7 @@ function PlasmicEditTeam__RenderFunc(props: {
                           }
                         }}
                       >
-                        {"\u041a\u0430\u043f\u0438\u0442\u0430\u043d"}
+                        {"Kapitan"}
                       </div>
                     ) : null}
                   </Stack__>
@@ -1928,9 +1928,7 @@ function PlasmicEditTeam__RenderFunc(props: {
                         (e => e.target?.value).apply(null, eventArgs)
                       );
                     }}
-                    placeholder={
-                      "\u041f\u043e\u0438\u0441\u043a \u043f\u043e \u0438\u043c\u0435\u043d\u0430\u043c"
-                    }
+                    placeholder={"Ismi bo'yicha izlash"}
                     showStartIcon={true}
                     type={"text"}
                     value={
@@ -1982,7 +1980,7 @@ function PlasmicEditTeam__RenderFunc(props: {
                                     sty.text__yo52F
                                   )}
                                 >
-                                  {"\u0412\u0441\u0435"}
+                                  {"Hammasi"}
                                 </div>
                               </Button>
                             </TabButton>
@@ -2003,7 +2001,7 @@ function PlasmicEditTeam__RenderFunc(props: {
                                     sty.text__chIr
                                   )}
                                 >
-                                  {"\u041a\u043b\u0443\u0431"}
+                                  {"Klub"}
                                 </div>
                               </Button>
                             </TabButton>
@@ -2024,7 +2022,7 @@ function PlasmicEditTeam__RenderFunc(props: {
                                     sty.text__ecbBw
                                   )}
                                 >
-                                  {"\u041f\u043e\u0437\u0438\u0446\u0438\u044f"}
+                                  {"Pozitsiya"}
                                 </div>
                               </Button>
                             </TabButton>
@@ -2045,7 +2043,7 @@ function PlasmicEditTeam__RenderFunc(props: {
                                     sty.text__b23L
                                   )}
                                 >
-                                  {"\u0426\u0435\u043d\u0430"}
+                                  {"Narx"}
                                 </div>
                               </Button>
                             </TabButton>

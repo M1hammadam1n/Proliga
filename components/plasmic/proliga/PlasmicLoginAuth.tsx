@@ -197,9 +197,7 @@ function PlasmicLoginAuth__RenderFunc(props: {
             sty.text__ywEK
           )}
         >
-          {
-            "\u0418\u0433\u0440\u0430\u0439\u0442\u0435 \u0441 \u043d\u0430\u043c\u0438 \u0438 \u043f\u043e\u043b\u0443\u0447\u0430\u0439\u0442\u0435 \u043f\u043e\u0434\u0430\u0440\u043a\u0438!"
-          }
+          {"Biz bilan o'ynang va sovg'alar yutib oling!"}
         </div>
       </Stack__>
       <div className={classNames(projectcss.all, sty.freeBox__jnDn7)}>
@@ -222,7 +220,7 @@ function PlasmicLoginAuth__RenderFunc(props: {
                 sty.text__p9Ga0
               )}
             >
-              {"LOGIN"}
+              {"Pochta"}
             </div>
             <TextInput
               data-plasmic-name={"emailInput"}
@@ -233,6 +231,7 @@ function PlasmicLoginAuth__RenderFunc(props: {
                   (e => e.target?.value).apply(null, eventArgs)
                 );
               }}
+              placeholder={"Pochta"}
               required={true}
               value={
                 generateStateValueProp($state, ["emailInput", "value"]) ?? ""
@@ -246,7 +245,7 @@ function PlasmicLoginAuth__RenderFunc(props: {
                 sty.text__sMyfz
               )}
             >
-              {"PASSWORD"}
+              {"PAROL"}
             </div>
             <TextInput
               data-plasmic-name={"passwordInput"}
@@ -257,7 +256,7 @@ function PlasmicLoginAuth__RenderFunc(props: {
                   (e => e.target?.value).apply(null, eventArgs)
                 );
               }}
-              placeholder={"Password"}
+              placeholder={"Parol"}
               required={true}
               type={"password"}
               value={
@@ -309,7 +308,7 @@ function PlasmicLoginAuth__RenderFunc(props: {
                 }
               }}
             >
-              {"Login"}
+              {"Kirish"}
             </Button>
             <div className={classNames(projectcss.all, sty.freeBox__bmtVl)}>
               <div
@@ -356,7 +355,7 @@ function PlasmicLoginAuth__RenderFunc(props: {
                   }
                 }}
               >
-                {"Register?"}
+                {"Ro'yhatdan o'tish"}
               </div>
             </div>
           </Stack__>

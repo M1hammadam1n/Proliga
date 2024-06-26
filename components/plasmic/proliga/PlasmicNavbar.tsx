@@ -79,11 +79,9 @@ export type PlasmicNavbar__VariantsArgs = {};
 type VariantPropType = keyof PlasmicNavbar__VariantsArgs;
 export const PlasmicNavbar__VariantProps = new Array<VariantPropType>();
 
-export type PlasmicNavbar__ArgsType = {
-  items2?: any;
-};
+export type PlasmicNavbar__ArgsType = {};
 type ArgPropType = keyof PlasmicNavbar__ArgsType;
-export const PlasmicNavbar__ArgProps = new Array<ArgPropType>("items2");
+export const PlasmicNavbar__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicNavbar__OverridesType = {
   root?: Flex__<"div">;
@@ -97,7 +95,6 @@ export type PlasmicNavbar__OverridesType = {
 };
 
 export interface DefaultNavbarProps {
-  items2?: any;
   className?: string;
 }
 
@@ -134,12 +131,6 @@ function PlasmicNavbar__RenderFunc(props: {
 
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
-      {
-        path: "variable",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ""
-      },
       {
         path: "popover.open",
         type: "private",
@@ -287,7 +278,7 @@ function PlasmicNavbar__RenderFunc(props: {
                 }
               }}
             >
-              {"Championship"}
+              {"Matchlar"}
             </div>
           </Reveal>
           <Reveal
@@ -329,7 +320,7 @@ function PlasmicNavbar__RenderFunc(props: {
                 }
               }}
             >
-              {"Prizes"}
+              {"Yutuqlar"}
             </div>
           </Reveal>
           <Reveal
@@ -371,7 +362,7 @@ function PlasmicNavbar__RenderFunc(props: {
                 }
               }}
             >
-              {"Rules & FAQ"}
+              {"Qoidalar"}
             </div>
           </Reveal>
           <Reveal
@@ -430,7 +421,7 @@ function PlasmicNavbar__RenderFunc(props: {
                   }
                 }}
               >
-                {"Competition"}
+                {"Chempionatlar"}
               </div>
             ) : null}
           </Reveal>

@@ -203,9 +203,7 @@ function PlasmicRegister__RenderFunc(props: {
             sty.text__sAkLe
           )}
         >
-          {
-            "\u0418\u0433\u0440\u0430\u0439\u0442\u0435 \u0441 \u043d\u0430\u043c\u0438 \u0438 \u043f\u043e\u043b\u0443\u0447\u0430\u0439\u0442\u0435 \u043f\u043e\u0434\u0430\u0440\u043a\u0438!"
-          }
+          {"Biz bilan o'ynang sovg'alar yutib oling!"}
         </div>
       </Stack__>
       <div className={classNames(projectcss.all, sty.freeBox__jhYxb)}>
@@ -230,7 +228,7 @@ function PlasmicRegister__RenderFunc(props: {
             >
               {hasVariant(globalVariants, "screen", "dessktop")
                 ? "EMAIL"
-                : "EMAIL"}
+                : "POCHTA"}
             </div>
             <TextInput
               data-plasmic-name={"emailInput"}
@@ -241,6 +239,7 @@ function PlasmicRegister__RenderFunc(props: {
                   (e => e.target?.value).apply(null, eventArgs)
                 );
               }}
+              placeholder={"Pochta"}
               required={true}
               value={
                 generateStateValueProp($state, ["emailInput", "value"]) ?? ""
@@ -254,7 +253,7 @@ function PlasmicRegister__RenderFunc(props: {
                 sty.text__efah
               )}
             >
-              {"PASSWORD"}
+              {"Parol"}
             </div>
             <TextInput
               data-plasmic-name={"passwordInput"}
@@ -265,7 +264,7 @@ function PlasmicRegister__RenderFunc(props: {
                   (e => e.target?.value).apply(null, eventArgs)
                 );
               }}
-              placeholder={"Password"}
+              placeholder={"Parol"}
               required={true}
               type={"password"}
               value={
@@ -317,20 +316,22 @@ function PlasmicRegister__RenderFunc(props: {
                 }
               }}
             >
-              {"Register"}
+              {"Ro'yhatdan o'tish"}
             </Button>
             <div className={classNames(projectcss.all, sty.freeBox__hJAbv)}>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__bz1MA
-                )}
-              >
-                {hasVariant(globalVariants, "screen", "dessktop")
-                  ? "Already have an account?"
-                  : "Already have an account?"}
-              </div>
+              {false ? (
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__bz1MA
+                  )}
+                >
+                  {hasVariant(globalVariants, "screen", "dessktop")
+                    ? "Already have an account?"
+                    : "Already have an account?"}
+                </div>
+              ) : null}
               <div
                 className={classNames(
                   projectcss.all,
@@ -366,7 +367,7 @@ function PlasmicRegister__RenderFunc(props: {
                   }
                 }}
               >
-                {"Login"}
+                {"Kirish"}
               </div>
             </div>
           </Stack__>

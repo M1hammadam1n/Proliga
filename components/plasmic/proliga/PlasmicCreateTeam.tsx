@@ -315,7 +315,7 @@ function PlasmicCreateTeam__RenderFunc(props: {
                         {(() => {
                           try {
                             return (
-                              "ФЭНТЕЗИ\n " +
+                              "Fantasy\n " +
                               $queries.query.data.response[0].title
                             );
                           } catch (e) {
@@ -347,9 +347,7 @@ function PlasmicCreateTeam__RenderFunc(props: {
                             "value"
                           ])((e => e.target?.value).apply(null, eventArgs));
                         }}
-                        placeholder={
-                          "\u041d\u0430\u0437\u0432\u0430\u043d\u0438\u0435 \u0442\u0432\u043e\u0435\u0439 \u043a\u043e\u043c\u0430\u043d\u0434\u044b"
-                        }
+                        placeholder={"Komandangizni nomi"}
                         required={true}
                         type={"text"}
                         value={
@@ -475,7 +473,7 @@ function PlasmicCreateTeam__RenderFunc(props: {
                           }
                         }}
                       >
-                        {"\u0418\u0433\u0440\u0430\u0442\u044c"}
+                        {"O'ynash"}
                       </Button>
                     </Stack__>
                   </div>
@@ -510,7 +508,7 @@ function PlasmicCreateTeam__RenderFunc(props: {
                         <React.Fragment>
                           {(() => {
                             try {
-                              return "Название команды: ";
+                              return "Komandani nomi: ";
                             } catch (e) {
                               if (
                                 e instanceof TypeError ||
@@ -612,9 +610,7 @@ function PlasmicCreateTeam__RenderFunc(props: {
                         }
                       }}
                     >
-                      {
-                        "\u041f\u0435\u0440\u0435\u0439\u0442\u0438 \u043a \u043a\u043e\u043c\u0430\u043d\u0434\u0435"
-                      }
+                      {"Komandaga o'tish"}
                     </Button>
                   </div>
                 ) : null}

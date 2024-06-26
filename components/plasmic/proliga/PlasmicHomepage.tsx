@@ -59,16 +59,9 @@ import {
   useGlobalActions
 } from "@plasmicapp/react-web/lib/host";
 
-import {
-  executePlasmicDataOp,
-  usePlasmicDataOp,
-  usePlasmicInvalidate
-} from "@plasmicapp/react-web/lib/data-sources";
-
 import Navbar from "../../Navbar"; // plasmic-import: TKT8XnZtrLZi/component
 import SearchComponent from "../../SearchComponent"; // plasmic-import: mmk_GiTXUtux/component
 import Footer from "../../Footer"; // plasmic-import: kIdovXGtWiEz/component
-import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -130,28 +123,6 @@ function PlasmicHomepage__RenderFunc(props: {
   const $refs = refsRef.current;
 
   const currentUser = useCurrentUser?.() || {};
-
-  let [$queries, setDollarQueries] = React.useState<
-    Record<string, ReturnType<typeof usePlasmicDataOp>>
-  >({});
-
-  const new$Queries: Record<string, ReturnType<typeof usePlasmicDataOp>> = {
-    players: usePlasmicDataOp(() => {
-      return {
-        sourceId: "8cdHi4ivRUEkK6qbegQevF",
-        opId: "d351cf04-9320-4dff-9a46-7b368fccabd7",
-        userArgs: {},
-        cacheKey: `plasmic.$.d351cf04-9320-4dff-9a46-7b368fccabd7.$.`,
-        invalidatedKeys: null,
-        roleId: null
-      };
-    })
-  };
-  if (Object.keys(new$Queries).some(k => new$Queries[k] !== $queries[k])) {
-    setDollarQueries(new$Queries);
-
-    $queries = new$Queries;
-  }
 
   return (
     <React.Fragment>
@@ -220,9 +191,7 @@ function PlasmicHomepage__RenderFunc(props: {
                 sty.text
               )}
             >
-              {
-                "\u0418\u0433\u0440\u0430\u0439\u0442\u0435 \u0441 \u043d\u0430\u043c\u0438 \u0438 \u043f\u043e\u043b\u0443\u0447\u0430\u0439\u0442\u0435 \u043f\u043e\u0434\u0430\u0440\u043a\u0438!"
-              }
+              {"Biz bilan oynang va Sovg'alar yutib oling"}
             </div>
           </Stack__>
           <SearchComponent

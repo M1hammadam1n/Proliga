@@ -61,7 +61,6 @@ import {
 
 import Navbar from "../../Navbar"; // plasmic-import: TKT8XnZtrLZi/component
 import LoginAuth from "../../LoginAuth"; // plasmic-import: mheDXg-YkeTz/component
-import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 

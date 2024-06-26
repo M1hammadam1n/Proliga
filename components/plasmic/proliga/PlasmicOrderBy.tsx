@@ -205,7 +205,7 @@ function PlasmicOrderBy__RenderFunc(props: {
             sty.text__y5Zib
           )}
         >
-          {"\u0418\u0433\u0440\u043e\u043a"}
+          {"O'yinchi"}
         </div>
         <UpDownOrder
           data-plasmic-name={"upDownOrder"}
@@ -233,7 +233,7 @@ function PlasmicOrderBy__RenderFunc(props: {
             sty.text___2S1
           )}
         >
-          {"\u041f\u043e\u0437\u0438\u0446\u0438\u044f"}
+          {"Pozitsiya"}
         </div>
       </div>
       <div
@@ -248,7 +248,7 @@ function PlasmicOrderBy__RenderFunc(props: {
             sty.text__njlaE
           )}
         >
-          {"\u041a\u043b\u0443\u0431"}
+          {"Klub"}
         </div>
       </div>
       <div
@@ -264,7 +264,7 @@ function PlasmicOrderBy__RenderFunc(props: {
             sty.text__ttbo
           )}
         >
-          {"\u0426\u0435\u043d\u0430"}
+          {"Narx"}
         </div>
         <UpDownOrder
           data-plasmic-name={"upDownOrder2"}
@@ -290,7 +290,7 @@ function PlasmicOrderBy__RenderFunc(props: {
             sty.text__ohesi
           )}
         >
-          {"\u041e\u0447\u043a\u043e"}
+          {"Ochko"}
         </div>
         <UpDownOrder
           data-plasmic-name={"upDownOrder3"}

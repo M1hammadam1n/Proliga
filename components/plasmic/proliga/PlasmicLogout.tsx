@@ -157,33 +157,8 @@ function PlasmicLogout__RenderFunc(props: {
           data-plasmic-override={overrides.submitButton}
           className={classNames("__wab_instance", sty.submitButton)}
           color={"red"}
-          onClick={async event => {
-            const $steps = {};
-
-            $steps["updateStateVariable"] = true
-              ? (() => {
-                  const actionArgs = {};
-                  return (({ variable, value, startIndex, deleteCount }) => {
-                    if (!variable) {
-                      return;
-                    }
-                    const { objRoot, variablePath } = variable;
-                    undefined;
-                  })?.apply(null, [actionArgs]);
-                })()
-              : undefined;
-            if (
-              $steps["updateStateVariable"] != null &&
-              typeof $steps["updateStateVariable"] === "object" &&
-              typeof $steps["updateStateVariable"].then === "function"
-            ) {
-              $steps["updateStateVariable"] = await $steps[
-                "updateStateVariable"
-              ];
-            }
-          }}
         >
-          {"Sign Out"}
+          {"Chiqib Ketish"}
         </Button>
       ) : null}
     </div>
