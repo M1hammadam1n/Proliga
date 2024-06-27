@@ -88,7 +88,7 @@
   max-width: 100%;
   object-fit: cover;
 }
-.text__s9Tb {
+.text {
   position: relative;
   width: 100%;
   height: auto;
@@ -118,21 +118,58 @@
   flex-direction: column;
   position: relative;
   width: 100%;
-  height: auto;
+  height: 100%;
   max-width: 100%;
   justify-content: flex-start;
   align-items: center;
   min-width: 0;
+  min-height: 0;
   padding: 8px;
 }
 .tabContent:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;
+  width: 100%;
+  min-width: 0;
 }
-.freeBox__mcJod {
+.columns {
   display: flex;
-  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  align-items: stretch;
+  flex-shrink: 1;
+  max-width: 100%;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  min-width: 0;
+  min-height: 0;
+  --plsmc-rc-col-gap: 0px;
+  padding: 8px;
+}
+.columns > :nth-child(2n + 1) {
+  width: calc((100% - 2 * var(--plsmc-rc-col-gap, 0px)) * 6 / 12);
+}
+.columns > :nth-child(2n + 2) {
+  width: calc((100% - 2 * var(--plsmc-rc-col-gap, 0px)) * 6 / 12);
+}
+@media (min-width: 0px) and (max-width: 568px) {
+  .columns {
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+    min-width: 0;
+  }
+}
+@media (min-width: 0px) and (max-width: 568px) {
+  .columns > :nth-child(1n + 1) {
+    width: calc((100% - 1 * var(--plsmc-rc-col-gap, 0px)) * 12 / 12);
+  }
+}
+.column__xIzD8 {
+  display: flex;
   position: relative;
+  flex-direction: column;
   width: 100%;
   height: auto;
   max-width: 100%;
@@ -141,6 +178,109 @@
   min-width: 0;
   padding: 8px;
 }
-.text__pyUs {
-  color: var(--token-jgohepLVeKvh);
+.freeBox__hHx9J {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 0;
+  padding: 0px;
+}
+.goa {
+  display: flex;
+  position: absolute;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  z-index: 2;
+  left: 1px;
+  top: 23px;
+  min-width: 0;
+  padding: 0px;
+}
+.avatarPlayerShowScore___1QvI:global(.__wab_instance) {
+  max-width: 100%;
+  position: relative;
+}
+.def {
+  display: flex;
+  position: absolute;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  z-index: 2;
+  left: 0px;
+  top: 144px;
+  min-width: 0;
+  padding: 0px;
+}
+.avatarPlayerShowScore__q4Dev:global(.__wab_instance) {
+  max-width: 100%;
+  position: relative;
+}
+.mid {
+  display: flex;
+  position: absolute;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  z-index: 2;
+  left: 0px;
+  top: 273px;
+  min-width: 0;
+  padding: 0px;
+}
+.avatarPlayerShowScore__wpSmV:global(.__wab_instance) {
+  max-width: 100%;
+  position: relative;
+}
+.str {
+  display: flex;
+  position: absolute;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  z-index: 2;
+  left: 0px;
+  top: 410px;
+  min-width: 0;
+  padding: 0px;
+}
+.avatarPlayerShowScore___5SAiB:global(.__wab_instance) {
+  max-width: 100%;
+  position: relative;
+}
+.soccerPlaceMens2:global(.__wab_instance) {
+  max-width: 100%;
+  position: relative;
+  z-index: 0;
+}
+.column__gIpSa {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  min-width: 0;
+  padding: 8px;
 }

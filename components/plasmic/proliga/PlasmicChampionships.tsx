@@ -276,11 +276,24 @@ function PlasmicChampionships__RenderFunc(props: {
                   onClick={async event => {
                     const $steps = {};
 
-                    $steps["goToTeams"] =
+                    $steps["goToShowTeam"] =
                       currentItem.team_name != null
                         ? (() => {
                             const actionArgs = {
-                              destination: `/user/team/${(() => {
+                              destination: `/showteam/${(() => {
+                                try {
+                                  return currentItem.competition_id;
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return undefined;
+                                  }
+                                  throw e;
+                                }
+                              })()}/${(() => {
                                 try {
                                   return currentItem.team_id;
                                 } catch (e) {
@@ -310,11 +323,11 @@ function PlasmicChampionships__RenderFunc(props: {
                           })()
                         : undefined;
                     if (
-                      $steps["goToTeams"] != null &&
-                      typeof $steps["goToTeams"] === "object" &&
-                      typeof $steps["goToTeams"].then === "function"
+                      $steps["goToShowTeam"] != null &&
+                      typeof $steps["goToShowTeam"] === "object" &&
+                      typeof $steps["goToShowTeam"].then === "function"
                     ) {
-                      $steps["goToTeams"] = await $steps["goToTeams"];
+                      $steps["goToShowTeam"] = await $steps["goToShowTeam"];
                     }
 
                     $steps["createRow"] =

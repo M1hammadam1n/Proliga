@@ -140,16 +140,19 @@ function PlasmicSoccerPlaceMens2__RenderFunc(props: {
         data-plasmic-override={overrides.img}
         alt={""}
         className={classNames(sty.img)}
-        displayHeight={"239px"}
+        displayHeight={"auto"}
         displayMaxHeight={"none"}
-        displayMaxWidth={"100%"}
+        displayMaxWidth={"none"}
         displayMinHeight={"0"}
         displayMinWidth={"0"}
         displayWidth={"auto"}
         loading={"lazy"}
-        src={
-          "https://s5o.ru/storage/dumpster/4/f0/d4432a730f1d768c5a7b4e55534e7.svg"
-        }
+        src={{
+          src: "/plasmic/proliga/images/stadionSportsRusvg.svg",
+          fullWidth: 320,
+          fullHeight: 320,
+          aspectRatio: 1
+        }}
       />
     </div>
   ) as React.ReactElement | null;

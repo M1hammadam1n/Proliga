@@ -1617,12 +1617,25 @@
           "projectId": "tDWy3GXn2mzd9e2xUaPdmu",
           "renderModuleFilePath": "plasmic/proliga/PlasmicShowTeam.tsx",
           "importSpec": {
-            "modulePath": "../pages/team-2/[comp_id]/[id].tsx"
+            "modulePath": "../pages/showteam/[comp_id]/[id].tsx"
           },
           "cssFilePath": "plasmic/proliga/PlasmicShowTeam.module.css",
           "scheme": "blackbox",
           "componentType": "page",
           "path": "/team-2/[comp_id]/[id]"
+        },
+        {
+          "id": "kJWqOT85FINq",
+          "name": "AvatarPlayerShowScore",
+          "type": "managed",
+          "projectId": "tDWy3GXn2mzd9e2xUaPdmu",
+          "renderModuleFilePath": "plasmic/proliga/PlasmicAvatarPlayerShowScore.tsx",
+          "importSpec": {
+            "modulePath": "AvatarPlayerShowScore.tsx"
+          },
+          "cssFilePath": "plasmic/proliga/PlasmicAvatarPlayerShowScore.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [
@@ -2142,6 +2155,16 @@
           "id": "ZKHIKpfPXavS",
           "name": "error-10378.svg",
           "filePath": "../public/plasmic/proliga/images/error10378Svg.svg"
+        },
+        {
+          "id": "s6XlfMLQiz6N",
+          "name": "stadion.svg",
+          "filePath": "../public/plasmic/proliga/images/stadionsvg.svg"
+        },
+        {
+          "id": "RgJITdTiusKq",
+          "name": "pitch-large.0c9a0331.jpg",
+          "filePath": "../public/plasmic/proliga/images/pitchLarge0C9A0331Jpg.jpg"
         }
       ],
       "indirect": false,
