@@ -191,7 +191,7 @@ function PlasmicHomepage__RenderFunc(props: {
                 sty.text
               )}
             >
-              {"Biz bilan oynang va Sovg'alar yutib oling"}
+              {"Biz bilan o'ynang va Sovg'alar yutib oling"}
             </div>
           </Stack__>
           <SearchComponent

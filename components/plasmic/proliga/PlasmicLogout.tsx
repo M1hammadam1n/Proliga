@@ -158,7 +158,7 @@ function PlasmicLogout__RenderFunc(props: {
           className={classNames("__wab_instance", sty.submitButton)}
           color={"red"}
         >
-          {"Chiqib Ketish"}
+          {"Chiqish"}
         </Button>
       ) : null}
     </div>

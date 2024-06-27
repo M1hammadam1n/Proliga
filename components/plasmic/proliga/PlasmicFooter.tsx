@@ -246,7 +246,7 @@ function PlasmicFooter__RenderFunc(props: {
                 sty.text__tDuoy
               )}
             >
-              {"HELP"}
+              {"Yordam"}
             </div>
             <div
               className={classNames(

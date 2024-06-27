@@ -278,7 +278,7 @@ function PlasmicNavbar__RenderFunc(props: {
                 }
               }}
             >
-              {"Matchlar"}
+              {"O'yinlar"}
             </div>
           </Reveal>
           <Reveal
