@@ -194,38 +194,25 @@ function PlasmicAvatarPlayerShowScore__RenderFunc(props: {
           width={"15px"}
         />
       ) : null}
-      {(() => {
-        try {
-          return $props.image != undefined;
-        } catch (e) {
-          if (
-            e instanceof TypeError ||
-            e?.plasmicType === "PlasmicUndefinedDataError"
-          ) {
-            return true;
-          }
-          throw e;
-        }
-      })() ? (
-        <PlasmicImg__
-          alt={""}
-          className={classNames(sty.img__rXm9C)}
-          displayHeight={"auto"}
-          displayMaxHeight={"none"}
-          displayMaxWidth={"100%"}
-          displayMinHeight={"0"}
-          displayMinWidth={"0"}
-          displayWidth={"16px"}
-          loading={"lazy"}
-          onClick={args.onclickX}
-          src={{
-            src: "/plasmic/proliga/images/error10378Svg.svg",
-            fullWidth: 256,
-            fullHeight: 256,
-            aspectRatio: 1
-          }}
-        />
-      ) : null}
+      <PlasmicImg__
+        alt={""}
+        className={classNames(sty.img__rXm9C)}
+        displayHeight={"auto"}
+        displayMaxHeight={"none"}
+        displayMaxWidth={"100%"}
+        displayMinHeight={"0"}
+        displayMinWidth={"0"}
+        displayWidth={"16px"}
+        loading={"lazy"}
+        onClick={args.onclickX}
+        src={{
+          src: "/plasmic/proliga/images/error10378Svg.svg",
+          fullWidth: 256,
+          fullHeight: 256,
+          aspectRatio: 1
+        }}
+      />
+
       <div
         className={classNames(projectcss.all, sty.freeBox__fku2O)}
         onClick={args.updateCapitan}

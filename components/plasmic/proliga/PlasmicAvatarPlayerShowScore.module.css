@@ -37,6 +37,7 @@
   top: 4px;
   bottom: auto;
   right: auto;
+  display: none !important;
   -webkit-transition-property: all;
   -webkit-transition-duration: 1s;
 }
