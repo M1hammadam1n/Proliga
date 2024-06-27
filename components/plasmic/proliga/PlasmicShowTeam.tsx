@@ -806,6 +806,60 @@ function PlasmicShowTeam__RenderFunc(props: {
                                                 "__wab_instance",
                                                 sty.avatarPlayerShowScore__q4Dev
                                               )}
+                                              image={(() => {
+                                                try {
+                                                  return $queries.playerList.data.response.find(
+                                                    x =>
+                                                      x.id ===
+                                                      currentItem.player_id
+                                                  ).image;
+                                                } catch (e) {
+                                                  if (
+                                                    e instanceof TypeError ||
+                                                    e?.plasmicType ===
+                                                      "PlasmicUndefinedDataError"
+                                                  ) {
+                                                    return undefined;
+                                                  }
+                                                  throw e;
+                                                }
+                                              })()}
+                                              name={(() => {
+                                                try {
+                                                  return $queries.playerList.data.response.find(
+                                                    x =>
+                                                      x.id ===
+                                                      currentItem.player_id
+                                                  ).name;
+                                                } catch (e) {
+                                                  if (
+                                                    e instanceof TypeError ||
+                                                    e?.plasmicType ===
+                                                      "PlasmicUndefinedDataError"
+                                                  ) {
+                                                    return undefined;
+                                                  }
+                                                  throw e;
+                                                }
+                                              })()}
+                                              ochko={(() => {
+                                                try {
+                                                  return $queries.playerPoint.data.response.find(
+                                                    x =>
+                                                      x.player_id ===
+                                                      currentItem.player_id
+                                                  ).point;
+                                                } catch (e) {
+                                                  if (
+                                                    e instanceof TypeError ||
+                                                    e?.plasmicType ===
+                                                      "PlasmicUndefinedDataError"
+                                                  ) {
+                                                    return undefined;
+                                                  }
+                                                  throw e;
+                                                }
+                                              })()}
                                             />
                                           </div>
                                         );
@@ -861,6 +915,60 @@ function PlasmicShowTeam__RenderFunc(props: {
                                                 "__wab_instance",
                                                 sty.avatarPlayerShowScore__wpSmV
                                               )}
+                                              image={(() => {
+                                                try {
+                                                  return $queries.playerList.data.response.find(
+                                                    x =>
+                                                      x.id ===
+                                                      currentItem.player_id
+                                                  ).image;
+                                                } catch (e) {
+                                                  if (
+                                                    e instanceof TypeError ||
+                                                    e?.plasmicType ===
+                                                      "PlasmicUndefinedDataError"
+                                                  ) {
+                                                    return undefined;
+                                                  }
+                                                  throw e;
+                                                }
+                                              })()}
+                                              name={(() => {
+                                                try {
+                                                  return $queries.playerList.data.response.find(
+                                                    x =>
+                                                      x.id ===
+                                                      currentItem.player_id
+                                                  ).name;
+                                                } catch (e) {
+                                                  if (
+                                                    e instanceof TypeError ||
+                                                    e?.plasmicType ===
+                                                      "PlasmicUndefinedDataError"
+                                                  ) {
+                                                    return undefined;
+                                                  }
+                                                  throw e;
+                                                }
+                                              })()}
+                                              ochko={(() => {
+                                                try {
+                                                  return $queries.playerPoint.data.response.find(
+                                                    x =>
+                                                      x.player_id ===
+                                                      currentItem.player_id
+                                                  ).point;
+                                                } catch (e) {
+                                                  if (
+                                                    e instanceof TypeError ||
+                                                    e?.plasmicType ===
+                                                      "PlasmicUndefinedDataError"
+                                                  ) {
+                                                    return undefined;
+                                                  }
+                                                  throw e;
+                                                }
+                                              })()}
                                             />
                                           </div>
                                         );
@@ -916,6 +1024,60 @@ function PlasmicShowTeam__RenderFunc(props: {
                                                 "__wab_instance",
                                                 sty.avatarPlayerShowScore___5SAiB
                                               )}
+                                              image={(() => {
+                                                try {
+                                                  return $queries.playerList.data.response.find(
+                                                    x =>
+                                                      x.id ===
+                                                      currentItem.player_id
+                                                  ).image;
+                                                } catch (e) {
+                                                  if (
+                                                    e instanceof TypeError ||
+                                                    e?.plasmicType ===
+                                                      "PlasmicUndefinedDataError"
+                                                  ) {
+                                                    return undefined;
+                                                  }
+                                                  throw e;
+                                                }
+                                              })()}
+                                              name={(() => {
+                                                try {
+                                                  return $queries.playerList.data.response.find(
+                                                    x =>
+                                                      x.id ===
+                                                      currentItem.player_id
+                                                  ).name;
+                                                } catch (e) {
+                                                  if (
+                                                    e instanceof TypeError ||
+                                                    e?.plasmicType ===
+                                                      "PlasmicUndefinedDataError"
+                                                  ) {
+                                                    return undefined;
+                                                  }
+                                                  throw e;
+                                                }
+                                              })()}
+                                              ochko={(() => {
+                                                try {
+                                                  return $queries.playerPoint.data.response.find(
+                                                    x =>
+                                                      x.player_id ===
+                                                      currentItem.player_id
+                                                  ).point;
+                                                } catch (e) {
+                                                  if (
+                                                    e instanceof TypeError ||
+                                                    e?.plasmicType ===
+                                                      "PlasmicUndefinedDataError"
+                                                  ) {
+                                                    return undefined;
+                                                  }
+                                                  throw e;
+                                                }
+                                              })()}
                                             />
                                           </div>
                                         );
