@@ -182,8 +182,8 @@
   height: 100%;
   max-width: 100%;
   z-index: 2;
-  left: 0px;
-  top: 66px;
+  left: 8px;
+  top: 70px;
   min-width: 0;
   min-height: 0;
   padding: 0px;
@@ -202,6 +202,9 @@
 }
 .avatarPlayer:global(.__wab_instance) {
   max-width: 100%;
+  position: relative;
+  left: auto;
+  top: auto;
 }
 .def {
   display: flex;
@@ -212,7 +215,7 @@
   max-width: 100%;
   z-index: 2;
   left: 0px;
-  top: 117px;
+  top: 180px;
   min-width: 0;
   min-height: 0;
   padding: 0px;
@@ -223,14 +226,14 @@
   justify-content: center;
   min-width: 0;
   min-height: 0;
-  margin-left: calc(0px - 0px);
-  width: calc(100% + 0px);
+  margin-left: calc(0px - 35px);
+  width: calc(100% + 35px);
 }
 .def > :global(.__wab_flex-container) > *,
 .def > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
 .def > :global(.__wab_flex-container) > picture > img,
 .def > :global(.__wab_flex-container) > :global(.__wab_slot) > picture > img {
-  margin-left: 0px;
+  margin-left: 35px;
 }
 .freeBox___4QjEq {
   display: flex;
@@ -255,7 +258,7 @@
   max-width: 100%;
   z-index: 2;
   left: 0px;
-  top: 176px;
+  top: 290px;
   min-width: 0;
   min-height: 0;
   padding: 0px;
@@ -266,14 +269,14 @@
   justify-content: center;
   min-width: 0;
   min-height: 0;
-  margin-left: calc(0px - 0px);
-  width: calc(100% + 0px);
+  margin-left: calc(0px - 35px);
+  width: calc(100% + 35px);
 }
 .mid > :global(.__wab_flex-container) > *,
 .mid > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
 .mid > :global(.__wab_flex-container) > picture > img,
 .mid > :global(.__wab_flex-container) > :global(.__wab_slot) > picture > img {
-  margin-left: 0px;
+  margin-left: 35px;
 }
 .freeBox__hYu4 {
   display: flex;
@@ -298,7 +301,7 @@
   max-width: 100%;
   z-index: 2;
   left: 0px;
-  top: 246px;
+  top: 440px;
   min-width: 0;
   min-height: 0;
   padding: 0px;
@@ -309,14 +312,14 @@
   justify-content: center;
   min-width: 0;
   min-height: 0;
-  margin-left: calc(0px - 0px);
-  width: calc(100% + 0px);
+  margin-left: calc(0px - 35px);
+  width: calc(100% + 35px);
 }
 .str > :global(.__wab_flex-container) > *,
 .str > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
 .str > :global(.__wab_flex-container) > picture > img,
 .str > :global(.__wab_flex-container) > :global(.__wab_slot) > picture > img {
-  margin-left: 0px;
+  margin-left: 35px;
 }
 .freeBox__we8EE {
   display: flex;
