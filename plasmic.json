@@ -1517,20 +1517,6 @@
           "path": "/team/[id]"
         },
         {
-          "id": "Q5DWXsGHGePI",
-          "name": "ShowTeams",
-          "type": "managed",
-          "projectId": "tDWy3GXn2mzd9e2xUaPdmu",
-          "renderModuleFilePath": "plasmic/proliga/PlasmicShowTeams.tsx",
-          "importSpec": {
-            "modulePath": "../pages/showteams.tsx"
-          },
-          "cssFilePath": "plasmic/proliga/PlasmicShowTeams.module.css",
-          "scheme": "blackbox",
-          "componentType": "page",
-          "path": "/showteams"
-        },
-        {
           "id": "2LqbY1eBUixE",
           "name": "EditTeam",
           "type": "managed",
@@ -1625,18 +1611,18 @@
           "componentType": "component"
         },
         {
-          "id": "jA0c_UB1H7tT",
-          "name": "NewPage",
+          "id": "Ih5PzV0mN0gk",
+          "name": "ShowTeam",
           "type": "managed",
           "projectId": "tDWy3GXn2mzd9e2xUaPdmu",
-          "renderModuleFilePath": "plasmic/proliga/PlasmicNewPage.tsx",
+          "renderModuleFilePath": "plasmic/proliga/PlasmicShowTeam.tsx",
           "importSpec": {
-            "modulePath": "../pages/new-page-2.tsx"
+            "modulePath": "../pages/team-2/[comp_id]/[id].tsx"
           },
-          "cssFilePath": "plasmic/proliga/PlasmicNewPage.module.css",
+          "cssFilePath": "plasmic/proliga/PlasmicShowTeam.module.css",
           "scheme": "blackbox",
           "componentType": "page",
-          "path": "/new-page-2"
+          "path": "/team-2/[comp_id]/[id]"
         }
       ],
       "icons": [
