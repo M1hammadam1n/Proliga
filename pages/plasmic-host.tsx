@@ -13,14 +13,14 @@ import Greetings from "@/components/Greetings";
 
 // registerComponent(...)
 
-
-registerComponent(Greetings,{
-  name: 'Greetings',
-  props:{
-    name: 'string'
-  },
-  importPath: '@/components/Greetings'
-})
+//
+// registerComponent(Greetings,{
+//   name: 'Greetings',
+//   props:{
+//     name: 'string'
+//   },
+//   importPath: '@/components/Greetings'
+// })
 
 export default function PlasmicHost() {
   return <PlasmicCanvasHost />;
