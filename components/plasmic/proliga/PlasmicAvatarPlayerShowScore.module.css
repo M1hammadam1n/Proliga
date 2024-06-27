@@ -20,7 +20,7 @@
   max-width: 100%;
   z-index: 2;
   left: 1px;
-  top: 2px;
+  top: 20px;
 }
 .img__mEbLy > picture > img {
   object-fit: cover;
@@ -32,6 +32,11 @@
   transition-property: all;
   transition-duration: 1s;
   cursor: pointer;
+  position: absolute;
+  left: 0;
+  top: 4px;
+  bottom: auto;
+  right: auto;
   -webkit-transition-property: all;
   -webkit-transition-duration: 1s;
 }
@@ -63,7 +68,7 @@
 .img__yBf8V {
   max-width: 100%;
   object-fit: contain;
-  width: 40px;
+  width: 80px;
   flex-shrink: 0;
 }
 .img__yBf8V > picture > img {
@@ -114,7 +119,7 @@
   height: auto;
   max-width: 100%;
   background: none;
-  font-size: 8px;
+  font-size: 16px;
   font-weight: 400;
   text-align: center;
   color: var(--token-jgohepLVeKvh);
@@ -126,8 +131,8 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  width: 12px;
-  height: 8px;
+  width: 30px;
+  height: 15px;
   max-width: 100%;
   background: var(--token-aoepsJy6J4Tf);
   flex-shrink: 0;
@@ -141,6 +146,6 @@
   max-width: 100%;
   color: var(--token-41VRhDKfihhY);
   text-align: center;
-  font-size: 8px;
+  font-size: 14px;
   min-width: 0;
 }

@@ -36,14 +36,6 @@
   width: 100%;
   min-width: 0;
 }
-.text__qK9Iw {
-  position: relative;
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-  color: var(--token-jgohepLVeKvh);
-  min-width: 0;
-}
 .freeBox__ntysc {
   display: flex;
   position: relative;
@@ -96,7 +88,7 @@
   max-width: 100%;
   object-fit: cover;
 }
-.text__s9Tb {
+.text {
   position: relative;
   width: 100%;
   height: auto;

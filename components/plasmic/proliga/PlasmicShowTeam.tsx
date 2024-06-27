@@ -105,6 +105,7 @@ export type PlasmicShowTeam__OverridesType = {
   tabsContainer?: Flex__<typeof TabsContainer>;
   tabButton?: Flex__<typeof TabButton>;
   button?: Flex__<typeof Button>;
+  text?: Flex__<"div">;
   tabUnderline?: Flex__<typeof TabUnderline>;
   tabContent?: Flex__<typeof TabContent>;
   columns?: Flex__<"div">;
@@ -376,29 +377,6 @@ function PlasmicShowTeam__RenderFunc(props: {
             })()}
           />
 
-          <div
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text__qK9Iw
-            )}
-          >
-            <React.Fragment>
-              {(() => {
-                try {
-                  return $state.tourId;
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return "";
-                  }
-                  throw e;
-                }
-              })()}
-            </React.Fragment>
-          </div>
           <div className={classNames(projectcss.all, sty.freeBox__ntysc)}>
             <TabsContainer
               data-plasmic-name={"tabsContainer"}
@@ -501,10 +479,12 @@ function PlasmicShowTeam__RenderFunc(props: {
                               }}
                             >
                               <div
+                                data-plasmic-name={"text"}
+                                data-plasmic-override={overrides.text}
                                 className={classNames(
                                   projectcss.all,
                                   projectcss.__wab_text,
-                                  sty.text__s9Tb
+                                  sty.text
                                 )}
                                 onClick={async event => {
                                   const $steps = {};
@@ -556,7 +536,7 @@ function PlasmicShowTeam__RenderFunc(props: {
                                 <React.Fragment>
                                   {(() => {
                                     try {
-                                      return currentItem.tour_number;
+                                      return currentItem.tour_number + "-tur";
                                     } catch (e) {
                                       if (
                                         e instanceof TypeError ||
@@ -693,6 +673,23 @@ function PlasmicShowTeam__RenderFunc(props: {
                                             key={currentIndex}
                                           >
                                             <AvatarPlayerShowScore
+                                              capitanVisibility={(() => {
+                                                try {
+                                                  return (
+                                                    currentItem.is_captain ===
+                                                    true
+                                                  );
+                                                } catch (e) {
+                                                  if (
+                                                    e instanceof TypeError ||
+                                                    e?.plasmicType ===
+                                                      "PlasmicUndefinedDataError"
+                                                  ) {
+                                                    return false;
+                                                  }
+                                                  throw e;
+                                                }
+                                              })()}
                                               className={classNames(
                                                 "__wab_instance",
                                                 sty.avatarPlayerShowScore___1QvI
@@ -802,6 +799,23 @@ function PlasmicShowTeam__RenderFunc(props: {
                                             key={currentIndex}
                                           >
                                             <AvatarPlayerShowScore
+                                              capitanVisibility={(() => {
+                                                try {
+                                                  return (
+                                                    currentItem.is_captain ===
+                                                    true
+                                                  );
+                                                } catch (e) {
+                                                  if (
+                                                    e instanceof TypeError ||
+                                                    e?.plasmicType ===
+                                                      "PlasmicUndefinedDataError"
+                                                  ) {
+                                                    return false;
+                                                  }
+                                                  throw e;
+                                                }
+                                              })()}
                                               className={classNames(
                                                 "__wab_instance",
                                                 sty.avatarPlayerShowScore__q4Dev
@@ -911,6 +925,23 @@ function PlasmicShowTeam__RenderFunc(props: {
                                             key={currentIndex}
                                           >
                                             <AvatarPlayerShowScore
+                                              capitanVisibility={(() => {
+                                                try {
+                                                  return (
+                                                    currentItem.is_captain ===
+                                                    true
+                                                  );
+                                                } catch (e) {
+                                                  if (
+                                                    e instanceof TypeError ||
+                                                    e?.plasmicType ===
+                                                      "PlasmicUndefinedDataError"
+                                                  ) {
+                                                    return false;
+                                                  }
+                                                  throw e;
+                                                }
+                                              })()}
                                               className={classNames(
                                                 "__wab_instance",
                                                 sty.avatarPlayerShowScore__wpSmV
@@ -1020,6 +1051,23 @@ function PlasmicShowTeam__RenderFunc(props: {
                                             key={currentIndex}
                                           >
                                             <AvatarPlayerShowScore
+                                              capitanVisibility={(() => {
+                                                try {
+                                                  return (
+                                                    currentItem.is_captain ===
+                                                    true
+                                                  );
+                                                } catch (e) {
+                                                  if (
+                                                    e instanceof TypeError ||
+                                                    e?.plasmicType ===
+                                                      "PlasmicUndefinedDataError"
+                                                  ) {
+                                                    return false;
+                                                  }
+                                                  throw e;
+                                                }
+                                              })()}
                                               className={classNames(
                                                 "__wab_instance",
                                                 sty.avatarPlayerShowScore___5SAiB
@@ -1154,6 +1202,7 @@ const PlasmicDescendants = {
     "tabsContainer",
     "tabButton",
     "button",
+    "text",
     "tabUnderline",
     "tabContent",
     "columns",
@@ -1170,6 +1219,7 @@ const PlasmicDescendants = {
     "tabsContainer",
     "tabButton",
     "button",
+    "text",
     "tabUnderline",
     "tabContent",
     "columns",
@@ -1180,8 +1230,9 @@ const PlasmicDescendants = {
     "soccerPlaceMens2",
     "h1"
   ],
-  tabButton: ["tabButton", "button"],
-  button: ["button"],
+  tabButton: ["tabButton", "button", "text"],
+  button: ["button", "text"],
+  text: ["text"],
   tabUnderline: ["tabUnderline"],
   tabContent: [
     "tabContent",
@@ -1211,6 +1262,7 @@ type NodeDefaultElementType = {
   tabsContainer: typeof TabsContainer;
   tabButton: typeof TabButton;
   button: typeof Button;
+  text: "div";
   tabUnderline: typeof TabUnderline;
   tabContent: typeof TabContent;
   columns: "div";
@@ -1304,6 +1356,7 @@ export const PlasmicShowTeam = Object.assign(
     tabsContainer: makeNodeComponent("tabsContainer"),
     tabButton: makeNodeComponent("tabButton"),
     button: makeNodeComponent("button"),
+    text: makeNodeComponent("text"),
     tabUnderline: makeNodeComponent("tabUnderline"),
     tabContent: makeNodeComponent("tabContent"),
     columns: makeNodeComponent("columns"),
