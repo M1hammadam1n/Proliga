@@ -75,6 +75,7 @@ import { TabUnderline } from "@plasmicpkgs/plasmic-tabs";
 import { TabContent } from "@plasmicpkgs/plasmic-tabs";
 import AvatarPlayerShowScore from "../../AvatarPlayerShowScore"; // plasmic-import: kJWqOT85FINq/component
 import SoccerPlaceMens2 from "../../SoccerPlaceMens2"; // plasmic-import: xodLqMOhDs29/component
+import TextInput from "../../TextInput"; // plasmic-import: xwgFLXqL07mD/component
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 
 import "@plasmicapp/react-web/lib/plasmic.css";
@@ -86,6 +87,8 @@ import sty from "./PlasmicShowTeam.module.css"; // plasmic-import: Ih5PzV0mN0gk/
 
 import ChecksvgIcon from "../plasmic_tabs/icons/PlasmicIcon__Checksvg"; // plasmic-import: zq2s7N0xWucT/icon
 import IconIcon from "../plasmic_tabs/icons/PlasmicIcon__Icon"; // plasmic-import: 8K40faRNhuCj/icon
+import SearchsvgIcon from "./icons/PlasmicIcon__Searchsvg"; // plasmic-import: TfB627kbYt5s/icon
+import ChecksvgIcon2 from "./icons/PlasmicIcon__Checksvg"; // plasmic-import: BLgPkmgd4hOv/icon
 
 createPlasmicElementProxy;
 
@@ -104,8 +107,8 @@ export type PlasmicShowTeam__OverridesType = {
   userteamNavbar?: Flex__<typeof UserteamNavbar>;
   tabsContainer?: Flex__<typeof TabsContainer>;
   tabButton?: Flex__<typeof TabButton>;
+  link?: Flex__<"a"> & Partial<LinkProps>;
   button?: Flex__<typeof Button>;
-  text?: Flex__<"div">;
   tabUnderline?: Flex__<typeof TabUnderline>;
   tabContent?: Flex__<typeof TabContent>;
   columns?: Flex__<"div">;
@@ -115,6 +118,8 @@ export type PlasmicShowTeam__OverridesType = {
   str?: Flex__<"div">;
   soccerPlaceMens2?: Flex__<typeof SoccerPlaceMens2>;
   h1?: Flex__<"h1">;
+  h3?: Flex__<"h3">;
+  textInput?: Flex__<typeof TextInput>;
 };
 
 export interface DefaultShowTeamProps {}
@@ -178,7 +183,25 @@ function PlasmicShowTeam__RenderFunc(props: {
         path: "tourId",
         type: "private",
         variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) => 0
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return undefined;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return 0;
+              }
+              throw e;
+            }
+          })()
+      },
+      {
+        path: "textInput[].value",
+        type: "private",
+        variableType: "text"
       }
     ],
     [$props, $ctx, $refs]
@@ -433,59 +456,20 @@ function PlasmicShowTeam__RenderFunc(props: {
                               }
                             })()}
                           >
-                            <Button
-                              data-plasmic-name={"button"}
-                              data-plasmic-override={overrides.button}
-                              onClick={async event => {
-                                const $steps = {};
-
-                                $steps["updateTourId"] = true
-                                  ? (() => {
-                                      const actionArgs = {
-                                        variable: {
-                                          objRoot: $state,
-                                          variablePath: ["tourId"]
-                                        },
-                                        operation: 0,
-                                        value: currentItem.tour_id
-                                      };
-                                      return (({
-                                        variable,
-                                        value,
-                                        startIndex,
-                                        deleteCount
-                                      }) => {
-                                        if (!variable) {
-                                          return;
-                                        }
-                                        const { objRoot, variablePath } =
-                                          variable;
-
-                                        $stateSet(objRoot, variablePath, value);
-                                        return value;
-                                      })?.apply(null, [actionArgs]);
-                                    })()
-                                  : undefined;
-                                if (
-                                  $steps["updateTourId"] != null &&
-                                  typeof $steps["updateTourId"] === "object" &&
-                                  typeof $steps["updateTourId"].then ===
-                                    "function"
-                                ) {
-                                  $steps["updateTourId"] = await $steps[
-                                    "updateTourId"
-                                  ];
-                                }
-                              }}
+                            <PlasmicLink__
+                              data-plasmic-name={"link"}
+                              data-plasmic-override={overrides.link}
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.a,
+                                sty.link
+                              )}
+                              component={Link}
+                              platform={"nextjs"}
                             >
-                              <div
-                                data-plasmic-name={"text"}
-                                data-plasmic-override={overrides.text}
-                                className={classNames(
-                                  projectcss.all,
-                                  projectcss.__wab_text,
-                                  sty.text
-                                )}
+                              <Button
+                                data-plasmic-name={"button"}
+                                data-plasmic-override={overrides.button}
                                 onClick={async event => {
                                   const $steps = {};
 
@@ -533,24 +517,32 @@ function PlasmicShowTeam__RenderFunc(props: {
                                   }
                                 }}
                               >
-                                <React.Fragment>
-                                  {(() => {
-                                    try {
-                                      return currentItem.tour_number + "-tur";
-                                    } catch (e) {
-                                      if (
-                                        e instanceof TypeError ||
-                                        e?.plasmicType ===
-                                          "PlasmicUndefinedDataError"
-                                      ) {
-                                        return "Tab 1";
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    projectcss.__wab_text,
+                                    sty.text__s9Tb
+                                  )}
+                                >
+                                  <React.Fragment>
+                                    {(() => {
+                                      try {
+                                        return currentItem.tour_number + "-tur";
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return "Tab 1";
+                                        }
+                                        throw e;
                                       }
-                                      throw e;
-                                    }
-                                  })()}
-                                </React.Fragment>
-                              </div>
-                            </Button>
+                                    })()}
+                                  </React.Fragment>
+                                </div>
+                              </Button>
+                            </PlasmicLink__>
                           </TabButton>
                         );
                       })}
@@ -1177,6 +1169,122 @@ function PlasmicShowTeam__RenderFunc(props: {
                                     })()}
                                   </React.Fragment>
                                 </h1>
+                                <h3
+                                  data-plasmic-name={"h3"}
+                                  data-plasmic-override={overrides.h3}
+                                  className={classNames(
+                                    projectcss.all,
+                                    projectcss.h3,
+                                    projectcss.__wab_text,
+                                    sty.h3
+                                  )}
+                                >
+                                  <React.Fragment>
+                                    {(() => {
+                                      try {
+                                        return undefined;
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return "";
+                                        }
+                                        throw e;
+                                      }
+                                    })()}
+                                  </React.Fragment>
+                                </h3>
+                                {(() => {
+                                  const child$Props = {
+                                    className: classNames(
+                                      "__wab_instance",
+                                      sty.textInput
+                                    ),
+                                    onChange: (...eventArgs) => {
+                                      generateStateOnChangeProp($state, [
+                                        "textInput",
+                                        __plasmic_idx_0,
+                                        "value"
+                                      ])(
+                                        (e => e.target?.value).apply(
+                                          null,
+                                          eventArgs
+                                        )
+                                      );
+                                    },
+                                    placeholder: ``,
+                                    value:
+                                      generateStateValueProp($state, [
+                                        "textInput",
+                                        __plasmic_idx_0,
+                                        "value"
+                                      ]) ?? ""
+                                  };
+
+                                  initializePlasmicStates(
+                                    $state,
+                                    [
+                                      {
+                                        name: "textInput[].value",
+                                        initFunc: ({
+                                          $props,
+                                          $state,
+                                          $queries
+                                        }) =>
+                                          (() => {
+                                            try {
+                                              return currentItem.tour_id;
+                                            } catch (e) {
+                                              if (
+                                                e instanceof TypeError ||
+                                                e?.plasmicType ===
+                                                  "PlasmicUndefinedDataError"
+                                              ) {
+                                                return undefined;
+                                              }
+                                              throw e;
+                                            }
+                                          })()
+                                      }
+                                    ],
+                                    [__plasmic_idx_0]
+                                  );
+                                  return (
+                                    <TextInput
+                                      data-plasmic-name={"textInput"}
+                                      data-plasmic-override={
+                                        overrides.textInput
+                                      }
+                                      {...child$Props}
+                                    />
+                                  );
+                                })()}
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    projectcss.__wab_text,
+                                    sty.text__a3ShG
+                                  )}
+                                >
+                                  <React.Fragment>
+                                    {(() => {
+                                      try {
+                                        return $state.tourId;
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return "";
+                                        }
+                                        throw e;
+                                      }
+                                    })()}
+                                  </React.Fragment>
+                                </div>
                               </div>
                             </div>
                           </TabContent>
@@ -1201,8 +1309,8 @@ const PlasmicDescendants = {
     "userteamNavbar",
     "tabsContainer",
     "tabButton",
+    "link",
     "button",
-    "text",
     "tabUnderline",
     "tabContent",
     "columns",
@@ -1211,15 +1319,17 @@ const PlasmicDescendants = {
     "mid",
     "str",
     "soccerPlaceMens2",
-    "h1"
+    "h1",
+    "h3",
+    "textInput"
   ],
   navbar: ["navbar"],
   userteamNavbar: ["userteamNavbar"],
   tabsContainer: [
     "tabsContainer",
     "tabButton",
+    "link",
     "button",
-    "text",
     "tabUnderline",
     "tabContent",
     "columns",
@@ -1228,11 +1338,13 @@ const PlasmicDescendants = {
     "mid",
     "str",
     "soccerPlaceMens2",
-    "h1"
+    "h1",
+    "h3",
+    "textInput"
   ],
-  tabButton: ["tabButton", "button", "text"],
-  button: ["button", "text"],
-  text: ["text"],
+  tabButton: ["tabButton", "link", "button"],
+  link: ["link", "button"],
+  button: ["button"],
   tabUnderline: ["tabUnderline"],
   tabContent: [
     "tabContent",
@@ -1242,15 +1354,29 @@ const PlasmicDescendants = {
     "mid",
     "str",
     "soccerPlaceMens2",
-    "h1"
+    "h1",
+    "h3",
+    "textInput"
   ],
-  columns: ["columns", "goa", "def", "mid", "str", "soccerPlaceMens2", "h1"],
+  columns: [
+    "columns",
+    "goa",
+    "def",
+    "mid",
+    "str",
+    "soccerPlaceMens2",
+    "h1",
+    "h3",
+    "textInput"
+  ],
   goa: ["goa"],
   def: ["def"],
   mid: ["mid"],
   str: ["str"],
   soccerPlaceMens2: ["soccerPlaceMens2"],
-  h1: ["h1"]
+  h1: ["h1"],
+  h3: ["h3"],
+  textInput: ["textInput"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -1261,8 +1387,8 @@ type NodeDefaultElementType = {
   userteamNavbar: typeof UserteamNavbar;
   tabsContainer: typeof TabsContainer;
   tabButton: typeof TabButton;
+  link: "a";
   button: typeof Button;
-  text: "div";
   tabUnderline: typeof TabUnderline;
   tabContent: typeof TabContent;
   columns: "div";
@@ -1272,6 +1398,8 @@ type NodeDefaultElementType = {
   str: "div";
   soccerPlaceMens2: typeof SoccerPlaceMens2;
   h1: "h1";
+  h3: "h3";
+  textInput: typeof TextInput;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -1355,8 +1483,8 @@ export const PlasmicShowTeam = Object.assign(
     userteamNavbar: makeNodeComponent("userteamNavbar"),
     tabsContainer: makeNodeComponent("tabsContainer"),
     tabButton: makeNodeComponent("tabButton"),
+    link: makeNodeComponent("link"),
     button: makeNodeComponent("button"),
-    text: makeNodeComponent("text"),
     tabUnderline: makeNodeComponent("tabUnderline"),
     tabContent: makeNodeComponent("tabContent"),
     columns: makeNodeComponent("columns"),
@@ -1366,6 +1494,8 @@ export const PlasmicShowTeam = Object.assign(
     str: makeNodeComponent("str"),
     soccerPlaceMens2: makeNodeComponent("soccerPlaceMens2"),
     h1: makeNodeComponent("h1"),
+    h3: makeNodeComponent("h3"),
+    textInput: makeNodeComponent("textInput"),
 
     // Metadata about props expected for PlasmicShowTeam
     internalVariantProps: PlasmicShowTeam__VariantProps,

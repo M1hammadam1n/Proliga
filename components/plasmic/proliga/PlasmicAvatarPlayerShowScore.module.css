@@ -1,9 +1,7 @@
 .root {
-  display: inline-flex;
+  display: flex;
   flex-direction: column;
   position: relative;
-  width: auto;
-  height: auto;
   justify-content: flex-start;
   align-items: flex-end;
   background: none;
@@ -67,10 +65,7 @@
   object-fit: contain;
 }
 .img__yBf8V {
-  max-width: 100%;
   object-fit: contain;
-  width: 80px;
-  flex-shrink: 0;
 }
 .img__yBf8V > picture > img {
   object-fit: contain;
