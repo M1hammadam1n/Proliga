@@ -114,7 +114,6 @@ export type PlasmicShowTeam__OverridesType = {
   mid?: Flex__<"div">;
   str?: Flex__<"div">;
   soccerPlaceMens2?: Flex__<typeof SoccerPlaceMens2>;
-  h1?: Flex__<"h1">;
   h3?: Flex__<"h3">;
 };
 
@@ -182,7 +181,7 @@ function PlasmicShowTeam__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return undefined;
+              return $queries.toursList.data.response[0].tour_id;
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -274,6 +273,18 @@ function PlasmicShowTeam__RenderFunc(props: {
           params: [$state.tourId]
         },
         cacheKey: `plasmic.$.b2053019-9d88-4660-8813-ce7b57524fc8.$.`,
+        invalidatedKeys: null,
+        roleId: null
+      };
+    }),
+    teamPoint: usePlasmicDataOp(() => {
+      return {
+        sourceId: "vQtRPuFArSfh43vUmgx2PS",
+        opId: "5a3eb4da-d85b-4560-b23e-f862ee58af48",
+        userArgs: {
+          params: [$queries.query.data.response[0].id, $state.tourId]
+        },
+        cacheKey: `plasmic.$.5a3eb4da-d85b-4560-b23e-f862ee58af48.$.`,
         invalidatedKeys: null,
         roleId: null
       };
@@ -1134,13 +1145,11 @@ function PlasmicShowTeam__RenderFunc(props: {
                                 )}
                               >
                                 <h1
-                                  data-plasmic-name={"h1"}
-                                  data-plasmic-override={overrides.h1}
                                   className={classNames(
                                     projectcss.all,
                                     projectcss.h1,
                                     projectcss.__wab_text,
-                                    sty.h1
+                                    sty.h1___7A61
                                   )}
                                 >
                                   <React.Fragment>
@@ -1187,30 +1196,65 @@ function PlasmicShowTeam__RenderFunc(props: {
                                     })()}
                                   </React.Fragment>
                                 </h3>
-                                <div
+                                <Stack__
+                                  as={"div"}
+                                  hasGap={true}
                                   className={classNames(
                                     projectcss.all,
-                                    projectcss.__wab_text,
-                                    sty.text__a3ShG
+                                    sty.freeBox___0XntJ
                                   )}
                                 >
-                                  <React.Fragment>
-                                    {(() => {
-                                      try {
-                                        return $state.tourId;
-                                      } catch (e) {
-                                        if (
-                                          e instanceof TypeError ||
-                                          e?.plasmicType ===
-                                            "PlasmicUndefinedDataError"
-                                        ) {
-                                          return "";
+                                  <div
+                                    className={classNames(
+                                      projectcss.all,
+                                      projectcss.__wab_text,
+                                      sty.text__rhbFd
+                                    )}
+                                  >
+                                    <React.Fragment>
+                                      {(() => {
+                                        try {
+                                          return "Turdagi ochko";
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return "";
+                                          }
+                                          throw e;
                                         }
-                                        throw e;
-                                      }
-                                    })()}
-                                  </React.Fragment>
-                                </div>
+                                      })()}
+                                    </React.Fragment>
+                                  </div>
+                                  <h1
+                                    className={classNames(
+                                      projectcss.all,
+                                      projectcss.h1,
+                                      projectcss.__wab_text,
+                                      sty.h1__uFhKf
+                                    )}
+                                  >
+                                    <React.Fragment>
+                                      {(() => {
+                                        try {
+                                          return $queries.teamPoint.data
+                                            .response[0].point;
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return "";
+                                          }
+                                          throw e;
+                                        }
+                                      })()}
+                                    </React.Fragment>
+                                  </h1>
+                                </Stack__>
                               </div>
                             </div>
                           </TabContent>
@@ -1245,7 +1289,6 @@ const PlasmicDescendants = {
     "mid",
     "str",
     "soccerPlaceMens2",
-    "h1",
     "h3"
   ],
   navbar: ["navbar"],
@@ -1263,7 +1306,6 @@ const PlasmicDescendants = {
     "mid",
     "str",
     "soccerPlaceMens2",
-    "h1",
     "h3"
   ],
   tabButton: ["tabButton", "link", "button"],
@@ -1278,25 +1320,14 @@ const PlasmicDescendants = {
     "mid",
     "str",
     "soccerPlaceMens2",
-    "h1",
     "h3"
   ],
-  columns: [
-    "columns",
-    "goa",
-    "def",
-    "mid",
-    "str",
-    "soccerPlaceMens2",
-    "h1",
-    "h3"
-  ],
+  columns: ["columns", "goa", "def", "mid", "str", "soccerPlaceMens2", "h3"],
   goa: ["goa"],
   def: ["def"],
   mid: ["mid"],
   str: ["str"],
   soccerPlaceMens2: ["soccerPlaceMens2"],
-  h1: ["h1"],
   h3: ["h3"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
@@ -1318,7 +1349,6 @@ type NodeDefaultElementType = {
   mid: "div";
   str: "div";
   soccerPlaceMens2: typeof SoccerPlaceMens2;
-  h1: "h1";
   h3: "h3";
 };
 
@@ -1413,7 +1443,6 @@ export const PlasmicShowTeam = Object.assign(
     mid: makeNodeComponent("mid"),
     str: makeNodeComponent("str"),
     soccerPlaceMens2: makeNodeComponent("soccerPlaceMens2"),
-    h1: makeNodeComponent("h1"),
     h3: makeNodeComponent("h3"),
 
     // Metadata about props expected for PlasmicShowTeam
