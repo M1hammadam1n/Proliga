@@ -23,25 +23,6 @@
 .img__mEbLy > picture > img {
   object-fit: cover;
 }
-.img__rXm9C {
-  object-fit: cover;
-  max-width: 100%;
-  width: 16px;
-  transition-property: all;
-  transition-duration: 1s;
-  cursor: pointer;
-  position: absolute;
-  left: 0;
-  top: 4px;
-  bottom: auto;
-  right: auto;
-  display: none !important;
-  -webkit-transition-property: all;
-  -webkit-transition-duration: 1s;
-}
-.img__rXm9C > picture > img {
-  object-fit: cover;
-}
 .freeBox__fku2O {
   display: flex;
   position: relative;

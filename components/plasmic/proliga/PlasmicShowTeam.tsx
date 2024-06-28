@@ -75,7 +75,6 @@ import { TabUnderline } from "@plasmicpkgs/plasmic-tabs";
 import { TabContent } from "@plasmicpkgs/plasmic-tabs";
 import AvatarPlayerShowScore from "../../AvatarPlayerShowScore"; // plasmic-import: kJWqOT85FINq/component
 import SoccerPlaceMens2 from "../../SoccerPlaceMens2"; // plasmic-import: xodLqMOhDs29/component
-import TextInput from "../../TextInput"; // plasmic-import: xwgFLXqL07mD/component
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 
 import "@plasmicapp/react-web/lib/plasmic.css";
@@ -87,8 +86,6 @@ import sty from "./PlasmicShowTeam.module.css"; // plasmic-import: Ih5PzV0mN0gk/
 
 import ChecksvgIcon from "../plasmic_tabs/icons/PlasmicIcon__Checksvg"; // plasmic-import: zq2s7N0xWucT/icon
 import IconIcon from "../plasmic_tabs/icons/PlasmicIcon__Icon"; // plasmic-import: 8K40faRNhuCj/icon
-import SearchsvgIcon from "./icons/PlasmicIcon__Searchsvg"; // plasmic-import: TfB627kbYt5s/icon
-import ChecksvgIcon2 from "./icons/PlasmicIcon__Checksvg"; // plasmic-import: BLgPkmgd4hOv/icon
 
 createPlasmicElementProxy;
 
@@ -119,7 +116,6 @@ export type PlasmicShowTeam__OverridesType = {
   soccerPlaceMens2?: Flex__<typeof SoccerPlaceMens2>;
   h1?: Flex__<"h1">;
   h3?: Flex__<"h3">;
-  textInput?: Flex__<typeof TextInput>;
 };
 
 export interface DefaultShowTeamProps {}
@@ -197,11 +193,6 @@ function PlasmicShowTeam__RenderFunc(props: {
               throw e;
             }
           })()
-      },
-      {
-        path: "textInput[].value",
-        type: "private",
-        variableType: "text"
       }
     ],
     [$props, $ctx, $refs]
@@ -1196,71 +1187,6 @@ function PlasmicShowTeam__RenderFunc(props: {
                                     })()}
                                   </React.Fragment>
                                 </h3>
-                                {(() => {
-                                  const child$Props = {
-                                    className: classNames(
-                                      "__wab_instance",
-                                      sty.textInput
-                                    ),
-                                    onChange: (...eventArgs) => {
-                                      generateStateOnChangeProp($state, [
-                                        "textInput",
-                                        __plasmic_idx_0,
-                                        "value"
-                                      ])(
-                                        (e => e.target?.value).apply(
-                                          null,
-                                          eventArgs
-                                        )
-                                      );
-                                    },
-                                    placeholder: ``,
-                                    value:
-                                      generateStateValueProp($state, [
-                                        "textInput",
-                                        __plasmic_idx_0,
-                                        "value"
-                                      ]) ?? ""
-                                  };
-
-                                  initializePlasmicStates(
-                                    $state,
-                                    [
-                                      {
-                                        name: "textInput[].value",
-                                        initFunc: ({
-                                          $props,
-                                          $state,
-                                          $queries
-                                        }) =>
-                                          (() => {
-                                            try {
-                                              return currentItem.tour_id;
-                                            } catch (e) {
-                                              if (
-                                                e instanceof TypeError ||
-                                                e?.plasmicType ===
-                                                  "PlasmicUndefinedDataError"
-                                              ) {
-                                                return undefined;
-                                              }
-                                              throw e;
-                                            }
-                                          })()
-                                      }
-                                    ],
-                                    [__plasmic_idx_0]
-                                  );
-                                  return (
-                                    <TextInput
-                                      data-plasmic-name={"textInput"}
-                                      data-plasmic-override={
-                                        overrides.textInput
-                                      }
-                                      {...child$Props}
-                                    />
-                                  );
-                                })()}
                                 <div
                                   className={classNames(
                                     projectcss.all,
@@ -1320,8 +1246,7 @@ const PlasmicDescendants = {
     "str",
     "soccerPlaceMens2",
     "h1",
-    "h3",
-    "textInput"
+    "h3"
   ],
   navbar: ["navbar"],
   userteamNavbar: ["userteamNavbar"],
@@ -1339,8 +1264,7 @@ const PlasmicDescendants = {
     "str",
     "soccerPlaceMens2",
     "h1",
-    "h3",
-    "textInput"
+    "h3"
   ],
   tabButton: ["tabButton", "link", "button"],
   link: ["link", "button"],
@@ -1355,8 +1279,7 @@ const PlasmicDescendants = {
     "str",
     "soccerPlaceMens2",
     "h1",
-    "h3",
-    "textInput"
+    "h3"
   ],
   columns: [
     "columns",
@@ -1366,8 +1289,7 @@ const PlasmicDescendants = {
     "str",
     "soccerPlaceMens2",
     "h1",
-    "h3",
-    "textInput"
+    "h3"
   ],
   goa: ["goa"],
   def: ["def"],
@@ -1375,8 +1297,7 @@ const PlasmicDescendants = {
   str: ["str"],
   soccerPlaceMens2: ["soccerPlaceMens2"],
   h1: ["h1"],
-  h3: ["h3"],
-  textInput: ["textInput"]
+  h3: ["h3"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -1399,7 +1320,6 @@ type NodeDefaultElementType = {
   soccerPlaceMens2: typeof SoccerPlaceMens2;
   h1: "h1";
   h3: "h3";
-  textInput: typeof TextInput;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -1495,7 +1415,6 @@ export const PlasmicShowTeam = Object.assign(
     soccerPlaceMens2: makeNodeComponent("soccerPlaceMens2"),
     h1: makeNodeComponent("h1"),
     h3: makeNodeComponent("h3"),
-    textInput: makeNodeComponent("textInput"),
 
     // Metadata about props expected for PlasmicShowTeam
     internalVariantProps: PlasmicShowTeam__VariantProps,

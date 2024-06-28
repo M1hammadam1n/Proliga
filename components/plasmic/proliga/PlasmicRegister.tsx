@@ -319,19 +319,17 @@ function PlasmicRegister__RenderFunc(props: {
               {"Ro'yhatdan o'tish"}
             </Button>
             <div className={classNames(projectcss.all, sty.freeBox__hJAbv)}>
-              {false ? (
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__bz1MA
-                  )}
-                >
-                  {hasVariant(globalVariants, "screen", "dessktop")
-                    ? "Already have an account?"
-                    : "Already have an account?"}
-                </div>
-              ) : null}
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__bz1MA
+                )}
+              >
+                {hasVariant(globalVariants, "screen", "dessktop")
+                  ? "Already have an account?"
+                  : "Already have an account?"}
+              </div>
               <div
                 className={classNames(
                   projectcss.all,
