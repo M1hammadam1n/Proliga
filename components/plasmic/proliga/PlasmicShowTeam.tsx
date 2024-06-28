@@ -244,11 +244,11 @@ function PlasmicShowTeam__RenderFunc(props: {
     userTeam: usePlasmicDataOp(() => {
       return {
         sourceId: "vQtRPuFArSfh43vUmgx2PS",
-        opId: "0b5a8e59-d38e-4067-b531-a1d2b0239b0d",
+        opId: "193142c4-1d62-4cdb-a0db-ca0b653ef78d",
         userArgs: {
           params: [$queries.query.data.response[0].id]
         },
-        cacheKey: `plasmic.$.0b5a8e59-d38e-4067-b531-a1d2b0239b0d.$.`,
+        cacheKey: `plasmic.$.193142c4-1d62-4cdb-a0db-ca0b653ef78d.$.`,
         invalidatedKeys: null,
         roleId: "f8970d3a-c1ae-4ba8-80dd-90e548ee70d6"
       };

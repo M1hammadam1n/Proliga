@@ -500,11 +500,11 @@ function PlasmicEditTeam__RenderFunc(props: {
     teamPlayer: usePlasmicDataOp(() => {
       return {
         sourceId: "vQtRPuFArSfh43vUmgx2PS",
-        opId: "0b5a8e59-d38e-4067-b531-a1d2b0239b0d",
+        opId: "193142c4-1d62-4cdb-a0db-ca0b653ef78d",
         userArgs: {
           params: [$queries.query.data.response[0].id]
         },
-        cacheKey: `plasmic.$.0b5a8e59-d38e-4067-b531-a1d2b0239b0d.$.`,
+        cacheKey: `plasmic.$.193142c4-1d62-4cdb-a0db-ca0b653ef78d.$.`,
         invalidatedKeys: null,
         roleId: "f8970d3a-c1ae-4ba8-80dd-90e548ee70d6"
       };
@@ -1045,7 +1045,7 @@ function PlasmicEditTeam__RenderFunc(props: {
                                     const actionArgs = {
                                       dataOp: {
                                         sourceId: "vQtRPuFArSfh43vUmgx2PS",
-                                        opId: "28960905-911c-4a10-8acc-fe30e7251f66",
+                                        opId: "9d39ecd4-53c0-4e25-9aa9-c35381430f4b",
                                         userArgs: {
                                           params: [
                                             currentItem.player_id,
@@ -1273,7 +1273,7 @@ function PlasmicEditTeam__RenderFunc(props: {
                                     const actionArgs = {
                                       dataOp: {
                                         sourceId: "vQtRPuFArSfh43vUmgx2PS",
-                                        opId: "ac8e6943-2d31-4adc-a80e-8b319c6d888a",
+                                        opId: "323375bb-6eee-440f-8805-ca85b7dc0446",
                                         userArgs: {
                                           params: [
                                             currentItem.team_id,
@@ -1501,7 +1501,7 @@ function PlasmicEditTeam__RenderFunc(props: {
                                     const actionArgs = {
                                       dataOp: {
                                         sourceId: "vQtRPuFArSfh43vUmgx2PS",
-                                        opId: "28960905-911c-4a10-8acc-fe30e7251f66",
+                                        opId: "9d39ecd4-53c0-4e25-9aa9-c35381430f4b",
                                         userArgs: {
                                           params: [
                                             currentItem.player_id,
@@ -1729,7 +1729,7 @@ function PlasmicEditTeam__RenderFunc(props: {
                                     const actionArgs = {
                                       dataOp: {
                                         sourceId: "vQtRPuFArSfh43vUmgx2PS",
-                                        opId: "ac8e6943-2d31-4adc-a80e-8b319c6d888a",
+                                        opId: "323375bb-6eee-440f-8805-ca85b7dc0446",
                                         userArgs: {
                                           params: [
                                             $queries.query.data.response[0].id,
