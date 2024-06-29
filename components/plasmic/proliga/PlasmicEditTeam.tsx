@@ -812,10 +812,63 @@ function PlasmicEditTeam__RenderFunc(props: {
                           throw e;
                         }
                       })()}
-                      onChange={generateStateOnChangeProp($state, [
-                        "selectFormation",
-                        "value"
-                      ])}
+                      onChange={async (...eventArgs: any) => {
+                        generateStateOnChangeProp($state, [
+                          "selectFormation",
+                          "value"
+                        ]).apply(null, eventArgs);
+                        (async (value, option) => {
+                          const $steps = {};
+
+                          $steps["httpPatch"] = true
+                            ? (() => {
+                                const actionArgs = {
+                                  dataOp: {
+                                    sourceId: "vQtRPuFArSfh43vUmgx2PS",
+                                    opId: "b3f3df08-506b-45c3-bd7e-8d901d332e4e",
+                                    userArgs: {
+                                      params: [
+                                        $queries.query.data.response[0].id
+                                      ],
+                                      body: [$state.selectFormation.value]
+                                    },
+                                    cacheKey: null,
+                                    invalidatedKeys: ["plasmic_refresh_all"],
+                                    roleId: null
+                                  }
+                                };
+                                return (async ({ dataOp, continueOnError }) => {
+                                  try {
+                                    const response = await executePlasmicDataOp(
+                                      dataOp,
+                                      {
+                                        userAuthToken:
+                                          dataSourcesCtx?.userAuthToken,
+                                        user: dataSourcesCtx?.user
+                                      }
+                                    );
+                                    await plasmicInvalidate(
+                                      dataOp.invalidatedKeys
+                                    );
+                                    return response;
+                                  } catch (e) {
+                                    if (!continueOnError) {
+                                      throw e;
+                                    }
+                                    return e;
+                                  }
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                          if (
+                            $steps["httpPatch"] != null &&
+                            typeof $steps["httpPatch"] === "object" &&
+                            typeof $steps["httpPatch"].then === "function"
+                          ) {
+                            $steps["httpPatch"] = await $steps["httpPatch"];
+                          }
+                        }).apply(null, eventArgs);
+                      }}
                       options={(() => {
                         try {
                           return $queries.formationList.data.response;
