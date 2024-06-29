@@ -66,6 +66,7 @@ import { AntdButton } from "@plasmicpkgs/antd5/skinny/registerButton";
 import SoccerPlaceMens from "../../SoccerPlaceMens"; // plasmic-import: w6mcybgJxhpK/component
 import Select from "../../Select"; // plasmic-import: bCMc_ebYmgPo/component
 import Footer from "../../Footer"; // plasmic-import: kIdovXGtWiEz/component
+import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 
 import { useScreenVariants as useScreenVariants_8Rmrqs5Mzp6I } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 8Rmrqs5Mzp6I/globalVariant
 

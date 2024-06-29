@@ -68,6 +68,7 @@ import {
 
 import Navbar from "../../Navbar"; // plasmic-import: TKT8XnZtrLZi/component
 import SearchComponent from "../../SearchComponent"; // plasmic-import: mmk_GiTXUtux/component
+import { AntdSelect } from "@plasmicpkgs/antd5/skinny/registerSelect";
 import AvatarPlayer from "../../AvatarPlayer"; // plasmic-import: 4QnaRcOLXj0D/component
 import SoccerPlaceMens2 from "../../SoccerPlaceMens2"; // plasmic-import: xodLqMOhDs29/component
 import MessageCard from "../../MessageCard"; // plasmic-import: KNRpEkS9bXP0/component
@@ -81,7 +82,6 @@ import OrderBy from "../../OrderBy"; // plasmic-import: LibeNAwKH6sF/component
 import PlayerPicker from "../../PlayerPicker"; // plasmic-import: FmVyQ1WB4e_T/component
 import { AntdPagination } from "@plasmicpkgs/antd5/skinny/registerPagination";
 import { paginationHelpers as AntdPagination_Helpers } from "@plasmicpkgs/antd5/skinny/registerPagination";
-import { AntdSelect } from "@plasmicpkgs/antd5/skinny/registerSelect";
 import Select from "../../Select"; // plasmic-import: bCMc_ebYmgPo/component
 import { AntdInputNumber } from "@plasmicpkgs/antd5/skinny/registerInput";
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
@@ -116,6 +116,7 @@ export type PlasmicEditTeam__OverridesType = {
   columns?: Flex__<"div">;
   stadion?: Flex__<"div">;
   teamInfo?: Flex__<"div">;
+  selectFormation?: Flex__<typeof AntdSelect>;
   goa?: Flex__<"div">;
   avatarPlayer?: Flex__<typeof AvatarPlayer>;
   def?: Flex__<"div">;
@@ -459,6 +460,25 @@ function PlasmicEditTeam__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "selectFormation.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $queries.query.data.response[0].formation;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return 1;
+              }
+              throw e;
+            }
+          })()
       }
     ],
     [$props, $ctx, $refs]
@@ -685,6 +705,16 @@ function PlasmicEditTeam__RenderFunc(props: {
         invalidatedKeys: null,
         roleId: "f8970d3a-c1ae-4ba8-80dd-90e548ee70d6"
       };
+    }),
+    formationList: usePlasmicDataOp(() => {
+      return {
+        sourceId: "vQtRPuFArSfh43vUmgx2PS",
+        opId: "049635fd-df37-486e-887f-a744199999bf",
+        userArgs: {},
+        cacheKey: `plasmic.$.049635fd-df37-486e-887f-a744199999bf.$.`,
+        invalidatedKeys: null,
+        roleId: "f8970d3a-c1ae-4ba8-80dd-90e548ee70d6"
+      };
     })
   };
   if (Object.keys(new$Queries).some(k => new$Queries[k] !== $queries[k])) {
@@ -753,6 +783,62 @@ function PlasmicEditTeam__RenderFunc(props: {
                     hasGap={true}
                     className={classNames(projectcss.all, sty.teamInfo)}
                   >
+                    <AntdSelect
+                      data-plasmic-name={"selectFormation"}
+                      data-plasmic-override={overrides.selectFormation}
+                      bordered={true}
+                      className={classNames(
+                        "__wab_instance",
+                        sty.selectFormation
+                      )}
+                      defaultStylesClassName={classNames(
+                        projectcss.root_reset,
+                        projectcss.plasmic_default_styles,
+                        projectcss.plasmic_mixins,
+                        projectcss.plasmic_tokens,
+                        plasmic_antd_5_hostless_css.plasmic_tokens,
+                        plasmic_plasmic_rich_components_css.plasmic_tokens
+                      )}
+                      defaultValue={(() => {
+                        try {
+                          return $queries.query.data.response[0].formation;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return 1;
+                          }
+                          throw e;
+                        }
+                      })()}
+                      onChange={generateStateOnChangeProp($state, [
+                        "selectFormation",
+                        "value"
+                      ])}
+                      options={(() => {
+                        try {
+                          return $queries.formationList.data.response;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return [];
+                          }
+                          throw e;
+                        }
+                      })()}
+                      placeholder={"Select..."}
+                      popupScopeClassName={sty["selectFormation__popup"]}
+                      showSearch={false}
+                      size={"middle"}
+                      value={generateStateValueProp($state, [
+                        "selectFormation",
+                        "value"
+                      ])}
+                    />
+
                     <div
                       className={classNames(
                         projectcss.all,
@@ -4929,6 +5015,7 @@ const PlasmicDescendants = {
     "columns",
     "stadion",
     "teamInfo",
+    "selectFormation",
     "goa",
     "avatarPlayer",
     "def",
@@ -4969,6 +5056,7 @@ const PlasmicDescendants = {
     "columns",
     "stadion",
     "teamInfo",
+    "selectFormation",
     "goa",
     "avatarPlayer",
     "def",
@@ -5006,6 +5094,7 @@ const PlasmicDescendants = {
   stadion: [
     "stadion",
     "teamInfo",
+    "selectFormation",
     "goa",
     "avatarPlayer",
     "def",
@@ -5016,7 +5105,8 @@ const PlasmicDescendants = {
     "avatarPlayer4",
     "soccerPlaceMens2"
   ],
-  teamInfo: ["teamInfo"],
+  teamInfo: ["teamInfo", "selectFormation"],
+  selectFormation: ["selectFormation"],
   goa: ["goa", "avatarPlayer"],
   avatarPlayer: ["avatarPlayer"],
   def: ["def", "avatarPlayer2"],
@@ -5117,6 +5207,7 @@ type NodeDefaultElementType = {
   columns: "div";
   stadion: "div";
   teamInfo: "div";
+  selectFormation: typeof AntdSelect;
   goa: "div";
   avatarPlayer: typeof AvatarPlayer;
   def: "div";
@@ -5234,6 +5325,7 @@ export const PlasmicEditTeam = Object.assign(
     columns: makeNodeComponent("columns"),
     stadion: makeNodeComponent("stadion"),
     teamInfo: makeNodeComponent("teamInfo"),
+    selectFormation: makeNodeComponent("selectFormation"),
     goa: makeNodeComponent("goa"),
     avatarPlayer: makeNodeComponent("avatarPlayer"),
     def: makeNodeComponent("def"),
