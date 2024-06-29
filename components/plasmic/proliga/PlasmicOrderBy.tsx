@@ -79,17 +79,20 @@ export type PlasmicOrderBy__ArgsType = {
   onclickPrice?: (event: any) => void;
   onclickAllPoint?: (event: any) => void;
   upDown?: (val: any) => void;
+  upDownLink?: (event: any) => void;
 };
 type ArgPropType = keyof PlasmicOrderBy__ArgsType;
 export const PlasmicOrderBy__ArgProps = new Array<ArgPropType>(
   "onclickPrice",
   "onclickAllPoint",
-  "upDown"
+  "upDown",
+  "upDownLink"
 );
 
 export type PlasmicOrderBy__OverridesType = {
   orderBy?: Flex__<"div">;
   name?: Flex__<"div">;
+  link?: Flex__<"a"> & Partial<LinkProps>;
   upDownOrder?: Flex__<typeof UpDownOrder>;
   позиция?: Flex__<"div">;
   клуб?: Flex__<"div">;
@@ -103,6 +106,7 @@ export interface DefaultOrderByProps {
   onclickPrice?: (event: any) => void;
   onclickAllPoint?: (event: any) => void;
   upDown?: (val: any) => void;
+  upDownLink?: (event: any) => void;
   className?: string;
 }
 
@@ -207,19 +211,28 @@ function PlasmicOrderBy__RenderFunc(props: {
         >
           {"O'yinchi"}
         </div>
-        <UpDownOrder
-          data-plasmic-name={"upDownOrder"}
-          data-plasmic-override={overrides.upDownOrder}
-          className={classNames("__wab_instance", sty.upDownOrder)}
-          down={generateStateValueProp($state, ["upDownOrder", "down"])}
-          onDownChange={async (...eventArgs: any) => {
-            generateStateOnChangeProp($state, ["upDownOrder", "down"]).apply(
-              null,
-              eventArgs
-            );
-            args.upDown.apply(null, eventArgs);
-          }}
-        />
+        <PlasmicLink__
+          data-plasmic-name={"link"}
+          data-plasmic-override={overrides.link}
+          className={classNames(projectcss.all, projectcss.a, sty.link)}
+          component={Link}
+          onClick={args.upDownLink}
+          platform={"nextjs"}
+        >
+          <UpDownOrder
+            data-plasmic-name={"upDownOrder"}
+            data-plasmic-override={overrides.upDownOrder}
+            className={classNames("__wab_instance", sty.upDownOrder)}
+            down={generateStateValueProp($state, ["upDownOrder", "down"])}
+            onDownChange={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["upDownOrder", "down"]).apply(
+                null,
+                eventArgs
+              );
+              args.upDown.apply(null, eventArgs);
+            }}
+          />
+        </PlasmicLink__>
       </div>
       <div
         data-plasmic-name={"\u043f\u043e\u0437\u0438\u0446\u0438\u044f"}
@@ -311,6 +324,7 @@ const PlasmicDescendants = {
   orderBy: [
     "orderBy",
     "name",
+    "link",
     "upDownOrder",
     "\u043f\u043e\u0437\u0438\u0446\u0438\u044f",
     "\u043a\u043b\u0443\u0431",
@@ -319,7 +333,8 @@ const PlasmicDescendants = {
     "\u0446\u0435\u043d\u0430",
     "upDownOrder3"
   ],
-  name: ["name", "upDownOrder"],
+  name: ["name", "link", "upDownOrder"],
+  link: ["link", "upDownOrder"],
   upDownOrder: ["upDownOrder"],
   позиция: ["\u043f\u043e\u0437\u0438\u0446\u0438\u044f"],
   клуб: ["\u043a\u043b\u0443\u0431"],
@@ -334,6 +349,7 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   orderBy: "div";
   name: "div";
+  link: "a";
   upDownOrder: typeof UpDownOrder;
   позиция: "div";
   клуб: "div";
@@ -404,6 +420,7 @@ export const PlasmicOrderBy = Object.assign(
   {
     // Helper components rendering sub-elements
     _name: makeNodeComponent("name"),
+    link: makeNodeComponent("link"),
     upDownOrder: makeNodeComponent("upDownOrder"),
     позиция: makeNodeComponent("\u043f\u043e\u0437\u0438\u0446\u0438\u044f"),
     клуб: makeNodeComponent("\u043a\u043b\u0443\u0431"),

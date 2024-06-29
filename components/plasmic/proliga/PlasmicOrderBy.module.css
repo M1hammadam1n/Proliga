@@ -30,8 +30,11 @@
   font-size: 10px;
   font-family: "Times New Roman";
 }
-.upDownOrder:global(.__wab_instance) {
+.link {
   position: relative;
+  display: flex;
+}
+.upDownOrder:global(.__wab_instance) {
   width: auto;
 }
 .позиция {
