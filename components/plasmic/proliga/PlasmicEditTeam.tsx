@@ -183,6 +183,8 @@ function PlasmicEditTeam__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
+  const $globalActions = useGlobalActions?.();
+
   const currentUser = useCurrentUser?.() || {};
 
   let [$queries, setDollarQueries] = React.useState<
@@ -820,7 +822,7 @@ function PlasmicEditTeam__RenderFunc(props: {
                         (async (value, option) => {
                           const $steps = {};
 
-                          $steps["httpPatch"] = true
+                          $steps["updateFormation"] = true
                             ? (() => {
                                 const actionArgs = {
                                   dataOp: {
@@ -835,7 +837,8 @@ function PlasmicEditTeam__RenderFunc(props: {
                                     cacheKey: null,
                                     invalidatedKeys: ["plasmic_refresh_all"],
                                     roleId: null
-                                  }
+                                  },
+                                  continueOnError: true
                                 };
                                 return (async ({ dataOp, continueOnError }) => {
                                   try {
@@ -861,11 +864,88 @@ function PlasmicEditTeam__RenderFunc(props: {
                               })()
                             : undefined;
                           if (
-                            $steps["httpPatch"] != null &&
-                            typeof $steps["httpPatch"] === "object" &&
-                            typeof $steps["httpPatch"].then === "function"
+                            $steps["updateFormation"] != null &&
+                            typeof $steps["updateFormation"] === "object" &&
+                            typeof $steps["updateFormation"].then === "function"
                           ) {
-                            $steps["httpPatch"] = await $steps["httpPatch"];
+                            $steps["updateFormation"] = await $steps[
+                              "updateFormation"
+                            ];
+                          }
+
+                          $steps["errorStr"] =
+                            $steps.updateFormation.message != null
+                              ? (() => {
+                                  const actionArgs = {
+                                    args: [
+                                      "error",
+                                      "Taktikani almashtirishni iloji yo'q",
+                                      undefined,
+                                      4,
+                                      "top"
+                                    ]
+                                  };
+                                  return $globalActions[
+                                    "plasmic-antd5-config-provider.showNotification"
+                                  ]?.apply(null, [...actionArgs.args]);
+                                })()
+                              : undefined;
+                          if (
+                            $steps["errorStr"] != null &&
+                            typeof $steps["errorStr"] === "object" &&
+                            typeof $steps["errorStr"].then === "function"
+                          ) {
+                            $steps["errorStr"] = await $steps["errorStr"];
+                          }
+
+                          $steps["errorMid"] =
+                            $steps.updateFormation.message === "Error MID"
+                              ? (() => {
+                                  const actionArgs = {
+                                    args: [
+                                      "error",
+                                      "Yarim himoyada bo'sh joy yo'q",
+                                      undefined,
+                                      4,
+                                      "top"
+                                    ]
+                                  };
+                                  return $globalActions[
+                                    "plasmic-antd5-config-provider.showNotification"
+                                  ]?.apply(null, [...actionArgs.args]);
+                                })()
+                              : undefined;
+                          if (
+                            $steps["errorMid"] != null &&
+                            typeof $steps["errorMid"] === "object" &&
+                            typeof $steps["errorMid"].then === "function"
+                          ) {
+                            $steps["errorMid"] = await $steps["errorMid"];
+                          }
+
+                          $steps["errorDef"] =
+                            $steps.updateFormation.message === "Error DEF"
+                              ? (() => {
+                                  const actionArgs = {
+                                    args: [
+                                      "error",
+                                      "Himoyada bo'sh joy yo'q",
+                                      undefined,
+                                      -2,
+                                      "top"
+                                    ]
+                                  };
+                                  return $globalActions[
+                                    "plasmic-antd5-config-provider.showNotification"
+                                  ]?.apply(null, [...actionArgs.args]);
+                                })()
+                              : undefined;
+                          if (
+                            $steps["errorDef"] != null &&
+                            typeof $steps["errorDef"] === "object" &&
+                            typeof $steps["errorDef"].then === "function"
+                          ) {
+                            $steps["errorDef"] = await $steps["errorDef"];
                           }
                         }).apply(null, eventArgs);
                       }}
