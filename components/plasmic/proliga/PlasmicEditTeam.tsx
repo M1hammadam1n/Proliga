@@ -873,13 +873,13 @@ function PlasmicEditTeam__RenderFunc(props: {
                             ];
                           }
 
-                          $steps["errorStr"] =
+                          $steps["catchError"] =
                             $steps.updateFormation.message != null
                               ? (() => {
                                   const actionArgs = {
                                     args: [
                                       "error",
-                                      "Taktikani almashtirishni iloji yo'q",
+                                      "Taktikani almashtirishni iloji yo'q. Mos pozitsiyalarni bo'shating",
                                       undefined,
                                       4,
                                       "top"
@@ -891,61 +891,11 @@ function PlasmicEditTeam__RenderFunc(props: {
                                 })()
                               : undefined;
                           if (
-                            $steps["errorStr"] != null &&
-                            typeof $steps["errorStr"] === "object" &&
-                            typeof $steps["errorStr"].then === "function"
+                            $steps["catchError"] != null &&
+                            typeof $steps["catchError"] === "object" &&
+                            typeof $steps["catchError"].then === "function"
                           ) {
-                            $steps["errorStr"] = await $steps["errorStr"];
-                          }
-
-                          $steps["errorMid"] =
-                            $steps.updateFormation.message === "Error MID"
-                              ? (() => {
-                                  const actionArgs = {
-                                    args: [
-                                      "error",
-                                      "Yarim himoyada bo'sh joy yo'q",
-                                      undefined,
-                                      4,
-                                      "top"
-                                    ]
-                                  };
-                                  return $globalActions[
-                                    "plasmic-antd5-config-provider.showNotification"
-                                  ]?.apply(null, [...actionArgs.args]);
-                                })()
-                              : undefined;
-                          if (
-                            $steps["errorMid"] != null &&
-                            typeof $steps["errorMid"] === "object" &&
-                            typeof $steps["errorMid"].then === "function"
-                          ) {
-                            $steps["errorMid"] = await $steps["errorMid"];
-                          }
-
-                          $steps["errorDef"] =
-                            $steps.updateFormation.message === "Error DEF"
-                              ? (() => {
-                                  const actionArgs = {
-                                    args: [
-                                      "error",
-                                      "Himoyada bo'sh joy yo'q",
-                                      undefined,
-                                      -2,
-                                      "top"
-                                    ]
-                                  };
-                                  return $globalActions[
-                                    "plasmic-antd5-config-provider.showNotification"
-                                  ]?.apply(null, [...actionArgs.args]);
-                                })()
-                              : undefined;
-                          if (
-                            $steps["errorDef"] != null &&
-                            typeof $steps["errorDef"] === "object" &&
-                            typeof $steps["errorDef"].then === "function"
-                          ) {
-                            $steps["errorDef"] = await $steps["errorDef"];
+                            $steps["catchError"] = await $steps["catchError"];
                           }
                         }).apply(null, eventArgs);
                       }}
