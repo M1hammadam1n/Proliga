@@ -1273,12 +1273,9 @@ function PlasmicEditTeam__RenderFunc(props: {
                                     const actionArgs = {
                                       dataOp: {
                                         sourceId: "vQtRPuFArSfh43vUmgx2PS",
-                                        opId: "323375bb-6eee-440f-8805-ca85b7dc0446",
+                                        opId: "4578f2cf-6fc8-47ec-a466-f00cb775bb6d",
                                         userArgs: {
-                                          params: [
-                                            currentItem.team_id,
-                                            currentItem.player_id
-                                          ]
+                                          params: [currentItem.id]
                                         },
                                         cacheKey: null,
                                         invalidatedKeys: [
