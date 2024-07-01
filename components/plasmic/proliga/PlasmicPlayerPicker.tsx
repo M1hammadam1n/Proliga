@@ -349,7 +349,7 @@ function PlasmicPlayerPicker__RenderFunc(props: {
                 displayMaxWidth={"100%"}
                 displayMinHeight={"0"}
                 displayMinWidth={"0"}
-                displayWidth={"auto"}
+                displayWidth={"20px"}
                 loading={"lazy"}
                 onClick={args.onclick}
                 src={{
@@ -362,7 +362,7 @@ function PlasmicPlayerPicker__RenderFunc(props: {
             ) : null}
             {(() => {
               try {
-                return $props.playerPrice < $props.teamBalance;
+                return $props.playerPrice <= $props.teamBalance;
               } catch (e) {
                 if (
                   e instanceof TypeError ||

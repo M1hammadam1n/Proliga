@@ -95,11 +95,13 @@
 }
 .img__yRiRx {
   position: relative;
-  object-fit: cover;
+  object-fit: contain;
   max-width: 100%;
+  width: 20px;
+  flex-shrink: 0;
 }
 .img__yRiRx > picture > img {
-  object-fit: cover;
+  object-fit: contain;
 }
 .buy {
   display: flex;

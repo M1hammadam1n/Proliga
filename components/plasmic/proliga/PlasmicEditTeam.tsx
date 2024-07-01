@@ -2653,9 +2653,12 @@ function PlasmicEditTeam__RenderFunc(props: {
                                       })()}
                                       checkPlayer={(() => {
                                         try {
-                                          return $queries.teamPlayer.data.response.find(
-                                            x => x.player_id === currentItem.id
-                                          );
+                                          return $queries.teamPlayer.data.response
+                                            .filter(x => x.sold != true)
+                                            .find(
+                                              x =>
+                                                x.player_id === currentItem.id
+                                            );
                                         } catch (e) {
                                           if (
                                             e instanceof TypeError ||
@@ -2767,7 +2770,7 @@ function PlasmicEditTeam__RenderFunc(props: {
                                                 dataOp: {
                                                   sourceId:
                                                     "vQtRPuFArSfh43vUmgx2PS",
-                                                  opId: "ac8e6943-2d31-4adc-a80e-8b319c6d888a",
+                                                  opId: "323375bb-6eee-440f-8805-ca85b7dc0446",
                                                   userArgs: {
                                                     params: [
                                                       $queries.query.data
