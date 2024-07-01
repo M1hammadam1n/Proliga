@@ -2170,6 +2170,21 @@
           "id": "I0Dvb2967bGC",
           "name": "icons8-dollar-50.png",
           "filePath": "../public/plasmic/proliga/images/icons8Dollar50Png.png"
+        },
+        {
+          "id": "aqIdcBEi9wgN",
+          "name": "icons8-avatar-24.png",
+          "filePath": "../public/plasmic/proliga/images/icons8Avatar24Png.png"
+        },
+        {
+          "id": "QMWfmaRjRx8C",
+          "name": "user.png",
+          "filePath": "../public/plasmic/proliga/images/userpng.png"
+        },
+        {
+          "id": "6ldE6EoNb1xB",
+          "name": "icons8-avatar-50.png",
+          "filePath": "../public/plasmic/proliga/images/icons8Avatar50Png.png"
         }
       ],
       "indirect": false,

@@ -80,7 +80,7 @@
   width: auto;
   height: auto;
   max-width: 100%;
-  padding: 8px;
+  padding: 0px;
 }
 .minusBalance {
   display: flex;
@@ -91,7 +91,7 @@
   width: auto;
   height: auto;
   max-width: 100%;
-  padding: 8px;
+  padding: 0px;
 }
 .img__yRiRx {
   position: relative;
@@ -112,7 +112,18 @@
   width: auto;
   height: auto;
   max-width: 100%;
-  padding: 8px;
+  padding: 0px;
+}
+.buyPlus {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  padding: 0px;
 }
 .img__xghAn {
   object-fit: cover;
@@ -123,6 +134,25 @@
 .img__xghAn > picture > img {
   object-fit: cover;
 }
+.img__luBie {
+  object-fit: contain;
+  max-width: 100%;
+  width: 20px;
+  position: relative;
+  flex-shrink: 0;
+}
+.img__luBie > picture > img {
+  object-fit: contain;
+}
+.text__eg1Nc {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  color: var(--token-jgohepLVeKvh);
+  min-width: 0;
+  display: none;
+}
 .buySell {
   display: flex;
   position: relative;
@@ -132,7 +162,7 @@
   width: auto;
   height: auto;
   max-width: 100%;
-  padding: 8px;
+  padding: 0px;
 }
 .img__gc0Y {
   position: relative;
