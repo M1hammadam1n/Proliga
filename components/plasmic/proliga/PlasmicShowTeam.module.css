@@ -69,7 +69,7 @@
   justify-content: flex-start;
   align-items: center;
   min-width: 0;
-  padding: 8px;
+  padding: 0px;
 }
 .freeBox__lhpSo {
   display: flex;
@@ -81,7 +81,7 @@
   height: auto;
   max-width: 100%;
   min-width: 0;
-  padding: 8px;
+  padding: 0px;
 }
 .tabButton:global(.__wab_instance) {
   width: auto;

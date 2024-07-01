@@ -232,11 +232,14 @@ function PlasmicShowTeam__RenderFunc(props: {
     toursList: usePlasmicDataOp(() => {
       return {
         sourceId: "vQtRPuFArSfh43vUmgx2PS",
-        opId: "8af26660-a6ef-4cdf-86ca-351cd6ddf7c6",
+        opId: "9e883f9d-830e-4715-b03a-2462185d5090",
         userArgs: {
-          params: [$queries.query.data.response[0].competition_id]
+          params: [
+            $queries.query.data.response[0].competition_id,
+            $queries.query.data.response[0].id
+          ]
         },
-        cacheKey: `plasmic.$.8af26660-a6ef-4cdf-86ca-351cd6ddf7c6.$.`,
+        cacheKey: `plasmic.$.9e883f9d-830e-4715-b03a-2462185d5090.$.`,
         invalidatedKeys: null,
         roleId: "f8970d3a-c1ae-4ba8-80dd-90e548ee70d6"
       };
@@ -475,37 +478,39 @@ function PlasmicShowTeam__RenderFunc(props: {
                                 onClick={async event => {
                                   const $steps = {};
 
-                                  $steps["updateTourId"] = true
-                                    ? (() => {
-                                        const actionArgs = {
-                                          variable: {
-                                            objRoot: $state,
-                                            variablePath: ["tourId"]
-                                          },
-                                          operation: 0,
-                                          value: currentItem.tour_id
-                                        };
-                                        return (({
-                                          variable,
-                                          value,
-                                          startIndex,
-                                          deleteCount
-                                        }) => {
-                                          if (!variable) {
-                                            return;
-                                          }
-                                          const { objRoot, variablePath } =
-                                            variable;
+                                  $steps["updateTourId"] =
+                                    $queries.query.data.response[0].created_at <
+                                    currentItem.tour_deadline
+                                      ? (() => {
+                                          const actionArgs = {
+                                            variable: {
+                                              objRoot: $state,
+                                              variablePath: ["tourId"]
+                                            },
+                                            operation: 0,
+                                            value: currentItem.tour_id
+                                          };
+                                          return (({
+                                            variable,
+                                            value,
+                                            startIndex,
+                                            deleteCount
+                                          }) => {
+                                            if (!variable) {
+                                              return;
+                                            }
+                                            const { objRoot, variablePath } =
+                                              variable;
 
-                                          $stateSet(
-                                            objRoot,
-                                            variablePath,
-                                            value
-                                          );
-                                          return value;
-                                        })?.apply(null, [actionArgs]);
-                                      })()
-                                    : undefined;
+                                            $stateSet(
+                                              objRoot,
+                                              variablePath,
+                                              value
+                                            );
+                                            return value;
+                                          })?.apply(null, [actionArgs]);
+                                        })()
+                                      : undefined;
                                   if (
                                     $steps["updateTourId"] != null &&
                                     typeof $steps["updateTourId"] ===
@@ -594,703 +599,756 @@ function PlasmicShowTeam__RenderFunc(props: {
                         sty.freeBox___818AW
                       )}
                     >
-                      {(_par =>
-                        !_par ? [] : Array.isArray(_par) ? _par : [_par])(
-                        (() => {
-                          try {
-                            return $queries.toursList.data.response;
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return [];
-                            }
-                            throw e;
+                      {(() => {
+                        try {
+                          return true;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return true;
                           }
-                        })()
-                      ).map((__plasmic_item_0, __plasmic_idx_0) => {
-                        const currentItem = __plasmic_item_0;
-                        const currentIndex = __plasmic_idx_0;
-                        return (
-                          <TabContent
-                            data-plasmic-name={"tabContent"}
-                            data-plasmic-override={overrides.tabContent}
-                            className={classNames(
-                              "__wab_instance",
-                              sty.tabContent
-                            )}
-                            key={currentIndex}
-                            tabKey={(() => {
+                          throw e;
+                        }
+                      })()
+                        ? (_par =>
+                            !_par ? [] : Array.isArray(_par) ? _par : [_par])(
+                            (() => {
                               try {
-                                return "tab" + currentIndex;
+                                return $queries.toursList.data.response;
                               } catch (e) {
                                 if (
                                   e instanceof TypeError ||
                                   e?.plasmicType === "PlasmicUndefinedDataError"
                                 ) {
-                                  return undefined;
+                                  return [];
                                 }
                                 throw e;
                               }
-                            })()}
-                          >
-                            <div
-                              data-plasmic-name={"columns"}
-                              data-plasmic-override={overrides.columns}
-                              className={classNames(
-                                projectcss.all,
-                                sty.columns
-                              )}
-                            >
-                              <div
+                            })()
+                          ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                            const currentItem = __plasmic_item_0;
+                            const currentIndex = __plasmic_idx_0;
+                            return (
+                              <TabContent
+                                data-plasmic-name={"tabContent"}
+                                data-plasmic-override={overrides.tabContent}
                                 className={classNames(
-                                  projectcss.all,
-                                  sty.column__xIzD8
+                                  "__wab_instance",
+                                  sty.tabContent
                                 )}
+                                key={currentIndex}
+                                tabKey={(() => {
+                                  try {
+                                    return "tab" + currentIndex;
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return undefined;
+                                    }
+                                    throw e;
+                                  }
+                                })()}
                               >
                                 <div
+                                  data-plasmic-name={"columns"}
+                                  data-plasmic-override={overrides.columns}
                                   className={classNames(
                                     projectcss.all,
-                                    sty.freeBox__hHx9J
+                                    sty.columns
                                   )}
                                 >
                                   <div
-                                    data-plasmic-name={"goa"}
-                                    data-plasmic-override={overrides.goa}
                                     className={classNames(
                                       projectcss.all,
-                                      sty.goa
+                                      sty.column__xIzD8
                                     )}
                                   >
-                                    {(_par =>
-                                      !_par
-                                        ? []
-                                        : Array.isArray(_par)
-                                        ? _par
-                                        : [_par])(
-                                      (() => {
-                                        try {
-                                          return $queries.userTeam.data.response.filter(
-                                            x => x.position === "GOA"
-                                          );
-                                        } catch (e) {
-                                          if (
-                                            e instanceof TypeError ||
-                                            e?.plasmicType ===
-                                              "PlasmicUndefinedDataError"
-                                          ) {
-                                            return [];
+                                    <div
+                                      className={classNames(
+                                        projectcss.all,
+                                        sty.freeBox__hHx9J
+                                      )}
+                                    >
+                                      <div
+                                        data-plasmic-name={"goa"}
+                                        data-plasmic-override={overrides.goa}
+                                        className={classNames(
+                                          projectcss.all,
+                                          sty.goa
+                                        )}
+                                      >
+                                        {(_par =>
+                                          !_par
+                                            ? []
+                                            : Array.isArray(_par)
+                                            ? _par
+                                            : [_par])(
+                                          (() => {
+                                            try {
+                                              return $queries.userTeam.data.response.filter(
+                                                x => x.position === "GOA"
+                                              );
+                                            } catch (e) {
+                                              if (
+                                                e instanceof TypeError ||
+                                                e?.plasmicType ===
+                                                  "PlasmicUndefinedDataError"
+                                              ) {
+                                                return [];
+                                              }
+                                              throw e;
+                                            }
+                                          })()
+                                        ).map(
+                                          (
+                                            __plasmic_item_1,
+                                            __plasmic_idx_1
+                                          ) => {
+                                            const currentItem =
+                                              __plasmic_item_1;
+                                            const currentIndex =
+                                              __plasmic_idx_1;
+                                            return (
+                                              <div
+                                                className={classNames(
+                                                  projectcss.all,
+                                                  sty.freeBox___9Rsg4
+                                                )}
+                                                key={currentIndex}
+                                              >
+                                                <AvatarPlayerShowScore
+                                                  capitanVisibility={(() => {
+                                                    try {
+                                                      return (
+                                                        currentItem.is_captain ===
+                                                        true
+                                                      );
+                                                    } catch (e) {
+                                                      if (
+                                                        e instanceof
+                                                          TypeError ||
+                                                        e?.plasmicType ===
+                                                          "PlasmicUndefinedDataError"
+                                                      ) {
+                                                        return false;
+                                                      }
+                                                      throw e;
+                                                    }
+                                                  })()}
+                                                  className={classNames(
+                                                    "__wab_instance",
+                                                    sty.avatarPlayerShowScore___1QvI
+                                                  )}
+                                                  image={(() => {
+                                                    try {
+                                                      return $queries.playerList.data.response.find(
+                                                        x =>
+                                                          x.id ===
+                                                          currentItem.player_id
+                                                      ).image;
+                                                    } catch (e) {
+                                                      if (
+                                                        e instanceof
+                                                          TypeError ||
+                                                        e?.plasmicType ===
+                                                          "PlasmicUndefinedDataError"
+                                                      ) {
+                                                        return undefined;
+                                                      }
+                                                      throw e;
+                                                    }
+                                                  })()}
+                                                  name={(() => {
+                                                    try {
+                                                      return $queries.playerList.data.response.find(
+                                                        x =>
+                                                          x.id ===
+                                                          currentItem.player_id
+                                                      ).name;
+                                                    } catch (e) {
+                                                      if (
+                                                        e instanceof
+                                                          TypeError ||
+                                                        e?.plasmicType ===
+                                                          "PlasmicUndefinedDataError"
+                                                      ) {
+                                                        return undefined;
+                                                      }
+                                                      throw e;
+                                                    }
+                                                  })()}
+                                                  ochko={(() => {
+                                                    try {
+                                                      return $queries.playerPoint.data.response.find(
+                                                        x =>
+                                                          x.player_id ===
+                                                          currentItem.player_id
+                                                      ).point;
+                                                    } catch (e) {
+                                                      if (
+                                                        e instanceof
+                                                          TypeError ||
+                                                        e?.plasmicType ===
+                                                          "PlasmicUndefinedDataError"
+                                                      ) {
+                                                        return undefined;
+                                                      }
+                                                      throw e;
+                                                    }
+                                                  })()}
+                                                />
+                                              </div>
+                                            );
                                           }
-                                          throw e;
+                                        )}
+                                      </div>
+                                      <Stack__
+                                        as={"div"}
+                                        data-plasmic-name={"def"}
+                                        data-plasmic-override={overrides.def}
+                                        hasGap={true}
+                                        className={classNames(
+                                          projectcss.all,
+                                          sty.def
+                                        )}
+                                      >
+                                        {(_par =>
+                                          !_par
+                                            ? []
+                                            : Array.isArray(_par)
+                                            ? _par
+                                            : [_par])(
+                                          (() => {
+                                            try {
+                                              return $queries.userTeam.data.response.filter(
+                                                x => x.position === "DEF"
+                                              );
+                                            } catch (e) {
+                                              if (
+                                                e instanceof TypeError ||
+                                                e?.plasmicType ===
+                                                  "PlasmicUndefinedDataError"
+                                              ) {
+                                                return [];
+                                              }
+                                              throw e;
+                                            }
+                                          })()
+                                        ).map(
+                                          (
+                                            __plasmic_item_1,
+                                            __plasmic_idx_1
+                                          ) => {
+                                            const currentItem =
+                                              __plasmic_item_1;
+                                            const currentIndex =
+                                              __plasmic_idx_1;
+                                            return (
+                                              <div
+                                                className={classNames(
+                                                  projectcss.all,
+                                                  sty.freeBox__vgv7L
+                                                )}
+                                                key={currentIndex}
+                                              >
+                                                <AvatarPlayerShowScore
+                                                  capitanVisibility={(() => {
+                                                    try {
+                                                      return (
+                                                        currentItem.is_captain ===
+                                                        true
+                                                      );
+                                                    } catch (e) {
+                                                      if (
+                                                        e instanceof
+                                                          TypeError ||
+                                                        e?.plasmicType ===
+                                                          "PlasmicUndefinedDataError"
+                                                      ) {
+                                                        return false;
+                                                      }
+                                                      throw e;
+                                                    }
+                                                  })()}
+                                                  className={classNames(
+                                                    "__wab_instance",
+                                                    sty.avatarPlayerShowScore__q4Dev
+                                                  )}
+                                                  image={(() => {
+                                                    try {
+                                                      return $queries.playerList.data.response.find(
+                                                        x =>
+                                                          x.id ===
+                                                          currentItem.player_id
+                                                      ).image;
+                                                    } catch (e) {
+                                                      if (
+                                                        e instanceof
+                                                          TypeError ||
+                                                        e?.plasmicType ===
+                                                          "PlasmicUndefinedDataError"
+                                                      ) {
+                                                        return undefined;
+                                                      }
+                                                      throw e;
+                                                    }
+                                                  })()}
+                                                  name={(() => {
+                                                    try {
+                                                      return $queries.playerList.data.response.find(
+                                                        x =>
+                                                          x.id ===
+                                                          currentItem.player_id
+                                                      ).name;
+                                                    } catch (e) {
+                                                      if (
+                                                        e instanceof
+                                                          TypeError ||
+                                                        e?.plasmicType ===
+                                                          "PlasmicUndefinedDataError"
+                                                      ) {
+                                                        return undefined;
+                                                      }
+                                                      throw e;
+                                                    }
+                                                  })()}
+                                                  ochko={(() => {
+                                                    try {
+                                                      return $queries.playerPoint.data.response.find(
+                                                        x =>
+                                                          x.player_id ===
+                                                          currentItem.player_id
+                                                      ).point;
+                                                    } catch (e) {
+                                                      if (
+                                                        e instanceof
+                                                          TypeError ||
+                                                        e?.plasmicType ===
+                                                          "PlasmicUndefinedDataError"
+                                                      ) {
+                                                        return undefined;
+                                                      }
+                                                      throw e;
+                                                    }
+                                                  })()}
+                                                />
+                                              </div>
+                                            );
+                                          }
+                                        )}
+                                      </Stack__>
+                                      <Stack__
+                                        as={"div"}
+                                        data-plasmic-name={"mid"}
+                                        data-plasmic-override={overrides.mid}
+                                        hasGap={true}
+                                        className={classNames(
+                                          projectcss.all,
+                                          sty.mid
+                                        )}
+                                      >
+                                        {(_par =>
+                                          !_par
+                                            ? []
+                                            : Array.isArray(_par)
+                                            ? _par
+                                            : [_par])(
+                                          (() => {
+                                            try {
+                                              return $queries.userTeam.data.response.filter(
+                                                x => x.position === "MID"
+                                              );
+                                            } catch (e) {
+                                              if (
+                                                e instanceof TypeError ||
+                                                e?.plasmicType ===
+                                                  "PlasmicUndefinedDataError"
+                                              ) {
+                                                return [];
+                                              }
+                                              throw e;
+                                            }
+                                          })()
+                                        ).map(
+                                          (
+                                            __plasmic_item_1,
+                                            __plasmic_idx_1
+                                          ) => {
+                                            const currentItem =
+                                              __plasmic_item_1;
+                                            const currentIndex =
+                                              __plasmic_idx_1;
+                                            return (
+                                              <div
+                                                className={classNames(
+                                                  projectcss.all,
+                                                  sty.freeBox__vs9BU
+                                                )}
+                                                key={currentIndex}
+                                              >
+                                                <AvatarPlayerShowScore
+                                                  capitanVisibility={(() => {
+                                                    try {
+                                                      return (
+                                                        currentItem.is_captain ===
+                                                        true
+                                                      );
+                                                    } catch (e) {
+                                                      if (
+                                                        e instanceof
+                                                          TypeError ||
+                                                        e?.plasmicType ===
+                                                          "PlasmicUndefinedDataError"
+                                                      ) {
+                                                        return false;
+                                                      }
+                                                      throw e;
+                                                    }
+                                                  })()}
+                                                  className={classNames(
+                                                    "__wab_instance",
+                                                    sty.avatarPlayerShowScore__wpSmV
+                                                  )}
+                                                  image={(() => {
+                                                    try {
+                                                      return $queries.playerList.data.response.find(
+                                                        x =>
+                                                          x.id ===
+                                                          currentItem.player_id
+                                                      ).image;
+                                                    } catch (e) {
+                                                      if (
+                                                        e instanceof
+                                                          TypeError ||
+                                                        e?.plasmicType ===
+                                                          "PlasmicUndefinedDataError"
+                                                      ) {
+                                                        return undefined;
+                                                      }
+                                                      throw e;
+                                                    }
+                                                  })()}
+                                                  name={(() => {
+                                                    try {
+                                                      return $queries.playerList.data.response.find(
+                                                        x =>
+                                                          x.id ===
+                                                          currentItem.player_id
+                                                      ).name;
+                                                    } catch (e) {
+                                                      if (
+                                                        e instanceof
+                                                          TypeError ||
+                                                        e?.plasmicType ===
+                                                          "PlasmicUndefinedDataError"
+                                                      ) {
+                                                        return undefined;
+                                                      }
+                                                      throw e;
+                                                    }
+                                                  })()}
+                                                  ochko={(() => {
+                                                    try {
+                                                      return $queries.playerPoint.data.response.find(
+                                                        x =>
+                                                          x.player_id ===
+                                                          currentItem.player_id
+                                                      ).point;
+                                                    } catch (e) {
+                                                      if (
+                                                        e instanceof
+                                                          TypeError ||
+                                                        e?.plasmicType ===
+                                                          "PlasmicUndefinedDataError"
+                                                      ) {
+                                                        return undefined;
+                                                      }
+                                                      throw e;
+                                                    }
+                                                  })()}
+                                                />
+                                              </div>
+                                            );
+                                          }
+                                        )}
+                                      </Stack__>
+                                      <Stack__
+                                        as={"div"}
+                                        data-plasmic-name={"str"}
+                                        data-plasmic-override={overrides.str}
+                                        hasGap={true}
+                                        className={classNames(
+                                          projectcss.all,
+                                          sty.str
+                                        )}
+                                      >
+                                        {(_par =>
+                                          !_par
+                                            ? []
+                                            : Array.isArray(_par)
+                                            ? _par
+                                            : [_par])(
+                                          (() => {
+                                            try {
+                                              return $queries.userTeam.data.response.filter(
+                                                x => x.position === "STR"
+                                              );
+                                            } catch (e) {
+                                              if (
+                                                e instanceof TypeError ||
+                                                e?.plasmicType ===
+                                                  "PlasmicUndefinedDataError"
+                                              ) {
+                                                return [];
+                                              }
+                                              throw e;
+                                            }
+                                          })()
+                                        ).map(
+                                          (
+                                            __plasmic_item_1,
+                                            __plasmic_idx_1
+                                          ) => {
+                                            const currentItem =
+                                              __plasmic_item_1;
+                                            const currentIndex =
+                                              __plasmic_idx_1;
+                                            return (
+                                              <div
+                                                className={classNames(
+                                                  projectcss.all,
+                                                  sty.freeBox__myCbF
+                                                )}
+                                                key={currentIndex}
+                                              >
+                                                <AvatarPlayerShowScore
+                                                  capitanVisibility={(() => {
+                                                    try {
+                                                      return (
+                                                        currentItem.is_captain ===
+                                                        true
+                                                      );
+                                                    } catch (e) {
+                                                      if (
+                                                        e instanceof
+                                                          TypeError ||
+                                                        e?.plasmicType ===
+                                                          "PlasmicUndefinedDataError"
+                                                      ) {
+                                                        return false;
+                                                      }
+                                                      throw e;
+                                                    }
+                                                  })()}
+                                                  className={classNames(
+                                                    "__wab_instance",
+                                                    sty.avatarPlayerShowScore___5SAiB
+                                                  )}
+                                                  image={(() => {
+                                                    try {
+                                                      return $queries.playerList.data.response.find(
+                                                        x =>
+                                                          x.id ===
+                                                          currentItem.player_id
+                                                      ).image;
+                                                    } catch (e) {
+                                                      if (
+                                                        e instanceof
+                                                          TypeError ||
+                                                        e?.plasmicType ===
+                                                          "PlasmicUndefinedDataError"
+                                                      ) {
+                                                        return undefined;
+                                                      }
+                                                      throw e;
+                                                    }
+                                                  })()}
+                                                  name={(() => {
+                                                    try {
+                                                      return $queries.playerList.data.response.find(
+                                                        x =>
+                                                          x.id ===
+                                                          currentItem.player_id
+                                                      ).name;
+                                                    } catch (e) {
+                                                      if (
+                                                        e instanceof
+                                                          TypeError ||
+                                                        e?.plasmicType ===
+                                                          "PlasmicUndefinedDataError"
+                                                      ) {
+                                                        return undefined;
+                                                      }
+                                                      throw e;
+                                                    }
+                                                  })()}
+                                                  ochko={(() => {
+                                                    try {
+                                                      return $queries.playerPoint.data.response.find(
+                                                        x =>
+                                                          x.player_id ===
+                                                          currentItem.player_id
+                                                      ).point;
+                                                    } catch (e) {
+                                                      if (
+                                                        e instanceof
+                                                          TypeError ||
+                                                        e?.plasmicType ===
+                                                          "PlasmicUndefinedDataError"
+                                                      ) {
+                                                        return undefined;
+                                                      }
+                                                      throw e;
+                                                    }
+                                                  })()}
+                                                />
+                                              </div>
+                                            );
+                                          }
+                                        )}
+                                      </Stack__>
+                                      <SoccerPlaceMens2
+                                        data-plasmic-name={"soccerPlaceMens2"}
+                                        data-plasmic-override={
+                                          overrides.soccerPlaceMens2
                                         }
-                                      })()
-                                    ).map(
-                                      (__plasmic_item_1, __plasmic_idx_1) => {
-                                        const currentItem = __plasmic_item_1;
-                                        const currentIndex = __plasmic_idx_1;
-                                        return (
-                                          <div
-                                            className={classNames(
-                                              projectcss.all,
-                                              sty.freeBox___9Rsg4
-                                            )}
-                                            key={currentIndex}
-                                          >
-                                            <AvatarPlayerShowScore
-                                              capitanVisibility={(() => {
-                                                try {
-                                                  return (
-                                                    currentItem.is_captain ===
-                                                    true
-                                                  );
-                                                } catch (e) {
-                                                  if (
-                                                    e instanceof TypeError ||
-                                                    e?.plasmicType ===
-                                                      "PlasmicUndefinedDataError"
-                                                  ) {
-                                                    return false;
-                                                  }
-                                                  throw e;
-                                                }
-                                              })()}
-                                              className={classNames(
-                                                "__wab_instance",
-                                                sty.avatarPlayerShowScore___1QvI
-                                              )}
-                                              image={(() => {
-                                                try {
-                                                  return $queries.playerList.data.response.find(
-                                                    x =>
-                                                      x.id ===
-                                                      currentItem.player_id
-                                                  ).image;
-                                                } catch (e) {
-                                                  if (
-                                                    e instanceof TypeError ||
-                                                    e?.plasmicType ===
-                                                      "PlasmicUndefinedDataError"
-                                                  ) {
-                                                    return undefined;
-                                                  }
-                                                  throw e;
-                                                }
-                                              })()}
-                                              name={(() => {
-                                                try {
-                                                  return $queries.playerList.data.response.find(
-                                                    x =>
-                                                      x.id ===
-                                                      currentItem.player_id
-                                                  ).name;
-                                                } catch (e) {
-                                                  if (
-                                                    e instanceof TypeError ||
-                                                    e?.plasmicType ===
-                                                      "PlasmicUndefinedDataError"
-                                                  ) {
-                                                    return undefined;
-                                                  }
-                                                  throw e;
-                                                }
-                                              })()}
-                                              ochko={(() => {
-                                                try {
-                                                  return $queries.playerPoint.data.response.find(
-                                                    x =>
-                                                      x.player_id ===
-                                                      currentItem.player_id
-                                                  ).point;
-                                                } catch (e) {
-                                                  if (
-                                                    e instanceof TypeError ||
-                                                    e?.plasmicType ===
-                                                      "PlasmicUndefinedDataError"
-                                                  ) {
-                                                    return undefined;
-                                                  }
-                                                  throw e;
-                                                }
-                                              })()}
-                                            />
-                                          </div>
-                                        );
-                                      }
-                                    )}
+                                        className={classNames(
+                                          "__wab_instance",
+                                          sty.soccerPlaceMens2
+                                        )}
+                                      />
+                                    </div>
                                   </div>
-                                  <Stack__
-                                    as={"div"}
-                                    data-plasmic-name={"def"}
-                                    data-plasmic-override={overrides.def}
-                                    hasGap={true}
+                                  <div
                                     className={classNames(
                                       projectcss.all,
-                                      sty.def
+                                      sty.column__gIpSa
                                     )}
                                   >
-                                    {(_par =>
-                                      !_par
-                                        ? []
-                                        : Array.isArray(_par)
-                                        ? _par
-                                        : [_par])(
-                                      (() => {
-                                        try {
-                                          return $queries.userTeam.data.response.filter(
-                                            x => x.position === "DEF"
-                                          );
-                                        } catch (e) {
-                                          if (
-                                            e instanceof TypeError ||
-                                            e?.plasmicType ===
-                                              "PlasmicUndefinedDataError"
-                                          ) {
-                                            return [];
+                                    <h1
+                                      className={classNames(
+                                        projectcss.all,
+                                        projectcss.h1,
+                                        projectcss.__wab_text,
+                                        sty.h1___7A61
+                                      )}
+                                    >
+                                      <React.Fragment>
+                                        {(() => {
+                                          try {
+                                            return (
+                                              currentItem.tour_name + "-Tur"
+                                            );
+                                          } catch (e) {
+                                            if (
+                                              e instanceof TypeError ||
+                                              e?.plasmicType ===
+                                                "PlasmicUndefinedDataError"
+                                            ) {
+                                              return "";
+                                            }
+                                            throw e;
                                           }
-                                          throw e;
-                                        }
-                                      })()
-                                    ).map(
-                                      (__plasmic_item_1, __plasmic_idx_1) => {
-                                        const currentItem = __plasmic_item_1;
-                                        const currentIndex = __plasmic_idx_1;
-                                        return (
-                                          <div
-                                            className={classNames(
-                                              projectcss.all,
-                                              sty.freeBox__vgv7L
-                                            )}
-                                            key={currentIndex}
-                                          >
-                                            <AvatarPlayerShowScore
-                                              capitanVisibility={(() => {
-                                                try {
-                                                  return (
-                                                    currentItem.is_captain ===
-                                                    true
-                                                  );
-                                                } catch (e) {
-                                                  if (
-                                                    e instanceof TypeError ||
-                                                    e?.plasmicType ===
-                                                      "PlasmicUndefinedDataError"
-                                                  ) {
-                                                    return false;
-                                                  }
-                                                  throw e;
-                                                }
-                                              })()}
-                                              className={classNames(
-                                                "__wab_instance",
-                                                sty.avatarPlayerShowScore__q4Dev
-                                              )}
-                                              image={(() => {
-                                                try {
-                                                  return $queries.playerList.data.response.find(
-                                                    x =>
-                                                      x.id ===
-                                                      currentItem.player_id
-                                                  ).image;
-                                                } catch (e) {
-                                                  if (
-                                                    e instanceof TypeError ||
-                                                    e?.plasmicType ===
-                                                      "PlasmicUndefinedDataError"
-                                                  ) {
-                                                    return undefined;
-                                                  }
-                                                  throw e;
-                                                }
-                                              })()}
-                                              name={(() => {
-                                                try {
-                                                  return $queries.playerList.data.response.find(
-                                                    x =>
-                                                      x.id ===
-                                                      currentItem.player_id
-                                                  ).name;
-                                                } catch (e) {
-                                                  if (
-                                                    e instanceof TypeError ||
-                                                    e?.plasmicType ===
-                                                      "PlasmicUndefinedDataError"
-                                                  ) {
-                                                    return undefined;
-                                                  }
-                                                  throw e;
-                                                }
-                                              })()}
-                                              ochko={(() => {
-                                                try {
-                                                  return $queries.playerPoint.data.response.find(
-                                                    x =>
-                                                      x.player_id ===
-                                                      currentItem.player_id
-                                                  ).point;
-                                                } catch (e) {
-                                                  if (
-                                                    e instanceof TypeError ||
-                                                    e?.plasmicType ===
-                                                      "PlasmicUndefinedDataError"
-                                                  ) {
-                                                    return undefined;
-                                                  }
-                                                  throw e;
-                                                }
-                                              })()}
-                                            />
-                                          </div>
-                                        );
-                                      }
-                                    )}
-                                  </Stack__>
-                                  <Stack__
-                                    as={"div"}
-                                    data-plasmic-name={"mid"}
-                                    data-plasmic-override={overrides.mid}
-                                    hasGap={true}
-                                    className={classNames(
-                                      projectcss.all,
-                                      sty.mid
-                                    )}
-                                  >
-                                    {(_par =>
-                                      !_par
-                                        ? []
-                                        : Array.isArray(_par)
-                                        ? _par
-                                        : [_par])(
-                                      (() => {
-                                        try {
-                                          return $queries.userTeam.data.response.filter(
-                                            x => x.position === "MID"
-                                          );
-                                        } catch (e) {
-                                          if (
-                                            e instanceof TypeError ||
-                                            e?.plasmicType ===
-                                              "PlasmicUndefinedDataError"
-                                          ) {
-                                            return [];
+                                        })()}
+                                      </React.Fragment>
+                                    </h1>
+                                    <h3
+                                      data-plasmic-name={"h3"}
+                                      data-plasmic-override={overrides.h3}
+                                      className={classNames(
+                                        projectcss.all,
+                                        projectcss.h3,
+                                        projectcss.__wab_text,
+                                        sty.h3
+                                      )}
+                                    >
+                                      <React.Fragment>
+                                        {(() => {
+                                          try {
+                                            return undefined;
+                                          } catch (e) {
+                                            if (
+                                              e instanceof TypeError ||
+                                              e?.plasmicType ===
+                                                "PlasmicUndefinedDataError"
+                                            ) {
+                                              return "";
+                                            }
+                                            throw e;
                                           }
-                                          throw e;
-                                        }
-                                      })()
-                                    ).map(
-                                      (__plasmic_item_1, __plasmic_idx_1) => {
-                                        const currentItem = __plasmic_item_1;
-                                        const currentIndex = __plasmic_idx_1;
-                                        return (
-                                          <div
-                                            className={classNames(
-                                              projectcss.all,
-                                              sty.freeBox__vs9BU
-                                            )}
-                                            key={currentIndex}
-                                          >
-                                            <AvatarPlayerShowScore
-                                              capitanVisibility={(() => {
-                                                try {
-                                                  return (
-                                                    currentItem.is_captain ===
-                                                    true
-                                                  );
-                                                } catch (e) {
-                                                  if (
-                                                    e instanceof TypeError ||
-                                                    e?.plasmicType ===
-                                                      "PlasmicUndefinedDataError"
-                                                  ) {
-                                                    return false;
-                                                  }
-                                                  throw e;
-                                                }
-                                              })()}
-                                              className={classNames(
-                                                "__wab_instance",
-                                                sty.avatarPlayerShowScore__wpSmV
-                                              )}
-                                              image={(() => {
-                                                try {
-                                                  return $queries.playerList.data.response.find(
-                                                    x =>
-                                                      x.id ===
-                                                      currentItem.player_id
-                                                  ).image;
-                                                } catch (e) {
-                                                  if (
-                                                    e instanceof TypeError ||
-                                                    e?.plasmicType ===
-                                                      "PlasmicUndefinedDataError"
-                                                  ) {
-                                                    return undefined;
-                                                  }
-                                                  throw e;
-                                                }
-                                              })()}
-                                              name={(() => {
-                                                try {
-                                                  return $queries.playerList.data.response.find(
-                                                    x =>
-                                                      x.id ===
-                                                      currentItem.player_id
-                                                  ).name;
-                                                } catch (e) {
-                                                  if (
-                                                    e instanceof TypeError ||
-                                                    e?.plasmicType ===
-                                                      "PlasmicUndefinedDataError"
-                                                  ) {
-                                                    return undefined;
-                                                  }
-                                                  throw e;
-                                                }
-                                              })()}
-                                              ochko={(() => {
-                                                try {
-                                                  return $queries.playerPoint.data.response.find(
-                                                    x =>
-                                                      x.player_id ===
-                                                      currentItem.player_id
-                                                  ).point;
-                                                } catch (e) {
-                                                  if (
-                                                    e instanceof TypeError ||
-                                                    e?.plasmicType ===
-                                                      "PlasmicUndefinedDataError"
-                                                  ) {
-                                                    return undefined;
-                                                  }
-                                                  throw e;
-                                                }
-                                              })()}
-                                            />
-                                          </div>
-                                        );
-                                      }
-                                    )}
-                                  </Stack__>
-                                  <Stack__
-                                    as={"div"}
-                                    data-plasmic-name={"str"}
-                                    data-plasmic-override={overrides.str}
-                                    hasGap={true}
-                                    className={classNames(
-                                      projectcss.all,
-                                      sty.str
-                                    )}
-                                  >
-                                    {(_par =>
-                                      !_par
-                                        ? []
-                                        : Array.isArray(_par)
-                                        ? _par
-                                        : [_par])(
-                                      (() => {
-                                        try {
-                                          return $queries.userTeam.data.response.filter(
-                                            x => x.position === "STR"
-                                          );
-                                        } catch (e) {
-                                          if (
-                                            e instanceof TypeError ||
-                                            e?.plasmicType ===
-                                              "PlasmicUndefinedDataError"
-                                          ) {
-                                            return [];
-                                          }
-                                          throw e;
-                                        }
-                                      })()
-                                    ).map(
-                                      (__plasmic_item_1, __plasmic_idx_1) => {
-                                        const currentItem = __plasmic_item_1;
-                                        const currentIndex = __plasmic_idx_1;
-                                        return (
-                                          <div
-                                            className={classNames(
-                                              projectcss.all,
-                                              sty.freeBox__myCbF
-                                            )}
-                                            key={currentIndex}
-                                          >
-                                            <AvatarPlayerShowScore
-                                              capitanVisibility={(() => {
-                                                try {
-                                                  return (
-                                                    currentItem.is_captain ===
-                                                    true
-                                                  );
-                                                } catch (e) {
-                                                  if (
-                                                    e instanceof TypeError ||
-                                                    e?.plasmicType ===
-                                                      "PlasmicUndefinedDataError"
-                                                  ) {
-                                                    return false;
-                                                  }
-                                                  throw e;
-                                                }
-                                              })()}
-                                              className={classNames(
-                                                "__wab_instance",
-                                                sty.avatarPlayerShowScore___5SAiB
-                                              )}
-                                              image={(() => {
-                                                try {
-                                                  return $queries.playerList.data.response.find(
-                                                    x =>
-                                                      x.id ===
-                                                      currentItem.player_id
-                                                  ).image;
-                                                } catch (e) {
-                                                  if (
-                                                    e instanceof TypeError ||
-                                                    e?.plasmicType ===
-                                                      "PlasmicUndefinedDataError"
-                                                  ) {
-                                                    return undefined;
-                                                  }
-                                                  throw e;
-                                                }
-                                              })()}
-                                              name={(() => {
-                                                try {
-                                                  return $queries.playerList.data.response.find(
-                                                    x =>
-                                                      x.id ===
-                                                      currentItem.player_id
-                                                  ).name;
-                                                } catch (e) {
-                                                  if (
-                                                    e instanceof TypeError ||
-                                                    e?.plasmicType ===
-                                                      "PlasmicUndefinedDataError"
-                                                  ) {
-                                                    return undefined;
-                                                  }
-                                                  throw e;
-                                                }
-                                              })()}
-                                              ochko={(() => {
-                                                try {
-                                                  return $queries.playerPoint.data.response.find(
-                                                    x =>
-                                                      x.player_id ===
-                                                      currentItem.player_id
-                                                  ).point;
-                                                } catch (e) {
-                                                  if (
-                                                    e instanceof TypeError ||
-                                                    e?.plasmicType ===
-                                                      "PlasmicUndefinedDataError"
-                                                  ) {
-                                                    return undefined;
-                                                  }
-                                                  throw e;
-                                                }
-                                              })()}
-                                            />
-                                          </div>
-                                        );
-                                      }
-                                    )}
-                                  </Stack__>
-                                  <SoccerPlaceMens2
-                                    data-plasmic-name={"soccerPlaceMens2"}
-                                    data-plasmic-override={
-                                      overrides.soccerPlaceMens2
-                                    }
-                                    className={classNames(
-                                      "__wab_instance",
-                                      sty.soccerPlaceMens2
-                                    )}
-                                  />
+                                        })()}
+                                      </React.Fragment>
+                                    </h3>
+                                    <Stack__
+                                      as={"div"}
+                                      hasGap={true}
+                                      className={classNames(
+                                        projectcss.all,
+                                        sty.freeBox___0XntJ
+                                      )}
+                                    >
+                                      <div
+                                        className={classNames(
+                                          projectcss.all,
+                                          projectcss.__wab_text,
+                                          sty.text__rhbFd
+                                        )}
+                                      >
+                                        <React.Fragment>
+                                          {(() => {
+                                            try {
+                                              return "Turdagi ochko";
+                                            } catch (e) {
+                                              if (
+                                                e instanceof TypeError ||
+                                                e?.plasmicType ===
+                                                  "PlasmicUndefinedDataError"
+                                              ) {
+                                                return "";
+                                              }
+                                              throw e;
+                                            }
+                                          })()}
+                                        </React.Fragment>
+                                      </div>
+                                      <h1
+                                        className={classNames(
+                                          projectcss.all,
+                                          projectcss.h1,
+                                          projectcss.__wab_text,
+                                          sty.h1__uFhKf
+                                        )}
+                                      >
+                                        <React.Fragment>
+                                          {(() => {
+                                            try {
+                                              return $queries.teamPoint.data
+                                                .response[0].point;
+                                            } catch (e) {
+                                              if (
+                                                e instanceof TypeError ||
+                                                e?.plasmicType ===
+                                                  "PlasmicUndefinedDataError"
+                                              ) {
+                                                return "";
+                                              }
+                                              throw e;
+                                            }
+                                          })()}
+                                        </React.Fragment>
+                                      </h1>
+                                    </Stack__>
+                                  </div>
                                 </div>
-                              </div>
-                              <div
-                                className={classNames(
-                                  projectcss.all,
-                                  sty.column__gIpSa
-                                )}
-                              >
-                                <h1
-                                  className={classNames(
-                                    projectcss.all,
-                                    projectcss.h1,
-                                    projectcss.__wab_text,
-                                    sty.h1___7A61
-                                  )}
-                                >
-                                  <React.Fragment>
-                                    {(() => {
-                                      try {
-                                        return currentItem.tour_name + "-Tur";
-                                      } catch (e) {
-                                        if (
-                                          e instanceof TypeError ||
-                                          e?.plasmicType ===
-                                            "PlasmicUndefinedDataError"
-                                        ) {
-                                          return "";
-                                        }
-                                        throw e;
-                                      }
-                                    })()}
-                                  </React.Fragment>
-                                </h1>
-                                <h3
-                                  data-plasmic-name={"h3"}
-                                  data-plasmic-override={overrides.h3}
-                                  className={classNames(
-                                    projectcss.all,
-                                    projectcss.h3,
-                                    projectcss.__wab_text,
-                                    sty.h3
-                                  )}
-                                >
-                                  <React.Fragment>
-                                    {(() => {
-                                      try {
-                                        return undefined;
-                                      } catch (e) {
-                                        if (
-                                          e instanceof TypeError ||
-                                          e?.plasmicType ===
-                                            "PlasmicUndefinedDataError"
-                                        ) {
-                                          return "";
-                                        }
-                                        throw e;
-                                      }
-                                    })()}
-                                  </React.Fragment>
-                                </h3>
-                                <Stack__
-                                  as={"div"}
-                                  hasGap={true}
-                                  className={classNames(
-                                    projectcss.all,
-                                    sty.freeBox___0XntJ
-                                  )}
-                                >
-                                  <div
-                                    className={classNames(
-                                      projectcss.all,
-                                      projectcss.__wab_text,
-                                      sty.text__rhbFd
-                                    )}
-                                  >
-                                    <React.Fragment>
-                                      {(() => {
-                                        try {
-                                          return "Turdagi ochko";
-                                        } catch (e) {
-                                          if (
-                                            e instanceof TypeError ||
-                                            e?.plasmicType ===
-                                              "PlasmicUndefinedDataError"
-                                          ) {
-                                            return "";
-                                          }
-                                          throw e;
-                                        }
-                                      })()}
-                                    </React.Fragment>
-                                  </div>
-                                  <h1
-                                    className={classNames(
-                                      projectcss.all,
-                                      projectcss.h1,
-                                      projectcss.__wab_text,
-                                      sty.h1__uFhKf
-                                    )}
-                                  >
-                                    <React.Fragment>
-                                      {(() => {
-                                        try {
-                                          return $queries.teamPoint.data
-                                            .response[0].point;
-                                        } catch (e) {
-                                          if (
-                                            e instanceof TypeError ||
-                                            e?.plasmicType ===
-                                              "PlasmicUndefinedDataError"
-                                          ) {
-                                            return "";
-                                          }
-                                          throw e;
-                                        }
-                                      })()}
-                                    </React.Fragment>
-                                  </h1>
-                                </Stack__>
-                              </div>
-                            </div>
-                          </TabContent>
-                        );
-                      })}
+                              </TabContent>
+                            );
+                          })
+                        : null}
                     </div>
                   </div>
                 )}
