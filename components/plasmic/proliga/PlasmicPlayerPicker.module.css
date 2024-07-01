@@ -71,8 +71,48 @@
   text-align: center;
   min-width: 0;
 }
-.img__xghAn {
+.checkBuy {
+  display: flex;
   position: relative;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  padding: 8px;
+}
+.minusBalance {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  padding: 8px;
+}
+.img__yRiRx {
+  position: relative;
+  object-fit: cover;
+  max-width: 100%;
+}
+.img__yRiRx > picture > img {
+  object-fit: cover;
+}
+.buy {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  padding: 8px;
+}
+.img__xghAn {
   object-fit: cover;
   max-width: 100%;
   width: 20px;
@@ -80,6 +120,17 @@
 }
 .img__xghAn > picture > img {
   object-fit: cover;
+}
+.buySell {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  padding: 8px;
 }
 .img__gc0Y {
   position: relative;

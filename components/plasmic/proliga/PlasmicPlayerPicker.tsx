@@ -82,6 +82,10 @@ export type PlasmicPlayerPicker__ArgsType = {
   clubName?: string;
   price?: number;
   point?: number;
+  teamBalance?: number;
+  playerPrice?: string;
+  onclick?: (event: any) => void;
+  checkPlayer?: number;
 };
 type ArgPropType = keyof PlasmicPlayerPicker__ArgsType;
 export const PlasmicPlayerPicker__ArgProps = new Array<ArgPropType>(
@@ -92,11 +96,19 @@ export const PlasmicPlayerPicker__ArgProps = new Array<ArgPropType>(
   "onclickMinus",
   "clubName",
   "price",
-  "point"
+  "point",
+  "teamBalance",
+  "playerPrice",
+  "onclick",
+  "checkPlayer"
 );
 
 export type PlasmicPlayerPicker__OverridesType = {
   root?: Flex__<"div">;
+  checkBuy?: Flex__<"div">;
+  minusBalance?: Flex__<"div">;
+  buy?: Flex__<"div">;
+  buySell?: Flex__<"div">;
 };
 
 export interface DefaultPlayerPickerProps {
@@ -108,6 +120,10 @@ export interface DefaultPlayerPickerProps {
   clubName?: string;
   price?: number;
   point?: number;
+  teamBalance?: number;
+  playerPrice?: string;
+  onclick?: (event: any) => void;
+  checkPlayer?: number;
   className?: string;
 }
 
@@ -289,82 +305,188 @@ function PlasmicPlayerPicker__RenderFunc(props: {
           })()}
         </React.Fragment>
       </div>
-      {(() => {
-        try {
-          return $props.buttonVisibility === undefined;
-        } catch (e) {
-          if (
-            e instanceof TypeError ||
-            e?.plasmicType === "PlasmicUndefinedDataError"
-          ) {
-            return true;
+      <div
+        data-plasmic-name={"checkBuy"}
+        data-plasmic-override={overrides.checkBuy}
+        className={classNames(projectcss.all, sty.checkBuy)}
+      >
+        {(() => {
+          try {
+            return $props.checkPlayer == undefined;
+          } catch (e) {
+            if (
+              e instanceof TypeError ||
+              e?.plasmicType === "PlasmicUndefinedDataError"
+            ) {
+              return true;
+            }
+            throw e;
           }
-          throw e;
-        }
-      })() ? (
-        <PlasmicImg__
-          alt={""}
-          className={classNames(sty.img__xghAn)}
-          displayHeight={"auto"}
-          displayMaxHeight={"none"}
-          displayMaxWidth={"100%"}
-          displayMinHeight={"0"}
-          displayMinWidth={"0"}
-          displayWidth={"20px"}
-          loading={"lazy"}
-          onClick={args.onclickPlus}
-          src={{
-            src: "/plasmic/proliga/images/plus33Svg.svg",
-            fullWidth: 1024,
-            fullHeight: 1024,
-            aspectRatio: 1
-          }}
-        />
-      ) : null}
-      {(() => {
-        try {
-          return $props.buttonVisibility != undefined;
-        } catch (e) {
-          if (
-            e instanceof TypeError ||
-            e?.plasmicType === "PlasmicUndefinedDataError"
-          ) {
-            return true;
+        })() ? (
+          <div
+            data-plasmic-name={"minusBalance"}
+            data-plasmic-override={overrides.minusBalance}
+            className={classNames(projectcss.all, sty.minusBalance)}
+          >
+            {(() => {
+              try {
+                return $props.playerPrice > $props.teamBalance;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return true;
+                }
+                throw e;
+              }
+            })() ? (
+              <PlasmicImg__
+                alt={""}
+                className={classNames(sty.img__yRiRx)}
+                displayHeight={"auto"}
+                displayMaxHeight={"none"}
+                displayMaxWidth={"100%"}
+                displayMinHeight={"0"}
+                displayMinWidth={"0"}
+                displayWidth={"auto"}
+                loading={"lazy"}
+                onClick={args.onclick}
+                src={{
+                  src: "/plasmic/proliga/images/icons8Dollar50Png.png",
+                  fullWidth: 50,
+                  fullHeight: 50,
+                  aspectRatio: undefined
+                }}
+              />
+            ) : null}
+            {(() => {
+              try {
+                return $props.playerPrice < $props.teamBalance;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return true;
+                }
+                throw e;
+              }
+            })() ? (
+              <div
+                data-plasmic-name={"buy"}
+                data-plasmic-override={overrides.buy}
+                className={classNames(projectcss.all, sty.buy)}
+              >
+                {(() => {
+                  try {
+                    return $props.buttonVisibility === undefined;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return true;
+                    }
+                    throw e;
+                  }
+                })() ? (
+                  <PlasmicImg__
+                    alt={""}
+                    className={classNames(sty.img__xghAn)}
+                    displayHeight={"auto"}
+                    displayMaxHeight={"none"}
+                    displayMaxWidth={"100%"}
+                    displayMinHeight={"0"}
+                    displayMinWidth={"0"}
+                    displayWidth={"20px"}
+                    loading={"lazy"}
+                    onClick={args.onclickPlus}
+                    src={{
+                      src: "/plasmic/proliga/images/plus33Svg.svg",
+                      fullWidth: 1024,
+                      fullHeight: 1024,
+                      aspectRatio: 1
+                    }}
+                  />
+                ) : null}
+              </div>
+            ) : null}
+          </div>
+        ) : null}
+        {(() => {
+          try {
+            return $props.checkPlayer != undefined;
+          } catch (e) {
+            if (
+              e instanceof TypeError ||
+              e?.plasmicType === "PlasmicUndefinedDataError"
+            ) {
+              return true;
+            }
+            throw e;
           }
-          throw e;
-        }
-      })() ? (
-        <PlasmicImg__
-          alt={""}
-          className={classNames(sty.img__gc0Y)}
-          displayHeight={"auto"}
-          displayMaxHeight={"none"}
-          displayMaxWidth={"100%"}
-          displayMinHeight={"0"}
-          displayMinWidth={"0"}
-          displayWidth={"20px"}
-          loading={"lazy"}
-          onClick={args.onclickMinus}
-          src={{
-            src: "/plasmic/proliga/images/redXLineIconsvg.svg",
-            fullWidth: 122.88,
-            fullHeight: 122.879,
-            aspectRatio: 1.000008
-          }}
-        />
-      ) : null}
+        })() ? (
+          <div
+            data-plasmic-name={"buySell"}
+            data-plasmic-override={overrides.buySell}
+            className={classNames(projectcss.all, sty.buySell)}
+          >
+            {(() => {
+              try {
+                return $props.buttonVisibility != undefined;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return true;
+                }
+                throw e;
+              }
+            })() ? (
+              <PlasmicImg__
+                alt={""}
+                className={classNames(sty.img__gc0Y)}
+                displayHeight={"auto"}
+                displayMaxHeight={"none"}
+                displayMaxWidth={"100%"}
+                displayMinHeight={"0"}
+                displayMinWidth={"0"}
+                displayWidth={"20px"}
+                loading={"lazy"}
+                onClick={args.onclickMinus}
+                src={{
+                  src: "/plasmic/proliga/images/redXLineIconsvg.svg",
+                  fullWidth: 122.88,
+                  fullHeight: 122.879,
+                  aspectRatio: 1.000008
+                }}
+              />
+            ) : null}
+          </div>
+        ) : null}
+      </div>
     </Stack__>
   ) as React.ReactElement | null;
 }
 
 const PlasmicDescendants = {
-  root: ["root"]
+  root: ["root", "checkBuy", "minusBalance", "buy", "buySell"],
+  checkBuy: ["checkBuy", "minusBalance", "buy", "buySell"],
+  minusBalance: ["minusBalance", "buy"],
+  buy: ["buy"],
+  buySell: ["buySell"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
+  checkBuy: "div";
+  minusBalance: "div";
+  buy: "div";
+  buySell: "div";
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -427,6 +549,10 @@ export const PlasmicPlayerPicker = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
+    checkBuy: makeNodeComponent("checkBuy"),
+    minusBalance: makeNodeComponent("minusBalance"),
+    buy: makeNodeComponent("buy"),
+    buySell: makeNodeComponent("buySell"),
 
     // Metadata about props expected for PlasmicPlayerPicker
     internalVariantProps: PlasmicPlayerPicker__VariantProps,

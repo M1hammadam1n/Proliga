@@ -2651,6 +2651,22 @@ function PlasmicEditTeam__RenderFunc(props: {
                                           throw e;
                                         }
                                       })()}
+                                      checkPlayer={(() => {
+                                        try {
+                                          return $queries.teamPlayer.data.response.find(
+                                            x => x.player_id === currentItem.id
+                                          );
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return undefined;
+                                          }
+                                          throw e;
+                                        }
+                                      })()}
                                       className={classNames(
                                         "__wab_instance",
                                         sty.playerPicker__nhwaM
@@ -2686,6 +2702,62 @@ function PlasmicEditTeam__RenderFunc(props: {
                                           throw e;
                                         }
                                       })()}
+                                      onclick={async event => {
+                                        const $steps = {};
+
+                                        $steps["invokeGlobalAction"] = true
+                                          ? (() => {
+                                              const actionArgs = {
+                                                args: [
+                                                  "info",
+                                                  (() => {
+                                                    try {
+                                                      return (
+                                                        "Bu futbolchini sotib olish uchun sizga " +
+                                                        (currentItem.price +
+                                                          $queries.query.data
+                                                            .response[0]
+                                                            .balance) *
+                                                          -1 +
+                                                        " tanga kerak"
+                                                      );
+                                                    } catch (e) {
+                                                      if (
+                                                        e instanceof
+                                                          TypeError ||
+                                                        e?.plasmicType ===
+                                                          "PlasmicUndefinedDataError"
+                                                      ) {
+                                                        return undefined;
+                                                      }
+                                                      throw e;
+                                                    }
+                                                  })(),
+                                                  undefined,
+                                                  4,
+                                                  "top"
+                                                ]
+                                              };
+                                              return $globalActions[
+                                                "plasmic-antd5-config-provider.showNotification"
+                                              ]?.apply(null, [
+                                                ...actionArgs.args
+                                              ]);
+                                            })()
+                                          : undefined;
+                                        if (
+                                          $steps["invokeGlobalAction"] !=
+                                            null &&
+                                          typeof $steps[
+                                            "invokeGlobalAction"
+                                          ] === "object" &&
+                                          typeof $steps["invokeGlobalAction"]
+                                            .then === "function"
+                                        ) {
+                                          $steps["invokeGlobalAction"] =
+                                            await $steps["invokeGlobalAction"];
+                                        }
+                                      }}
                                       onclickMinus={async event => {
                                         const $steps = {};
 
@@ -2874,6 +2946,20 @@ function PlasmicEditTeam__RenderFunc(props: {
                                           ];
                                         }
                                       }}
+                                      playerPrice={(() => {
+                                        try {
+                                          return currentItem.price;
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return undefined;
+                                          }
+                                          throw e;
+                                        }
+                                      })()}
                                       point={(() => {
                                         try {
                                           return currentItem.ochko;
@@ -2912,6 +2998,21 @@ function PlasmicEditTeam__RenderFunc(props: {
                                               "PlasmicUndefinedDataError"
                                           ) {
                                             return 9;
+                                          }
+                                          throw e;
+                                        }
+                                      })()}
+                                      teamBalance={(() => {
+                                        try {
+                                          return $queries.query.data.response[0]
+                                            .balance;
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return undefined;
                                           }
                                           throw e;
                                         }
