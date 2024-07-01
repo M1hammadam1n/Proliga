@@ -410,7 +410,8 @@ function PlasmicShowTeam__RenderFunc(props: {
               data-plasmic-name={"tabsContainer"}
               data-plasmic-override={overrides.tabsContainer}
               className={classNames("__wab_instance", sty.tabsContainer)}
-              initialKey={"tab1"}
+              initialKey={"tab0"}
+              previewAll={false}
             >
               <DataCtxReader__>
                 {$ctx => (
