@@ -81,6 +81,7 @@
   flex-shrink: 1;
   max-width: 100%;
   flex-direction: row;
+  flex-grow: 0;
   min-width: 0;
   --plsmc-rc-col-gap: 0px;
   padding: 8px;
@@ -194,7 +195,7 @@
 .img__lxqfa > picture > img {
   object-fit: contain;
 }
-.text {
+.text__ebS3V {
   position: relative;
   width: 100%;
   height: auto;
@@ -204,6 +205,17 @@
   font-weight: 700;
   font-size: 18px;
   padding-top: 10px;
+  min-width: 0;
+}
+.text__gx9W9 {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  text-align: center;
+  font-weight: 700;
+  color: var(--token-Crw2fR4OvTKi);
+  font-size: 10px;
   min-width: 0;
 }
 .img__xWmDf {

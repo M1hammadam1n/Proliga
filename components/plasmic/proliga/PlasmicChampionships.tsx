@@ -96,7 +96,6 @@ export type PlasmicChampionships__OverridesType = {
   freeBox?: Flex__<"div">;
   columns?: Flex__<"div">;
   column?: Flex__<"div">;
-  text?: Flex__<"div">;
 };
 
 export interface DefaultChampionshipsProps {}
@@ -177,6 +176,16 @@ function PlasmicChampionships__RenderFunc(props: {
           params: [$state.userId]
         },
         cacheKey: `plasmic.$.40ea7b1b-17de-4cea-a1d2-2b340558f695.$.`,
+        invalidatedKeys: null,
+        roleId: "f8970d3a-c1ae-4ba8-80dd-90e548ee70d6"
+      };
+    }),
+    tourList: usePlasmicDataOp(() => {
+      return {
+        sourceId: "vQtRPuFArSfh43vUmgx2PS",
+        opId: "b5458284-b1ee-4e3c-bfa6-5cf462b2dae7",
+        userArgs: {},
+        cacheKey: `plasmic.$.b5458284-b1ee-4e3c-bfa6-5cf462b2dae7.$.`,
         invalidatedKeys: null,
         roleId: "f8970d3a-c1ae-4ba8-80dd-90e548ee70d6"
       };
@@ -445,12 +454,10 @@ function PlasmicChampionships__RenderFunc(props: {
                   />
 
                   <div
-                    data-plasmic-name={"text"}
-                    data-plasmic-override={overrides.text}
                     className={classNames(
                       projectcss.all,
                       projectcss.__wab_text,
-                      sty.text
+                      sty.text__ebS3V
                     )}
                   >
                     <React.Fragment>
@@ -463,6 +470,43 @@ function PlasmicChampionships__RenderFunc(props: {
                             e?.plasmicType === "PlasmicUndefinedDataError"
                           ) {
                             return "";
+                          }
+                          throw e;
+                        }
+                      })()}
+                    </React.Fragment>
+                  </div>
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__gx9W9
+                    )}
+                  >
+                    <React.Fragment>
+                      {(() => {
+                        try {
+                          return (
+                            "Dedlayn: " +
+                            new Intl.DateTimeFormat(undefined, {
+                              dateStyle: "short",
+                              timeStyle: "short"
+                            }).format(
+                              new Date(
+                                $queries.tourList.data.response.find(
+                                  x =>
+                                    x.competition_id ===
+                                    currentItem.competition_id
+                                ).deadline
+                              )
+                            )
+                          );
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return "Dedlayn: ";
                           }
                           throw e;
                         }
@@ -497,13 +541,12 @@ function PlasmicChampionships__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "navbar", "h1", "freeBox", "columns", "column", "text"],
+  root: ["root", "navbar", "h1", "freeBox", "columns", "column"],
   navbar: ["navbar"],
   h1: ["h1"],
-  freeBox: ["freeBox", "columns", "column", "text"],
-  columns: ["columns", "column", "text"],
-  column: ["column", "text"],
-  text: ["text"]
+  freeBox: ["freeBox", "columns", "column"],
+  columns: ["columns", "column"],
+  column: ["column"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -515,7 +558,6 @@ type NodeDefaultElementType = {
   freeBox: "div";
   columns: "div";
   column: "div";
-  text: "div";
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -600,7 +642,6 @@ export const PlasmicChampionships = Object.assign(
     freeBox: makeNodeComponent("freeBox"),
     columns: makeNodeComponent("columns"),
     column: makeNodeComponent("column"),
-    text: makeNodeComponent("text"),
 
     // Metadata about props expected for PlasmicChampionships
     internalVariantProps: PlasmicChampionships__VariantProps,
