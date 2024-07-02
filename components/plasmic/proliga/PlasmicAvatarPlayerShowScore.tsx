@@ -129,7 +129,7 @@ function PlasmicAvatarPlayerShowScore__RenderFunc(props: {
         {
           name: "Player",
           capitanVisibility: false,
-          ochko: "-"
+          ochko: "6"
         },
         props.args
       ),
@@ -295,29 +295,66 @@ function PlasmicAvatarPlayerShowScore__RenderFunc(props: {
           </div>
         </Stack__>
         <div className={classNames(projectcss.all, sty.freeBox__ucIpp)}>
-          <div
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text__jamGn
-            )}
-          >
-            <React.Fragment>
-              {(() => {
-                try {
-                  return $props.ochko;
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return "";
+          {(() => {
+            try {
+              return $props.ochko != undefined;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return true;
+              }
+              throw e;
+            }
+          })() ? (
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__jamGn
+              )}
+            >
+              <React.Fragment>
+                {(() => {
+                  try {
+                    return $props.ochko;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return "";
+                    }
+                    throw e;
                   }
-                  throw e;
-                }
-              })()}
-            </React.Fragment>
-          </div>
+                })()}
+              </React.Fragment>
+            </div>
+          ) : null}
+          {(() => {
+            try {
+              return $props.ochko === undefined;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return true;
+              }
+              throw e;
+            }
+          })() ? (
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__oo52T
+              )}
+            >
+              {"-"}
+            </div>
+          ) : null}
         </div>
       </div>
     </div>
