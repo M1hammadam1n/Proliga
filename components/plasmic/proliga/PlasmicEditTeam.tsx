@@ -2937,64 +2937,49 @@ function PlasmicEditTeam__RenderFunc(props: {
                                             await $steps["updatePlayerFast"];
                                         }
 
-                                        $steps["updatePlayer"] = false
-                                          ? (() => {
-                                              const actionArgs = {
-                                                dataOp: {
-                                                  sourceId:
-                                                    "vQtRPuFArSfh43vUmgx2PS",
-                                                  opId: "4a933963-1e52-4384-90b9-aa0c8ed99eb7",
-                                                  userArgs: {
-                                                    body: [
-                                                      currentItem.id,
-                                                      currentItem.position,
-                                                      $queries.query.data
-                                                        .response[0].id
-                                                    ]
-                                                  },
-                                                  cacheKey: null,
-                                                  invalidatedKeys: null,
-                                                  roleId:
-                                                    "f8970d3a-c1ae-4ba8-80dd-90e548ee70d6"
-                                                }
-                                              };
-                                              return (async ({
-                                                dataOp,
-                                                continueOnError
-                                              }) => {
-                                                try {
-                                                  const response =
-                                                    await executePlasmicDataOp(
-                                                      dataOp,
-                                                      {
-                                                        userAuthToken:
-                                                          dataSourcesCtx?.userAuthToken,
-                                                        user: dataSourcesCtx?.user
+                                        $steps["positionLimit"] =
+                                          $steps.updatePlayerFast.data
+                                            .response === "Postion is full!!!!"
+                                            ? (() => {
+                                                const actionArgs = {
+                                                  args: [
+                                                    "info",
+                                                    (() => {
+                                                      try {
+                                                        return "Bu pozitsiyada bo'sh joy yo'q";
+                                                      } catch (e) {
+                                                        if (
+                                                          e instanceof
+                                                            TypeError ||
+                                                          e?.plasmicType ===
+                                                            "PlasmicUndefinedDataError"
+                                                        ) {
+                                                          return undefined;
+                                                        }
+                                                        throw e;
                                                       }
-                                                    );
-                                                  await plasmicInvalidate(
-                                                    dataOp.invalidatedKeys
-                                                  );
-                                                  return response;
-                                                } catch (e) {
-                                                  if (!continueOnError) {
-                                                    throw e;
-                                                  }
-                                                  return e;
-                                                }
-                                              })?.apply(null, [actionArgs]);
-                                            })()
-                                          : undefined;
+                                                    })(),
+                                                    undefined,
+                                                    undefined,
+                                                    "top"
+                                                  ]
+                                                };
+                                                return $globalActions[
+                                                  "plasmic-antd5-config-provider.showNotification"
+                                                ]?.apply(null, [
+                                                  ...actionArgs.args
+                                                ]);
+                                              })()
+                                            : undefined;
                                         if (
-                                          $steps["updatePlayer"] != null &&
-                                          typeof $steps["updatePlayer"] ===
+                                          $steps["positionLimit"] != null &&
+                                          typeof $steps["positionLimit"] ===
                                             "object" &&
-                                          typeof $steps["updatePlayer"].then ===
-                                            "function"
+                                          typeof $steps["positionLimit"]
+                                            .then === "function"
                                         ) {
-                                          $steps["updatePlayer"] = await $steps[
-                                            "updatePlayer"
-                                          ];
+                                          $steps["positionLimit"] =
+                                            await $steps["positionLimit"];
                                         }
                                       }}
                                       playerClubCount={(() => {
@@ -3605,64 +3590,51 @@ function PlasmicEditTeam__RenderFunc(props: {
                                             await $steps["updatePlayerFast"];
                                         }
 
-                                        $steps["updatePlayer"] = false
-                                          ? (() => {
-                                              const actionArgs = {
-                                                dataOp: {
-                                                  sourceId:
-                                                    "vQtRPuFArSfh43vUmgx2PS",
-                                                  opId: "4a933963-1e52-4384-90b9-aa0c8ed99eb7",
-                                                  userArgs: {
-                                                    body: [
-                                                      currentItem.id,
-                                                      currentItem.position,
-                                                      $queries.query.data
-                                                        .response[0].id
-                                                    ]
-                                                  },
-                                                  cacheKey: null,
-                                                  invalidatedKeys: null,
-                                                  roleId:
-                                                    "f8970d3a-c1ae-4ba8-80dd-90e548ee70d6"
-                                                }
-                                              };
-                                              return (async ({
-                                                dataOp,
-                                                continueOnError
-                                              }) => {
-                                                try {
-                                                  const response =
-                                                    await executePlasmicDataOp(
-                                                      dataOp,
-                                                      {
-                                                        userAuthToken:
-                                                          dataSourcesCtx?.userAuthToken,
-                                                        user: dataSourcesCtx?.user
+                                        $steps["invokeGlobalAction"] =
+                                          $steps.updatePlayerFast.data
+                                            .response === "Postion is full!!!!"
+                                            ? (() => {
+                                                const actionArgs = {
+                                                  args: [
+                                                    "info",
+                                                    (() => {
+                                                      try {
+                                                        return "Bu pozitsiyada bo'sh joy yo'q";
+                                                      } catch (e) {
+                                                        if (
+                                                          e instanceof
+                                                            TypeError ||
+                                                          e?.plasmicType ===
+                                                            "PlasmicUndefinedDataError"
+                                                        ) {
+                                                          return undefined;
+                                                        }
+                                                        throw e;
                                                       }
-                                                    );
-                                                  await plasmicInvalidate(
-                                                    dataOp.invalidatedKeys
-                                                  );
-                                                  return response;
-                                                } catch (e) {
-                                                  if (!continueOnError) {
-                                                    throw e;
-                                                  }
-                                                  return e;
-                                                }
-                                              })?.apply(null, [actionArgs]);
-                                            })()
-                                          : undefined;
+                                                    })(),
+                                                    undefined,
+                                                    undefined,
+                                                    "top"
+                                                  ]
+                                                };
+                                                return $globalActions[
+                                                  "plasmic-antd5-config-provider.showNotification"
+                                                ]?.apply(null, [
+                                                  ...actionArgs.args
+                                                ]);
+                                              })()
+                                            : undefined;
                                         if (
-                                          $steps["updatePlayer"] != null &&
-                                          typeof $steps["updatePlayer"] ===
-                                            "object" &&
-                                          typeof $steps["updatePlayer"].then ===
-                                            "function"
+                                          $steps["invokeGlobalAction"] !=
+                                            null &&
+                                          typeof $steps[
+                                            "invokeGlobalAction"
+                                          ] === "object" &&
+                                          typeof $steps["invokeGlobalAction"]
+                                            .then === "function"
                                         ) {
-                                          $steps["updatePlayer"] = await $steps[
-                                            "updatePlayer"
-                                          ];
+                                          $steps["invokeGlobalAction"] =
+                                            await $steps["invokeGlobalAction"];
                                         }
                                       }}
                                       playerClubCount={(() => {
@@ -4225,7 +4197,8 @@ function PlasmicEditTeam__RenderFunc(props: {
                                                   ],
                                                   roleId:
                                                     "f8970d3a-c1ae-4ba8-80dd-90e548ee70d6"
-                                                }
+                                                },
+                                                continueOnError: false
                                               };
                                               return (async ({
                                                 dataOp,
@@ -4265,64 +4238,49 @@ function PlasmicEditTeam__RenderFunc(props: {
                                             await $steps["updatePlayerFast"];
                                         }
 
-                                        $steps["updatePlayer"] = false
-                                          ? (() => {
-                                              const actionArgs = {
-                                                dataOp: {
-                                                  sourceId:
-                                                    "vQtRPuFArSfh43vUmgx2PS",
-                                                  opId: "4a933963-1e52-4384-90b9-aa0c8ed99eb7",
-                                                  userArgs: {
-                                                    body: [
-                                                      currentItem.id,
-                                                      currentItem.position,
-                                                      $queries.query.data
-                                                        .response[0].id
-                                                    ]
-                                                  },
-                                                  cacheKey: null,
-                                                  invalidatedKeys: null,
-                                                  roleId:
-                                                    "f8970d3a-c1ae-4ba8-80dd-90e548ee70d6"
-                                                }
-                                              };
-                                              return (async ({
-                                                dataOp,
-                                                continueOnError
-                                              }) => {
-                                                try {
-                                                  const response =
-                                                    await executePlasmicDataOp(
-                                                      dataOp,
-                                                      {
-                                                        userAuthToken:
-                                                          dataSourcesCtx?.userAuthToken,
-                                                        user: dataSourcesCtx?.user
+                                        $steps["showNotification"] =
+                                          $steps.updatePlayerFast.data
+                                            .response === "Postion is full!!!!"
+                                            ? (() => {
+                                                const actionArgs = {
+                                                  args: [
+                                                    "info",
+                                                    (() => {
+                                                      try {
+                                                        return "Bu pozitsiyada bo'sh joy yo'q";
+                                                      } catch (e) {
+                                                        if (
+                                                          e instanceof
+                                                            TypeError ||
+                                                          e?.plasmicType ===
+                                                            "PlasmicUndefinedDataError"
+                                                        ) {
+                                                          return undefined;
+                                                        }
+                                                        throw e;
                                                       }
-                                                    );
-                                                  await plasmicInvalidate(
-                                                    dataOp.invalidatedKeys
-                                                  );
-                                                  return response;
-                                                } catch (e) {
-                                                  if (!continueOnError) {
-                                                    throw e;
-                                                  }
-                                                  return e;
-                                                }
-                                              })?.apply(null, [actionArgs]);
-                                            })()
-                                          : undefined;
+                                                    })(),
+                                                    undefined,
+                                                    undefined,
+                                                    "top"
+                                                  ]
+                                                };
+                                                return $globalActions[
+                                                  "plasmic-antd5-config-provider.showNotification"
+                                                ]?.apply(null, [
+                                                  ...actionArgs.args
+                                                ]);
+                                              })()
+                                            : undefined;
                                         if (
-                                          $steps["updatePlayer"] != null &&
-                                          typeof $steps["updatePlayer"] ===
+                                          $steps["showNotification"] != null &&
+                                          typeof $steps["showNotification"] ===
                                             "object" &&
-                                          typeof $steps["updatePlayer"].then ===
-                                            "function"
+                                          typeof $steps["showNotification"]
+                                            .then === "function"
                                         ) {
-                                          $steps["updatePlayer"] = await $steps[
-                                            "updatePlayer"
-                                          ];
+                                          $steps["showNotification"] =
+                                            await $steps["showNotification"];
                                         }
                                       }}
                                       playerClubCount={(() => {
@@ -4970,67 +4928,52 @@ function PlasmicEditTeam__RenderFunc(props: {
                                                   ];
                                               }
 
-                                              $steps["updatePlayer"] = false
-                                                ? (() => {
-                                                    const actionArgs = {
-                                                      dataOp: {
-                                                        sourceId:
-                                                          "vQtRPuFArSfh43vUmgx2PS",
-                                                        opId: "4a933963-1e52-4384-90b9-aa0c8ed99eb7",
-                                                        userArgs: {
-                                                          body: [
-                                                            currentItem.id,
-                                                            currentItem.position,
-                                                            $queries.query.data
-                                                              .response[0].id
-                                                          ]
-                                                        },
-                                                        cacheKey: null,
-                                                        invalidatedKeys: null,
-                                                        roleId:
-                                                          "f8970d3a-c1ae-4ba8-80dd-90e548ee70d6"
-                                                      }
-                                                    };
-                                                    return (async ({
-                                                      dataOp,
-                                                      continueOnError
-                                                    }) => {
-                                                      try {
-                                                        const response =
-                                                          await executePlasmicDataOp(
-                                                            dataOp,
-                                                            {
-                                                              userAuthToken:
-                                                                dataSourcesCtx?.userAuthToken,
-                                                              user: dataSourcesCtx?.user
+                                              $steps["positionLimit"] =
+                                                $steps.updatePlayerFast.data
+                                                  .response ===
+                                                "Postion is full!!!!"
+                                                  ? (() => {
+                                                      const actionArgs = {
+                                                        args: [
+                                                          "info",
+                                                          (() => {
+                                                            try {
+                                                              return "Bu pozitsiyada bo'sh joy yo'q";
+                                                            } catch (e) {
+                                                              if (
+                                                                e instanceof
+                                                                  TypeError ||
+                                                                e?.plasmicType ===
+                                                                  "PlasmicUndefinedDataError"
+                                                              ) {
+                                                                return undefined;
+                                                              }
+                                                              throw e;
                                                             }
-                                                          );
-                                                        await plasmicInvalidate(
-                                                          dataOp.invalidatedKeys
-                                                        );
-                                                        return response;
-                                                      } catch (e) {
-                                                        if (!continueOnError) {
-                                                          throw e;
-                                                        }
-                                                        return e;
-                                                      }
-                                                    })?.apply(null, [
-                                                      actionArgs
-                                                    ]);
-                                                  })()
-                                                : undefined;
+                                                          })(),
+                                                          undefined,
+                                                          undefined,
+                                                          "top"
+                                                        ]
+                                                      };
+                                                      return $globalActions[
+                                                        "plasmic-antd5-config-provider.showNotification"
+                                                      ]?.apply(null, [
+                                                        ...actionArgs.args
+                                                      ]);
+                                                    })()
+                                                  : undefined;
                                               if (
-                                                $steps["updatePlayer"] !=
+                                                $steps["positionLimit"] !=
                                                   null &&
                                                 typeof $steps[
-                                                  "updatePlayer"
+                                                  "positionLimit"
                                                 ] === "object" &&
-                                                typeof $steps["updatePlayer"]
+                                                typeof $steps["positionLimit"]
                                                   .then === "function"
                                               ) {
-                                                $steps["updatePlayer"] =
-                                                  await $steps["updatePlayer"];
+                                                $steps["positionLimit"] =
+                                                  await $steps["positionLimit"];
                                               }
                                             }}
                                             playerClubCount={(() => {
