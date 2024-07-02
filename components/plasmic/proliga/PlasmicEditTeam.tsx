@@ -683,6 +683,16 @@ function PlasmicEditTeam__RenderFunc(props: {
         invalidatedKeys: null,
         roleId: "f8970d3a-c1ae-4ba8-80dd-90e548ee70d6"
       };
+    }),
+    systemConfigPlayerPickLimit: usePlasmicDataOp(() => {
+      return {
+        sourceId: "vQtRPuFArSfh43vUmgx2PS",
+        opId: "7a109e37-55b7-47f3-b827-6a51a0bec311",
+        userArgs: {},
+        cacheKey: `plasmic.$.7a109e37-55b7-47f3-b827-6a51a0bec311.$.`,
+        invalidatedKeys: null,
+        roleId: "f8970d3a-c1ae-4ba8-80dd-90e548ee70d6"
+      };
     })
   };
   if (Object.keys(new$Queries).some(k => new$Queries[k] !== $queries[k])) {
@@ -2736,7 +2746,14 @@ function PlasmicEditTeam__RenderFunc(props: {
                                                   "info",
                                                   (() => {
                                                     try {
-                                                      return "Bitta komandadan maksimum 2ta futbolchi sotib olsa bo'ladi! ";
+                                                      return (
+                                                        "Bitta komandadan maksimum " +
+                                                        $queries
+                                                          .systemConfigPlayerPickLimit
+                                                          .data.response[0]
+                                                          .value +
+                                                        "ta futbolchi sotib olsa bo'ladi! "
+                                                      );
                                                     } catch (e) {
                                                       if (
                                                         e instanceof
@@ -3489,7 +3506,14 @@ function PlasmicEditTeam__RenderFunc(props: {
                                                   "info",
                                                   (() => {
                                                     try {
-                                                      return "Bitta komandadan maksimum 2ta futbolchi sotib olsa bo'ladi! ";
+                                                      return (
+                                                        "Bitta komandadan maksimum " +
+                                                        $queries
+                                                          .systemConfigPlayerPickLimit
+                                                          .data.response[0]
+                                                          .value +
+                                                        "ta futbolchi sotib olsa bo'ladi! "
+                                                      );
                                                     } catch (e) {
                                                       if (
                                                         e instanceof
@@ -4234,7 +4258,14 @@ function PlasmicEditTeam__RenderFunc(props: {
                                                   "info",
                                                   (() => {
                                                     try {
-                                                      return "Bitta komandadan maksimum 2ta futbolchi sotib olsa bo'ladi! ";
+                                                      return (
+                                                        "Bitta komandadan maksimum " +
+                                                        $queries
+                                                          .systemConfigPlayerPickLimit
+                                                          .data.response[0]
+                                                          .value +
+                                                        "ta futbolchi sotib olsa bo'ladi! "
+                                                      );
                                                     } catch (e) {
                                                       if (
                                                         e instanceof
@@ -5018,7 +5049,15 @@ function PlasmicEditTeam__RenderFunc(props: {
                                                         "info",
                                                         (() => {
                                                           try {
-                                                            return "Bitta komandadan maksimum 2ta futbolchi sotib olsa bo'ladi! ";
+                                                            return (
+                                                              "Bitta komandadan maksimum " +
+                                                              $queries
+                                                                .systemConfigPlayerPickLimit
+                                                                .data
+                                                                .response[0]
+                                                                .value +
+                                                              "ta futbolchi sotib olsa bo'ladi! "
+                                                            );
                                                           } catch (e) {
                                                             if (
                                                               e instanceof

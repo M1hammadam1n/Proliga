@@ -59,6 +59,14 @@ import {
   useGlobalActions
 } from "@plasmicapp/react-web/lib/host";
 
+import {
+  executePlasmicDataOp,
+  usePlasmicDataOp,
+  usePlasmicInvalidate
+} from "@plasmicapp/react-web/lib/data-sources";
+
+import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
+
 import "@plasmicapp/react-web/lib/plasmic.css";
 
 import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
@@ -180,6 +188,28 @@ function PlasmicPlayerPicker__RenderFunc(props: {
   const $refs = refsRef.current;
 
   const currentUser = useCurrentUser?.() || {};
+
+  let [$queries, setDollarQueries] = React.useState<
+    Record<string, ReturnType<typeof usePlasmicDataOp>>
+  >({});
+
+  const new$Queries: Record<string, ReturnType<typeof usePlasmicDataOp>> = {
+    playerPickLimit: usePlasmicDataOp(() => {
+      return {
+        sourceId: "vQtRPuFArSfh43vUmgx2PS",
+        opId: "7a109e37-55b7-47f3-b827-6a51a0bec311",
+        userArgs: {},
+        cacheKey: `plasmic.$.7a109e37-55b7-47f3-b827-6a51a0bec311.$.`,
+        invalidatedKeys: null,
+        roleId: "f8970d3a-c1ae-4ba8-80dd-90e548ee70d6"
+      };
+    })
+  };
+  if (Object.keys(new$Queries).some(k => new$Queries[k] !== $queries[k])) {
+    setDollarQueries(new$Queries);
+
+    $queries = new$Queries;
+  }
 
   return (
     <Stack__
@@ -390,7 +420,10 @@ function PlasmicPlayerPicker__RenderFunc(props: {
               >
                 {(() => {
                   try {
-                    return $props.playerClubCount < 2;
+                    return (
+                      $props.playerClubCount <
+                      $queries.playerPickLimit.data.response[0].value
+                    );
                   } catch (e) {
                     if (
                       e instanceof TypeError ||
@@ -442,7 +475,10 @@ function PlasmicPlayerPicker__RenderFunc(props: {
                 ) : null}
                 {(() => {
                   try {
-                    return $props.playerClubCount >= 2;
+                    return (
+                      $props.playerClubCount >=
+                      $queries.playerPickLimit.data.response[0].value
+                    );
                   } catch (e) {
                     if (
                       e instanceof TypeError ||
