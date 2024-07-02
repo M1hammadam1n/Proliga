@@ -47,6 +47,8 @@
 }
 .img__yBf8V {
   object-fit: contain;
+  width: 30px;
+  flex-shrink: 0;
 }
 .img__yBf8V > picture > img {
   object-fit: contain;
@@ -96,7 +98,7 @@
   height: auto;
   max-width: 100%;
   background: none;
-  font-size: 16px;
+  font-size: 12px;
   font-weight: 400;
   text-align: center;
   color: var(--token-jgohepLVeKvh);

@@ -247,7 +247,7 @@ function PlasmicAvatarPlayer__RenderFunc(props: {
             displayMaxWidth={"100%"}
             displayMinHeight={"0"}
             displayMinWidth={"0"}
-            displayWidth={"47px"}
+            displayWidth={"30px"}
             loading={"lazy"}
             onClick={async event => {
               const $steps = {};
@@ -282,7 +282,7 @@ function PlasmicAvatarPlayer__RenderFunc(props: {
             displayMaxWidth={"100%"}
             displayMinHeight={"0"}
             displayMinWidth={"0"}
-            displayWidth={"40px"}
+            displayWidth={"30px"}
             loading={"lazy"}
             onClick={async event => {
               const $steps = {};

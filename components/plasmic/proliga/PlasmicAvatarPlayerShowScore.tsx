@@ -254,7 +254,7 @@ function PlasmicAvatarPlayerShowScore__RenderFunc(props: {
             displayMaxWidth={"none"}
             displayMinHeight={"0"}
             displayMinWidth={"0"}
-            displayWidth={"auto"}
+            displayWidth={"30px"}
             loading={"lazy"}
             onClick={async event => {
               const $steps = {};

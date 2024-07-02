@@ -2680,13 +2680,14 @@ function PlasmicEditTeam__RenderFunc(props: {
                                                   (() => {
                                                     try {
                                                       return (
-                                                        "Bu futbolchini sotib olish uchun sizga " +
-                                                        (currentItem.price +
+                                                        "Bu futbolchini narxi " +
+                                                        currentItem.price +
+                                                        "tanga sotib olish uchun sizga yana " +
+                                                        (currentItem.price -
                                                           $queries.query.data
                                                             .response[0]
-                                                            .balance) *
-                                                          -1 +
-                                                        " tanga kerak"
+                                                            .balance) +
+                                                        "tanga kerak"
                                                       );
                                                     } catch (e) {
                                                       if (
@@ -3426,6 +3427,104 @@ function PlasmicEditTeam__RenderFunc(props: {
                                           throw e;
                                         }
                                       })()}
+                                      onclick={async event => {
+                                        const $steps = {};
+
+                                        $steps["_"] = true
+                                          ? (() => {
+                                              const actionArgs = {
+                                                args: [
+                                                  "info",
+                                                  (() => {
+                                                    try {
+                                                      return (
+                                                        "Bu futbolchini narxi " +
+                                                        currentItem.price +
+                                                        "tanga sotib olish uchun sizga yana " +
+                                                        (currentItem.price -
+                                                          $queries.query.data
+                                                            .response[0]
+                                                            .balance) +
+                                                        "tanga kerak"
+                                                      );
+                                                    } catch (e) {
+                                                      if (
+                                                        e instanceof
+                                                          TypeError ||
+                                                        e?.plasmicType ===
+                                                          "PlasmicUndefinedDataError"
+                                                      ) {
+                                                        return undefined;
+                                                      }
+                                                      throw e;
+                                                    }
+                                                  })(),
+                                                  undefined,
+                                                  undefined,
+                                                  "top"
+                                                ]
+                                              };
+                                              return $globalActions[
+                                                "plasmic-antd5-config-provider.showNotification"
+                                              ]?.apply(null, [
+                                                ...actionArgs.args
+                                              ]);
+                                            })()
+                                          : undefined;
+                                        if (
+                                          $steps["_"] != null &&
+                                          typeof $steps["_"] === "object" &&
+                                          typeof $steps["_"].then === "function"
+                                        ) {
+                                          $steps["_"] = await $steps["_"];
+                                        }
+                                      }}
+                                      onclickAvatar={async event => {
+                                        const $steps = {};
+
+                                        $steps["clubPlayerLimit"] = true
+                                          ? (() => {
+                                              const actionArgs = {
+                                                args: [
+                                                  "info",
+                                                  (() => {
+                                                    try {
+                                                      return "Bitta komandadan maksimum 2ta futbolchi sotib olsa bo'ladi! ";
+                                                    } catch (e) {
+                                                      if (
+                                                        e instanceof
+                                                          TypeError ||
+                                                        e?.plasmicType ===
+                                                          "PlasmicUndefinedDataError"
+                                                      ) {
+                                                        return undefined;
+                                                      }
+                                                      throw e;
+                                                    }
+                                                  })(),
+                                                  undefined,
+                                                  undefined,
+                                                  "top"
+                                                ]
+                                              };
+                                              return $globalActions[
+                                                "plasmic-antd5-config-provider.showNotification"
+                                              ]?.apply(null, [
+                                                ...actionArgs.args
+                                              ]);
+                                            })()
+                                          : undefined;
+                                        if (
+                                          $steps["clubPlayerLimit"] != null &&
+                                          typeof $steps["clubPlayerLimit"] ===
+                                            "object" &&
+                                          typeof $steps["clubPlayerLimit"]
+                                            .then === "function"
+                                        ) {
+                                          $steps["clubPlayerLimit"] =
+                                            await $steps["clubPlayerLimit"];
+                                        }
+                                      }}
                                       onclickMinus={async event => {
                                         const $steps = {};
 
@@ -4073,6 +4172,104 @@ function PlasmicEditTeam__RenderFunc(props: {
                                           throw e;
                                         }
                                       })()}
+                                      onclick={async event => {
+                                        const $steps = {};
+
+                                        $steps["_"] = true
+                                          ? (() => {
+                                              const actionArgs = {
+                                                args: [
+                                                  "info",
+                                                  (() => {
+                                                    try {
+                                                      return (
+                                                        "Bu futbolchini narxi " +
+                                                        currentItem.price +
+                                                        "tanga sotib olish uchun sizga yana " +
+                                                        (currentItem.price -
+                                                          $queries.query.data
+                                                            .response[0]
+                                                            .balance) +
+                                                        "tanga kerak"
+                                                      );
+                                                    } catch (e) {
+                                                      if (
+                                                        e instanceof
+                                                          TypeError ||
+                                                        e?.plasmicType ===
+                                                          "PlasmicUndefinedDataError"
+                                                      ) {
+                                                        return undefined;
+                                                      }
+                                                      throw e;
+                                                    }
+                                                  })(),
+                                                  undefined,
+                                                  undefined,
+                                                  "top"
+                                                ]
+                                              };
+                                              return $globalActions[
+                                                "plasmic-antd5-config-provider.showNotification"
+                                              ]?.apply(null, [
+                                                ...actionArgs.args
+                                              ]);
+                                            })()
+                                          : undefined;
+                                        if (
+                                          $steps["_"] != null &&
+                                          typeof $steps["_"] === "object" &&
+                                          typeof $steps["_"].then === "function"
+                                        ) {
+                                          $steps["_"] = await $steps["_"];
+                                        }
+                                      }}
+                                      onclickAvatar={async event => {
+                                        const $steps = {};
+
+                                        $steps["clubPlayerLimit"] = true
+                                          ? (() => {
+                                              const actionArgs = {
+                                                args: [
+                                                  "info",
+                                                  (() => {
+                                                    try {
+                                                      return "Bitta komandadan maksimum 2ta futbolchi sotib olsa bo'ladi! ";
+                                                    } catch (e) {
+                                                      if (
+                                                        e instanceof
+                                                          TypeError ||
+                                                        e?.plasmicType ===
+                                                          "PlasmicUndefinedDataError"
+                                                      ) {
+                                                        return undefined;
+                                                      }
+                                                      throw e;
+                                                    }
+                                                  })(),
+                                                  undefined,
+                                                  undefined,
+                                                  "top"
+                                                ]
+                                              };
+                                              return $globalActions[
+                                                "plasmic-antd5-config-provider.showNotification"
+                                              ]?.apply(null, [
+                                                ...actionArgs.args
+                                              ]);
+                                            })()
+                                          : undefined;
+                                        if (
+                                          $steps["clubPlayerLimit"] != null &&
+                                          typeof $steps["clubPlayerLimit"] ===
+                                            "object" &&
+                                          typeof $steps["clubPlayerLimit"]
+                                            .then === "function"
+                                        ) {
+                                          $steps["clubPlayerLimit"] =
+                                            await $steps["clubPlayerLimit"];
+                                        }
+                                      }}
                                       onclickMinus={async event => {
                                         const $steps = {};
 
@@ -4756,6 +4953,111 @@ function PlasmicEditTeam__RenderFunc(props: {
                                                 throw e;
                                               }
                                             })()}
+                                            onclick={async event => {
+                                              const $steps = {};
+
+                                              $steps["_"] = true
+                                                ? (() => {
+                                                    const actionArgs = {
+                                                      args: [
+                                                        "info",
+                                                        (() => {
+                                                          try {
+                                                            return (
+                                                              "Bu futbolchini narxi " +
+                                                              currentItem.price +
+                                                              "tanga sotib olish uchun sizga yana " +
+                                                              (currentItem.price -
+                                                                $queries.query
+                                                                  .data
+                                                                  .response[0]
+                                                                  .balance) +
+                                                              "tanga kerak"
+                                                            );
+                                                          } catch (e) {
+                                                            if (
+                                                              e instanceof
+                                                                TypeError ||
+                                                              e?.plasmicType ===
+                                                                "PlasmicUndefinedDataError"
+                                                            ) {
+                                                              return undefined;
+                                                            }
+                                                            throw e;
+                                                          }
+                                                        })(),
+                                                        undefined,
+                                                        undefined,
+                                                        "top"
+                                                      ]
+                                                    };
+                                                    return $globalActions[
+                                                      "plasmic-antd5-config-provider.showNotification"
+                                                    ]?.apply(null, [
+                                                      ...actionArgs.args
+                                                    ]);
+                                                  })()
+                                                : undefined;
+                                              if (
+                                                $steps["_"] != null &&
+                                                typeof $steps["_"] ===
+                                                  "object" &&
+                                                typeof $steps["_"].then ===
+                                                  "function"
+                                              ) {
+                                                $steps["_"] = await $steps["_"];
+                                              }
+                                            }}
+                                            onclickAvatar={async event => {
+                                              const $steps = {};
+
+                                              $steps["clubPlayerLimit"] = true
+                                                ? (() => {
+                                                    const actionArgs = {
+                                                      args: [
+                                                        "info",
+                                                        (() => {
+                                                          try {
+                                                            return "Bitta komandadan maksimum 2ta futbolchi sotib olsa bo'ladi! ";
+                                                          } catch (e) {
+                                                            if (
+                                                              e instanceof
+                                                                TypeError ||
+                                                              e?.plasmicType ===
+                                                                "PlasmicUndefinedDataError"
+                                                            ) {
+                                                              return undefined;
+                                                            }
+                                                            throw e;
+                                                          }
+                                                        })(),
+                                                        undefined,
+                                                        undefined,
+                                                        "top"
+                                                      ]
+                                                    };
+                                                    return $globalActions[
+                                                      "plasmic-antd5-config-provider.showNotification"
+                                                    ]?.apply(null, [
+                                                      ...actionArgs.args
+                                                    ]);
+                                                  })()
+                                                : undefined;
+                                              if (
+                                                $steps["clubPlayerLimit"] !=
+                                                  null &&
+                                                typeof $steps[
+                                                  "clubPlayerLimit"
+                                                ] === "object" &&
+                                                typeof $steps["clubPlayerLimit"]
+                                                  .then === "function"
+                                              ) {
+                                                $steps["clubPlayerLimit"] =
+                                                  await $steps[
+                                                    "clubPlayerLimit"
+                                                  ];
+                                              }
+                                            }}
                                             onclickMinus={async event => {
                                               const $steps = {};
 
