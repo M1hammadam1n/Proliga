@@ -14,4 +14,9 @@
 }
 .img {
   position: relative;
+  object-fit: contain;
+  width: 400px;
+}
+.img > picture > img {
+  object-fit: contain;
 }

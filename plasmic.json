@@ -2185,6 +2185,11 @@
           "id": "6ldE6EoNb1xB",
           "name": "icons8-avatar-50.png",
           "filePath": "../public/plasmic/proliga/images/icons8Avatar50Png.png"
+        },
+        {
+          "id": "WZ48FLjWX94h",
+          "name": "Group 8.png",
+          "filePath": "../public/plasmic/proliga/images/group8Png.png"
         }
       ],
       "indirect": false,

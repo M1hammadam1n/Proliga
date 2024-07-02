@@ -145,13 +145,13 @@ function PlasmicSoccerPlaceMens2__RenderFunc(props: {
         displayMaxWidth={"none"}
         displayMinHeight={"0"}
         displayMinWidth={"0"}
-        displayWidth={"auto"}
+        displayWidth={"400px"}
         loading={"lazy"}
         src={{
-          src: "/plasmic/proliga/images/stadionSportsRusvg.svg",
-          fullWidth: 320,
-          fullHeight: 320,
-          aspectRatio: 1
+          src: "/plasmic/proliga/images/group8Png.png",
+          fullWidth: 2768,
+          fullHeight: 2560,
+          aspectRatio: undefined
         }}
       />
     </div>
