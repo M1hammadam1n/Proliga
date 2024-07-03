@@ -76,6 +76,7 @@ import { TabUnderline } from "@plasmicpkgs/plasmic-tabs";
 import { TabContent } from "@plasmicpkgs/plasmic-tabs";
 import AvatarPlayerShowScore from "../../AvatarPlayerShowScore"; // plasmic-import: kJWqOT85FINq/component
 import SoccerPlaceMens2 from "../../SoccerPlaceMens2"; // plasmic-import: xodLqMOhDs29/component
+import AvatarPlayer from "../../AvatarPlayer"; // plasmic-import: 4QnaRcOLXj0D/component
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 
 import "@plasmicapp/react-web/lib/plasmic.css";
@@ -110,13 +111,17 @@ export type PlasmicShowTeam__OverridesType = {
   button?: Flex__<typeof Button>;
   tabUnderline?: Flex__<typeof TabUnderline>;
   tabContent?: Flex__<typeof TabContent>;
-  columns?: Flex__<"div">;
+  showScore?: Flex__<"div">;
   goa?: Flex__<"div">;
   def?: Flex__<"div">;
   mid?: Flex__<"div">;
   str?: Flex__<"div">;
-  soccerPlaceMens2?: Flex__<typeof SoccerPlaceMens2>;
   h3?: Flex__<"h3">;
+  transferTour?: Flex__<"div">;
+  goa2?: Flex__<"div">;
+  def2?: Flex__<"div">;
+  mid2?: Flex__<"div">;
+  str2?: Flex__<"div">;
 };
 
 export interface DefaultShowTeamProps {}
@@ -674,11 +679,11 @@ function PlasmicShowTeam__RenderFunc(props: {
                                 })()}
                               >
                                 <div
-                                  data-plasmic-name={"columns"}
-                                  data-plasmic-override={overrides.columns}
+                                  data-plasmic-name={"showScore"}
+                                  data-plasmic-override={overrides.showScore}
                                   className={classNames(
                                     projectcss.all,
-                                    sty.columns
+                                    sty.showScore
                                   )}
                                 >
                                   <div
@@ -1232,13 +1237,9 @@ function PlasmicShowTeam__RenderFunc(props: {
                                         )}
                                       </Stack__>
                                       <SoccerPlaceMens2
-                                        data-plasmic-name={"soccerPlaceMens2"}
-                                        data-plasmic-override={
-                                          overrides.soccerPlaceMens2
-                                        }
                                         className={classNames(
                                           "__wab_instance",
-                                          sty.soccerPlaceMens2
+                                          sty.soccerPlaceMens2__iEnMt
                                         )}
                                       />
                                     </div>
@@ -1364,6 +1365,279 @@ function PlasmicShowTeam__RenderFunc(props: {
                                     </Stack__>
                                   </div>
                                 </div>
+                                <div
+                                  data-plasmic-name={"transferTour"}
+                                  data-plasmic-override={overrides.transferTour}
+                                  className={classNames(
+                                    projectcss.all,
+                                    sty.transferTour
+                                  )}
+                                >
+                                  <div
+                                    className={classNames(
+                                      projectcss.all,
+                                      sty.column__us9UY
+                                    )}
+                                  >
+                                    <div
+                                      className={classNames(
+                                        projectcss.all,
+                                        sty.freeBox___1JxBr
+                                      )}
+                                    >
+                                      <div
+                                        data-plasmic-name={"goa2"}
+                                        data-plasmic-override={overrides.goa2}
+                                        className={classNames(
+                                          projectcss.all,
+                                          sty.goa2
+                                        )}
+                                      >
+                                        {(_par =>
+                                          !_par
+                                            ? []
+                                            : Array.isArray(_par)
+                                            ? _par
+                                            : [_par])(
+                                          (() => {
+                                            try {
+                                              return $queries.userTeam.data.response.filter(
+                                                x => x.position === "GOA"
+                                              );
+                                            } catch (e) {
+                                              if (
+                                                e instanceof TypeError ||
+                                                e?.plasmicType ===
+                                                  "PlasmicUndefinedDataError"
+                                              ) {
+                                                return [];
+                                              }
+                                              throw e;
+                                            }
+                                          })()
+                                        ).map(
+                                          (
+                                            __plasmic_item_1,
+                                            __plasmic_idx_1
+                                          ) => {
+                                            const currentItem =
+                                              __plasmic_item_1;
+                                            const currentIndex =
+                                              __plasmic_idx_1;
+                                            return (
+                                              <div
+                                                className={classNames(
+                                                  projectcss.all,
+                                                  sty.freeBox__wUsht
+                                                )}
+                                                key={currentIndex}
+                                              >
+                                                <AvatarPlayer
+                                                  className={classNames(
+                                                    "__wab_instance",
+                                                    sty.avatarPlayer__ytn7Q
+                                                  )}
+                                                />
+                                              </div>
+                                            );
+                                          }
+                                        )}
+                                      </div>
+                                      <Stack__
+                                        as={"div"}
+                                        data-plasmic-name={"def2"}
+                                        data-plasmic-override={overrides.def2}
+                                        hasGap={true}
+                                        className={classNames(
+                                          projectcss.all,
+                                          sty.def2
+                                        )}
+                                      >
+                                        {(_par =>
+                                          !_par
+                                            ? []
+                                            : Array.isArray(_par)
+                                            ? _par
+                                            : [_par])(
+                                          (() => {
+                                            try {
+                                              return $queries.userTeam.data.response.filter(
+                                                x => x.position === "DEF"
+                                              );
+                                            } catch (e) {
+                                              if (
+                                                e instanceof TypeError ||
+                                                e?.plasmicType ===
+                                                  "PlasmicUndefinedDataError"
+                                              ) {
+                                                return [];
+                                              }
+                                              throw e;
+                                            }
+                                          })()
+                                        ).map(
+                                          (
+                                            __plasmic_item_1,
+                                            __plasmic_idx_1
+                                          ) => {
+                                            const currentItem =
+                                              __plasmic_item_1;
+                                            const currentIndex =
+                                              __plasmic_idx_1;
+                                            return (
+                                              <div
+                                                className={classNames(
+                                                  projectcss.all,
+                                                  sty.freeBox__fSbUm
+                                                )}
+                                                key={currentIndex}
+                                              >
+                                                <AvatarPlayer
+                                                  className={classNames(
+                                                    "__wab_instance",
+                                                    sty.avatarPlayer__lN6Tg
+                                                  )}
+                                                />
+                                              </div>
+                                            );
+                                          }
+                                        )}
+                                      </Stack__>
+                                      <Stack__
+                                        as={"div"}
+                                        data-plasmic-name={"mid2"}
+                                        data-plasmic-override={overrides.mid2}
+                                        hasGap={true}
+                                        className={classNames(
+                                          projectcss.all,
+                                          sty.mid2
+                                        )}
+                                      >
+                                        {(_par =>
+                                          !_par
+                                            ? []
+                                            : Array.isArray(_par)
+                                            ? _par
+                                            : [_par])(
+                                          (() => {
+                                            try {
+                                              return $queries.userTeam.data.response.filter(
+                                                x => x.position === "MID"
+                                              );
+                                            } catch (e) {
+                                              if (
+                                                e instanceof TypeError ||
+                                                e?.plasmicType ===
+                                                  "PlasmicUndefinedDataError"
+                                              ) {
+                                                return [];
+                                              }
+                                              throw e;
+                                            }
+                                          })()
+                                        ).map(
+                                          (
+                                            __plasmic_item_1,
+                                            __plasmic_idx_1
+                                          ) => {
+                                            const currentItem =
+                                              __plasmic_item_1;
+                                            const currentIndex =
+                                              __plasmic_idx_1;
+                                            return (
+                                              <div
+                                                className={classNames(
+                                                  projectcss.all,
+                                                  sty.freeBox__cPh70
+                                                )}
+                                                key={currentIndex}
+                                              >
+                                                <AvatarPlayer
+                                                  className={classNames(
+                                                    "__wab_instance",
+                                                    sty.avatarPlayer__lkmY
+                                                  )}
+                                                />
+                                              </div>
+                                            );
+                                          }
+                                        )}
+                                      </Stack__>
+                                      <Stack__
+                                        as={"div"}
+                                        data-plasmic-name={"str2"}
+                                        data-plasmic-override={overrides.str2}
+                                        hasGap={true}
+                                        className={classNames(
+                                          projectcss.all,
+                                          sty.str2
+                                        )}
+                                      >
+                                        {(_par =>
+                                          !_par
+                                            ? []
+                                            : Array.isArray(_par)
+                                            ? _par
+                                            : [_par])(
+                                          (() => {
+                                            try {
+                                              return $queries.userTeam.data.response.filter(
+                                                x => x.position === "STR"
+                                              );
+                                            } catch (e) {
+                                              if (
+                                                e instanceof TypeError ||
+                                                e?.plasmicType ===
+                                                  "PlasmicUndefinedDataError"
+                                              ) {
+                                                return [];
+                                              }
+                                              throw e;
+                                            }
+                                          })()
+                                        ).map(
+                                          (
+                                            __plasmic_item_1,
+                                            __plasmic_idx_1
+                                          ) => {
+                                            const currentItem =
+                                              __plasmic_item_1;
+                                            const currentIndex =
+                                              __plasmic_idx_1;
+                                            return (
+                                              <div
+                                                className={classNames(
+                                                  projectcss.all,
+                                                  sty.freeBox__gmI1O
+                                                )}
+                                                key={currentIndex}
+                                              >
+                                                <AvatarPlayer
+                                                  className={classNames(
+                                                    "__wab_instance",
+                                                    sty.avatarPlayer___56WW
+                                                  )}
+                                                />
+                                              </div>
+                                            );
+                                          }
+                                        )}
+                                      </Stack__>
+                                      <SoccerPlaceMens2
+                                        className={classNames(
+                                          "__wab_instance",
+                                          sty.soccerPlaceMens2__woCgD
+                                        )}
+                                      />
+                                    </div>
+                                  </div>
+                                  <div
+                                    className={classNames(
+                                      projectcss.all,
+                                      sty.column__tuGEm
+                                    )}
+                                  />
+                                </div>
                               </TabContent>
                             );
                           })
@@ -1392,13 +1666,17 @@ const PlasmicDescendants = {
     "button",
     "tabUnderline",
     "tabContent",
-    "columns",
+    "showScore",
     "goa",
     "def",
     "mid",
     "str",
-    "soccerPlaceMens2",
-    "h3"
+    "h3",
+    "transferTour",
+    "goa2",
+    "def2",
+    "mid2",
+    "str2"
   ],
   navbar: ["navbar"],
   showteamNavbar: ["showteamNavbar"],
@@ -1410,13 +1688,17 @@ const PlasmicDescendants = {
     "button",
     "tabUnderline",
     "tabContent",
-    "columns",
+    "showScore",
     "goa",
     "def",
     "mid",
     "str",
-    "soccerPlaceMens2",
-    "h3"
+    "h3",
+    "transferTour",
+    "goa2",
+    "def2",
+    "mid2",
+    "str2"
   ],
   tabButton: ["tabButton", "link", "button"],
   link: ["link", "button"],
@@ -1424,21 +1706,29 @@ const PlasmicDescendants = {
   tabUnderline: ["tabUnderline"],
   tabContent: [
     "tabContent",
-    "columns",
+    "showScore",
     "goa",
     "def",
     "mid",
     "str",
-    "soccerPlaceMens2",
-    "h3"
+    "h3",
+    "transferTour",
+    "goa2",
+    "def2",
+    "mid2",
+    "str2"
   ],
-  columns: ["columns", "goa", "def", "mid", "str", "soccerPlaceMens2", "h3"],
+  showScore: ["showScore", "goa", "def", "mid", "str", "h3"],
   goa: ["goa"],
   def: ["def"],
   mid: ["mid"],
   str: ["str"],
-  soccerPlaceMens2: ["soccerPlaceMens2"],
-  h3: ["h3"]
+  h3: ["h3"],
+  transferTour: ["transferTour", "goa2", "def2", "mid2", "str2"],
+  goa2: ["goa2"],
+  def2: ["def2"],
+  mid2: ["mid2"],
+  str2: ["str2"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -1454,13 +1744,17 @@ type NodeDefaultElementType = {
   button: typeof Button;
   tabUnderline: typeof TabUnderline;
   tabContent: typeof TabContent;
-  columns: "div";
+  showScore: "div";
   goa: "div";
   def: "div";
   mid: "div";
   str: "div";
-  soccerPlaceMens2: typeof SoccerPlaceMens2;
   h3: "h3";
+  transferTour: "div";
+  goa2: "div";
+  def2: "div";
+  mid2: "div";
+  str2: "div";
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -1549,13 +1843,17 @@ export const PlasmicShowTeam = Object.assign(
     button: makeNodeComponent("button"),
     tabUnderline: makeNodeComponent("tabUnderline"),
     tabContent: makeNodeComponent("tabContent"),
-    columns: makeNodeComponent("columns"),
+    showScore: makeNodeComponent("showScore"),
     goa: makeNodeComponent("goa"),
     def: makeNodeComponent("def"),
     mid: makeNodeComponent("mid"),
     str: makeNodeComponent("str"),
-    soccerPlaceMens2: makeNodeComponent("soccerPlaceMens2"),
     h3: makeNodeComponent("h3"),
+    transferTour: makeNodeComponent("transferTour"),
+    goa2: makeNodeComponent("goa2"),
+    def2: makeNodeComponent("def2"),
+    mid2: makeNodeComponent("mid2"),
+    str2: makeNodeComponent("str2"),
 
     // Metadata about props expected for PlasmicShowTeam
     internalVariantProps: PlasmicShowTeam__VariantProps,
