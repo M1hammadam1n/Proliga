@@ -1636,6 +1636,33 @@
           "cssFilePath": "plasmic/proliga/PlasmicAvatarPlayerShowScore.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "YXttCG7EcY9J",
+          "name": "PointInfo",
+          "type": "managed",
+          "projectId": "tDWy3GXn2mzd9e2xUaPdmu",
+          "renderModuleFilePath": "plasmic/proliga/PlasmicPointInfo.tsx",
+          "importSpec": {
+            "modulePath": "PointInfo.tsx"
+          },
+          "cssFilePath": "plasmic/proliga/PlasmicPointInfo.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "FhE_nI2b_tGG",
+          "name": "NewPage",
+          "type": "managed",
+          "projectId": "tDWy3GXn2mzd9e2xUaPdmu",
+          "renderModuleFilePath": "plasmic/proliga/PlasmicNewPage.tsx",
+          "importSpec": {
+            "modulePath": "../pages/new-page-2.tsx"
+          },
+          "cssFilePath": "plasmic/proliga/PlasmicNewPage.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/new-page-2"
         }
       ],
       "icons": [

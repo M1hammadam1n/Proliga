@@ -291,6 +291,16 @@ function PlasmicShowTeam__RenderFunc(props: {
         invalidatedKeys: null,
         roleId: null
       };
+    }),
+    everyplayerPoint: usePlasmicDataOp(() => {
+      return {
+        sourceId: "vQtRPuFArSfh43vUmgx2PS",
+        opId: "d9cbe18a-dded-4c65-954f-affd7818da36",
+        userArgs: {},
+        cacheKey: `plasmic.$.d9cbe18a-dded-4c65-954f-affd7818da36.$.`,
+        invalidatedKeys: null,
+        roleId: null
+      };
     })
   };
   if (Object.keys(new$Queries).some(k => new$Queries[k] !== $queries[k])) {

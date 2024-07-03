@@ -59,6 +59,8 @@ import {
   useGlobalActions
 } from "@plasmicapp/react-web/lib/host";
 
+import PointInfo from "../../PointInfo"; // plasmic-import: YXttCG7EcY9J/component
+
 import "@plasmicapp/react-web/lib/plasmic.css";
 
 import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
@@ -94,6 +96,7 @@ export const PlasmicAvatarPlayerShowScore__ArgProps = new Array<ArgPropType>(
 
 export type PlasmicAvatarPlayerShowScore__OverridesType = {
   root?: Flex__<"div">;
+  pointInfo?: Flex__<typeof PointInfo>;
 };
 
 export interface DefaultAvatarPlayerShowScoreProps {
@@ -129,7 +132,7 @@ function PlasmicAvatarPlayerShowScore__RenderFunc(props: {
         {
           name: "Player",
           capitanVisibility: false,
-          ochko: "6"
+          ochko: "7"
         },
         props.args
       ),
@@ -295,43 +298,13 @@ function PlasmicAvatarPlayerShowScore__RenderFunc(props: {
           </div>
         </Stack__>
         <div className={classNames(projectcss.all, sty.freeBox__ucIpp)}>
-          {(() => {
-            try {
-              return $props.ochko != undefined;
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return true;
-              }
-              throw e;
-            }
-          })() ? (
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__jamGn
-              )}
-            >
-              <React.Fragment>
-                {(() => {
-                  try {
-                    return $props.ochko;
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return "";
-                    }
-                    throw e;
-                  }
-                })()}
-              </React.Fragment>
-            </div>
-          ) : null}
+          <PointInfo
+            data-plasmic-name={"pointInfo"}
+            data-plasmic-override={overrides.pointInfo}
+            className={classNames("__wab_instance", sty.pointInfo)}
+            ochko={args.ochko}
+          />
+
           {(() => {
             try {
               return $props.ochko === undefined;
@@ -355,6 +328,96 @@ function PlasmicAvatarPlayerShowScore__RenderFunc(props: {
               {"-"}
             </div>
           ) : null}
+          {(() => {
+            try {
+              return $props.ochko != undefined;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return true;
+              }
+              throw e;
+            }
+          })() ? (
+            <div className={classNames(projectcss.all, sty.freeBox__wvMcS)}>
+              {(() => {
+                try {
+                  return $props.capitanVisibility != true;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return true;
+                  }
+                  throw e;
+                }
+              })() ? (
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__tw8Yc
+                  )}
+                >
+                  <React.Fragment>
+                    {(() => {
+                      try {
+                        return $props.ochko;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return "-";
+                        }
+                        throw e;
+                      }
+                    })()}
+                  </React.Fragment>
+                </div>
+              ) : null}
+              {(() => {
+                try {
+                  return $props.capitanVisibility === true;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return true;
+                  }
+                  throw e;
+                }
+              })() ? (
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__urcRl
+                  )}
+                >
+                  <React.Fragment>
+                    {(() => {
+                      try {
+                        return $props.ochko * 2;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return "-";
+                        }
+                        throw e;
+                      }
+                    })()}
+                  </React.Fragment>
+                </div>
+              ) : null}
+            </div>
+          ) : null}
         </div>
       </div>
     </div>
@@ -362,13 +425,15 @@ function PlasmicAvatarPlayerShowScore__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root"]
+  root: ["root", "pointInfo"],
+  pointInfo: ["pointInfo"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
+  pointInfo: typeof PointInfo;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -431,6 +496,7 @@ export const PlasmicAvatarPlayerShowScore = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
+    pointInfo: makeNodeComponent("pointInfo"),
 
     // Metadata about props expected for PlasmicAvatarPlayerShowScore
     internalVariantProps: PlasmicAvatarPlayerShowScore__VariantProps,

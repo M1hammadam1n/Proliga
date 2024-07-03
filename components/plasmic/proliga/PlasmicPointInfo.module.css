@@ -1,0 +1,134 @@
+.root {
+  display: inline-flex;
+  position: relative;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  justify-self: flex-start;
+  padding: 8px;
+}
+.text {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  z-index: 0;
+  min-width: 0;
+}
+.root:hover .text {
+  z-index: 0;
+}
+.freeBox {
+  display: flex;
+  position: absolute;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  top: -77px;
+  left: 6px;
+  z-index: 2;
+  min-width: 0;
+  padding: 8px;
+}
+.root:hover .freeBox {
+  position: absolute;
+  top: -72px;
+  left: 2px;
+  z-index: 2;
+}
+.goalAsist {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  opacity: 0;
+  min-width: 0;
+}
+.root:hover .goalAsist {
+  opacity: 1;
+}
+.missedPenalty {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  opacity: 0;
+  min-width: 0;
+}
+.root:hover .missedPenalty {
+  opacity: 1;
+}
+.shutout {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  opacity: 0;
+  min-width: 0;
+}
+.root:hover .shutout {
+  opacity: 1;
+}
+.every2MissedGoals {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  opacity: 0;
+  min-width: 0;
+}
+.root:hover .every2MissedGoals {
+  opacity: 1;
+}
+.goal {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  opacity: 0;
+  min-width: 0;
+}
+.root:hover .goal {
+  opacity: 1;
+}
+.isLineup {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  opacity: 0;
+  min-width: 0;
+}
+.root:hover .isLineup {
+  opacity: 1;
+}
+.isLineupMore60 {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  opacity: 0;
+  min-width: 0;
+}
+.root:hover .isLineupMore60 {
+  opacity: 1;
+}
+.redCard {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  opacity: 0;
+  min-width: 0;
+}
+.root:hover .redCard {
+  opacity: 1;
+}
+.yellowCard {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  opacity: 0;
+  min-width: 0;
+}
+.root:hover .yellowCard {
+  opacity: 1;
+}

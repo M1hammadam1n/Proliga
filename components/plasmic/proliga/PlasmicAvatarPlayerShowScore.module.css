@@ -118,7 +118,11 @@
   border-radius: 30px;
   padding: 0px;
 }
-.text__jamGn {
+.pointInfo:global(.__wab_instance) {
+  position: relative;
+  display: none;
+}
+.text__oo52T {
   position: relative;
   width: 100%;
   height: auto;
@@ -128,8 +132,28 @@
   font-size: 14px;
   min-width: 0;
 }
-.text__oo52T {
+.freeBox__wvMcS {
+  display: flex;
   position: relative;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+  padding: 0px;
+}
+.text__tw8Yc {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  color: var(--token-41VRhDKfihhY);
+  text-align: center;
+  font-size: 14px;
+  min-width: 0;
+}
+.text__urcRl {
   width: 100%;
   height: auto;
   max-width: 100%;
