@@ -1663,6 +1663,19 @@
           "scheme": "blackbox",
           "componentType": "page",
           "path": "/new-page-2"
+        },
+        {
+          "id": "t1-8eQITFPkq",
+          "name": "ShowteamNavbar",
+          "type": "managed",
+          "projectId": "tDWy3GXn2mzd9e2xUaPdmu",
+          "renderModuleFilePath": "plasmic/proliga/PlasmicShowteamNavbar.tsx",
+          "importSpec": {
+            "modulePath": "ShowteamNavbar.tsx"
+          },
+          "cssFilePath": "plasmic/proliga/PlasmicShowteamNavbar.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [

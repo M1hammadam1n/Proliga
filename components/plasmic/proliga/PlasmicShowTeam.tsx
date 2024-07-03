@@ -67,6 +67,7 @@ import {
 } from "@plasmicapp/react-web/lib/data-sources";
 
 import Navbar from "../../Navbar"; // plasmic-import: TKT8XnZtrLZi/component
+import ShowteamNavbar from "../../ShowteamNavbar"; // plasmic-import: t1-8eQITFPkq/component
 import UserteamNavbar from "../../UserteamNavbar"; // plasmic-import: P-uBnHr89-in/component
 import { TabsContainer } from "@plasmicpkgs/plasmic-tabs";
 import { TabButton } from "@plasmicpkgs/plasmic-tabs";
@@ -101,6 +102,7 @@ export const PlasmicShowTeam__ArgProps = new Array<ArgPropType>();
 export type PlasmicShowTeam__OverridesType = {
   root?: Flex__<"div">;
   navbar?: Flex__<typeof Navbar>;
+  showteamNavbar?: Flex__<typeof ShowteamNavbar>;
   userteamNavbar?: Flex__<typeof UserteamNavbar>;
   tabsContainer?: Flex__<typeof TabsContainer>;
   tabButton?: Flex__<typeof TabButton>;
@@ -340,6 +342,12 @@ function PlasmicShowTeam__RenderFunc(props: {
             data-plasmic-name={"navbar"}
             data-plasmic-override={overrides.navbar}
             className={classNames("__wab_instance", sty.navbar)}
+          />
+
+          <ShowteamNavbar
+            data-plasmic-name={"showteamNavbar"}
+            data-plasmic-override={overrides.showteamNavbar}
+            className={classNames("__wab_instance", sty.showteamNavbar)}
           />
 
           <UserteamNavbar
@@ -1376,6 +1384,7 @@ const PlasmicDescendants = {
   root: [
     "root",
     "navbar",
+    "showteamNavbar",
     "userteamNavbar",
     "tabsContainer",
     "tabButton",
@@ -1392,6 +1401,7 @@ const PlasmicDescendants = {
     "h3"
   ],
   navbar: ["navbar"],
+  showteamNavbar: ["showteamNavbar"],
   userteamNavbar: ["userteamNavbar"],
   tabsContainer: [
     "tabsContainer",
@@ -1436,6 +1446,7 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   navbar: typeof Navbar;
+  showteamNavbar: typeof ShowteamNavbar;
   userteamNavbar: typeof UserteamNavbar;
   tabsContainer: typeof TabsContainer;
   tabButton: typeof TabButton;
@@ -1530,6 +1541,7 @@ export const PlasmicShowTeam = Object.assign(
   {
     // Helper components rendering sub-elements
     navbar: makeNodeComponent("navbar"),
+    showteamNavbar: makeNodeComponent("showteamNavbar"),
     userteamNavbar: makeNodeComponent("userteamNavbar"),
     tabsContainer: makeNodeComponent("tabsContainer"),
     tabButton: makeNodeComponent("tabButton"),
