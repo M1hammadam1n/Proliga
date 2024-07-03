@@ -1676,6 +1676,20 @@
           "cssFilePath": "plasmic/proliga/PlasmicShowteamNavbar.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "rPKGeorCIqu3",
+          "name": "TourTeam",
+          "type": "managed",
+          "projectId": "tDWy3GXn2mzd9e2xUaPdmu",
+          "renderModuleFilePath": "plasmic/proliga/PlasmicTourTeam.tsx",
+          "importSpec": {
+            "modulePath": "../pages/[comp_id]/[id]/1.tsx"
+          },
+          "cssFilePath": "plasmic/proliga/PlasmicTourTeam.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/[comp_id]/[id]/1"
         }
       ],
       "icons": [

@@ -77,6 +77,10 @@ import { TabContent } from "@plasmicpkgs/plasmic-tabs";
 import AvatarPlayerShowScore from "../../AvatarPlayerShowScore"; // plasmic-import: kJWqOT85FINq/component
 import SoccerPlaceMens2 from "../../SoccerPlaceMens2"; // plasmic-import: xodLqMOhDs29/component
 import AvatarPlayer from "../../AvatarPlayer"; // plasmic-import: 4QnaRcOLXj0D/component
+import TextInput from "../../TextInput"; // plasmic-import: xwgFLXqL07mD/component
+import PlayerPicker from "../../PlayerPicker"; // plasmic-import: FmVyQ1WB4e_T/component
+import { AntdPagination } from "@plasmicpkgs/antd5/skinny/registerPagination";
+import { paginationHelpers as AntdPagination_Helpers } from "@plasmicpkgs/antd5/skinny/registerPagination";
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 
 import "@plasmicapp/react-web/lib/plasmic.css";
@@ -88,6 +92,8 @@ import sty from "./PlasmicShowTeam.module.css"; // plasmic-import: Ih5PzV0mN0gk/
 
 import ChecksvgIcon from "../plasmic_tabs/icons/PlasmicIcon__Checksvg"; // plasmic-import: zq2s7N0xWucT/icon
 import IconIcon from "../plasmic_tabs/icons/PlasmicIcon__Icon"; // plasmic-import: 8K40faRNhuCj/icon
+import SearchsvgIcon from "./icons/PlasmicIcon__Searchsvg"; // plasmic-import: TfB627kbYt5s/icon
+import ChecksvgIcon2 from "./icons/PlasmicIcon__Checksvg"; // plasmic-import: BLgPkmgd4hOv/icon
 
 createPlasmicElementProxy;
 
@@ -105,12 +111,7 @@ export type PlasmicShowTeam__OverridesType = {
   navbar?: Flex__<typeof Navbar>;
   showteamNavbar?: Flex__<typeof ShowteamNavbar>;
   userteamNavbar?: Flex__<typeof UserteamNavbar>;
-  tabsContainer?: Flex__<typeof TabsContainer>;
-  tabButton?: Flex__<typeof TabButton>;
   link?: Flex__<"a"> & Partial<LinkProps>;
-  button?: Flex__<typeof Button>;
-  tabUnderline?: Flex__<typeof TabUnderline>;
-  tabContent?: Flex__<typeof TabContent>;
   showScore?: Flex__<"div">;
   goa?: Flex__<"div">;
   def?: Flex__<"div">;
@@ -122,6 +123,9 @@ export type PlasmicShowTeam__OverridesType = {
   def2?: Flex__<"div">;
   mid2?: Flex__<"div">;
   str2?: Flex__<"div">;
+  textInput?: Flex__<typeof TextInput>;
+  playerPicker?: Flex__<typeof PlayerPicker>;
+  paginationAll?: Flex__<typeof AntdPagination>;
 };
 
 export interface DefaultShowTeamProps {}
@@ -199,6 +203,39 @@ function PlasmicShowTeam__RenderFunc(props: {
               throw e;
             }
           })()
+      },
+      {
+        path: "textInput[].value",
+        type: "private",
+        variableType: "text"
+      },
+      {
+        path: "paginationAll[].currentPage",
+        type: "private",
+        variableType: "number",
+
+        onMutate: generateOnMutateForSpec("currentPage", AntdPagination_Helpers)
+      },
+      {
+        path: "paginationAll[].pageSize",
+        type: "private",
+        variableType: "number",
+
+        onMutate: generateOnMutateForSpec("pageSize", AntdPagination_Helpers)
+      },
+      {
+        path: "paginationAll[].startIndex",
+        type: "private",
+        variableType: "number",
+
+        onMutate: generateOnMutateForSpec("startIndex", AntdPagination_Helpers)
+      },
+      {
+        path: "paginationAll[].endIndex",
+        type: "private",
+        variableType: "number",
+
+        onMutate: generateOnMutateForSpec("endIndex", AntdPagination_Helpers)
       }
     ],
     [$props, $ctx, $refs]
@@ -305,6 +342,34 @@ function PlasmicShowTeam__RenderFunc(props: {
         opId: "d9cbe18a-dded-4c65-954f-affd7818da36",
         userArgs: {},
         cacheKey: `plasmic.$.d9cbe18a-dded-4c65-954f-affd7818da36.$.`,
+        invalidatedKeys: null,
+        roleId: null
+      };
+    }),
+    playerListTab: usePlasmicDataOp(() => {
+      return {
+        sourceId: "vQtRPuFArSfh43vUmgx2PS",
+        opId: "8fd59fe6-48e2-47a2-8f56-5e96d8affc45",
+        userArgs: {
+          path: [
+            $state.pagination[0].pageSize,
+            $state.pagination[0].startIndex
+          ],
+          params: [$queries.query.data.response[0].competition_id]
+        },
+        cacheKey: `plasmic.$.8fd59fe6-48e2-47a2-8f56-5e96d8affc45.$.`,
+        invalidatedKeys: null,
+        roleId: null
+      };
+    }),
+    playerAllCount: usePlasmicDataOp(() => {
+      return {
+        sourceId: "vQtRPuFArSfh43vUmgx2PS",
+        opId: "ee9c91bb-efc0-4837-bf0a-dd14852b5dcc",
+        userArgs: {
+          params: [$queries.query.data.response[0].competition_id]
+        },
+        cacheKey: `plasmic.$.ee9c91bb-efc0-4837-bf0a-dd14852b5dcc.$.`,
         invalidatedKeys: null,
         roleId: null
       };
@@ -430,9 +495,7 @@ function PlasmicShowTeam__RenderFunc(props: {
 
           <div className={classNames(projectcss.all, sty.freeBox__ntysc)}>
             <TabsContainer
-              data-plasmic-name={"tabsContainer"}
-              data-plasmic-override={overrides.tabsContainer}
-              className={classNames("__wab_instance", sty.tabsContainer)}
+              className={classNames("__wab_instance", sty.tabsContainer__ipPnb)}
               initialKey={"tab0"}
               previewAll={false}
             >
@@ -464,11 +527,9 @@ function PlasmicShowTeam__RenderFunc(props: {
                         const currentIndex = __plasmic_idx_0;
                         return (
                           <TabButton
-                            data-plasmic-name={"tabButton"}
-                            data-plasmic-override={overrides.tabButton}
                             className={classNames(
                               "__wab_instance",
-                              sty.tabButton
+                              sty.tabButton__vSx4W
                             )}
                             key={currentIndex}
                             tabKey={(() => {
@@ -497,8 +558,6 @@ function PlasmicShowTeam__RenderFunc(props: {
                               platform={"nextjs"}
                             >
                               <Button
-                                data-plasmic-name={"button"}
-                                data-plasmic-override={overrides.button}
                                 onClick={async event => {
                                   const $steps = {};
 
@@ -609,11 +668,9 @@ function PlasmicShowTeam__RenderFunc(props: {
                         );
                       })}
                       <TabUnderline
-                        data-plasmic-name={"tabUnderline"}
-                        data-plasmic-override={overrides.tabUnderline}
                         className={classNames(
                           "__wab_instance",
-                          sty.tabUnderline
+                          sty.tabUnderline__uuQR
                         )}
                       />
                     </div>
@@ -656,11 +713,9 @@ function PlasmicShowTeam__RenderFunc(props: {
                             const currentIndex = __plasmic_idx_0;
                             return (
                               <TabContent
-                                data-plasmic-name={"tabContent"}
-                                data-plasmic-override={overrides.tabContent}
                                 className={classNames(
                                   "__wab_instance",
-                                  sty.tabContent
+                                  sty.tabContent__vgObu
                                 )}
                                 key={currentIndex}
                                 tabKey={(() => {
@@ -1636,7 +1691,496 @@ function PlasmicShowTeam__RenderFunc(props: {
                                       projectcss.all,
                                       sty.column__tuGEm
                                     )}
-                                  />
+                                  >
+                                    <div
+                                      className={classNames(
+                                        projectcss.all,
+                                        sty.freeBox__cou1M
+                                      )}
+                                    >
+                                      {(() => {
+                                        const child$Props = {
+                                          className: classNames(
+                                            "__wab_instance",
+                                            sty.textInput
+                                          ),
+                                          color: "dark",
+                                          onChange: (...eventArgs) => {
+                                            generateStateOnChangeProp($state, [
+                                              "textInput",
+                                              __plasmic_idx_0,
+                                              "value"
+                                            ])(
+                                              (e => e.target?.value).apply(
+                                                null,
+                                                eventArgs
+                                              )
+                                            );
+                                          },
+                                          placeholder: "Ism bo'yicha izlash",
+                                          showStartIcon: true,
+                                          value:
+                                            generateStateValueProp($state, [
+                                              "textInput",
+                                              __plasmic_idx_0,
+                                              "value"
+                                            ]) ?? ""
+                                        };
+
+                                        initializePlasmicStates(
+                                          $state,
+                                          [
+                                            {
+                                              name: "textInput[].value",
+                                              initFunc: ({
+                                                $props,
+                                                $state,
+                                                $queries
+                                              }) => ""
+                                            }
+                                          ],
+                                          [__plasmic_idx_0]
+                                        );
+                                        return (
+                                          <TextInput
+                                            data-plasmic-name={"textInput"}
+                                            data-plasmic-override={
+                                              overrides.textInput
+                                            }
+                                            {...child$Props}
+                                          />
+                                        );
+                                      })()}
+                                      <TabsContainer
+                                        className={classNames(
+                                          "__wab_instance",
+                                          sty.tabsContainer__vXoZg
+                                        )}
+                                        initialKey={"tab1"}
+                                      >
+                                        <DataCtxReader__>
+                                          {$ctx => (
+                                            <div
+                                              className={classNames(
+                                                projectcss.all,
+                                                sty.freeBox__prNwP
+                                              )}
+                                            >
+                                              <div
+                                                className={classNames(
+                                                  projectcss.all,
+                                                  sty.freeBox__ucV4N
+                                                )}
+                                              >
+                                                <TabButton
+                                                  className={classNames(
+                                                    "__wab_instance",
+                                                    sty.tabButton__cGRhH
+                                                  )}
+                                                  tabKey={"tab1"}
+                                                >
+                                                  <Button>
+                                                    <div
+                                                      className={classNames(
+                                                        projectcss.all,
+                                                        projectcss.__wab_text,
+                                                        sty.text__blM1
+                                                      )}
+                                                    >
+                                                      {"Hammasi"}
+                                                    </div>
+                                                  </Button>
+                                                </TabButton>
+                                                <TabButton
+                                                  className={classNames(
+                                                    "__wab_instance",
+                                                    sty.tabButton__oDcAb
+                                                  )}
+                                                  tabKey={"tab2"}
+                                                >
+                                                  <Button>
+                                                    <div
+                                                      className={classNames(
+                                                        projectcss.all,
+                                                        projectcss.__wab_text,
+                                                        sty.text__pNdUy
+                                                      )}
+                                                    >
+                                                      {"Klublar"}
+                                                    </div>
+                                                  </Button>
+                                                </TabButton>
+                                                <TabUnderline
+                                                  className={classNames(
+                                                    "__wab_instance",
+                                                    sty.tabUnderline__fw6Me
+                                                  )}
+                                                />
+                                              </div>
+                                              <div
+                                                className={classNames(
+                                                  projectcss.all,
+                                                  sty.freeBox___1TzcT
+                                                )}
+                                              >
+                                                <TabContent
+                                                  className={classNames(
+                                                    "__wab_instance",
+                                                    sty.tabContent__w5SIx
+                                                  )}
+                                                  tabKey={"tab1"}
+                                                >
+                                                  <Stack__
+                                                    as={"div"}
+                                                    hasGap={true}
+                                                    className={classNames(
+                                                      projectcss.all,
+                                                      sty.freeBox__ijqyy
+                                                    )}
+                                                  >
+                                                    {(_par =>
+                                                      !_par
+                                                        ? []
+                                                        : Array.isArray(_par)
+                                                        ? _par
+                                                        : [_par])(
+                                                      (() => {
+                                                        try {
+                                                          return $queries
+                                                            .playerListTab.data
+                                                            .response;
+                                                        } catch (e) {
+                                                          if (
+                                                            e instanceof
+                                                              TypeError ||
+                                                            e?.plasmicType ===
+                                                              "PlasmicUndefinedDataError"
+                                                          ) {
+                                                            return [];
+                                                          }
+                                                          throw e;
+                                                        }
+                                                      })()
+                                                    ).map(
+                                                      (
+                                                        __plasmic_item_1,
+                                                        __plasmic_idx_1
+                                                      ) => {
+                                                        const currentItem =
+                                                          __plasmic_item_1;
+                                                        const currentIndex =
+                                                          __plasmic_idx_1;
+                                                        return (
+                                                          <PlayerPicker
+                                                            data-plasmic-name={
+                                                              "playerPicker"
+                                                            }
+                                                            data-plasmic-override={
+                                                              overrides.playerPicker
+                                                            }
+                                                            className={classNames(
+                                                              "__wab_instance",
+                                                              sty.playerPicker
+                                                            )}
+                                                            key={currentIndex}
+                                                            name={(() => {
+                                                              try {
+                                                                return currentItem.name;
+                                                              } catch (e) {
+                                                                if (
+                                                                  e instanceof
+                                                                    TypeError ||
+                                                                  e?.plasmicType ===
+                                                                    "PlasmicUndefinedDataError"
+                                                                ) {
+                                                                  return undefined;
+                                                                }
+                                                                throw e;
+                                                              }
+                                                            })()}
+                                                            playerPrice={(() => {
+                                                              try {
+                                                                return currentItem.price;
+                                                              } catch (e) {
+                                                                if (
+                                                                  e instanceof
+                                                                    TypeError ||
+                                                                  e?.plasmicType ===
+                                                                    "PlasmicUndefinedDataError"
+                                                                ) {
+                                                                  return undefined;
+                                                                }
+                                                                throw e;
+                                                              }
+                                                            })()}
+                                                            point={(() => {
+                                                              try {
+                                                                return currentItem.ochko;
+                                                              } catch (e) {
+                                                                if (
+                                                                  e instanceof
+                                                                    TypeError ||
+                                                                  e?.plasmicType ===
+                                                                    "PlasmicUndefinedDataError"
+                                                                ) {
+                                                                  return 88;
+                                                                }
+                                                                throw e;
+                                                              }
+                                                            })()}
+                                                            position={(() => {
+                                                              try {
+                                                                return currentItem.position;
+                                                              } catch (e) {
+                                                                if (
+                                                                  e instanceof
+                                                                    TypeError ||
+                                                                  e?.plasmicType ===
+                                                                    "PlasmicUndefinedDataError"
+                                                                ) {
+                                                                  return undefined;
+                                                                }
+                                                                throw e;
+                                                              }
+                                                            })()}
+                                                            price={(() => {
+                                                              try {
+                                                                return currentItem.price;
+                                                              } catch (e) {
+                                                                if (
+                                                                  e instanceof
+                                                                    TypeError ||
+                                                                  e?.plasmicType ===
+                                                                    "PlasmicUndefinedDataError"
+                                                                ) {
+                                                                  return 9;
+                                                                }
+                                                                throw e;
+                                                              }
+                                                            })()}
+                                                            teamBalance={(() => {
+                                                              try {
+                                                                return $queries
+                                                                  .query.data
+                                                                  .response[0]
+                                                                  .balance;
+                                                              } catch (e) {
+                                                                if (
+                                                                  e instanceof
+                                                                    TypeError ||
+                                                                  e?.plasmicType ===
+                                                                    "PlasmicUndefinedDataError"
+                                                                ) {
+                                                                  return 100;
+                                                                }
+                                                                throw e;
+                                                              }
+                                                            })()}
+                                                          />
+                                                        );
+                                                      }
+                                                    )}
+                                                    {(() => {
+                                                      const child$Props = {
+                                                        className: classNames(
+                                                          "__wab_instance",
+                                                          sty.paginationAll
+                                                        ),
+                                                        current:
+                                                          generateStateValueProp(
+                                                            $state,
+                                                            [
+                                                              "paginationAll",
+                                                              __plasmic_idx_0,
+                                                              "currentPage"
+                                                            ]
+                                                          ),
+                                                        defaultCurrent: 1,
+                                                        defaultPageSize: 6,
+                                                        onChange: async (
+                                                          ...eventArgs: any
+                                                        ) => {
+                                                          generateStateOnChangePropForCodeComponents(
+                                                            $state,
+                                                            "currentPage",
+                                                            [
+                                                              "paginationAll",
+                                                              __plasmic_idx_0,
+                                                              "currentPage"
+                                                            ],
+                                                            AntdPagination_Helpers
+                                                          ).apply(
+                                                            null,
+                                                            eventArgs
+                                                          );
+                                                          generateStateOnChangePropForCodeComponents(
+                                                            $state,
+                                                            "startIndex",
+                                                            [
+                                                              "paginationAll",
+                                                              __plasmic_idx_0,
+                                                              "startIndex"
+                                                            ],
+                                                            AntdPagination_Helpers
+                                                          ).apply(
+                                                            null,
+                                                            eventArgs
+                                                          );
+                                                          generateStateOnChangePropForCodeComponents(
+                                                            $state,
+                                                            "endIndex",
+                                                            [
+                                                              "paginationAll",
+                                                              __plasmic_idx_0,
+                                                              "endIndex"
+                                                            ],
+                                                            AntdPagination_Helpers
+                                                          ).apply(
+                                                            null,
+                                                            eventArgs
+                                                          );
+                                                        },
+                                                        onShowSizeChange:
+                                                          generateStateOnChangePropForCodeComponents(
+                                                            $state,
+                                                            "pageSize",
+                                                            [
+                                                              "paginationAll",
+                                                              __plasmic_idx_0,
+                                                              "pageSize"
+                                                            ],
+                                                            AntdPagination_Helpers
+                                                          ),
+                                                        pageSize:
+                                                          generateStateValueProp(
+                                                            $state,
+                                                            [
+                                                              "paginationAll",
+                                                              __plasmic_idx_0,
+                                                              "pageSize"
+                                                            ]
+                                                          ),
+                                                        pageSizeOptions: [
+                                                          { pageSize: 10 },
+                                                          { pageSize: 20 },
+                                                          { pageSize: 50 },
+                                                          { pageSize: 100 }
+                                                        ],
+                                                        total: (() => {
+                                                          try {
+                                                            return $queries
+                                                              .playerAllCount
+                                                              .data.response
+                                                              .length;
+                                                          } catch (e) {
+                                                            if (
+                                                              e instanceof
+                                                                TypeError ||
+                                                              e?.plasmicType ===
+                                                                "PlasmicUndefinedDataError"
+                                                            ) {
+                                                              return undefined;
+                                                            }
+                                                            throw e;
+                                                          }
+                                                        })()
+                                                      };
+                                                      initializeCodeComponentStates(
+                                                        $state,
+                                                        [
+                                                          {
+                                                            name: "currentPage",
+                                                            plasmicStateName:
+                                                              "paginationAll[].currentPage"
+                                                          },
+                                                          {
+                                                            name: "pageSize",
+                                                            plasmicStateName:
+                                                              "paginationAll[].pageSize"
+                                                          },
+                                                          {
+                                                            name: "startIndex",
+                                                            plasmicStateName:
+                                                              "paginationAll[].startIndex"
+                                                          },
+                                                          {
+                                                            name: "endIndex",
+                                                            plasmicStateName:
+                                                              "paginationAll[].endIndex"
+                                                          }
+                                                        ],
+                                                        [__plasmic_idx_0],
+                                                        AntdPagination_Helpers ??
+                                                          {},
+                                                        child$Props
+                                                      );
+                                                      initializePlasmicStates(
+                                                        $state,
+                                                        [
+                                                          {
+                                                            name: "paginationAll[].currentPage",
+                                                            initFunc: ({
+                                                              $props,
+                                                              $state,
+                                                              $queries
+                                                            }) => 1
+                                                          },
+                                                          {
+                                                            name: "paginationAll[].pageSize",
+                                                            initFunc: ({
+                                                              $props,
+                                                              $state,
+                                                              $queries
+                                                            }) => 6
+                                                          }
+                                                        ],
+                                                        [__plasmic_idx_0]
+                                                      );
+                                                      return (
+                                                        <AntdPagination
+                                                          data-plasmic-name={
+                                                            "paginationAll"
+                                                          }
+                                                          data-plasmic-override={
+                                                            overrides.paginationAll
+                                                          }
+                                                          {...child$Props}
+                                                        />
+                                                      );
+                                                    })()}
+                                                  </Stack__>
+                                                </TabContent>
+                                                <TabContent
+                                                  className={classNames(
+                                                    "__wab_instance",
+                                                    sty.tabContent__nWjD3
+                                                  )}
+                                                  tabKey={"tab2"}
+                                                >
+                                                  <div
+                                                    className={classNames(
+                                                      projectcss.all,
+                                                      sty.freeBox__zPnfR
+                                                    )}
+                                                  >
+                                                    <div
+                                                      className={classNames(
+                                                        projectcss.all,
+                                                        projectcss.__wab_text,
+                                                        sty.text__uyV69
+                                                      )}
+                                                    >
+                                                      {"Some content for tab 2"}
+                                                    </div>
+                                                  </div>
+                                                </TabContent>
+                                              </div>
+                                            </div>
+                                          )}
+                                        </DataCtxReader__>
+                                      </TabsContainer>
+                                    </div>
+                                  </div>
                                 </div>
                               </TabContent>
                             );
@@ -1660,12 +2204,7 @@ const PlasmicDescendants = {
     "navbar",
     "showteamNavbar",
     "userteamNavbar",
-    "tabsContainer",
-    "tabButton",
     "link",
-    "button",
-    "tabUnderline",
-    "tabContent",
     "showScore",
     "goa",
     "def",
@@ -1676,59 +2215,38 @@ const PlasmicDescendants = {
     "goa2",
     "def2",
     "mid2",
-    "str2"
+    "str2",
+    "textInput",
+    "playerPicker",
+    "paginationAll"
   ],
   navbar: ["navbar"],
   showteamNavbar: ["showteamNavbar"],
   userteamNavbar: ["userteamNavbar"],
-  tabsContainer: [
-    "tabsContainer",
-    "tabButton",
-    "link",
-    "button",
-    "tabUnderline",
-    "tabContent",
-    "showScore",
-    "goa",
-    "def",
-    "mid",
-    "str",
-    "h3",
-    "transferTour",
-    "goa2",
-    "def2",
-    "mid2",
-    "str2"
-  ],
-  tabButton: ["tabButton", "link", "button"],
-  link: ["link", "button"],
-  button: ["button"],
-  tabUnderline: ["tabUnderline"],
-  tabContent: [
-    "tabContent",
-    "showScore",
-    "goa",
-    "def",
-    "mid",
-    "str",
-    "h3",
-    "transferTour",
-    "goa2",
-    "def2",
-    "mid2",
-    "str2"
-  ],
+  link: ["link"],
   showScore: ["showScore", "goa", "def", "mid", "str", "h3"],
   goa: ["goa"],
   def: ["def"],
   mid: ["mid"],
   str: ["str"],
   h3: ["h3"],
-  transferTour: ["transferTour", "goa2", "def2", "mid2", "str2"],
+  transferTour: [
+    "transferTour",
+    "goa2",
+    "def2",
+    "mid2",
+    "str2",
+    "textInput",
+    "playerPicker",
+    "paginationAll"
+  ],
   goa2: ["goa2"],
   def2: ["def2"],
   mid2: ["mid2"],
-  str2: ["str2"]
+  str2: ["str2"],
+  textInput: ["textInput"],
+  playerPicker: ["playerPicker"],
+  paginationAll: ["paginationAll"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -1738,12 +2256,7 @@ type NodeDefaultElementType = {
   navbar: typeof Navbar;
   showteamNavbar: typeof ShowteamNavbar;
   userteamNavbar: typeof UserteamNavbar;
-  tabsContainer: typeof TabsContainer;
-  tabButton: typeof TabButton;
   link: "a";
-  button: typeof Button;
-  tabUnderline: typeof TabUnderline;
-  tabContent: typeof TabContent;
   showScore: "div";
   goa: "div";
   def: "div";
@@ -1755,6 +2268,9 @@ type NodeDefaultElementType = {
   def2: "div";
   mid2: "div";
   str2: "div";
+  textInput: typeof TextInput;
+  playerPicker: typeof PlayerPicker;
+  paginationAll: typeof AntdPagination;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -1837,12 +2353,7 @@ export const PlasmicShowTeam = Object.assign(
     navbar: makeNodeComponent("navbar"),
     showteamNavbar: makeNodeComponent("showteamNavbar"),
     userteamNavbar: makeNodeComponent("userteamNavbar"),
-    tabsContainer: makeNodeComponent("tabsContainer"),
-    tabButton: makeNodeComponent("tabButton"),
     link: makeNodeComponent("link"),
-    button: makeNodeComponent("button"),
-    tabUnderline: makeNodeComponent("tabUnderline"),
-    tabContent: makeNodeComponent("tabContent"),
     showScore: makeNodeComponent("showScore"),
     goa: makeNodeComponent("goa"),
     def: makeNodeComponent("def"),
@@ -1854,6 +2365,9 @@ export const PlasmicShowTeam = Object.assign(
     def2: makeNodeComponent("def2"),
     mid2: makeNodeComponent("mid2"),
     str2: makeNodeComponent("str2"),
+    textInput: makeNodeComponent("textInput"),
+    playerPicker: makeNodeComponent("playerPicker"),
+    paginationAll: makeNodeComponent("paginationAll"),
 
     // Metadata about props expected for PlasmicShowTeam
     internalVariantProps: PlasmicShowTeam__VariantProps,

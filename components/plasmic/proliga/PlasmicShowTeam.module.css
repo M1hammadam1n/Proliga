@@ -58,7 +58,7 @@
   grid-column-end: -3 !important;
   padding: 8px;
 }
-.tabsContainer:global(.__wab_instance) {
+.tabsContainer__ipPnb:global(.__wab_instance) {
   width: 100%;
   max-width: 100%;
   object-fit: cover;
@@ -90,7 +90,7 @@
   min-width: 0;
   padding: 0px;
 }
-.tabButton:global(.__wab_instance) {
+.tabButton__vSx4W:global(.__wab_instance) {
   width: auto;
   max-width: 100%;
   object-fit: cover;
@@ -139,7 +139,7 @@
   width: auto;
   height: 1em;
 }
-.tabUnderline:global(.__wab_instance) {
+.tabUnderline__uuQR:global(.__wab_instance) {
   background: #7777ff;
   height: 2px;
   max-width: 100%;
@@ -158,7 +158,7 @@
   min-height: 0;
   padding: 8px;
 }
-.tabContent:global(.__wab_instance) {
+.tabContent__vgObu:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;
   width: 100%;
@@ -677,6 +677,194 @@
   display: flex;
   position: relative;
   flex-direction: column;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  min-width: 0;
+  padding: 8px;
+}
+.freeBox__cou1M {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+  padding: 8px;
+}
+.textInput:global(.__wab_instance) {
+  max-width: 100%;
+}
+.svg__lhcz1 {
+  position: relative;
+  object-fit: cover;
+  width: auto;
+  height: 1em;
+}
+.svg__kt20W {
+  position: relative;
+  object-fit: cover;
+  width: auto;
+  height: 1em;
+}
+.tabsContainer__vXoZg:global(.__wab_instance) {
+  width: 100%;
+  max-width: 100%;
+  object-fit: cover;
+  position: relative;
+  min-width: 0;
+  padding: 8px;
+}
+.freeBox__prNwP {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  min-width: 0;
+  padding: 8px;
+}
+.freeBox__ucV4N {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+  padding: 8px;
+}
+.tabButton__cGRhH:global(.__wab_instance) {
+  width: auto;
+  max-width: 100%;
+  object-fit: cover;
+}
+.text__blM1 {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+}
+.svg__oemwV {
+  position: relative;
+  object-fit: cover;
+  width: auto;
+  height: 1em;
+}
+.svg__w5WkI {
+  position: relative;
+  object-fit: cover;
+  width: auto;
+  height: 1em;
+}
+.tabButton__oDcAb:global(.__wab_instance) {
+  width: auto;
+  max-width: 100%;
+  object-fit: cover;
+}
+.text__pNdUy {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+}
+.svg__cp2Vv {
+  position: relative;
+  object-fit: cover;
+  width: auto;
+  height: 1em;
+}
+.svg__x4Uj8 {
+  position: relative;
+  object-fit: cover;
+  width: auto;
+  height: 1em;
+}
+.tabUnderline__fw6Me:global(.__wab_instance) {
+  background: #7777ff;
+  height: 2px;
+  max-width: 100%;
+  object-fit: cover;
+}
+.freeBox___1TzcT {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  min-width: 0;
+  padding: 8px;
+}
+.tabContent__w5SIx:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+  width: 100%;
+  min-width: 0;
+}
+.freeBox__ijqyy {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+  padding: 8px;
+}
+.freeBox__ijqyy > :global(.__wab_flex-container) {
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  min-width: 0;
+  margin-top: calc(0px - 5px);
+  height: calc(100% + 5px);
+}
+.freeBox__ijqyy > :global(.__wab_flex-container) > *,
+.freeBox__ijqyy > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.freeBox__ijqyy > :global(.__wab_flex-container) > picture > img,
+.freeBox__ijqyy
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > picture
+  > img {
+  margin-top: 5px;
+}
+.playerPicker:global(.__wab_instance) {
+  max-width: 100%;
+  position: relative;
+  width: 100%;
+  min-width: 0;
+}
+.paginationAll:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+  position: relative;
+  color: var(--token-jgohepLVeKvh);
+  background: var(--token-OthO-wlH0yMz);
+}
+.tabContent__nWjD3:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}
+.freeBox__zPnfR {
+  display: flex;
+  flex-direction: column;
+  position: relative;
   width: 100%;
   height: auto;
   max-width: 100%;
