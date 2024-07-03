@@ -242,6 +242,12 @@ function PlasmicShowTeam__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => true
+      },
+      {
+        path: "tourIndex",
+        type: "private",
+        variableType: "number",
+        initFunc: ({ $props, $state, $queries, $ctx }) => 0
       }
     ],
     [$props, $ctx, $refs]
@@ -358,8 +364,8 @@ function PlasmicShowTeam__RenderFunc(props: {
         opId: "8fd59fe6-48e2-47a2-8f56-5e96d8affc45",
         userArgs: {
           path: [
-            $state.pagination[0].pageSize,
-            $state.pagination[0].startIndex
+            $state.paginationAll[$state.tourIndex].pageSize,
+            $state.paginationAll[$state.tourIndex].startIndex
           ],
           params: [$queries.query.data.response[0].competition_id]
         },
@@ -607,6 +613,49 @@ function PlasmicShowTeam__RenderFunc(props: {
                                   ) {
                                     $steps["updateTourId"] = await $steps[
                                       "updateTourId"
+                                    ];
+                                  }
+
+                                  $steps["updateTourIndex"] = true
+                                    ? (() => {
+                                        const actionArgs = {
+                                          variable: {
+                                            objRoot: $state,
+                                            variablePath: ["tourIndex"]
+                                          },
+                                          operation: 0,
+                                          value: currentIndex
+                                        };
+                                        return (({
+                                          variable,
+                                          value,
+                                          startIndex,
+                                          deleteCount
+                                        }) => {
+                                          if (!variable) {
+                                            return;
+                                          }
+                                          const { objRoot, variablePath } =
+                                            variable;
+
+                                          $stateSet(
+                                            objRoot,
+                                            variablePath,
+                                            value
+                                          );
+                                          return value;
+                                        })?.apply(null, [actionArgs]);
+                                      })()
+                                    : undefined;
+                                  if (
+                                    $steps["updateTourIndex"] != null &&
+                                    typeof $steps["updateTourIndex"] ===
+                                      "object" &&
+                                    typeof $steps["updateTourIndex"].then ===
+                                      "function"
+                                  ) {
+                                    $steps["updateTourIndex"] = await $steps[
+                                      "updateTourIndex"
                                     ];
                                   }
                                 }}
