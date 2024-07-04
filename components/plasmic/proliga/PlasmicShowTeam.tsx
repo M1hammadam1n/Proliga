@@ -301,7 +301,7 @@ function PlasmicShowTeam__RenderFunc(props: {
         roleId: "f8970d3a-c1ae-4ba8-80dd-90e548ee70d6"
       };
     }),
-    userTeam: usePlasmicDataOp(() => {
+    teamPlayer: usePlasmicDataOp(() => {
       return {
         sourceId: "vQtRPuFArSfh43vUmgx2PS",
         opId: "193142c4-1d62-4cdb-a0db-ca0b653ef78d",
@@ -1028,7 +1028,7 @@ function PlasmicShowTeam__RenderFunc(props: {
                                               : [_par])(
                                             (() => {
                                               try {
-                                                return $queries.userTeam.data.response.filter(
+                                                return $queries.teamPlayer.data.response.filter(
                                                   x => x.position === "GOA"
                                                 );
                                               } catch (e) {
@@ -1163,7 +1163,7 @@ function PlasmicShowTeam__RenderFunc(props: {
                                               : [_par])(
                                             (() => {
                                               try {
-                                                return $queries.userTeam.data.response.filter(
+                                                return $queries.teamPlayer.data.response.filter(
                                                   x => x.position === "DEF"
                                                 );
                                               } catch (e) {
@@ -1298,7 +1298,7 @@ function PlasmicShowTeam__RenderFunc(props: {
                                               : [_par])(
                                             (() => {
                                               try {
-                                                return $queries.userTeam.data.response.filter(
+                                                return $queries.teamPlayer.data.response.filter(
                                                   x => x.position === "MID"
                                                 );
                                               } catch (e) {
@@ -1433,7 +1433,7 @@ function PlasmicShowTeam__RenderFunc(props: {
                                               : [_par])(
                                             (() => {
                                               try {
-                                                return $queries.userTeam.data.response.filter(
+                                                return $queries.teamPlayer.data.response.filter(
                                                   x => x.position === "STR"
                                                 );
                                               } catch (e) {
@@ -1760,7 +1760,7 @@ function PlasmicShowTeam__RenderFunc(props: {
                                                   : [_par])(
                                                 (() => {
                                                   try {
-                                                    return $queries.userTeam.data.response.filter(
+                                                    return $queries.teamPlayer.data.response.filter(
                                                       x => x.position === "GOA"
                                                     );
                                                   } catch (e) {
@@ -1822,7 +1822,7 @@ function PlasmicShowTeam__RenderFunc(props: {
                                                   : [_par])(
                                                 (() => {
                                                   try {
-                                                    return $queries.userTeam.data.response.filter(
+                                                    return $queries.teamPlayer.data.response.filter(
                                                       x => x.position === "DEF"
                                                     );
                                                   } catch (e) {
@@ -1884,7 +1884,7 @@ function PlasmicShowTeam__RenderFunc(props: {
                                                   : [_par])(
                                                 (() => {
                                                   try {
-                                                    return $queries.userTeam.data.response.filter(
+                                                    return $queries.teamPlayer.data.response.filter(
                                                       x => x.position === "MID"
                                                     );
                                                   } catch (e) {
@@ -1946,7 +1946,7 @@ function PlasmicShowTeam__RenderFunc(props: {
                                                   : [_par])(
                                                 (() => {
                                                   try {
-                                                    return $queries.userTeam.data.response.filter(
+                                                    return $queries.teamPlayer.data.response.filter(
                                                       x => x.position === "STR"
                                                     );
                                                   } catch (e) {
@@ -2201,6 +2201,50 @@ function PlasmicShowTeam__RenderFunc(props: {
                                                                   data-plasmic-override={
                                                                     overrides.playerPicker
                                                                   }
+                                                                  buttonVisibility={(() => {
+                                                                    try {
+                                                                      return $queries.teamPlayer.data.response.find(
+                                                                        x =>
+                                                                          x.player_id ===
+                                                                          currentItem.id
+                                                                      );
+                                                                    } catch (e) {
+                                                                      if (
+                                                                        e instanceof
+                                                                          TypeError ||
+                                                                        e?.plasmicType ===
+                                                                          "PlasmicUndefinedDataError"
+                                                                      ) {
+                                                                        return undefined;
+                                                                      }
+                                                                      throw e;
+                                                                    }
+                                                                  })()}
+                                                                  checkPlayer={(() => {
+                                                                    try {
+                                                                      return $queries.teamPlayer.data.response
+                                                                        .filter(
+                                                                          x =>
+                                                                            x.sold !=
+                                                                            true
+                                                                        )
+                                                                        .find(
+                                                                          x =>
+                                                                            x.player_id ===
+                                                                            currentItem.id
+                                                                        );
+                                                                    } catch (e) {
+                                                                      if (
+                                                                        e instanceof
+                                                                          TypeError ||
+                                                                        e?.plasmicType ===
+                                                                          "PlasmicUndefinedDataError"
+                                                                      ) {
+                                                                        return undefined;
+                                                                      }
+                                                                      throw e;
+                                                                    }
+                                                                  })()}
                                                                   className={classNames(
                                                                     "__wab_instance",
                                                                     sty.playerPicker
@@ -2219,6 +2263,25 @@ function PlasmicShowTeam__RenderFunc(props: {
                                                                           "PlasmicUndefinedDataError"
                                                                       ) {
                                                                         return undefined;
+                                                                      }
+                                                                      throw e;
+                                                                    }
+                                                                  })()}
+                                                                  playerClubCount={(() => {
+                                                                    try {
+                                                                      return $queries.teamPlayer.data.response.filter(
+                                                                        x =>
+                                                                          x.club_id ===
+                                                                          currentItem.club_id
+                                                                      ).length;
+                                                                    } catch (e) {
+                                                                      if (
+                                                                        e instanceof
+                                                                          TypeError ||
+                                                                        e?.plasmicType ===
+                                                                          "PlasmicUndefinedDataError"
+                                                                      ) {
+                                                                        return 4;
                                                                       }
                                                                       throw e;
                                                                     }
