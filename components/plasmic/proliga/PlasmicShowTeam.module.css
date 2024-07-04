@@ -495,9 +495,20 @@
   text-align: left;
   align-self: center;
 }
-.transferTour {
+.transferTourVisibility {
   display: flex;
   position: relative;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+  padding: 0px;
+}
+.transferTour {
+  display: flex;
   width: 100%;
   height: auto;
   align-items: stretch;
@@ -742,13 +753,13 @@
 .textInput:global(.__wab_instance) {
   max-width: 100%;
 }
-.svg__lhcz1 {
+.svg__hE9Gg {
   position: relative;
   object-fit: cover;
   width: auto;
   height: 1em;
 }
-.svg__kt20W {
+.svg__w1WOs {
   position: relative;
   object-fit: cover;
   width: auto;
@@ -798,13 +809,13 @@
   max-width: 100%;
   min-width: 0;
 }
-.svg__oemwV {
+.svg__iWdIq {
   position: relative;
   object-fit: cover;
   width: auto;
   height: 1em;
 }
-.svg__w5WkI {
+.svg__uXqD {
   position: relative;
   object-fit: cover;
   width: auto;
@@ -822,13 +833,13 @@
   max-width: 100%;
   min-width: 0;
 }
-.svg__cp2Vv {
+.svg__uhgne {
   position: relative;
   object-fit: cover;
   width: auto;
   height: 1em;
 }
-.svg__x4Uj8 {
+.svg__lkRVc {
   position: relative;
   object-fit: cover;
   width: auto;
