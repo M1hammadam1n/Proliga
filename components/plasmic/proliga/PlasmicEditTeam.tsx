@@ -119,6 +119,7 @@ export type PlasmicEditTeam__OverridesType = {
   stadion?: Flex__<"div">;
   teamInfo?: Flex__<"div">;
   selectFormation?: Flex__<typeof AntdSelect>;
+  selectCaptain?: Flex__<typeof AntdSelect>;
   goa?: Flex__<"div">;
   avatarPlayer?: Flex__<typeof AvatarPlayer>;
   def?: Flex__<"div">;
@@ -449,6 +450,12 @@ function PlasmicEditTeam__RenderFunc(props: {
               throw e;
             }
           })()
+      },
+      {
+        path: "selectCaptain.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => 39
       }
     ],
     [$props, $ctx, $refs]
@@ -690,6 +697,18 @@ function PlasmicEditTeam__RenderFunc(props: {
         opId: "7a109e37-55b7-47f3-b827-6a51a0bec311",
         userArgs: {},
         cacheKey: `plasmic.$.7a109e37-55b7-47f3-b827-6a51a0bec311.$.`,
+        invalidatedKeys: null,
+        roleId: "f8970d3a-c1ae-4ba8-80dd-90e548ee70d6"
+      };
+    }),
+    teamCaptainPlayerList: usePlasmicDataOp(() => {
+      return {
+        sourceId: "vQtRPuFArSfh43vUmgx2PS",
+        opId: "90319dee-f341-40b3-886b-5f8acb0f41d7",
+        userArgs: {
+          params: [$queries.query.data.response[0].id]
+        },
+        cacheKey: `plasmic.$.90319dee-f341-40b3-886b-5f8acb0f41d7.$.`,
         invalidatedKeys: null,
         roleId: "f8970d3a-c1ae-4ba8-80dd-90e548ee70d6"
       };
@@ -1098,6 +1117,168 @@ function PlasmicEditTeam__RenderFunc(props: {
                         {"Kapitan"}
                       </div>
                     ) : null}
+                    <AntdSelect
+                      data-plasmic-name={"selectCaptain"}
+                      data-plasmic-override={overrides.selectCaptain}
+                      allowClear={false}
+                      bordered={true}
+                      className={classNames(
+                        "__wab_instance",
+                        sty.selectCaptain
+                      )}
+                      defaultOpen={false}
+                      defaultStylesClassName={classNames(
+                        projectcss.root_reset,
+                        projectcss.plasmic_default_styles,
+                        projectcss.plasmic_mixins,
+                        projectcss.plasmic_tokens,
+                        plasmic_antd_5_hostless_css.plasmic_tokens,
+                        plasmic_plasmic_rich_components_css.plasmic_tokens
+                      )}
+                      defaultValue={39}
+                      mode={"single"}
+                      onChange={async (...eventArgs: any) => {
+                        generateStateOnChangeProp($state, [
+                          "selectCaptain",
+                          "value"
+                        ]).apply(null, eventArgs);
+                        (async (value, option) => {
+                          const $steps = {};
+
+                          $steps["clearCaptain"] = true
+                            ? (() => {
+                                const actionArgs = {
+                                  dataOp: {
+                                    sourceId: "vQtRPuFArSfh43vUmgx2PS",
+                                    opId: "9278df28-af6d-4602-a17e-81fced8d9fc9",
+                                    userArgs: {
+                                      params: [
+                                        $queries.query.data.response[0].id
+                                      ]
+                                    },
+                                    cacheKey: null,
+                                    invalidatedKeys: ["plasmic_refresh_all"],
+                                    roleId:
+                                      "f8970d3a-c1ae-4ba8-80dd-90e548ee70d6"
+                                  },
+                                  continueOnError: true
+                                };
+                                return (async ({ dataOp, continueOnError }) => {
+                                  try {
+                                    const response = await executePlasmicDataOp(
+                                      dataOp,
+                                      {
+                                        userAuthToken:
+                                          dataSourcesCtx?.userAuthToken,
+                                        user: dataSourcesCtx?.user
+                                      }
+                                    );
+                                    await plasmicInvalidate(
+                                      dataOp.invalidatedKeys
+                                    );
+                                    return response;
+                                  } catch (e) {
+                                    if (!continueOnError) {
+                                      throw e;
+                                    }
+                                    return e;
+                                  }
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                          if (
+                            $steps["clearCaptain"] != null &&
+                            typeof $steps["clearCaptain"] === "object" &&
+                            typeof $steps["clearCaptain"].then === "function"
+                          ) {
+                            $steps["clearCaptain"] = await $steps[
+                              "clearCaptain"
+                            ];
+                          }
+
+                          $steps["updateCapitan"] = true
+                            ? (() => {
+                                const actionArgs = {
+                                  dataOp: {
+                                    sourceId: "vQtRPuFArSfh43vUmgx2PS",
+                                    opId: "96b6ddf9-440a-4894-8624-aa80651f779a",
+                                    userArgs: {
+                                      params: [
+                                        $queries.query.data.response[0].id,
+                                        $state.selectCaptain.value
+                                      ]
+                                    },
+                                    cacheKey: null,
+                                    invalidatedKeys: ["plasmic_refresh_all"],
+                                    roleId: null
+                                  }
+                                };
+                                return (async ({ dataOp, continueOnError }) => {
+                                  try {
+                                    const response = await executePlasmicDataOp(
+                                      dataOp,
+                                      {
+                                        userAuthToken:
+                                          dataSourcesCtx?.userAuthToken,
+                                        user: dataSourcesCtx?.user
+                                      }
+                                    );
+                                    await plasmicInvalidate(
+                                      dataOp.invalidatedKeys
+                                    );
+                                    return response;
+                                  } catch (e) {
+                                    if (!continueOnError) {
+                                      throw e;
+                                    }
+                                    return e;
+                                  }
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                          if (
+                            $steps["updateCapitan"] != null &&
+                            typeof $steps["updateCapitan"] === "object" &&
+                            typeof $steps["updateCapitan"].then === "function"
+                          ) {
+                            $steps["updateCapitan"] = await $steps[
+                              "updateCapitan"
+                            ];
+                          }
+                        }).apply(null, eventArgs);
+                      }}
+                      options={(() => {
+                        try {
+                          return $queries.teamCaptainPlayerList.data.response;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return [];
+                          }
+                          throw e;
+                        }
+                      })()}
+                      placeholder={
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__uWh3M
+                          )}
+                        >
+                          {"Kapitan"}
+                        </div>
+                      }
+                      popupScopeClassName={sty["selectCaptain__popup"]}
+                      showSearch={false}
+                      size={"small"}
+                      value={generateStateValueProp($state, [
+                        "selectCaptain",
+                        "value"
+                      ])}
+                    />
                   </Stack__>
                   <div
                     data-plasmic-name={"goa"}
@@ -5513,6 +5694,7 @@ const PlasmicDescendants = {
     "stadion",
     "teamInfo",
     "selectFormation",
+    "selectCaptain",
     "goa",
     "avatarPlayer",
     "def",
@@ -5552,6 +5734,7 @@ const PlasmicDescendants = {
     "stadion",
     "teamInfo",
     "selectFormation",
+    "selectCaptain",
     "goa",
     "avatarPlayer",
     "def",
@@ -5588,6 +5771,7 @@ const PlasmicDescendants = {
     "stadion",
     "teamInfo",
     "selectFormation",
+    "selectCaptain",
     "goa",
     "avatarPlayer",
     "def",
@@ -5598,8 +5782,9 @@ const PlasmicDescendants = {
     "avatarPlayer4",
     "soccerPlaceMens2"
   ],
-  teamInfo: ["teamInfo", "selectFormation"],
+  teamInfo: ["teamInfo", "selectFormation", "selectCaptain"],
   selectFormation: ["selectFormation"],
+  selectCaptain: ["selectCaptain"],
   goa: ["goa", "avatarPlayer"],
   avatarPlayer: ["avatarPlayer"],
   def: ["def", "avatarPlayer2"],
@@ -5693,6 +5878,7 @@ type NodeDefaultElementType = {
   stadion: "div";
   teamInfo: "div";
   selectFormation: typeof AntdSelect;
+  selectCaptain: typeof AntdSelect;
   goa: "div";
   avatarPlayer: typeof AvatarPlayer;
   def: "div";
@@ -5809,6 +5995,7 @@ export const PlasmicEditTeam = Object.assign(
     stadion: makeNodeComponent("stadion"),
     teamInfo: makeNodeComponent("teamInfo"),
     selectFormation: makeNodeComponent("selectFormation"),
+    selectCaptain: makeNodeComponent("selectCaptain"),
     goa: makeNodeComponent("goa"),
     avatarPlayer: makeNodeComponent("avatarPlayer"),
     def: makeNodeComponent("def"),
