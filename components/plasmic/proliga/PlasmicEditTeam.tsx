@@ -910,7 +910,7 @@ function PlasmicEditTeam__RenderFunc(props: {
                       placeholder={"Select..."}
                       popupScopeClassName={sty["selectFormation__popup"]}
                       showSearch={false}
-                      size={"middle"}
+                      size={"small"}
                       value={generateStateValueProp($state, [
                         "selectFormation",
                         "value"
