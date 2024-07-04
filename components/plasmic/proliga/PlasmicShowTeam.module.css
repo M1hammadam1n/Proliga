@@ -147,6 +147,8 @@
 }
 .link__pVx0 {
   display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .button__mfxbi:global(.__wab_instance) {
   width: 100%;
