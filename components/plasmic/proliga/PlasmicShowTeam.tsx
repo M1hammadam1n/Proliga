@@ -70,14 +70,16 @@ import Navbar from "../../Navbar"; // plasmic-import: TKT8XnZtrLZi/component
 import ShowteamNavbar from "../../ShowteamNavbar"; // plasmic-import: t1-8eQITFPkq/component
 import UserteamNavbar from "../../UserteamNavbar"; // plasmic-import: P-uBnHr89-in/component
 import { TabsContainer } from "@plasmicpkgs/plasmic-tabs";
+import { SliderWrapper } from "@plasmicpkgs/react-slick";
+import { sliderHelpers as SliderWrapper_Helpers } from "@plasmicpkgs/react-slick";
 import { TabButton } from "@plasmicpkgs/plasmic-tabs";
 import Button from "../../Button"; // plasmic-import: lBHNzts6tFyj/component
-import { TabUnderline } from "@plasmicpkgs/plasmic-tabs";
 import { TabContent } from "@plasmicpkgs/plasmic-tabs";
 import AvatarPlayerShowScore from "../../AvatarPlayerShowScore"; // plasmic-import: kJWqOT85FINq/component
 import SoccerPlaceMens2 from "../../SoccerPlaceMens2"; // plasmic-import: xodLqMOhDs29/component
 import AvatarPlayer from "../../AvatarPlayer"; // plasmic-import: 4QnaRcOLXj0D/component
 import TextInput from "../../TextInput"; // plasmic-import: xwgFLXqL07mD/component
+import { TabUnderline } from "@plasmicpkgs/plasmic-tabs";
 import PlayerPicker from "../../PlayerPicker"; // plasmic-import: FmVyQ1WB4e_T/component
 import { AntdPagination } from "@plasmicpkgs/antd5/skinny/registerPagination";
 import { paginationHelpers as AntdPagination_Helpers } from "@plasmicpkgs/antd5/skinny/registerPagination";
@@ -111,6 +113,7 @@ export type PlasmicShowTeam__OverridesType = {
   navbar?: Flex__<typeof Navbar>;
   showteamNavbar?: Flex__<typeof ShowteamNavbar>;
   userteamNavbar?: Flex__<typeof UserteamNavbar>;
+  sliderCarousel?: Flex__<typeof SliderWrapper>;
   transferVisibility?: Flex__<"div">;
   showScore?: Flex__<"div">;
   goa?: Flex__<"div">;
@@ -125,6 +128,7 @@ export type PlasmicShowTeam__OverridesType = {
   mid2?: Flex__<"div">;
   str2?: Flex__<"div">;
   textInput?: Flex__<typeof TextInput>;
+  tabUnderline?: Flex__<typeof TabUnderline>;
   playerPicker?: Flex__<typeof PlayerPicker>;
   paginationAll?: Flex__<typeof AntdPagination>;
 };
@@ -249,6 +253,15 @@ function PlasmicShowTeam__RenderFunc(props: {
         type: "private",
         variableType: "number",
         initFunc: ({ $props, $state, $queries, $ctx }) => 0
+      },
+      {
+        path: "sliderCarousel.currentSlide",
+        type: "private",
+        variableType: "number",
+        initFunc: ({ $props, $state, $queries, $ctx }) => 0,
+
+        refName: "sliderCarousel",
+        onMutate: generateOnMutateForSpec("currentSlide", SliderWrapper_Helpers)
       }
     ],
     [$props, $ctx, $refs]
@@ -518,258 +531,349 @@ function PlasmicShowTeam__RenderFunc(props: {
                     className={classNames(projectcss.all, sty.freeBox___6G0BW)}
                   >
                     <div
-                      className={classNames(projectcss.all, sty.freeBox__lhpSo)}
+                      className={classNames(projectcss.all, sty.freeBox__l36Eb)}
                     >
-                      {(_par =>
-                        !_par ? [] : Array.isArray(_par) ? _par : [_par])(
-                        (() => {
-                          try {
-                            return $queries.toursList.data.response;
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return [];
-                            }
-                            throw e;
-                          }
-                        })()
-                      ).map((__plasmic_item_0, __plasmic_idx_0) => {
-                        const currentItem = __plasmic_item_0;
-                        const currentIndex = __plasmic_idx_0;
-                        return (
-                          <TabButton
-                            className={classNames(
-                              "__wab_instance",
-                              sty.tabButton__vSx4W
-                            )}
-                            key={currentIndex}
-                            tabKey={(() => {
-                              try {
-                                return "tab" + currentIndex;
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return undefined;
-                                }
-                                throw e;
-                              }
-                            })()}
-                          >
-                            <PlasmicLink__
-                              className={classNames(
-                                projectcss.all,
-                                projectcss.a,
-                                sty.link__pVx0
-                              )}
-                              component={Link}
-                              platform={"nextjs"}
-                            >
-                              <Button
-                                onClick={async event => {
-                                  const $steps = {};
-
-                                  $steps["updateTourId"] =
-                                    $queries.query.data.response[0].created_at <
-                                    currentItem.tour_deadline
-                                      ? (() => {
-                                          const actionArgs = {
-                                            variable: {
-                                              objRoot: $state,
-                                              variablePath: ["tourId"]
-                                            },
-                                            operation: 0,
-                                            value: currentItem.tour_id
-                                          };
-                                          return (({
-                                            variable,
-                                            value,
-                                            startIndex,
-                                            deleteCount
-                                          }) => {
-                                            if (!variable) {
-                                              return;
-                                            }
-                                            const { objRoot, variablePath } =
-                                              variable;
-
-                                            $stateSet(
-                                              objRoot,
-                                              variablePath,
-                                              value
-                                            );
-                                            return value;
-                                          })?.apply(null, [actionArgs]);
-                                        })()
-                                      : undefined;
-                                  if (
-                                    $steps["updateTourId"] != null &&
-                                    typeof $steps["updateTourId"] ===
-                                      "object" &&
-                                    typeof $steps["updateTourId"].then ===
-                                      "function"
-                                  ) {
-                                    $steps["updateTourId"] = await $steps[
-                                      "updateTourId"
-                                    ];
-                                  }
-
-                                  $steps["updateTourIndex"] = true
-                                    ? (() => {
-                                        const actionArgs = {
-                                          variable: {
-                                            objRoot: $state,
-                                            variablePath: ["tourIndex"]
-                                          },
-                                          operation: 0,
-                                          value: currentIndex
-                                        };
-                                        return (({
-                                          variable,
-                                          value,
-                                          startIndex,
-                                          deleteCount
-                                        }) => {
-                                          if (!variable) {
-                                            return;
-                                          }
-                                          const { objRoot, variablePath } =
-                                            variable;
-
-                                          $stateSet(
-                                            objRoot,
-                                            variablePath,
-                                            value
-                                          );
-                                          return value;
-                                        })?.apply(null, [actionArgs]);
-                                      })()
-                                    : undefined;
-                                  if (
-                                    $steps["updateTourIndex"] != null &&
-                                    typeof $steps["updateTourIndex"] ===
-                                      "object" &&
-                                    typeof $steps["updateTourIndex"].then ===
-                                      "function"
-                                  ) {
-                                    $steps["updateTourIndex"] = await $steps[
-                                      "updateTourIndex"
-                                    ];
-                                  }
-
-                                  $steps["updateTransfer"] = true
-                                    ? (() => {
-                                        const actionArgs = {
-                                          variable: {
-                                            objRoot: $state,
-                                            variablePath: ["transfer"]
-                                          },
-                                          operation: 0,
-                                          value: true
-                                        };
-                                        return (({
-                                          variable,
-                                          value,
-                                          startIndex,
-                                          deleteCount
-                                        }) => {
-                                          if (!variable) {
-                                            return;
-                                          }
-                                          const { objRoot, variablePath } =
-                                            variable;
-
-                                          $stateSet(
-                                            objRoot,
-                                            variablePath,
-                                            value
-                                          );
-                                          return value;
-                                        })?.apply(null, [actionArgs]);
-                                      })()
-                                    : undefined;
-                                  if (
-                                    $steps["updateTransfer"] != null &&
-                                    typeof $steps["updateTransfer"] ===
-                                      "object" &&
-                                    typeof $steps["updateTransfer"].then ===
-                                      "function"
-                                  ) {
-                                    $steps["updateTransfer"] = await $steps[
-                                      "updateTransfer"
-                                    ];
-                                  }
-                                }}
-                              >
-                                <div
-                                  className={classNames(
-                                    projectcss.all,
-                                    sty.freeBox__ooh9I
-                                  )}
-                                >
-                                  <div
-                                    className={classNames(
-                                      projectcss.all,
-                                      projectcss.__wab_text,
-                                      sty.text__s9Tb
-                                    )}
-                                  >
-                                    <React.Fragment>
-                                      {(() => {
-                                        try {
-                                          return currentItem.tour_name + "-tur";
-                                        } catch (e) {
-                                          if (
-                                            e instanceof TypeError ||
-                                            e?.plasmicType ===
-                                              "PlasmicUndefinedDataError"
-                                          ) {
-                                            return "Tab 1";
-                                          }
-                                          throw e;
-                                        }
-                                      })()}
-                                    </React.Fragment>
-                                  </div>
-                                  <div
-                                    className={classNames(
-                                      projectcss.all,
-                                      projectcss.__wab_text,
-                                      sty.text___0JByj
-                                    )}
-                                  >
-                                    <React.Fragment>
-                                      {(() => {
-                                        try {
-                                          return currentItem.tour_status;
-                                        } catch (e) {
-                                          if (
-                                            e instanceof TypeError ||
-                                            e?.plasmicType ===
-                                              "PlasmicUndefinedDataError"
-                                          ) {
-                                            return "";
-                                          }
-                                          throw e;
-                                        }
-                                      })()}
-                                    </React.Fragment>
-                                  </div>
-                                </div>
-                              </Button>
-                            </PlasmicLink__>
-                          </TabButton>
-                        );
-                      })}
-                      <TabUnderline
+                      <div
                         className={classNames(
-                          "__wab_instance",
-                          sty.tabUnderline__uuQR
+                          projectcss.all,
+                          sty.freeBox__lhpSo
                         )}
-                      />
+                      >
+                        {(() => {
+                          const child$Props = {
+                            arrowColor: true ? "#11111F" : undefined,
+                            arrows: true,
+                            autoplay: false,
+                            beforeChange:
+                              generateStateOnChangePropForCodeComponents(
+                                $state,
+                                "currentSlide",
+                                ["sliderCarousel", "currentSlide"],
+                                SliderWrapper_Helpers
+                              ),
+                            centerMode: false,
+                            className: classNames(
+                              "__wab_instance",
+                              sty.sliderCarousel
+                            ),
+                            dots: false,
+                            fade: false,
+                            focusOnSelect: false,
+                            infinite: false,
+                            initialSlide: generateStateValueProp($state, [
+                              "sliderCarousel",
+                              "currentSlide"
+                            ]),
+                            pauseOnDotsHover: false,
+                            pauseOnHover: false,
+                            ref: ref => {
+                              $refs["sliderCarousel"] = ref;
+                            },
+                            sliderScopeClassName: sty["sliderCarousel__slider"],
+                            slidesPerRow: 3,
+                            variableWidth: false
+                          };
+                          initializeCodeComponentStates(
+                            $state,
+                            [
+                              {
+                                name: "currentSlide",
+                                plasmicStateName: "sliderCarousel.currentSlide"
+                              }
+                            ],
+                            [],
+                            SliderWrapper_Helpers ?? {},
+                            child$Props
+                          );
+
+                          return (
+                            <SliderWrapper
+                              data-plasmic-name={"sliderCarousel"}
+                              data-plasmic-override={overrides.sliderCarousel}
+                              {...child$Props}
+                            >
+                              {(_par =>
+                                !_par
+                                  ? []
+                                  : Array.isArray(_par)
+                                  ? _par
+                                  : [_par])(
+                                (() => {
+                                  try {
+                                    return $queries.toursList.data.response;
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return [];
+                                    }
+                                    throw e;
+                                  }
+                                })()
+                              ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                                const currentItem = __plasmic_item_0;
+                                const currentIndex = __plasmic_idx_0;
+                                return (
+                                  <Stack__
+                                    as={"div"}
+                                    hasGap={true}
+                                    className={classNames(
+                                      projectcss.all,
+                                      sty.freeBox__ieRw
+                                    )}
+                                    key={currentIndex}
+                                  >
+                                    <TabButton
+                                      className={classNames(
+                                        "__wab_instance",
+                                        sty.tabButton__vSx4W
+                                      )}
+                                      tabKey={(() => {
+                                        try {
+                                          return "tab" + currentIndex;
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return undefined;
+                                          }
+                                          throw e;
+                                        }
+                                      })()}
+                                    >
+                                      <PlasmicLink__
+                                        className={classNames(
+                                          projectcss.all,
+                                          projectcss.a,
+                                          sty.link__pVx0
+                                        )}
+                                        component={Link}
+                                        platform={"nextjs"}
+                                      >
+                                        <Button
+                                          className={classNames(
+                                            "__wab_instance",
+                                            sty.button__mfxbi
+                                          )}
+                                          onClick={async event => {
+                                            const $steps = {};
+
+                                            $steps["updateTourId"] =
+                                              $queries.query.data.response[0]
+                                                .created_at <
+                                              currentItem.tour_deadline
+                                                ? (() => {
+                                                    const actionArgs = {
+                                                      variable: {
+                                                        objRoot: $state,
+                                                        variablePath: ["tourId"]
+                                                      },
+                                                      operation: 0,
+                                                      value: currentItem.tour_id
+                                                    };
+                                                    return (({
+                                                      variable,
+                                                      value,
+                                                      startIndex,
+                                                      deleteCount
+                                                    }) => {
+                                                      if (!variable) {
+                                                        return;
+                                                      }
+                                                      const {
+                                                        objRoot,
+                                                        variablePath
+                                                      } = variable;
+
+                                                      $stateSet(
+                                                        objRoot,
+                                                        variablePath,
+                                                        value
+                                                      );
+                                                      return value;
+                                                    })?.apply(null, [
+                                                      actionArgs
+                                                    ]);
+                                                  })()
+                                                : undefined;
+                                            if (
+                                              $steps["updateTourId"] != null &&
+                                              typeof $steps["updateTourId"] ===
+                                                "object" &&
+                                              typeof $steps["updateTourId"]
+                                                .then === "function"
+                                            ) {
+                                              $steps["updateTourId"] =
+                                                await $steps["updateTourId"];
+                                            }
+
+                                            $steps["updateTourIndex"] = true
+                                              ? (() => {
+                                                  const actionArgs = {
+                                                    variable: {
+                                                      objRoot: $state,
+                                                      variablePath: [
+                                                        "tourIndex"
+                                                      ]
+                                                    },
+                                                    operation: 0,
+                                                    value: currentIndex
+                                                  };
+                                                  return (({
+                                                    variable,
+                                                    value,
+                                                    startIndex,
+                                                    deleteCount
+                                                  }) => {
+                                                    if (!variable) {
+                                                      return;
+                                                    }
+                                                    const {
+                                                      objRoot,
+                                                      variablePath
+                                                    } = variable;
+
+                                                    $stateSet(
+                                                      objRoot,
+                                                      variablePath,
+                                                      value
+                                                    );
+                                                    return value;
+                                                  })?.apply(null, [actionArgs]);
+                                                })()
+                                              : undefined;
+                                            if (
+                                              $steps["updateTourIndex"] !=
+                                                null &&
+                                              typeof $steps[
+                                                "updateTourIndex"
+                                              ] === "object" &&
+                                              typeof $steps["updateTourIndex"]
+                                                .then === "function"
+                                            ) {
+                                              $steps["updateTourIndex"] =
+                                                await $steps["updateTourIndex"];
+                                            }
+
+                                            $steps["updateTransfer"] = true
+                                              ? (() => {
+                                                  const actionArgs = {
+                                                    variable: {
+                                                      objRoot: $state,
+                                                      variablePath: ["transfer"]
+                                                    },
+                                                    operation: 0,
+                                                    value: true
+                                                  };
+                                                  return (({
+                                                    variable,
+                                                    value,
+                                                    startIndex,
+                                                    deleteCount
+                                                  }) => {
+                                                    if (!variable) {
+                                                      return;
+                                                    }
+                                                    const {
+                                                      objRoot,
+                                                      variablePath
+                                                    } = variable;
+
+                                                    $stateSet(
+                                                      objRoot,
+                                                      variablePath,
+                                                      value
+                                                    );
+                                                    return value;
+                                                  })?.apply(null, [actionArgs]);
+                                                })()
+                                              : undefined;
+                                            if (
+                                              $steps["updateTransfer"] !=
+                                                null &&
+                                              typeof $steps[
+                                                "updateTransfer"
+                                              ] === "object" &&
+                                              typeof $steps["updateTransfer"]
+                                                .then === "function"
+                                            ) {
+                                              $steps["updateTransfer"] =
+                                                await $steps["updateTransfer"];
+                                            }
+                                          }}
+                                        >
+                                          <div
+                                            className={classNames(
+                                              projectcss.all,
+                                              sty.freeBox__ooh9I
+                                            )}
+                                          >
+                                            <div
+                                              className={classNames(
+                                                projectcss.all,
+                                                projectcss.__wab_text,
+                                                sty.text__s9Tb
+                                              )}
+                                            >
+                                              <React.Fragment>
+                                                {(() => {
+                                                  try {
+                                                    return (
+                                                      currentItem.tour_name +
+                                                      "-tur"
+                                                    );
+                                                  } catch (e) {
+                                                    if (
+                                                      e instanceof TypeError ||
+                                                      e?.plasmicType ===
+                                                        "PlasmicUndefinedDataError"
+                                                    ) {
+                                                      return "Tab 1";
+                                                    }
+                                                    throw e;
+                                                  }
+                                                })()}
+                                              </React.Fragment>
+                                            </div>
+                                            <div
+                                              className={classNames(
+                                                projectcss.all,
+                                                projectcss.__wab_text,
+                                                sty.text___0JByj
+                                              )}
+                                            >
+                                              <React.Fragment>
+                                                {(() => {
+                                                  try {
+                                                    return currentItem.tour_status;
+                                                  } catch (e) {
+                                                    if (
+                                                      e instanceof TypeError ||
+                                                      e?.plasmicType ===
+                                                        "PlasmicUndefinedDataError"
+                                                    ) {
+                                                      return "";
+                                                    }
+                                                    throw e;
+                                                  }
+                                                })()}
+                                              </React.Fragment>
+                                            </div>
+                                          </div>
+                                        </Button>
+                                      </PlasmicLink__>
+                                    </TabButton>
+                                  </Stack__>
+                                );
+                              })}
+                            </SliderWrapper>
+                          );
+                        })()}
+                      </div>
                     </div>
                     <div
                       className={classNames(
@@ -2131,9 +2235,15 @@ function PlasmicShowTeam__RenderFunc(props: {
                                                         </Button>
                                                       </TabButton>
                                                       <TabUnderline
+                                                        data-plasmic-name={
+                                                          "tabUnderline"
+                                                        }
+                                                        data-plasmic-override={
+                                                          overrides.tabUnderline
+                                                        }
                                                         className={classNames(
                                                           "__wab_instance",
-                                                          sty.tabUnderline__fw6Me
+                                                          sty.tabUnderline
                                                         )}
                                                       />
                                                     </div>
@@ -2611,6 +2721,7 @@ const PlasmicDescendants = {
     "navbar",
     "showteamNavbar",
     "userteamNavbar",
+    "sliderCarousel",
     "transferVisibility",
     "showScore",
     "goa",
@@ -2625,12 +2736,14 @@ const PlasmicDescendants = {
     "mid2",
     "str2",
     "textInput",
+    "tabUnderline",
     "playerPicker",
     "paginationAll"
   ],
   navbar: ["navbar"],
   showteamNavbar: ["showteamNavbar"],
   userteamNavbar: ["userteamNavbar"],
+  sliderCarousel: ["sliderCarousel"],
   transferVisibility: ["transferVisibility"],
   showScore: ["showScore", "goa", "def", "mid", "str", "h3"],
   goa: ["goa"],
@@ -2646,6 +2759,7 @@ const PlasmicDescendants = {
     "mid2",
     "str2",
     "textInput",
+    "tabUnderline",
     "playerPicker",
     "paginationAll"
   ],
@@ -2656,6 +2770,7 @@ const PlasmicDescendants = {
     "mid2",
     "str2",
     "textInput",
+    "tabUnderline",
     "playerPicker",
     "paginationAll"
   ],
@@ -2664,6 +2779,7 @@ const PlasmicDescendants = {
   mid2: ["mid2"],
   str2: ["str2"],
   textInput: ["textInput"],
+  tabUnderline: ["tabUnderline"],
   playerPicker: ["playerPicker"],
   paginationAll: ["paginationAll"]
 } as const;
@@ -2675,6 +2791,7 @@ type NodeDefaultElementType = {
   navbar: typeof Navbar;
   showteamNavbar: typeof ShowteamNavbar;
   userteamNavbar: typeof UserteamNavbar;
+  sliderCarousel: typeof SliderWrapper;
   transferVisibility: "div";
   showScore: "div";
   goa: "div";
@@ -2689,6 +2806,7 @@ type NodeDefaultElementType = {
   mid2: "div";
   str2: "div";
   textInput: typeof TextInput;
+  tabUnderline: typeof TabUnderline;
   playerPicker: typeof PlayerPicker;
   paginationAll: typeof AntdPagination;
 };
@@ -2773,6 +2891,7 @@ export const PlasmicShowTeam = Object.assign(
     navbar: makeNodeComponent("navbar"),
     showteamNavbar: makeNodeComponent("showteamNavbar"),
     userteamNavbar: makeNodeComponent("userteamNavbar"),
+    sliderCarousel: makeNodeComponent("sliderCarousel"),
     transferVisibility: makeNodeComponent("transferVisibility"),
     showScore: makeNodeComponent("showScore"),
     goa: makeNodeComponent("goa"),
@@ -2787,6 +2906,7 @@ export const PlasmicShowTeam = Object.assign(
     mid2: makeNodeComponent("mid2"),
     str2: makeNodeComponent("str2"),
     textInput: makeNodeComponent("textInput"),
+    tabUnderline: makeNodeComponent("tabUnderline"),
     playerPicker: makeNodeComponent("playerPicker"),
     paginationAll: makeNodeComponent("paginationAll"),
 

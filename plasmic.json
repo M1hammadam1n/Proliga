@@ -1676,6 +1676,20 @@
           "cssFilePath": "plasmic/proliga/PlasmicShowteamNavbar.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "0f7LMEIXyPcP",
+          "name": "Testpage",
+          "type": "managed",
+          "projectId": "tDWy3GXn2mzd9e2xUaPdmu",
+          "renderModuleFilePath": "plasmic/proliga/PlasmicTestpage.tsx",
+          "importSpec": {
+            "modulePath": "../pages/testpage.tsx"
+          },
+          "cssFilePath": "plasmic/proliga/PlasmicTestpage.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/testpage"
         }
       ],
       "icons": [
