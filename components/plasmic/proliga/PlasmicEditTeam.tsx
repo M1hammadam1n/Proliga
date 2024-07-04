@@ -455,7 +455,7 @@ function PlasmicEditTeam__RenderFunc(props: {
         path: "selectCaptain.value",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => 39
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       }
     ],
     [$props, $ctx, $refs]
@@ -994,133 +994,10 @@ function PlasmicEditTeam__RenderFunc(props: {
                         })()}
                       </React.Fragment>
                     </div>
-                    {(() => {
-                      try {
-                        return $state.updateCapitanVisibility != true;
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return true;
-                        }
-                        throw e;
-                      }
-                    })() ? (
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text__xmoF4
-                        )}
-                        onClick={async event => {
-                          const $steps = {};
-
-                          $steps["clearCapitan"] = true
-                            ? (() => {
-                                const actionArgs = {
-                                  dataOp: {
-                                    sourceId: "vQtRPuFArSfh43vUmgx2PS",
-                                    opId: "da78de66-c9a6-4610-b2dd-5cbdcfc68a2b",
-                                    userArgs: {
-                                      params: [
-                                        $queries.query.data.response[0].id
-                                      ]
-                                    },
-                                    cacheKey: null,
-                                    invalidatedKeys: ["plasmic_refresh_all"],
-                                    roleId: null
-                                  }
-                                };
-                                return (async ({ dataOp, continueOnError }) => {
-                                  try {
-                                    const response = await executePlasmicDataOp(
-                                      dataOp,
-                                      {
-                                        userAuthToken:
-                                          dataSourcesCtx?.userAuthToken,
-                                        user: dataSourcesCtx?.user
-                                      }
-                                    );
-                                    await plasmicInvalidate(
-                                      dataOp.invalidatedKeys
-                                    );
-                                    return response;
-                                  } catch (e) {
-                                    if (!continueOnError) {
-                                      throw e;
-                                    }
-                                    return e;
-                                  }
-                                })?.apply(null, [actionArgs]);
-                              })()
-                            : undefined;
-                          if (
-                            $steps["clearCapitan"] != null &&
-                            typeof $steps["clearCapitan"] === "object" &&
-                            typeof $steps["clearCapitan"].then === "function"
-                          ) {
-                            $steps["clearCapitan"] = await $steps[
-                              "clearCapitan"
-                            ];
-                          }
-
-                          $steps["httpPatch"] = true
-                            ? (() => {
-                                const actionArgs = {
-                                  dataOp: {
-                                    sourceId: "vQtRPuFArSfh43vUmgx2PS",
-                                    opId: "a66f9bf4-9933-41f8-974b-1f6b6fd937c7",
-                                    userArgs: {
-                                      params: [
-                                        $state.playerId,
-                                        $queries.query.data.response[0].id
-                                      ]
-                                    },
-                                    cacheKey: null,
-                                    invalidatedKeys: ["plasmic_refresh_all"],
-                                    roleId: null
-                                  }
-                                };
-                                return (async ({ dataOp, continueOnError }) => {
-                                  try {
-                                    const response = await executePlasmicDataOp(
-                                      dataOp,
-                                      {
-                                        userAuthToken:
-                                          dataSourcesCtx?.userAuthToken,
-                                        user: dataSourcesCtx?.user
-                                      }
-                                    );
-                                    await plasmicInvalidate(
-                                      dataOp.invalidatedKeys
-                                    );
-                                    return response;
-                                  } catch (e) {
-                                    if (!continueOnError) {
-                                      throw e;
-                                    }
-                                    return e;
-                                  }
-                                })?.apply(null, [actionArgs]);
-                              })()
-                            : undefined;
-                          if (
-                            $steps["httpPatch"] != null &&
-                            typeof $steps["httpPatch"] === "object" &&
-                            typeof $steps["httpPatch"].then === "function"
-                          ) {
-                            $steps["httpPatch"] = await $steps["httpPatch"];
-                          }
-                        }}
-                      >
-                        {"Kapitan"}
-                      </div>
-                    ) : null}
                     <AntdSelect
                       data-plasmic-name={"selectCaptain"}
                       data-plasmic-override={overrides.selectCaptain}
-                      allowClear={false}
+                      allowClear={true}
                       bordered={true}
                       className={classNames(
                         "__wab_instance",
@@ -1135,7 +1012,6 @@ function PlasmicEditTeam__RenderFunc(props: {
                         plasmic_antd_5_hostless_css.plasmic_tokens,
                         plasmic_plasmic_rich_components_css.plasmic_tokens
                       )}
-                      defaultValue={39}
                       mode={"single"}
                       onChange={async (...eventArgs: any) => {
                         generateStateOnChangeProp($state, [
