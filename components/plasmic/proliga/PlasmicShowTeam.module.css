@@ -103,13 +103,12 @@
   padding: 0px;
 }
 .sliderCarousel:global(.__wab_instance) {
-  width: 100%;
+  width: auto;
   max-width: 100%;
   flex-direction: column;
   object-fit: cover;
   position: relative;
   flex-grow: 0;
-  min-width: 0;
 }
 .freeBox__ieRw {
   display: flex;

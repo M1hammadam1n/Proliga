@@ -1676,6 +1676,20 @@
           "cssFilePath": "plasmic/proliga/PlasmicShowteamNavbar.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "nOX5y_ftO2uc",
+          "name": "Antd",
+          "type": "managed",
+          "projectId": "tDWy3GXn2mzd9e2xUaPdmu",
+          "renderModuleFilePath": "plasmic/proliga/PlasmicAntd.tsx",
+          "importSpec": {
+            "modulePath": "../pages/antd.tsx"
+          },
+          "cssFilePath": "plasmic/proliga/PlasmicAntd.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/antd"
         }
       ],
       "icons": [

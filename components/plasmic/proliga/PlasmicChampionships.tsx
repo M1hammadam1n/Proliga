@@ -345,16 +345,17 @@ function PlasmicChampionships__RenderFunc(props: {
                             const actionArgs = {
                               dataOp: {
                                 sourceId: "vQtRPuFArSfh43vUmgx2PS",
-                                opId: "3040e1d8-db14-40e4-a867-3df1ce6384c3",
+                                opId: "1516b910-3ba3-441e-b46f-e9fab2c40b6b",
                                 userArgs: {
                                   body: [
                                     $state.userId,
-                                    currentItem.competition_id
+                                    currentItem.competition_id,
+                                    $queries.tourList.data.response[0].id
                                   ]
                                 },
                                 cacheKey: null,
                                 invalidatedKeys: ["plasmic_refresh_all"],
-                                roleId: null
+                                roleId: "f8970d3a-c1ae-4ba8-80dd-90e548ee70d6"
                               }
                             };
                             return (async ({ dataOp, continueOnError }) => {
