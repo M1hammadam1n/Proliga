@@ -42,7 +42,7 @@ function LoginAuth_(props: LoginAuthProps, ref: HTMLElementRefOf<"div">) {
                                });
 
                                if (error) {
-                                 console.error(error)
+                                 // console.error(error)
                                  alert(error)
                                } else {
                                  // alert(password)

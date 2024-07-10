@@ -27,10 +27,10 @@ export async function getPlasmicAuthData(
       email: user?.email,
       appSecret: PLASMIC_AUTH_SECRET!,
     });
-    console.log(result)
+    // console.log(result)
     if (result.error) {
       // throw new Error("Error creating user: " + result.error);
-      console.log(result.error);
+      // console.log(result.error);
     }
 
     const { user: plasmicUser, token: plasmicUserToken } = result;
