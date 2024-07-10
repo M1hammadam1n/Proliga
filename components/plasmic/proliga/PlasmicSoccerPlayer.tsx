@@ -244,6 +244,21 @@ function PlasmicSoccerPlayer__RenderFunc(props: {
                   "__wab_instance",
                   sty.avatarPlayerShowScore__txnxY
                 )}
+                image={(() => {
+                  try {
+                    return $queries.player.data.response.find(
+                      x => x.id === currentItem.player_id
+                    ).image;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return undefined;
+                    }
+                    throw e;
+                  }
+                })()}
                 name={(() => {
                   try {
                     return $queries.player.data.response.find(
@@ -313,6 +328,21 @@ function PlasmicSoccerPlayer__RenderFunc(props: {
                   "__wab_instance",
                   sty.avatarPlayerShowScore___9Ry4H
                 )}
+                image={(() => {
+                  try {
+                    return $queries.player.data.response.find(
+                      x => x.id === currentItem.player_id
+                    ).image;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return undefined;
+                    }
+                    throw e;
+                  }
+                })()}
                 name={(() => {
                   try {
                     return $queries.player.data.response.find(
@@ -382,6 +412,21 @@ function PlasmicSoccerPlayer__RenderFunc(props: {
                   "__wab_instance",
                   sty.avatarPlayerShowScore__fsYvx
                 )}
+                image={(() => {
+                  try {
+                    return $queries.player.data.response.find(
+                      x => x.id === currentItem.player_id
+                    ).image;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return undefined;
+                    }
+                    throw e;
+                  }
+                })()}
                 name={(() => {
                   try {
                     return $queries.player.data.response.find(
@@ -451,6 +496,21 @@ function PlasmicSoccerPlayer__RenderFunc(props: {
                   "__wab_instance",
                   sty.avatarPlayerShowScore__cqYqw
                 )}
+                image={(() => {
+                  try {
+                    return $queries.player.data.response.find(
+                      x => x.id === currentItem.player_id
+                    ).image;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return undefined;
+                    }
+                    throw e;
+                  }
+                })()}
                 name={(() => {
                   try {
                     return $queries.player.data.response.find(
