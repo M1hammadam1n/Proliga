@@ -1690,6 +1690,19 @@
           "scheme": "blackbox",
           "componentType": "page",
           "path": "/antd"
+        },
+        {
+          "id": "-eOKDhlYVUJ1",
+          "name": "SoccerPlayer",
+          "type": "managed",
+          "projectId": "tDWy3GXn2mzd9e2xUaPdmu",
+          "renderModuleFilePath": "plasmic/proliga/PlasmicSoccerPlayer.tsx",
+          "importSpec": {
+            "modulePath": "SoccerPlayer.tsx"
+          },
+          "cssFilePath": "plasmic/proliga/PlasmicSoccerPlayer.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [
@@ -2261,6 +2274,12 @@
           "name": "Fetcher",
           "displayName": "plasmic-data-source-fetcher",
           "componentImportPath": "@plasmicapp/react-web/lib/data-sources"
+        },
+        {
+          "id": "m9jSrOEoh6ow",
+          "name": "MyTabs",
+          "displayName": "MyTabs",
+          "componentImportPath": "../components/MyTabs.tsx"
         }
       ],
       "customFunctions": []

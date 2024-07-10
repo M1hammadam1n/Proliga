@@ -65,6 +65,7 @@ import {
   usePlasmicInvalidate
 } from "@plasmicapp/react-web/lib/data-sources";
 
+import SoccerPlayer from "../../SoccerPlayer"; // plasmic-import: -eOKDhlYVUJ1/component
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 
 import "@plasmicapp/react-web/lib/plasmic.css";
@@ -87,6 +88,7 @@ export const PlasmicAntd__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicAntd__OverridesType = {
   root?: Flex__<"div">;
+  soccerPlayer?: Flex__<typeof SoccerPlayer>;
 };
 
 export interface DefaultAntdProps {}
@@ -130,9 +132,19 @@ function PlasmicAntd__RenderFunc(props: {
     player: usePlasmicDataOp(() => {
       return {
         sourceId: "vQtRPuFArSfh43vUmgx2PS",
-        opId: "71eca70c-ace4-4858-bea8-6969063549a4",
+        opId: "5c6dcca4-2381-4bcb-b0e7-c3b984c62170",
         userArgs: {},
-        cacheKey: `plasmic.$.71eca70c-ace4-4858-bea8-6969063549a4.$.`,
+        cacheKey: `plasmic.$.5c6dcca4-2381-4bcb-b0e7-c3b984c62170.$.`,
+        invalidatedKeys: null,
+        roleId: null
+      };
+    }),
+    teamPlayer: usePlasmicDataOp(() => {
+      return {
+        sourceId: "vQtRPuFArSfh43vUmgx2PS",
+        opId: "4a52383e-910c-4348-b089-52e55916cc02",
+        userArgs: {},
+        cacheKey: `plasmic.$.4a52383e-910c-4348-b089-52e55916cc02.$.`,
         invalidatedKeys: null,
         roleId: null
       };
@@ -170,20 +182,41 @@ function PlasmicAntd__RenderFunc(props: {
             plasmic_plasmic_rich_components_css.plasmic_tokens,
             sty.root
           )}
-        />
+        >
+          <SoccerPlayer
+            data-plasmic-name={"soccerPlayer"}
+            data-plasmic-override={overrides.soccerPlayer}
+            className={classNames("__wab_instance", sty.soccerPlayer)}
+            teamPlayer={(() => {
+              try {
+                return $queries.teamPlayer.data.response;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return undefined;
+                }
+                throw e;
+              }
+            })()}
+          />
+        </div>
       </div>
     </React.Fragment>
   ) as React.ReactElement | null;
 }
 
 const PlasmicDescendants = {
-  root: ["root"]
+  root: ["root", "soccerPlayer"],
+  soccerPlayer: ["soccerPlayer"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
+  soccerPlayer: typeof SoccerPlayer;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -246,6 +279,7 @@ export const PlasmicAntd = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
+    soccerPlayer: makeNodeComponent("soccerPlayer"),
 
     // Metadata about props expected for PlasmicAntd
     internalVariantProps: PlasmicAntd__VariantProps,

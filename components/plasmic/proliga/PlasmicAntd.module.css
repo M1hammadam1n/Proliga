@@ -4,8 +4,8 @@
   position: relative;
   width: 100%;
   height: 100%;
-  align-content: flex-start;
-  justify-items: center;
+  align-content: center;
+  justify-items: flex-end;
   justify-content: flex-start;
   align-items: center;
   background: var(--token-Le07ngBUPl2h);
@@ -21,4 +21,8 @@
 }
 .root > * {
   grid-column: 4;
+}
+.soccerPlayer:global(.__wab_instance) {
+  max-width: 100%;
+  position: relative;
 }

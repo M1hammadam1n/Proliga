@@ -11,7 +11,7 @@ interface TabPanelProps {
 
 interface TabPanelPropsData {
     category_id: number;
-    category_name: string;
+    tour_name: string;
     description: string;
 }
 
@@ -59,14 +59,14 @@ export default function MyTabs(props) {
                     allowScrollButtonsMobile
                 >
                     {data.map((item: TabPanelPropsData, key: number) => {
-                        return <Tab key={key} label={item.category_name} {...a11yProps(key)} />;
+                        return <Tab key={key} label={item.tour_name} {...a11yProps(key)} />;
                     })}
                 </Tabs>
             </Box>
             {data.map((item: TabPanelPropsData, key: number) => {
                 return (
                     <CustomTabPanel key={key} value={value} index={key}>
-                        {item.description}
+                        {item.tour_name}
                     </CustomTabPanel>
                 );
             })}
