@@ -102,7 +102,6 @@ export type PlasmicSoccerPlayer__OverridesType = {
   midInside?: Flex__<"div">;
   str?: Flex__<"div">;
   strInside?: Flex__<"div">;
-  text?: Flex__<"div">;
 };
 
 export interface DefaultSoccerPlayerProps {
@@ -155,6 +154,16 @@ function PlasmicSoccerPlayer__RenderFunc(props: {
         invalidatedKeys: null,
         roleId: null
       };
+    }),
+    player: usePlasmicDataOp(() => {
+      return {
+        sourceId: "vQtRPuFArSfh43vUmgx2PS",
+        opId: "345bf220-80a5-4ffb-87f5-b4a288725944",
+        userArgs: {},
+        cacheKey: `plasmic.$.345bf220-80a5-4ffb-87f5-b4a288725944.$.`,
+        invalidatedKeys: null,
+        roleId: null
+      };
     })
   };
   if (Object.keys(new$Queries).some(k => new$Queries[k] !== $queries[k])) {
@@ -194,7 +203,7 @@ function PlasmicSoccerPlayer__RenderFunc(props: {
         {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
           (() => {
             try {
-              return $queries.teamPlayer.data.response.filter(
+              return $props.teamPlayer.data.response.filter(
                 x => x.position === "GOA"
               );
             } catch (e) {
@@ -218,13 +227,41 @@ function PlasmicSoccerPlayer__RenderFunc(props: {
               key={currentIndex}
             >
               <AvatarPlayerShowScore
+                capitanVisibility={(() => {
+                  try {
+                    return currentItem.is_captain === true;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return false;
+                    }
+                    throw e;
+                  }
+                })()}
                 className={classNames(
                   "__wab_instance",
                   sty.avatarPlayerShowScore__txnxY
                 )}
                 name={(() => {
                   try {
-                    return undefined;
+                    return $queries.player.data.response.find(
+                      x => x.id === currentItem.player_id
+                    ).name;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return undefined;
+                    }
+                    throw e;
+                  }
+                })()}
+                ochko={(() => {
+                  try {
+                    return currentItem.point;
                   } catch (e) {
                     if (
                       e instanceof TypeError ||
@@ -248,7 +285,7 @@ function PlasmicSoccerPlayer__RenderFunc(props: {
         {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
           (() => {
             try {
-              return $queries.teamPlayer.data.response.filter(
+              return $props.teamPlayer.data.response.filter(
                 x => x.position === "DEF"
               );
             } catch (e) {
@@ -278,7 +315,22 @@ function PlasmicSoccerPlayer__RenderFunc(props: {
                 )}
                 name={(() => {
                   try {
-                    return undefined;
+                    return $queries.player.data.response.find(
+                      x => x.id === currentItem.player_id
+                    ).name;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return undefined;
+                    }
+                    throw e;
+                  }
+                })()}
+                ochko={(() => {
+                  try {
+                    return currentItem.point;
                   } catch (e) {
                     if (
                       e instanceof TypeError ||
@@ -302,7 +354,7 @@ function PlasmicSoccerPlayer__RenderFunc(props: {
         {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
           (() => {
             try {
-              return $queries.teamPlayer.data.response.filter(
+              return $props.teamPlayer.data.response.filter(
                 x => x.position === "MID"
               );
             } catch (e) {
@@ -332,7 +384,22 @@ function PlasmicSoccerPlayer__RenderFunc(props: {
                 )}
                 name={(() => {
                   try {
-                    return undefined;
+                    return $queries.player.data.response.find(
+                      x => x.id === currentItem.player_id
+                    ).name;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return undefined;
+                    }
+                    throw e;
+                  }
+                })()}
+                ochko={(() => {
+                  try {
+                    return currentItem.point;
                   } catch (e) {
                     if (
                       e instanceof TypeError ||
@@ -356,7 +423,7 @@ function PlasmicSoccerPlayer__RenderFunc(props: {
         {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
           (() => {
             try {
-              return $queries.teamPlayer.data.response.filter(
+              return $props.teamPlayer.data.response.filter(
                 x => x.position === "STR"
               );
             } catch (e) {
@@ -386,7 +453,22 @@ function PlasmicSoccerPlayer__RenderFunc(props: {
                 )}
                 name={(() => {
                   try {
-                    return undefined;
+                    return $queries.player.data.response.find(
+                      x => x.id === currentItem.player_id
+                    ).name;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return undefined;
+                    }
+                    throw e;
+                  }
+                })()}
+                ochko={(() => {
+                  try {
+                    return currentItem.point;
                   } catch (e) {
                     if (
                       e instanceof TypeError ||
@@ -401,27 +483,6 @@ function PlasmicSoccerPlayer__RenderFunc(props: {
             </div>
           );
         })}
-      </div>
-      <div
-        data-plasmic-name={"text"}
-        data-plasmic-override={overrides.text}
-        className={classNames(projectcss.all, projectcss.__wab_text, sty.text)}
-      >
-        <React.Fragment>
-          {(() => {
-            try {
-              return "Miss " + $props.teamPlayer?.length;
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return "";
-              }
-              throw e;
-            }
-          })()}
-        </React.Fragment>
       </div>
     </div>
   ) as React.ReactElement | null;
@@ -438,8 +499,7 @@ const PlasmicDescendants = {
     "mid",
     "midInside",
     "str",
-    "strInside",
-    "text"
+    "strInside"
   ],
   soccerPlaceMens2: ["soccerPlaceMens2"],
   goa: ["goa", "goaINside"],
@@ -449,8 +509,7 @@ const PlasmicDescendants = {
   mid: ["mid", "midInside"],
   midInside: ["midInside"],
   str: ["str", "strInside"],
-  strInside: ["strInside"],
-  text: ["text"]
+  strInside: ["strInside"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -466,7 +525,6 @@ type NodeDefaultElementType = {
   midInside: "div";
   str: "div";
   strInside: "div";
-  text: "div";
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -538,7 +596,6 @@ export const PlasmicSoccerPlayer = Object.assign(
     midInside: makeNodeComponent("midInside"),
     str: makeNodeComponent("str"),
     strInside: makeNodeComponent("strInside"),
-    text: makeNodeComponent("text"),
 
     // Metadata about props expected for PlasmicSoccerPlayer
     internalVariantProps: PlasmicSoccerPlayer__VariantProps,

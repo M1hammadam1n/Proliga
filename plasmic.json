@@ -1703,6 +1703,19 @@
           "cssFilePath": "plasmic/proliga/PlasmicSoccerPlayer.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "XLbFBwTC8DV4",
+          "name": "SoccerPosition",
+          "type": "managed",
+          "projectId": "tDWy3GXn2mzd9e2xUaPdmu",
+          "renderModuleFilePath": "plasmic/proliga/PlasmicSoccerPosition.tsx",
+          "importSpec": {
+            "modulePath": "SoccerPosition.tsx"
+          },
+          "cssFilePath": "plasmic/proliga/PlasmicSoccerPosition.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [

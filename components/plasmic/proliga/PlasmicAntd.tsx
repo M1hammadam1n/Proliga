@@ -189,7 +189,7 @@ function PlasmicAntd__RenderFunc(props: {
             className={classNames("__wab_instance", sty.soccerPlayer)}
             teamPlayer={(() => {
               try {
-                return $queries.teamPlayer.data.response;
+                return $queries.teamPlayer;
               } catch (e) {
                 if (
                   e instanceof TypeError ||

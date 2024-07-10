@@ -12,6 +12,7 @@
   max-width: 100%;
   position: relative;
   z-index: 0;
+  width: auto;
 }
 .goa {
   display: flex;
@@ -57,7 +58,7 @@
   max-width: 100%;
   z-index: 2;
   left: 101px;
-  top: 91px;
+  top: 96px;
   padding: 0px;
 }
 .inside {
@@ -89,8 +90,8 @@
   height: auto;
   max-width: 100%;
   z-index: 2;
-  left: 124px;
-  top: 169px;
+  left: 130px;
+  top: 178px;
   padding: 0px;
 }
 .midInside {
@@ -122,8 +123,8 @@
   height: auto;
   max-width: 100%;
   z-index: 2;
-  left: 121px;
-  top: 248px;
+  left: 131px;
+  top: 271px;
   padding: 0px;
 }
 .strInside {
@@ -144,11 +145,4 @@
   position: relative;
   left: auto;
   top: auto;
-}
-.text {
-  position: relative;
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-  min-width: 0;
 }
