@@ -1,0 +1,148 @@
+.root {
+  display: inline-flex;
+  flex-direction: column;
+  position: relative;
+  width: auto;
+  height: auto;
+  justify-content: flex-start;
+  align-items: center;
+  justify-self: flex-start;
+}
+.soccerPlaceMens2:global(.__wab_instance) {
+  max-width: 100%;
+  position: relative;
+  z-index: 0;
+  width: auto;
+}
+.goa {
+  display: flex;
+  position: absolute;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  z-index: 2;
+  left: 173px;
+  top: 20px;
+  padding: 0px;
+}
+.goaINside {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  z-index: 2;
+  min-width: 0;
+  padding: 0px;
+}
+.avatarPlayerShowScore__txnxY:global(.__wab_instance) {
+  max-width: 100%;
+  position: relative;
+  left: auto;
+  top: auto;
+}
+.def {
+  display: flex;
+  position: absolute;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  z-index: 2;
+  left: 101px;
+  top: 96px;
+  padding: 0px;
+}
+.inside {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  z-index: 2;
+  min-width: 0;
+  padding: 0px;
+}
+.avatarPlayerShowScore___9Ry4H:global(.__wab_instance) {
+  max-width: 100%;
+  position: relative;
+  left: auto;
+  top: auto;
+}
+.mid {
+  display: flex;
+  position: absolute;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  z-index: 2;
+  left: 130px;
+  top: 178px;
+  padding: 0px;
+}
+.midInside {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  z-index: 2;
+  min-width: 0;
+  padding: 0px;
+}
+.avatarPlayerShowScore__fsYvx:global(.__wab_instance) {
+  max-width: 100%;
+  position: relative;
+  left: auto;
+  top: auto;
+}
+.str {
+  display: flex;
+  position: absolute;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  z-index: 2;
+  left: 131px;
+  top: 271px;
+  padding: 0px;
+}
+.strInside {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  z-index: 2;
+  min-width: 0;
+  padding: 0px;
+}
+.avatarPlayerShowScore__cqYqw:global(.__wab_instance) {
+  max-width: 100%;
+  position: relative;
+  left: auto;
+  top: auto;
+}

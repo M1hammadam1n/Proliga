@@ -1678,18 +1678,44 @@
           "componentType": "component"
         },
         {
-          "id": "nOX5y_ftO2uc",
-          "name": "Antd",
+          "id": "-eOKDhlYVUJ1",
+          "name": "SoccerPlayer",
           "type": "managed",
           "projectId": "tDWy3GXn2mzd9e2xUaPdmu",
-          "renderModuleFilePath": "plasmic/proliga/PlasmicAntd.tsx",
+          "renderModuleFilePath": "plasmic/proliga/PlasmicSoccerPlayer.tsx",
           "importSpec": {
-            "modulePath": "../pages/antd.tsx"
+            "modulePath": "SoccerPlayer.tsx"
           },
-          "cssFilePath": "plasmic/proliga/PlasmicAntd.module.css",
+          "cssFilePath": "plasmic/proliga/PlasmicSoccerPlayer.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "XLbFBwTC8DV4",
+          "name": "SoccerPosition",
+          "type": "managed",
+          "projectId": "tDWy3GXn2mzd9e2xUaPdmu",
+          "renderModuleFilePath": "plasmic/proliga/PlasmicSoccerPosition.tsx",
+          "importSpec": {
+            "modulePath": "SoccerPosition.tsx"
+          },
+          "cssFilePath": "plasmic/proliga/PlasmicSoccerPosition.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "uhxDTfbjAHDI",
+          "name": "Tab",
+          "type": "managed",
+          "projectId": "tDWy3GXn2mzd9e2xUaPdmu",
+          "renderModuleFilePath": "plasmic/proliga/PlasmicTab.tsx",
+          "importSpec": {
+            "modulePath": "../pages/tab.tsx"
+          },
+          "cssFilePath": "plasmic/proliga/PlasmicTab.module.css",
           "scheme": "blackbox",
           "componentType": "page",
-          "path": "/antd"
+          "path": "/tab"
         }
       ],
       "icons": [
