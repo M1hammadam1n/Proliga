@@ -2287,12 +2287,6 @@
           "name": "Fetcher",
           "displayName": "plasmic-data-source-fetcher",
           "componentImportPath": "@plasmicapp/react-web/lib/data-sources"
-        },
-        {
-          "id": "m9jSrOEoh6ow",
-          "name": "MyTabs",
-          "displayName": "MyTabs",
-          "componentImportPath": "../components/MyTabs.tsx"
         }
       ],
       "customFunctions": []

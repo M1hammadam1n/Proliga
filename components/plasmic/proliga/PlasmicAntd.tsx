@@ -65,7 +65,8 @@ import {
   usePlasmicInvalidate
 } from "@plasmicapp/react-web/lib/data-sources";
 
-import SoccerPlayer from "../../SoccerPlayer"; // plasmic-import: -eOKDhlYVUJ1/component
+import { AntdTabs } from "@plasmicpkgs/antd5/skinny/registerTabs";
+import { AntdTabItem } from "@plasmicpkgs/antd5/skinny/registerTabs";
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 
 import "@plasmicapp/react-web/lib/plasmic.css";
@@ -88,7 +89,8 @@ export const PlasmicAntd__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicAntd__OverridesType = {
   root?: Flex__<"div">;
-  soccerPlayer?: Flex__<typeof SoccerPlayer>;
+  tabs?: Flex__<typeof AntdTabs>;
+  tabItem?: Flex__<typeof AntdTabItem>;
 };
 
 export interface DefaultAntdProps {}
@@ -127,6 +129,23 @@ function PlasmicAntd__RenderFunc(props: {
   let [$queries, setDollarQueries] = React.useState<
     Record<string, ReturnType<typeof usePlasmicDataOp>>
   >({});
+  const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
+    () => [
+      {
+        path: "tabs.activeKey",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      }
+    ],
+    [$props, $ctx, $refs]
+  );
+  const $state = useDollarState(stateSpecs, {
+    $props,
+    $ctx,
+    $queries: $queries,
+    $refs
+  });
 
   const new$Queries: Record<string, ReturnType<typeof usePlasmicDataOp>> = {
     player: usePlasmicDataOp(() => {
@@ -183,23 +202,94 @@ function PlasmicAntd__RenderFunc(props: {
             sty.root
           )}
         >
-          <SoccerPlayer
-            data-plasmic-name={"soccerPlayer"}
-            data-plasmic-override={overrides.soccerPlayer}
-            className={classNames("__wab_instance", sty.soccerPlayer)}
-            teamPlayer={(() => {
-              try {
-                return $queries.teamPlayer;
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return undefined;
+          <AntdTabs
+            data-plasmic-name={"tabs"}
+            data-plasmic-override={overrides.tabs}
+            activeKey={generateStateValueProp($state, ["tabs", "activeKey"])}
+            animateTabBar={true}
+            animateTabContent={false}
+            animated={true}
+            className={classNames("__wab_instance", sty.tabs)}
+            items={(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
+              (() => {
+                try {
+                  return $queries.player.data.response;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return [];
+                  }
+                  throw e;
                 }
-                throw e;
-              }
-            })()}
+              })()
+            ).map((__plasmic_item_0, __plasmic_idx_0) => {
+              const currentItem = __plasmic_item_0;
+              const currentIndex = __plasmic_idx_0;
+              return (
+                <AntdTabItem
+                  data-plasmic-name={"tabItem"}
+                  data-plasmic-override={overrides.tabItem}
+                  className={classNames("__wab_instance", sty.tabItem)}
+                  key={"1"}
+                  label={
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__pI3Bz
+                      )}
+                    >
+                      <React.Fragment>
+                        {(() => {
+                          try {
+                            return currentItem.name;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return "First Item";
+                            }
+                            throw e;
+                          }
+                        })()}
+                      </React.Fragment>
+                    </div>
+                  }
+                >
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text___3HIhO
+                    )}
+                  >
+                    <React.Fragment>
+                      {(() => {
+                        try {
+                          return currentItem.name;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return "First Children";
+                          }
+                          throw e;
+                        }
+                      })()}
+                    </React.Fragment>
+                  </div>
+                </AntdTabItem>
+              );
+            })}
+            onChange={generateStateOnChangeProp($state, ["tabs", "activeKey"])}
+            sticky={false}
+            tabBarBackground={"#FFF"}
+            tabsDropdownScopeClassName={sty["tabs__tabsDropdown"]}
+            tabsScopeClassName={sty["tabs__tabs"]}
           />
         </div>
       </div>
@@ -208,15 +298,17 @@ function PlasmicAntd__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "soccerPlayer"],
-  soccerPlayer: ["soccerPlayer"]
+  root: ["root", "tabs", "tabItem"],
+  tabs: ["tabs", "tabItem"],
+  tabItem: ["tabItem"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
-  soccerPlayer: typeof SoccerPlayer;
+  tabs: typeof AntdTabs;
+  tabItem: typeof AntdTabItem;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -279,7 +371,8 @@ export const PlasmicAntd = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
-    soccerPlayer: makeNodeComponent("soccerPlayer"),
+    tabs: makeNodeComponent("tabs"),
+    tabItem: makeNodeComponent("tabItem"),
 
     // Metadata about props expected for PlasmicAntd
     internalVariantProps: PlasmicAntd__VariantProps,

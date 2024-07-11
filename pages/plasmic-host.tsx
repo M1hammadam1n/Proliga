@@ -23,17 +23,17 @@ import MyTabs from "@/components/MyTabs";
 //   importPath: '@/components/Greetings'
 // })
 
-registerComponent(MyTabs, {
-  name: "MyTabs",
-  props: {
-    config: "object",
-    children: "slot",
-    data: {
-      type: "array",
-    },
-  },
-  importPath: "../components/MyTabs.tsx",
-});
+// registerComponent(MyTabs, {
+//   name: "MyTabs",
+//   props: {
+//     config: "object",
+//     children: "slot",
+//     data: {
+//       type: "array",
+//     },
+//   },
+//   importPath: "../components/MyTabs.tsx",
+// });
 export default function PlasmicHost() {
   return <PlasmicCanvasHost />;
 }
