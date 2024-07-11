@@ -1678,30 +1678,18 @@
           "componentType": "component"
         },
         {
-          "id": "-eOKDhlYVUJ1",
-          "name": "SoccerPlayer",
+          "id": "nOX5y_ftO2uc",
+          "name": "Antd",
           "type": "managed",
           "projectId": "tDWy3GXn2mzd9e2xUaPdmu",
-          "renderModuleFilePath": "plasmic/proliga/PlasmicSoccerPlayer.tsx",
+          "renderModuleFilePath": "plasmic/proliga/PlasmicAntd.tsx",
           "importSpec": {
-            "modulePath": "SoccerPlayer.tsx"
+            "modulePath": "../pages/antd.tsx"
           },
-          "cssFilePath": "plasmic/proliga/PlasmicSoccerPlayer.module.css",
+          "cssFilePath": "plasmic/proliga/PlasmicAntd.module.css",
           "scheme": "blackbox",
-          "componentType": "component"
-        },
-        {
-          "id": "XLbFBwTC8DV4",
-          "name": "SoccerPosition",
-          "type": "managed",
-          "projectId": "tDWy3GXn2mzd9e2xUaPdmu",
-          "renderModuleFilePath": "plasmic/proliga/PlasmicSoccerPosition.tsx",
-          "importSpec": {
-            "modulePath": "SoccerPosition.tsx"
-          },
-          "cssFilePath": "plasmic/proliga/PlasmicSoccerPosition.module.css",
-          "scheme": "blackbox",
-          "componentType": "component"
+          "componentType": "page",
+          "path": "/antd"
         }
       ],
       "icons": [

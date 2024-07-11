@@ -45,6 +45,14 @@
 .img__uChDu > picture > img {
   object-fit: contain;
 }
+.img__yBf8V {
+  object-fit: contain;
+  width: 30px;
+  flex-shrink: 0;
+}
+.img__yBf8V > picture > img {
+  object-fit: contain;
+}
 .freeBox___9RtP1 {
   display: flex;
   position: relative;

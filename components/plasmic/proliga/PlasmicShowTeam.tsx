@@ -118,7 +118,6 @@ export type PlasmicShowTeam__OverridesType = {
   mid?: Flex__<"div">;
   str?: Flex__<"div">;
   h3?: Flex__<"h3">;
-  img?: Flex__<typeof PlasmicImg__>;
   transferTourVisibility?: Flex__<"div">;
   transferTour?: Flex__<"div">;
   goa2?: Flex__<"div">;
@@ -516,7 +515,6 @@ function PlasmicShowTeam__RenderFunc(props: {
                   sty.tabsContainer__ipPnb
                 )}
                 initialKey={"tab0"}
-                mountMode={"mountAllEagerly"}
                 previewAll={false}
               >
                 <DataCtxReader__>
@@ -1712,19 +1710,6 @@ function PlasmicShowTeam__RenderFunc(props: {
                                             </React.Fragment>
                                           </h1>
                                         </Stack__>
-                                        <PlasmicImg__
-                                          data-plasmic-name={"img"}
-                                          data-plasmic-override={overrides.img}
-                                          alt={""}
-                                          className={classNames(sty.img)}
-                                          displayHeight={"auto"}
-                                          displayMaxHeight={"none"}
-                                          displayMaxWidth={"100%"}
-                                          displayMinHeight={"0"}
-                                          displayMinWidth={"0"}
-                                          displayWidth={"auto"}
-                                          loading={"lazy"}
-                                        />
                                       </div>
                                     </div>
                                   ) : null}
@@ -2690,7 +2675,6 @@ const PlasmicDescendants = {
     "mid",
     "str",
     "h3",
-    "img",
     "transferTourVisibility",
     "transferTour",
     "goa2",
@@ -2706,13 +2690,12 @@ const PlasmicDescendants = {
   showteamNavbar: ["showteamNavbar"],
   userteamNavbar: ["userteamNavbar"],
   transferVisibility: ["transferVisibility"],
-  showScore: ["showScore", "goa", "def", "mid", "str", "h3", "img"],
+  showScore: ["showScore", "goa", "def", "mid", "str", "h3"],
   goa: ["goa"],
   def: ["def"],
   mid: ["mid"],
   str: ["str"],
   h3: ["h3"],
-  img: ["img"],
   transferTourVisibility: [
     "transferTourVisibility",
     "transferTour",
@@ -2760,7 +2743,6 @@ type NodeDefaultElementType = {
   mid: "div";
   str: "div";
   h3: "h3";
-  img: typeof PlasmicImg__;
   transferTourVisibility: "div";
   transferTour: "div";
   goa2: "div";
@@ -2860,7 +2842,6 @@ export const PlasmicShowTeam = Object.assign(
     mid: makeNodeComponent("mid"),
     str: makeNodeComponent("str"),
     h3: makeNodeComponent("h3"),
-    img: makeNodeComponent("img"),
     transferTourVisibility: makeNodeComponent("transferTourVisibility"),
     transferTour: makeNodeComponent("transferTour"),
     goa2: makeNodeComponent("goa2"),
