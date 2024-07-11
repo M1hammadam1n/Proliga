@@ -3,7 +3,7 @@ import { PlasmicCanvasHost, registerComponent } from '@plasmicapp/react-web/lib/
 
 import {PLASMIC} from "@/plasmic-init";
 import Greetings from "@/components/Greetings";
-import MyTabs from "@/components/MyTabs";
+
 
 // You can register any code components that you want to use here; see
 // https://docs.plasmic.app/learn/code-components-ref/
@@ -23,17 +23,7 @@ import MyTabs from "@/components/MyTabs";
 //   importPath: '@/components/Greetings'
 // })
 
-// registerComponent(MyTabs, {
-//   name: "MyTabs",
-//   props: {
-//     config: "object",
-//     children: "slot",
-//     data: {
-//       type: "array",
-//     },
-//   },
-//   importPath: "../components/MyTabs.tsx",
-// });
+
 export default function PlasmicHost() {
   return <PlasmicCanvasHost />;
 }
