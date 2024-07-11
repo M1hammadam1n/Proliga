@@ -2741,6 +2741,7 @@ function PlasmicShowTeam__RenderFunc(props: {
                   data-plasmic-name={"tabItem"}
                   data-plasmic-override={overrides.tabItem}
                   className={classNames("__wab_instance", sty.tabItem)}
+                  disabled={false}
                   key={"1"}
                   label={
                     <div
